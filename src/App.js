@@ -1,11 +1,8 @@
-import { gsap, ScrollToPlugin } from 'gsap/all';
-
-gsap.registerPlugin(ScrollToPlugin);
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Layout />
   );
 }
 
