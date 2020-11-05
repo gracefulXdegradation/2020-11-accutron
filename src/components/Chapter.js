@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 import { typefaceHeader } from '../styles/const';
+import { H2, P } from '../styles/typography';
 import Slider from './Slider';
 
 const Wrapper = styled('div')`
   width: 100%;
   font-family: ${typefaceHeader};
-`
+  background-color: ${props => props.theme.bgColor};
+`;
 
 const Preamble = styled('div')`
   width: 100%;
@@ -16,14 +18,18 @@ const Preamble = styled('div')`
 `
 
 export default function Chapter() {
+  // const theme = useThemeContext();
+  // console.log(theme)
+  
   return (
     <Wrapper>
       <Preamble>
-        Accuracy through electronics
+        <H2>Accuracy through electronics</H2>
+        <P>Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.</P>
       </Preamble>
       <Slider />
       <Preamble>
-        Chapter End
+        <H2 alternative>Chapter end</H2>
       </Preamble>
     </Wrapper>
   );

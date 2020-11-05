@@ -1,23 +1,18 @@
-import styled from '@emotion/styled';
+import { ThemeProvider } from 'emotion-theming';
+import { themes } from '../styles/const';
 import GlobalStyle from '../styles/global';
 import Chapter from './Chapter';
-
-const FirstScreen = styled('div')`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
 
 function Layout() {
   return (
     <div>
       <GlobalStyle />
-      <FirstScreen>
-        Hi
-      </FirstScreen>
-      <Chapter />
+      <ThemeProvider theme={themes.dark}>
+        <Chapter />
+      </ThemeProvider>
+      <ThemeProvider theme={themes.light}>
+        <Chapter />
+      </ThemeProvider>
     </div>
   );
 }
