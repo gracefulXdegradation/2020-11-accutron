@@ -2,10 +2,16 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import circle from '../assets/circle.svg';
 import { css } from '@emotion/core';
+import { H3, H4 } from '../styles/typography';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const Layer = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+`;
 
 const NavRoot = styled.div`
   height: 100vh;
@@ -16,18 +22,28 @@ const NavRoot = styled.div`
   pointer-events: none;
 `;
 
-const NavContent = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-
 const Divisor = styled.div`
   width: 1px;
   height: 100%;
-  background: red;
+  background: ${props => props.theme.borderColor};
+`;
+
+const Circle = styled.div`
+  width: ${props => props.width}px;
+  height: ${props => props.width}px;
+  border: 1px solid ${props => props.theme.fontParagraph};
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: ${props => props.theme.bgColor};
+
+  &:after {
+    content: '';
+    height: 100%;
+    width: 1px;
+    background-color: ${props => props.theme.fontParagraph};
+  }
 `;
 
 export default function NavBar({ sliderRef }) {
@@ -54,12 +70,71 @@ export default function NavBar({ sliderRef }) {
 
   return (
     <NavRoot ref={pinRef}>
-      <NavContent>
-        <Divisor />
-      </NavContent>
-      <NavContent>
-        <img ref={logoRef} src={circle} css={css`width: 69px;`} alt="logo" />
-      </NavContent>
+      <Layer>
+        <div css={css`
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+        `}>
+          <Divisor />
+        </div>
+      </Layer>
+      <Layer>
+        <div css={css`
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        `}>
+          <div css={css`
+            padding: 19px 0 13px;
+            background: black;
+          `}>
+            <H3>Origins</H3>
+          </div>
+        </div>
+      </Layer>
+      <Layer>
+        <div css={css`
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+        `}>
+          <div css={css`
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            margin: 40px 0;
+            padding: 20px 0;
+            background: black;
+          `}>
+            <Circle ref={logoRef} width={69} />
+            <div css={css`margin-top: 20px;`}>
+              <H4>Chapter 1</H4>
+            </div>
+          </div>
+          <div css={css`
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            margin: 40px 0;
+            padding: 20px 0;
+            background: black;
+          `}>
+            <Circle width={69} />
+            <div css={css`margin-top: 20px;`}>
+              <H4>Chapter 2</H4>
+            </div>
+          </div>
+        </div>
+      </Layer>
     </NavRoot>
   );
 };

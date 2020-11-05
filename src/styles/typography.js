@@ -7,8 +7,8 @@ const headingColor = ({ theme, alternative }) =>
 export const H2 = styled.h2`
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
-  font-size: 50pt;
-  line-height: 70pt;
+  font-size: 50px;
+  line-height: 70px;
   font-weight: normal;
   text-transform: uppercase;
 `;
@@ -16,8 +16,8 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
-  font-size: 40pt;
-  line-height: 56pt;
+  font-size: 40px;
+  line-height: 56px;
   font-weight: normal;
   text-transform: uppercase;
 `;
@@ -25,8 +25,8 @@ export const H3 = styled.h3`
 export const H4 = styled.h4`
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
-  font-size: 30pt;
-  line-height: 35pt;
+  font-size: 30px;
+  line-height: 35px;
   font-weight: normal;
   text-transform: uppercase;
 `;
@@ -34,6 +34,6 @@ export const H4 = styled.h4`
 export const P = styled.p`
   font-family: ${typefaceParagraph};
   color: ${props => props.theme.fontParagraph};
-  font-size: 20pt;
-  line-height: 25pt;
+  font-size: 20px;
+  line-height: 25px;
 `
