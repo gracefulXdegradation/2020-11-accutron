@@ -2,7 +2,7 @@ import { css} from '@emotion/core';
 import styled from '@emotion/styled';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import logo from '../assets/logo.svg';
+import circle from '../assets/circle.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,7 +59,7 @@ export default function Slider() {
         left: 0;
         background: aquamarine;
       `} ref={pinRef}>
-        <img ref={logoRef} src={logo} width="200" alt="logo" />
+        <img ref={logoRef} src={circle} width="200" alt="logo" />
       </div>
 
 

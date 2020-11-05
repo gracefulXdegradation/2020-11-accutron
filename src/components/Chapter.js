@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
+import { typefaceHeader } from '../styles/const';
 import Slider from './Slider';
+
+const Wrapper = styled('div')`
+  width: 100%;
+  font-family: ${typefaceHeader};
+`
 
 const Preamble = styled('div')`
   width: 100%;
@@ -11,14 +17,14 @@ const Preamble = styled('div')`
 
 export default function Chapter() {
   return (
-    <div>
+    <Wrapper>
       <Preamble>
-        Chapter Begin
+        Accuracy through electronics
       </Preamble>
       <Slider />
       <Preamble>
         Chapter End
       </Preamble>
-    </div>
+    </Wrapper>
   );
 };
