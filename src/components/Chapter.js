@@ -18,9 +18,6 @@ const Preamble = styled('div')`
 `
 
 export default function Chapter() {
-  // const theme = useThemeContext();
-  // console.log(theme)
-  
   return (
     <Wrapper>
       <Preamble>
