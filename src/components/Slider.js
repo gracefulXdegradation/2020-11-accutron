@@ -6,8 +6,6 @@ import Slide from './Slide';
 import SlideHeadingProvider from '../providers/SlideHeadingProvider';
 
 import Slide1 from './slides/Slide1';
-import Slide2 from './slides/Slide2';
-import Slide3 from './slides/Slide3';
 
 const SliderRoot = styled.div`
   position: relative;
@@ -26,10 +24,10 @@ export default function Slider() {
           <Slide1 />
         </Slide>
         <Slide index={1}>
-          <Slide2 />
+          <Slide1 />
         </Slide>
         <Slide index={2}>
-          <Slide3 />
+          <Slide1 />
         </Slide>
       </SlideHeadingProvider>
     </SliderRoot>
