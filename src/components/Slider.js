@@ -5,6 +5,10 @@ import NavBar from './NavBar';
 import Slide from './Slide';
 import SlideHeadingProvider from '../providers/SlideHeadingProvider';
 
+import Slide1 from './slides/Slide1';
+import Slide2 from './slides/Slide2';
+import Slide3 from './slides/Slide3';
+
 const SliderRoot = styled.div`
   position: relative;
 `;
@@ -18,9 +22,15 @@ export default function Slider() {
     <SliderRoot ref={pinSectionRef}>
       <SlideHeadingProvider headings={headings}>
         <NavBar sliderRef={pinSectionRef} />
-        {[0,1,2].map(i => (
-          <Slide key={i} index={i} />
-        ))}
+        <Slide index={0}>
+          <Slide1 />
+        </Slide>
+        <Slide index={1}>
+          <Slide2 />
+        </Slide>
+        <Slide index={2}>
+          <Slide3 />
+        </Slide>
       </SlideHeadingProvider>
     </SliderRoot>
   );
