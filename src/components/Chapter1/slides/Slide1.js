@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { H4, P } from '../../../styles/typography';
 import WatchesSchemeImg from '../../../assets/scheme.png'
 import WatchesImg from '../../../assets/watches.jpg'
-import { css } from '@emotion/core';
 import Animate, { Animations } from '../../Animate';
 
 const SlideRoot = styled.div`

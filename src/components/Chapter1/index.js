@@ -7,6 +7,7 @@ const Wrapper = styled('div')`
   width: 100%;
   font-family: ${typefaceHeader};
   background-color: ${props => props.theme.bgColor};
+  transition: background-color 2s ease;
 `;
 
 const Preamble = styled('div')`
@@ -18,17 +19,22 @@ const Preamble = styled('div')`
   flex-direction: column;
 `
 
-export default function Chapter() {
+export default function Chapter({ nextChapter }) {
   return (
     <Wrapper>
-      <Preamble>
-        <H2>Accuracy through electronics</H2>
-        <P>Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.</P>
-      </Preamble>
       <Slider />
       <Preamble>
-        <H2 alternative>Chapter end</H2>
+        <H2 alternative onClick={() => nextChapter(1)}>Chapter end</H2>
       </Preamble>
     </Wrapper>
   );
 };
+
+export const Header = ({ nextChapter }) => (
+  <Wrapper>
+    <Preamble>
+      <H2 onClick={() => nextChapter(0)}>Accuracy through electronics</H2>
+      <P>Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.</P>
+    </Preamble>
+  </Wrapper>
+)
