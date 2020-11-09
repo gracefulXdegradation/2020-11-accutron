@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useRef } from 'react';
 import NavBar from './NavBar';
 import Slide from './Slide';
-import SlideHeadingProvider from '../providers/SlideHeadingProvider';
+import SlideHeadingProvider from '../../providers/SlideHeadingProvider';
 
 import Slide1 from './slides/Slide1';
 
@@ -19,7 +19,6 @@ export default function Slider() {
   return (
     <SliderRoot ref={pinSectionRef}>
       <SlideHeadingProvider headings={headings}>
-        <NavBar sliderRef={pinSectionRef} />
         <Slide index={0}>
           <Slide1 />
         </Slide>
@@ -29,6 +28,7 @@ export default function Slider() {
         <Slide index={2}>
           <Slide1 />
         </Slide>
+        <NavBar sliderRef={pinSectionRef} />
       </SlideHeadingProvider>
     </SliderRoot>
   );

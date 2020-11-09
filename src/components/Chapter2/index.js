@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { typefaceHeader } from '../styles/const';
-import { H2, P } from '../styles/typography';
+import { typefaceHeader } from '../../styles/const';
+import { H2, P } from '../../styles/typography';
 import Slider from './Slider';
 
 const Wrapper = styled('div')`
@@ -21,8 +21,7 @@ export default function Chapter() {
   return (
     <Wrapper>
       <Preamble>
-        <H2>Accuracy through electronics</H2>
-        <P>Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.</P>
+        <H2 alternative>A Legacy Reborn</H2>
       </Preamble>
       <Slider />
       <Preamble>

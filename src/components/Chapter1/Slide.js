@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { useSlideHeading } from '../providers/SlideHeadingProvider';
+import { useSlideHeading } from '../../providers/SlideHeadingProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +15,6 @@ export default function Slide({ index, children }) {
   const slideRef = useRef(null)
 
   useEffect(() => {
-    console.log(slideRef)
     ScrollTrigger.create({
       trigger: slideRef.current,
       start: 'top center',

@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
-import { H3, H4 } from '../styles/typography';
-import { useSlideHeading } from '../providers/SlideHeadingProvider';
+import { H3, H4 } from '../../styles/typography';
+import { useSlideHeading } from '../../providers/SlideHeadingProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
