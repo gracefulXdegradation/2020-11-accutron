@@ -90,7 +90,7 @@ export default function NavBar({ sliderRef }) {
           `}>
             <Circle ref={logoRef} width={69} />
             <div css={css`margin-top: 20px;`}>
-              <H4>Chapter 1</H4>
+              <H4>Chapter 2</H4>
             </div>
             <H3 alternative>{slideHeading}</H3>
           </div>
@@ -104,7 +104,7 @@ export default function NavBar({ sliderRef }) {
           `}>
             <Circle width={69} />
             <div css={css`margin-top: 20px;`}>
-              <H4>Chapter 2</H4>
+              <H4>Chapter 1</H4>
             </div>
           </div>
         </div>

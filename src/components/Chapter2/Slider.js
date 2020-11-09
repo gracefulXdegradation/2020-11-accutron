@@ -26,14 +26,18 @@ const Fixed = styled.div`
 `;
 
 const Half = styled.div`
-  position: relative;
+  position: absolute;
   width: 50%;
   height: 100%;
 `;
 
+const RightHalf = styled(Half)`
+  right: 0;
+`;
+
 const Divisor = styled.div`
   height: 1px;
-  width: 100%;
+  width: ${props => props.length || '100%'};
   background: ${props => props.theme.borderColor};
 `;
 
@@ -44,14 +48,6 @@ const Layer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
-
-const Watches = styled.div`
-  width: calc(536px / 2);
-  height: 536px;
-  border-radius: 536px 0 0 536px;
-  background: url(${AccutronSpaceviewAlphaImg}) no-repeat;
-  background-position: -50% center;
 `;
 
 const headings = ['The spaceview', 'An Intemporal design', 'The legacy collection']
@@ -81,6 +77,11 @@ export default function Slider() {
               <HalfDisc size={536} img={AccutronSpaceviewAlphaImg} />
             </Layer>
           </Half>
+          <RightHalf>
+            <Layer>
+              <Divisor length="200px" />
+            </Layer>
+          </RightHalf>
         </Fixed>
 
 

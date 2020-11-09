@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { H4, P } from '../../../styles/typography';
 import AccutronSpaceviewAlphaImg from '../../../assets/1961_Accutron-SpaceviewAlpha.png'
 import { css } from '@emotion/core';
-import Animate, { Animations } from '../Animate';
+import Animate, { Animations } from '../../Animate';
 import HalfDisc from '../../ImageHalfDisc';
 
 const SlideRoot = styled.div`
