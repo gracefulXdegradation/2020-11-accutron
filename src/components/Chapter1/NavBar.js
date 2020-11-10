@@ -58,6 +58,7 @@ export default function NavBar({ sliderRef }) {
         trigger: sliderRef.current,
         pin: pinRef.current,
         scrub: true,
+        snap: 1/2,
         start: 'top top',
         end:'bottom bottom',
       }
