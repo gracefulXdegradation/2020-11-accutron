@@ -11,6 +11,10 @@ import Chapter2, { Header as Chapter2Header} from './Chapter2';
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
+window.gsap = gsap
+
+const chapters = 2;
+
 const HorizontalLayout = styled.div`
   width: ${props => props.chapters * 100}%;
   height: 100%;
@@ -20,14 +24,12 @@ const HorizontalLayout = styled.div`
 
 function Layout() {
   const rootRef = useRef()
-  const [theme, setTheme] = useState(themes.dark)
   const [chapter, setChapter] = useState(0)
 
-  const nextChapter = (scrollUpDuration) => {
+  const toChapter = (chapterIndex) => (scrollUpDuration) => {
     const tl1 = gsap.timeline({
       paused: true,
       onComplete: () => {
-        setTheme(themes.light)
         tl2.play()
       }
     }).to(window, { duration: scrollUpDuration, scrollTo: 0 })
@@ -35,10 +37,10 @@ function Layout() {
     const tl2 = gsap.timeline({
       paused: true,
       onComplete: () => {
-        setChapter(i => i + 1)
+        setChapter(chapterIndex)
       }
     })
-      .to(rootRef.current, { x: "-50%", duration: 0.6 });
+      .to(rootRef.current, { x: `${-100 * chapterIndex / chapters}%`, duration: 0.6 });
 
     tl1.play()
   }
@@ -46,14 +48,24 @@ function Layout() {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <HorizontalLayout ref={rootRef} chapters={2}>
-          <Chapter1Header nextChapter={nextChapter} />
-          <Chapter2Header />
+        <HorizontalLayout ref={rootRef} chapters={chapters}>
+          <ThemeProvider theme={themes.dark}>
+            <Chapter1Header nextChapter={toChapter(1)} />
+          </ThemeProvider>
+          <ThemeProvider theme={themes.light}>
+            <Chapter2Header prevChapter={toChapter(0)} />
+          </ThemeProvider>
         </HorizontalLayout>
-        { chapter === 0 && <Chapter1 nextChapter={nextChapter} />}
-        { chapter === 1 && <Chapter2 />}
-      </ThemeProvider>
+        { chapter === 0 && 
+          <ThemeProvider theme={themes.dark}>
+            <Chapter1 nextChapter={toChapter(1)} />
+          </ThemeProvider>
+        }
+        { chapter === 1 && 
+          <ThemeProvider theme={themes.light}>
+            <Chapter2 />
+          </ThemeProvider>
+        }
     </>
   );
 }

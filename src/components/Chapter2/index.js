@@ -29,10 +29,10 @@ export default function Chapter() {
   );
 };
 
-export const Header = () => (
+export const Header = ({ prevChapter }) => (
   <Wrapper>
     <Preamble>
-      <H2 alternative>A Legacy Reborn</H2>
+      <H2 alternative onClick={() => prevChapter(0)}>A Legacy Reborn</H2>
     </Preamble>
   </Wrapper>
 )
