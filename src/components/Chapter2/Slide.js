@@ -15,7 +15,7 @@ export default function Slide({ index, children }) {
   const slideRef = useRef(null)
 
   useEffect(() => {
-    ScrollTrigger.create({
+    const sc = ScrollTrigger.create({
       trigger: slideRef.current,
       start: 'top center',
       end: 'bottom center',
@@ -25,6 +25,8 @@ export default function Slide({ index, children }) {
         }
       },
     });
+
+    return () => sc.kill()
 	}, [index, setSlideHeading]);
 
   return (

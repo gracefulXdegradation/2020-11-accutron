@@ -28,7 +28,7 @@ export default function Slider() {
   const slide3ref = useRef(null)
 
   useEffect(() => {
-    gsap.timeline({
+    const tl1 = gsap.timeline({
       scrollTrigger:{
         trigger: slide1ref.current,
         pin: slide1ref.current,
@@ -51,7 +51,7 @@ export default function Slider() {
       ease: 'none',
     })
 
-    gsap.timeline({
+    const tl2 = gsap.timeline({
       scrollTrigger:{
         trigger: slide2ref.current,
         pin: slide2ref.current,
@@ -75,7 +75,7 @@ export default function Slider() {
     })
 
 
-    gsap.timeline({
+    const tl3 = gsap.timeline({
       scrollTrigger:{
         trigger: slide3ref.current,
         pin: slide3ref.current,
@@ -96,6 +96,12 @@ export default function Slider() {
       duration: 1,
       ease: 'none',
     })
+
+    return () => {
+      tl1.kill()
+      tl2.kill()
+      tl3.kill()
+    }
   }, [])
 
   return (

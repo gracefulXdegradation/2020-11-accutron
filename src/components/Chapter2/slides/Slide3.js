@@ -23,18 +23,6 @@ const SlideHalf = styled.div`
 export default function Slide1() {
   return (
     <SlideRoot>
-      {/* <SlideHalf>
-        <div css={css`max-width: 500px;`}>
-          <Animate animation={Animations.FadeInUp}>
-            <P>
-              Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
-            </P>
-          </Animate>
-          <Animate animation={Animations.FadeInUp}>
-            <img src={WatchesSchemeImg} height="500" alt="Watches scheme" />
-          </Animate>
-        </div>
-      </SlideHalf> */}
       <SlideHalf>
         <div css={css`max-width: 536px;`}>
           <Animate animation={Animations.FadeInUp}>

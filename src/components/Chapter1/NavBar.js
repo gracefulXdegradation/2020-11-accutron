@@ -53,7 +53,7 @@ export default function NavBar({ sliderRef }) {
   const logoRef = useRef(null);
 
   useEffect(() => {
-    gsap.timeline({
+    const tl = gsap.timeline({
       scrollTrigger:{
         trigger: sliderRef.current,
         pin: pinRef.current,
@@ -67,6 +67,8 @@ export default function NavBar({ sliderRef }) {
       duration: 1,
       ease: 'none',
     })
+
+    return () => tl.kill()
   }, [sliderRef])
 
   return (

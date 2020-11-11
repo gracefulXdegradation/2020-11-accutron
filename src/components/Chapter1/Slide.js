@@ -16,7 +16,7 @@ const Slide = React.forwardRef(({ index, children }, slideRef) =>  {
   // const slideRef = useRef(null)
 
   useEffect(() => {
-    ScrollTrigger.create({
+    const sc = ScrollTrigger.create({
       trigger: slideRef.current,
       start: 'top center',
       end: 'bottom center',
@@ -26,6 +26,8 @@ const Slide = React.forwardRef(({ index, children }, slideRef) =>  {
         }
       },
     });
+
+    return () => sc.kill()
 	}, [index, setSlideHeading, slideRef]);
 
   return (
