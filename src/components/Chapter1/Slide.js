@@ -8,11 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const SlideRoot = styled.div`
   width: 100%;
   height: 100vh;
+  opacity: 0;
 `;
 
-export default function Slide({ index, children }) {
+const Slide = React.forwardRef(({ index, children }, slideRef) =>  {
   const { setSlideHeading } = useSlideHeading();
-  const slideRef = useRef(null)
+  // const slideRef = useRef(null)
 
   useEffect(() => {
     ScrollTrigger.create({
@@ -25,11 +26,13 @@ export default function Slide({ index, children }) {
         }
       },
     });
-	}, [index, setSlideHeading]);
+	}, [index, setSlideHeading, slideRef]);
 
   return (
     <SlideRoot ref={slideRef}>
       {children}
     </SlideRoot>
   );
-};
+});
+
+export default Slide;

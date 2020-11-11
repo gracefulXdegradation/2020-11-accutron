@@ -34,6 +34,7 @@ export default function Slider() {
         pin: slide1ref.current,
         pinSpacing: false,
         scrub: true,
+        snap: 'labels',
         markers: true,
         start: 'top top',
       }
@@ -43,6 +44,7 @@ export default function Slider() {
       duration: .5,
       ease: 'none',
     })
+    .addLabel("visible")
     .to(slide1ref.current, {
       opacity: 0,
       duration: .5,
@@ -55,6 +57,7 @@ export default function Slider() {
         pin: slide2ref.current,
         pinSpacing: false,
         scrub: true,
+        snap: 'labels',
         // markers: true,
         start: 'top top',
       }
@@ -64,6 +67,7 @@ export default function Slider() {
       duration: .5,
       ease: 'none',
     })
+    .addLabel("visible")
     .to(slide2ref.current, {
       opacity: 0,
       duration: .5,
@@ -76,6 +80,7 @@ export default function Slider() {
         trigger: slide3ref.current,
         pin: slide3ref.current,
         scrub: true,
+        snap: 'labels',
         // markers: true,
         start: 'top top',
       }
@@ -85,6 +90,7 @@ export default function Slider() {
       duration: 1,
       ease: 'none',
     })
+    .addLabel("visible")
     .to(slide3ref.current, {
       opacity: 0,
       duration: 1,
@@ -96,15 +102,15 @@ export default function Slider() {
     <SliderRoot ref={pinSectionRef}>
       <SlideHeadingProvider headings={headings}>
         <SliderRoot ref={pinRef}>
-          <SlideRoot ref={slide1ref}>
+          <Slide ref={slide1ref} index={0}>
             <Slide1 />
-          </SlideRoot>
-          <SlideRoot ref={slide2ref}>
+          </Slide>
+          <Slide ref={slide2ref} index={1}>
             <Slide1 />
-          </SlideRoot>
-          <SlideRoot ref={slide3ref}>
+          </Slide>
+          <Slide ref={slide3ref} index={2}>
             <Slide1 />
-          </SlideRoot>
+          </Slide>
         </SliderRoot>
         <NavBar sliderRef={pinSectionRef} />
       </SlideHeadingProvider>
