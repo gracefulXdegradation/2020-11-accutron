@@ -2237,6 +2237,14 @@
     "@typescript-eslint/types" "4.6.1"
     eslint-visitor-keys "^2.0.0"
 
+"@vimeo/player@^2.14.1":
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.14.1.tgz#f35fd141fbd096555d1090e53625364cb0874fff"
+  integrity sha512-PXIATVxUfblTbRoSXzNcplJFjsho6e32ltfEm4po/RFZcAOYefOO4mjxDMGUTAzo937DZvjd5n1u7+EfGHuLPw==
+  dependencies:
+    native-promise-only "0.8.1"
+    weakmap-polyfill "2.0.1"
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -7883,6 +7891,11 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+native-promise-only@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
+  integrity sha1-IKMYwwy0X3H+et+/eyHJnBRy7xE=
+
 native-url@^0.2.6:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/native-url/-/native-url-0.2.6.tgz#ca1258f5ace169c716ff44eccbddb674e10399ae"
@@ -9580,6 +9593,13 @@ react-dev-utils@^11.0.0:
     shell-quote "1.7.2"
     strip-ansi "6.0.0"
     text-table "0.2.0"
+
+react-device-detect@^1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.14.0.tgz#ae8bf8cff85055c030f97aa491a0c2b06c472644"
+  integrity sha512-fXFsZoTeLVrONrUr2sqCAXvnbouwyuqlBWoa3K92goCiPM1lUBvZqekv5TY3C02U/IrdoKLOBPFITYluwxKFyw==
+  dependencies:
+    ua-parser-js "^0.7.22"
 
 react-dom@^17.0.1:
   version "17.0.1"
@@ -11384,6 +11404,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+ua-parser-js@^0.7.22:
+  version "0.7.22"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.22.tgz#960df60a5f911ea8f1c818f3747b99c6e177eae3"
+  integrity sha512-YUxzMjJ5T71w6a8WWVcMGM6YWOTX27rCoIQgLXiWaxqXSx9D7DNjiGWn1aJIRSQ5qr0xuhra77bSIh6voR/46Q==
+
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"
@@ -11676,6 +11701,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+weakmap-polyfill@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/weakmap-polyfill/-/weakmap-polyfill-2.0.1.tgz#ff0278c7f75bb0c492fc3343257f3e87114d709a"
+  integrity sha512-Jy177Lvb1LCrPQDWJsXyyqf4eOhcdvQHFGoCqSv921kVF5i42MVbr4e2WEwetuTLBn1NX0IhPzTmMu0N3cURqQ==
 
 web-vitals@^0.2.4:
   version "0.2.4"

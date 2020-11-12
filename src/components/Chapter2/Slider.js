@@ -35,7 +35,7 @@ const RightHalf = styled(Half)`
   right: 0;
 `;
 
-const Divisor = styled.div`
+const Divider = styled.div`
   height: 1px;
   width: ${props => props.length || '100%'};
   background: ${props => props.theme.borderColor};
@@ -71,7 +71,7 @@ export default function Slider() {
         <Fixed ref={pinRef}>
           <Half>
             <Layer>
-              <Divisor />
+              <Divider />
             </Layer>
             <Layer>
               <HalfDisc size={536} img={AccutronSpaceviewAlphaImg} />
@@ -79,7 +79,7 @@ export default function Slider() {
           </Half>
           <RightHalf>
             <Layer>
-              <Divisor length="200px" />
+              <Divider length="200px" />
             </Layer>
           </RightHalf>
         </Fixed>

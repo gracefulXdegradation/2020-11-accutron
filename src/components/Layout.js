@@ -13,11 +13,11 @@ gsap.registerPlugin(ScrollToPlugin);
 
 window.gsap = gsap
 
-const chapters = 2;
+const chapters = 1;
 
 const HorizontalLayout = styled.div`
   width: ${props => props.chapters * 100}%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-wrap: nowrap;
 `;
@@ -52,11 +52,11 @@ function Layout() {
           <ThemeProvider theme={themes.dark}>
             <Chapter1Header nextChapter={toChapter(1)} />
           </ThemeProvider>
-          <ThemeProvider theme={themes.light}>
+          {/* <ThemeProvider theme={themes.light}>
             <Chapter2Header prevChapter={toChapter(0)} />
-          </ThemeProvider>
+          </ThemeProvider> */}
         </HorizontalLayout>
-        { chapter === 0 && 
+        {/* { chapter === 0 && 
           <ThemeProvider theme={themes.dark}>
             <Chapter1 nextChapter={toChapter(1)} />
           </ThemeProvider>
@@ -65,7 +65,7 @@ function Layout() {
           <ThemeProvider theme={themes.light}>
             <Chapter2 />
           </ThemeProvider>
-        }
+        } */}
     </>
   );
 }

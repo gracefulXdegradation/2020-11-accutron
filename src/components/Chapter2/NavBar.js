@@ -5,14 +5,9 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
 import { H3, H4 } from '../../styles/typography';
 import { useSlideHeading } from '../../providers/SlideHeadingProvider';
+import { Layer } from '../UIKit';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const Layer = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-`;
 
 const NavRoot = styled.div`
   height: 100vh;
@@ -23,7 +18,7 @@ const NavRoot = styled.div`
   pointer-events: none;
 `;
 
-const Divisor = styled.div`
+const Divider = styled.div`
   width: 1px;
   height: 100%;
   background: ${props => props.theme.borderColor};
@@ -90,7 +85,7 @@ export default function NavBar({ sliderRef }) {
             margin: 40px 0;
             padding: 20px 0;
           `}>
-            <Circle ref={logoRef} width={69} />
+            <Circle ref={logoRef} size="m" />
             <div css={css`margin-top: 20px;`}>
               <H4>Chapter 2</H4>
             </div>
@@ -104,7 +99,7 @@ export default function NavBar({ sliderRef }) {
             margin: 40px 0;
             padding: 20px 0;
           `}>
-            <Circle width={69} />
+            <Circle size="m" />
             <div css={css`margin-top: 20px;`}>
               <H4>Chapter 1</H4>
             </div>

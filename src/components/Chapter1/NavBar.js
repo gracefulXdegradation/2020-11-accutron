@@ -5,14 +5,9 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
 import { H3, H4 } from '../../styles/typography';
 import { useSlideHeading } from '../../providers/SlideHeadingProvider';
+import { Circle, Layer, Divider } from '../UIKit';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const Layer = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-`;
 
 const NavRoot = styled.div`
   height: 100vh;
@@ -21,30 +16,6 @@ const NavRoot = styled.div`
   top: 0;
   left: 0;
   pointer-events: none;
-`;
-
-const Divisor = styled.div`
-  width: 1px;
-  height: 100%;
-  background: ${props => props.theme.borderColor};
-`;
-
-const Circle = styled.div`
-  width: ${props => props.width}px;
-  height: ${props => props.width}px;
-  border: 1px solid ${props => props.theme.fontParagraph};
-  border-radius: 50%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  background: ${props => props.theme.bgColor};
-
-  &:after {
-    content: '';
-    height: 100%;
-    width: 1px;
-    background-color: ${props => props.theme.fontParagraph};
-  }
 `;
 
 export default function NavBar({ sliderRef }) {
@@ -80,7 +51,7 @@ export default function NavBar({ sliderRef }) {
           display: flex;
           justify-content: center;
         `}>
-          <Divisor />
+          <Divider vertical />
         </div>
       </Layer>
       <Layer>
@@ -117,7 +88,7 @@ export default function NavBar({ sliderRef }) {
             padding: 20px 0;
             background: black;
           `}>
-            <Circle ref={logoRef} width={69} />
+            <Circle ref={logoRef} size="m" />
             <div css={css`margin-top: 20px;`}>
               <H4>Chapter 1</H4>
             </div>
@@ -131,7 +102,7 @@ export default function NavBar({ sliderRef }) {
             padding: 20px 0;
             background: black;
           `}>
-            <Circle width={69} />
+            <Circle width="m" />
             <div css={css`margin-top: 20px;`}>
               <H4>Chapter 2</H4>
             </div>
