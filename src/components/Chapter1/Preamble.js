@@ -7,20 +7,12 @@ import {
 } from "react-device-detect";
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { H2, H4 } from '../../styles/typography';
-import { Circle, Divider, Layer, Block, Row, Column } from '../UIKit';
+import { Circle, Divider, Layer, Block, Row, Column, Camouflage } from '../UIKit';
 
 const Em = styled.em`
   font-style: normal;
   color: ${props => props.theme.fontParagraph};
 `;
-
-const Camouflage = ({ w, length }) => (
-  <Layer top="0">
-    <Row justify="center" h="100%">
-      <Divider vertical length={length} camouflage css={w && css`width: ${w};`} />
-    </Row>
-  </Layer>
-);
 
 export default function Preamble() {
   const [hasAnimated, setHasAnimated] = useState(false)

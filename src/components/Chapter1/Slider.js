@@ -109,13 +109,13 @@ export default function Slider() {
       <SlideHeadingProvider headings={headings}>
         <SliderRoot ref={pinRef}>
           <Slide ref={slide1ref} index={0}>
-            <Slide1 />
+            {/* <Slide1 /> */}
           </Slide>
           <Slide ref={slide2ref} index={1}>
-            <Slide1 />
+            {/* <Slide1 /> */}
           </Slide>
           <Slide ref={slide3ref} index={2}>
-            <Slide1 />
+            {/* <Slide1 /> */}
           </Slide>
         </SliderRoot>
         <NavBar sliderRef={pinSectionRef} />

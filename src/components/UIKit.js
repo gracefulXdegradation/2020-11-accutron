@@ -1,11 +1,23 @@
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
+export const Background = styled.div`
+  width: 100%;
+  position: relative;
+  background-color: ${props => props.theme.bgColor};
+`;
+
 export const Layer = styled.div`
   position: absolute;
-  height: 100%;
   width: 100%;
-  ${props => props.top && `top: ${props.top};`}
+  height: ${({ fullScreen }) => fullScreen ? '100vh' : '100%'};
+  ${({ fullScreen }) => fullScreen && css`
+    top: 0;
+    left: 0;
+  `}
+
+  ${({ top }) => top && `top: ${top};`}
+  ${({ left }) => left && `left: ${left};`}
 `;
 
 export const Block = styled.div`
@@ -64,3 +76,11 @@ export const Divider = styled.div`
   transition: all .4s linear;
   background: ${({ camouflage, theme }) => camouflage ? theme.bgColor : theme.fontParagraph};
 `;
+
+export const Camouflage = ({ w, length }) => (
+  <Layer top="0">
+    <Row justify="center" h="100%">
+      <Divider vertical length={length} camouflage css={w && css`width: ${w};`} />
+    </Row>
+  </Layer>
+);

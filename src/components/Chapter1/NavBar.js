@@ -1,22 +1,12 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
 import { H3, H4 } from '../../styles/typography';
 import { useSlideHeading } from '../../providers/SlideHeadingProvider';
-import { Circle, Layer, Divider } from '../UIKit';
+import { Circle, Layer, Divider, Row, Column, Block, Camouflage } from '../UIKit';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const NavRoot = styled.div`
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-`;
 
 export default function NavBar({ sliderRef }) {
   const { slideHeading } = useSlideHeading();
@@ -43,72 +33,36 @@ export default function NavBar({ sliderRef }) {
   }, [sliderRef])
 
   return (
-    <NavRoot ref={pinRef}>
+    <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
       <Layer>
-        <div css={css`
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-        `}>
+        <Row h="100%" justify="center">
           <Divider vertical />
-        </div>
+        </Row>
       </Layer>
+
       <Layer>
-        <div css={css`
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        `}>
-          <div css={css`
-            padding: 19px 0 13px;
-            background: black;
-          `}>
+        <Column w="100%" h="100%" justify="center" align="center">
+          <Block css={css`padding: 19px 0 13px;`}>
+            <Camouflage />
             <H3>{slideHeading}</H3>
-          </div>
-        </div>
+          </Block>
+        </Column>
       </Layer>
       <Layer>
-        <div css={css`
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: column;
-        `}>
-          <div css={css`
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-
-            margin: 40px 0;
-            padding: 20px 0;
-            background: black;
-          `}>
+        <Column h="100%" w="100%" justify="space-between" align="center">
+          <Column align="center" css={css`padding: 50px 0 20px;`}>
+            <Camouflage />
             <Circle ref={logoRef} size="m" />
-            <div css={css`margin-top: 20px;`}>
-              <H4>Chapter 1</H4>
-            </div>
-          </div>
-          <div css={css`
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-
-            margin: 40px 0;
-            padding: 20px 0;
-            background: black;
-          `}>
-            <Circle width="m" />
-            <div css={css`margin-top: 20px;`}>
-              <H4>Chapter 2</H4>
-            </div>
-          </div>
-        </div>
+            <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+          </Column>
+          <Column align="center" css={css`padding: 30px 0 50px;`}>
+            <Camouflage />
+            <Circle size="m" />
+            <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+          </Column>
+        </Column>
       </Layer>
-    </NavRoot>
+
+    </Layer>
   );
 };
