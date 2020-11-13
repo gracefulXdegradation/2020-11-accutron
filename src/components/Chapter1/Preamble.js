@@ -54,14 +54,14 @@ export default function Preamble() {
               <Column w="100%" h="50%" align="center">
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
-                  <H2>
+                  <H2 css={css`padding: 12px 0 6px;`}>
                     <Em>Accu</Em>racy through elec<Em>tron</Em>ics
                   </H2>
                 </Block>
                 <Column justify="center" align="center" css={css`flex: 1;`}>
                   <Block css={css`padding: 14px 0 6px;`}>
                     <Camouflage />
-                    <H4 alternative>
+                    <H4 alternative align="center">
                       That’s the simple meaning behind Accutron’s name,<br />
                       but the technology that powered the brand’s iconic timepieces<br />
                       are anything but.
@@ -104,7 +104,7 @@ export default function Preamble() {
               <Column w="100%" h="50%" align="center">
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
-                  <H2 mobile css={css`padding: 12px 0 6px;`}>
+                  <H2 mobile css={css`padding: 12px 0 6px;`} align="center">
                     <Em>Accu</Em>racy through elec<Em>tron</Em>ics
                   </H2>
                 </Block>

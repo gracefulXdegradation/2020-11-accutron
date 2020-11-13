@@ -25,7 +25,7 @@ export default function Slide1() {
     <SlideRoot>
       <SlideHalf>
         <div css={css`max-width: 536px;`}>
-          <Animate animation={Animations.FadeInUp}>
+          <Animate animation={Animations.FadeIn}>
             <P>The Spaceview of yesteryear featured a deconstructed outer case design that exposed the inner workings of the watch and was only provided to Bulova dealers as display units to helps explain how the innovative technology worked.</P>
           </Animate>
         </div>

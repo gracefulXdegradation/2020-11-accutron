@@ -25,7 +25,7 @@ export default function Slide1() {
     <SlideRoot>
       <SlideHalf>
         <div css={css`max-width: 536px;`}>
-          <Animate animation={Animations.FadeInUp}>
+          <Animate animation={Animations.FadeIn}>
             <H4>The company was founded in 1875 by Joseph Bulova in New York City.</H4>
           </Animate>
         </div>

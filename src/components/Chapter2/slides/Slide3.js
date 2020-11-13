@@ -25,7 +25,7 @@ export default function Slide1() {
     <SlideRoot>
       <SlideHalf>
         <div css={css`max-width: 536px;`}>
-          <Animate animation={Animations.FadeInUp}>
+          <Animate animation={Animations.FadeIn}>
             <HalfDisc size={536} img={AccutronSpaceviewAlphaImg} right />
           </Animate>
         </div>

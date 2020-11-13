@@ -12,7 +12,7 @@ export const H2 = styled.h2`
   line-height: ${({ mobile }) => mobile ? '35px' : '70px'};
   font-weight: normal;
   text-transform: uppercase;
-  text-align: center;
+  ${({ align }) => align && `text-align: ${align};`};
 `;
 
 export const H3 = styled.h3`
@@ -23,7 +23,7 @@ export const H3 = styled.h3`
   line-height: 56px;
   font-weight: normal;
   text-transform: uppercase;
-  text-align: center;
+  ${({ align }) => align && `text-align: ${align};`};
 `;
 
 export const H4 = styled.h4`
@@ -34,7 +34,7 @@ export const H4 = styled.h4`
   line-height: ${({ mobile }) => mobile ? '28px' : '35px'};
   font-weight: normal;
   text-transform: uppercase;
-  text-align: center;
+  ${({ align }) => align && `text-align: ${align};`};
 `;
 
 export const P = styled.p`
