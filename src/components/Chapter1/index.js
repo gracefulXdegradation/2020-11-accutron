@@ -45,7 +45,10 @@ export default function Chapter({ nextChapter }) {
   );
 };
 
-export const Header = () => (
+export const Header = ({
+  toContent,
+  nextChapter
+}) => (
   <Root>
     <Layer>
       <VideoContent videoId={466496736} />
@@ -60,7 +63,7 @@ export const Header = () => (
       <Layer>
         <Block h="100%">
           <Row w="50%" justify="center" align="center">
-            <Column align="center" css={css`cursor: pointer;`}>
+            <Column align="center" css={css`cursor: pointer;`} onClick={toContent}>
               <Circle size="xl" />
               <ChapterCaption>
                 <H4>Chapter 1</H4>
@@ -74,7 +77,7 @@ export const Header = () => (
                 <Divider length={`calc(50% - ${CircleSizes.xl}px / 2 - 40px)`} />
               </Row>
             </Layer>
-            <Column align="center" css={css`cursor: pointer;`}>
+            <Column align="center" css={css`cursor: pointer;`} onClick={nextChapter}>
               <Circle size="xl" rotation={90} />
               <ChapterCaption>
                 <H4>Chapter 2</H4>
@@ -89,7 +92,7 @@ export const Header = () => (
     <MobileView>
       <Column h="100vh">
         <Row align="center" h="50%" justify="center">
-          <Column align="center">
+          <Column align="center" onClick={toContent}>
             <Circle size="l" />
             <ChapterCaption>
               <H4>Chapter 1</H4>
@@ -98,7 +101,7 @@ export const Header = () => (
           </Column>
         </Row>
         <Row align="center" h="50%" justify="center">
-          <Column align="center" w="100%">
+          <Column align="center" w="100%" onClick={nextChapter}>
             <Row justify="center">
               <Layer>
                 <Row h="100%" align="center" justify="flex-end">

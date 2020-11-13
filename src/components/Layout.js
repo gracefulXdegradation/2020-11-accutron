@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 window.gsap = gsap
 
-const chapters = 1;
+const chapters = 2;
 
 const HorizontalLayout = styled.div`
   width: ${props => props.chapters * 100}%;
@@ -28,7 +28,8 @@ const Root = styled.div`
 `;
 
 function Layout() {
-  const horSliderRef = useRef()
+  const horSliderRef = useRef(null)
+  const chapterContentRef = useRef(null)
   const [chapter, setChapter] = useState(0)
 
   const toChapter = (chapterIndex) => (scrollUpDuration) => {
@@ -50,27 +51,37 @@ function Layout() {
     tl1.play()
   }
 
+  const toChapterContent = () => {
+    gsap.to(window, {
+      duration: .6,
+      scrollTo: chapterContentRef.current,
+      ease: 'easeIn'
+    })
+  }
+
   return (
     <Root>
       <GlobalStyle />
         <HorizontalLayout ref={horSliderRef} chapters={chapters}>
           <ThemeProvider theme={themes.dark}>
-            <Chapter1Header nextChapter={toChapter(1)} />
+            <Chapter1Header nextChapter={toChapter(1)} toContent={toChapterContent} />
           </ThemeProvider>
-          {/* <ThemeProvider theme={themes.light}>
-            <Chapter2Header prevChapter={toChapter(0)} />
-          </ThemeProvider> */}
-        </HorizontalLayout>
-        { chapter === 0 && 
-          <ThemeProvider theme={themes.dark}>
-            <Chapter1 nextChapter={toChapter(1)} />
-          </ThemeProvider>
-        }
-        {/* { chapter === 1 && 
           <ThemeProvider theme={themes.light}>
-            <Chapter2 />
+            <Chapter2Header prevChapter={toChapter(0)} />
           </ThemeProvider>
-        } */}
+        </HorizontalLayout>
+        <div ref={chapterContentRef}>
+          { chapter === 0 && 
+            <ThemeProvider theme={themes.dark}>
+              <Chapter1 nextChapter={toChapter(1)} />
+            </ThemeProvider>
+          }
+          {/* { chapter === 1 && 
+            <ThemeProvider theme={themes.light}>
+              <Chapter2 />
+            </ThemeProvider>
+          } */}
+        </div>
     </Root>
   );
 }

@@ -7,6 +7,7 @@ const VideoRoot = styled.div`
   height: 100vh;
   position: relative;
   background: #000000;
+  overflow: hidden;
 `;
 
 const VideoHolder = styled.div`
