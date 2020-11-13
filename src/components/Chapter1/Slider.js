@@ -28,20 +28,18 @@ export default function Slider() {
         pin: slide1ref.current,
         pinSpacing: false,
         scrub: true,
-        snap: 'labels',
-        markers: true,
-        start: 'top top',
+      },
+      onComplete: () => {
+        gsap.set(slide1ref.current, { y: 0 })
       }
     })
-    .to(slide1ref.current, {
-      opacity: 1,
-      duration: .5,
-      ease: 'none',
+    .set(slide1ref.current, {
+      height: '50%',
+      opacity: 1
     })
-    .addLabel("visible")
     .to(slide1ref.current, {
       opacity: 0,
-      duration: .5,
+      duration: 1,
       ease: 'none',
     })
 
@@ -51,9 +49,9 @@ export default function Slider() {
         pin: slide2ref.current,
         pinSpacing: false,
         scrub: true,
-        snap: 'labels',
-        // markers: true,
-        start: 'top top',
+      },
+      onComplete: () => {
+        gsap.set(slide2ref.current, { y: 0 })
       }
     })
     .to(slide2ref.current, {
@@ -61,7 +59,6 @@ export default function Slider() {
       duration: .5,
       ease: 'none',
     })
-    .addLabel("visible")
     .to(slide2ref.current, {
       opacity: 0,
       duration: .5,
@@ -74,19 +71,16 @@ export default function Slider() {
         trigger: slide3ref.current,
         pin: slide3ref.current,
         scrub: true,
-        snap: 'labels',
-        // markers: true,
-        start: 'top top',
+      },
+      onComplete: () => {
+        gsap.set(slide3ref.current, { y: 0 })
       }
+    })
+    .set(slide3ref.current, {
+      height: '50%'
     })
     .to(slide3ref.current, {
       opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-    .addLabel("visible")
-    .to(slide3ref.current, {
-      opacity: 0,
       duration: 1,
       ease: 'none',
     })
