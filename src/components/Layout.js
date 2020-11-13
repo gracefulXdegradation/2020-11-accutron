@@ -3,10 +3,11 @@ import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 import { useRef, useState } from 'react';
 import { gsap, ScrollTrigger, ScrollToPlugin } from 'gsap/all';
-import { themes } from '../styles/const';
+import { themes, typefaceHeader } from '../styles/const';
 import GlobalStyle from '../styles/global';
 import Chapter1, { Header as Chapter1Header} from './Chapter1';
 import Chapter2, { Header as Chapter2Header} from './Chapter2';
+import { Row } from './UIKit';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -22,8 +23,12 @@ const HorizontalLayout = styled.div`
   flex-wrap: nowrap;
 `;
 
+const Root = styled.div`
+  font-family: ${typefaceHeader};
+`;
+
 function Layout() {
-  const rootRef = useRef()
+  const horSliderRef = useRef()
   const [chapter, setChapter] = useState(0)
 
   const toChapter = (chapterIndex) => (scrollUpDuration) => {
@@ -40,15 +45,15 @@ function Layout() {
         setChapter(chapterIndex)
       }
     })
-      .to(rootRef.current, { x: `${-100 * chapterIndex / chapters}%`, duration: 0.6 });
+      .to(horSliderRef.current, { x: `${-100 * chapterIndex / chapters}%`, duration: 0.6 });
 
     tl1.play()
   }
 
   return (
-    <>
+    <Root>
       <GlobalStyle />
-        <HorizontalLayout ref={rootRef} chapters={chapters}>
+        <HorizontalLayout ref={horSliderRef} chapters={chapters}>
           <ThemeProvider theme={themes.dark}>
             <Chapter1Header nextChapter={toChapter(1)} />
           </ThemeProvider>
@@ -56,17 +61,17 @@ function Layout() {
             <Chapter2Header prevChapter={toChapter(0)} />
           </ThemeProvider> */}
         </HorizontalLayout>
-        {/* { chapter === 0 && 
+        { chapter === 0 && 
           <ThemeProvider theme={themes.dark}>
             <Chapter1 nextChapter={toChapter(1)} />
           </ThemeProvider>
         }
-        { chapter === 1 && 
+        {/* { chapter === 1 && 
           <ThemeProvider theme={themes.light}>
             <Chapter2 />
           </ThemeProvider>
         } */}
-    </>
+    </Root>
   );
 }
 

@@ -4,16 +4,15 @@ import {
   BrowserView,
   MobileView
 } from "react-device-detect";
-import { typefaceHeader } from '../../styles/const';
 import { H2, H4, P } from '../../styles/typography';
 import { Circle, CircleSizes, Divider, Layer, Block, Row, Column } from '../UIKit';
 import VideoContent from '../VideoContent';
 import Slider from './Slider';
 
-const Wrapper = styled.div`
+const Root = styled.div`
   width: 100%;
-  font-family: ${typefaceHeader};
   position: relative;
+  background-color: ${props => props.theme.bgColor};
 `;
 
 const Preamble = styled.div`
@@ -24,6 +23,19 @@ const Preamble = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
+
+const Em = styled.em`
+  font-style: normal;
+  color: ${props => props.theme.fontParagraph};
+`;
+
+const CamouflageLine = () => (
+  <Layer top="0">
+    <Row justify="center" h="100%">
+      <Divider vertical camouflage />
+    </Row>
+  </Layer>
+);
 
 const ChapterCaption = ({ children }) => (
   <Block>
@@ -44,17 +56,54 @@ const ChapterCaption = ({ children }) => (
 
 export default function Chapter({ nextChapter }) {
   return (
-    <Wrapper>
+    <Root>
+      
+      <Column h="100vh" w="100%" align="center" justify="center">
+        <Layer>
+          <Row h="100%" justify="center">
+            <Divider vertical />
+          </Row>
+        </Layer>
+        <Layer>
+          <Column w="100%" h="100%">
+            <Column w="100%" h="50%" justify="flex-end" align="center">
+              <Column align="center" css={css`padding: 32px 0 12px;`}>
+                <CamouflageLine />
+                <Circle size="xl" />
+                <H4 css={css`margin-top: 16px;`}>Chapter 1</H4>
+              </Column>
+            </Column>
+            <Column w="100%" h="50%" align="center">
+              <Block css={css`margin-top: 28px;`}>
+                <CamouflageLine />
+                <H2>
+                  <Em>Accu</Em>racy through elec<Em>tron</Em>ics
+                </H2>
+              </Block>
+              <Column justify="center" align="center" css={css`flex: 1; text-align: center;`}>
+                <Block css={css`padding: 14px 0 6px;`}>
+                  <CamouflageLine />
+                  <H4 alternative>
+                    That’s the simple meaning behind Accutron’s name,<br />
+                    but the technology that powered the brand’s iconic timepieces<br />
+                    are anything but.
+                  </H4>
+                </Block>
+              </Column>
+            </Column>
+          </Column>
+        </Layer>
+      </Column>
       <Slider />
-      <Preamble>
+      <Column h="100vh" w="100%" align="center" justify="center">
         <H2 alternative onClick={() => nextChapter(1)}>Chapter end</H2>
-      </Preamble>
-    </Wrapper>
+      </Column>
+    </Root>
   );
 };
 
 export const Header = () => (
-  <Wrapper>
+  <Root>
     <Layer>
       <VideoContent videoId={466496736} />
     </Layer>
@@ -121,5 +170,5 @@ export const Header = () => (
         </Row>
       </Column>
     </MobileView>
-  </Wrapper>
+  </Root>
 )

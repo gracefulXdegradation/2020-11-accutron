@@ -5,6 +5,7 @@ const headingColor = ({ theme, alternative }) =>
   alternative ? theme.fontHeaderAlternative : theme.fontHeaderPrimary
 
 export const H2 = styled.h2`
+  position: relative;
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
   font-size: 50px;
@@ -14,6 +15,7 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
+  position: relative;
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
   font-size: 40px;
@@ -23,6 +25,7 @@ export const H3 = styled.h3`
 `;
 
 export const H4 = styled.h4`
+  position: relative;
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
   font-size: 30px;

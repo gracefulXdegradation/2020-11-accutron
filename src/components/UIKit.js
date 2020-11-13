@@ -5,6 +5,7 @@ export const Layer = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
+  ${props => props.top && `top: ${props.top};`}
 `;
 
 export const Block = styled.div`
@@ -60,5 +61,5 @@ export const Divider = styled.div`
       height: 1px;
       width: ${length || '100%'};
     `}
-  background: ${props => props.theme.fontParagraph};
+  background: ${({ camouflage, theme }) => camouflage ? theme.bgColor : theme.fontParagraph};
 `;
