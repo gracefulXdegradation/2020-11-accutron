@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import {
-  BrowserView,
-  MobileView
-} from "react-device-detect";
+import { BrowserView, MobileView } from "react-device-detect";
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { H2, H4 } from '../../styles/typography';
 import { Circle, Divider, Layer, Block, Row, Column, Camouflage } from '../UIKit';

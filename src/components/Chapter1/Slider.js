@@ -14,12 +14,6 @@ const SliderRoot = styled.div`
 
 const headings = ['origins', 'technology', 'legacy']
 
-const SlideRoot = styled.div`
-  width: 100%;
-  height: 100vh;
-  opacity: 0;
-`;
-
 export default function Slider() {
   const pinSectionRef = useRef(null);
   const pinRef = useRef(null)
@@ -109,13 +103,13 @@ export default function Slider() {
       <SlideHeadingProvider headings={headings}>
         <SliderRoot ref={pinRef}>
           <Slide ref={slide1ref} index={0}>
-            {/* <Slide1 /> */}
+            <Slide1 />
           </Slide>
           <Slide ref={slide2ref} index={1}>
-            {/* <Slide1 /> */}
+            <Slide1 />
           </Slide>
           <Slide ref={slide3ref} index={2}>
-            {/* <Slide1 /> */}
+            <Slide1 />
           </Slide>
         </SliderRoot>
         <NavBar sliderRef={pinSectionRef} />

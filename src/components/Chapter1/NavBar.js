@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
+import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useSlideHeading } from '../../providers/SlideHeadingProvider';
 import { Circle, Layer, Divider, Row, Column, Block, Camouflage } from '../UIKit';
@@ -34,35 +35,61 @@ export default function NavBar({ sliderRef }) {
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
-      <Layer>
-        <Row h="100%" justify="center">
-          <Divider vertical />
-        </Row>
-      </Layer>
+      <BrowserView>
+        <Layer>
+          <Row h="100%" justify="center">
+            <Divider vertical />
+          </Row>
+        </Layer>
 
-      <Layer>
-        <Column w="100%" h="100%" justify="center" align="center">
-          <Block css={css`padding: 19px 0 13px;`}>
-            <Camouflage />
-            <H3>{slideHeading}</H3>
-          </Block>
-        </Column>
-      </Layer>
-      <Layer>
-        <Column h="100%" w="100%" justify="space-between" align="center">
-          <Column align="center" css={css`padding: 50px 0 20px;`}>
-            <Camouflage />
-            <Circle ref={logoRef} size="m" />
-            <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+        <Layer>
+          <Column w="100%" h="100%" justify="center" align="center">
+            <Block css={css`padding: 19px 0 13px;`}>
+              <Camouflage />
+              <H3>{slideHeading}</H3>
+            </Block>
           </Column>
-          <Column align="center" css={css`padding: 30px 0 50px;`}>
-            <Camouflage />
-            <Circle size="m" />
-            <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+        </Layer>
+        <Layer>
+          <Column h="100%" w="100%" justify="space-between" align="center">
+            <Column align="center" css={css`padding: 50px 0 20px;`}>
+              <Camouflage />
+              <Circle ref={logoRef} size="m" />
+              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+            </Column>
+            <Column align="center" css={css`padding: 30px 0 50px;`}>
+              <Camouflage />
+              <Circle size="m" />
+              <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+            </Column>
           </Column>
-        </Column>
-      </Layer>
+        </Layer>
+      </BrowserView>
 
+      <MobileView>
+        <Layer>
+          <Column w="100%" h="100%">
+            <Column align="center" css={css`margin-bottom: 40px;`}>
+              <Block css={css`padding-top: 50px;`}>
+                <Circle ref={logoRef} size="s" />
+                <Layer top="0">
+                  <Row h="100%" justify="center">
+                    <Divider vertical length="35px" />
+                  </Row>
+                </Layer>
+              </Block>
+              <H4 alternative mobile css={css`margin: 12px 0;`}>Chapter 1</H4>
+              <H3 css={css`font-size: 35px; line-height: 40px;`}>{slideHeading}</H3>
+            </Column>
+            <Column align="flex-end" css={css`flex: 1;`} w="35px">
+              <Divider vertical />
+            </Column>
+            <Row justify="center">
+              <H4 mobile css={css`margin: 25px 0 29px;`}>Chapter 2</H4>
+            </Row>
+          </Column>
+        </Layer>
+      </MobileView>
     </Layer>
   );
 };

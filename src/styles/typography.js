@@ -30,8 +30,8 @@ export const H4 = styled.h4`
   position: relative;
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
-  font-size: 30px;
-  line-height: 35px;
+  font-size: ${({ mobile }) => mobile ? '20px' : '30px'};
+  line-height: ${({ mobile }) => mobile ? '28px' : '35px'};
   font-weight: normal;
   text-transform: uppercase;
   text-align: center;
