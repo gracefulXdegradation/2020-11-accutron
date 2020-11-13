@@ -61,5 +61,6 @@ export const Divider = styled.div`
       height: 1px;
       width: ${length || '100%'};
     `}
+  transition: all .4s linear;
   background: ${({ camouflage, theme }) => camouflage ? theme.bgColor : theme.fontParagraph};
 `;

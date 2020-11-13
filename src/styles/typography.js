@@ -8,10 +8,11 @@ export const H2 = styled.h2`
   position: relative;
   font-family: ${typefaceHeader};
   color: ${props => headingColor(props)};
-  font-size: 50px;
-  line-height: 70px;
+  font-size: ${({ mobile }) => mobile ? '25px' : '50px'};
+  line-height: ${({ mobile }) => mobile ? '35px' : '70px'};
   font-weight: normal;
   text-transform: uppercase;
+  text-align: center;
 `;
 
 export const H3 = styled.h3`
@@ -22,6 +23,7 @@ export const H3 = styled.h3`
   line-height: 56px;
   font-weight: normal;
   text-transform: uppercase;
+  text-align: center;
 `;
 
 export const H4 = styled.h4`
@@ -32,6 +34,7 @@ export const H4 = styled.h4`
   line-height: 35px;
   font-weight: normal;
   text-transform: uppercase;
+  text-align: center;
 `;
 
 export const P = styled.p`
