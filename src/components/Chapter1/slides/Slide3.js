@@ -6,6 +6,7 @@ import { H4, P } from '../../../styles/typography';
 import LeftBgImage from '../../../assets/ch1-s1-l.png'
 import WatchesFrontImg from '../../../assets/ch1-s1-r1.png'
 import WatchesBackImg from '../../../assets/ch1-s1-r2.png'
+import Animate, { Animations } from '../../Animate';
 import { Column, Row } from '../../UIKit';
 import Slide from '../Slide';
 
@@ -65,7 +66,7 @@ export default function Slide1({ index, first, last }) {
             </P>
           </Column>
           </Slide>
-          <Slide index={index}>
+          <Slide index={index} last>
             <Column h="100vh">
               <H4 css={css`margin-top: 32px;`}>
                         the company was founded in 1875 by Joseph Bulova in New York City.

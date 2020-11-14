@@ -21,7 +21,7 @@ export default function NavBar({ sliderRef }) {
         pin: pinRef.current,
         scrub: true,
         start: 'top top',
-        end:'bottom top',
+        end:'bottom bottom',
       }
     })
     .to(logoRef.current, {
