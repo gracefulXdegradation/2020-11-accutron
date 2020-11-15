@@ -18,7 +18,7 @@ export default function Preamble() {
 
   useEffect(() => {
     if (mobChapterCaptionRef.current) {
-      mobPaddingTop.current = mobChapterCaptionRef.current.clientHeight * 2;
+      mobPaddingTop.current = mobChapterCaptionRef.current.getBoundingClientRect().height * 2;
     }
   }, [])
 

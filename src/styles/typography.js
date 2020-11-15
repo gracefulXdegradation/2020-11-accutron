@@ -40,6 +40,6 @@ export const H4 = styled.h4`
 export const P = styled.p`
   font-family: ${typefaceParagraph};
   color: ${props => props.theme.fontParagraph};
-  font-size: 20px;
-  line-height: 25px;
+  font-size: ${({ mobile }) => mobile ? '15px' : '20px'};
+  line-height: ${({ mobile }) => mobile ? '20px' : '25px'};
 `

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
@@ -8,9 +8,6 @@ import WatchesFrontImg from '../../../assets/ch1-s1-r1.png'
 import WatchesBackImg from '../../../assets/ch1-s1-r2.png'
 import { Column, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Image = styled.img`
   ${({ greedy }) => greedy && css`
@@ -18,59 +15,10 @@ const Image = styled.img`
     height: 100%;
   `}
   object-fit: cover;
-  display: block;
 `;
 
-const Watches = React.forwardRef((props, ref) => (
-  <div ref={ref} css={css`position: relative;`}>
-    <img src={WatchesFrontImg} alt="Accutron watches front" css={css`width: 63%;`} />
-    <img src={WatchesBackImg} alt="Accutron watches back" css={css`width: 63%; position: absolute; right: 0; z-index: -1;`} />
-  </div>
-))
-
 export default function Slide1({ index, first, last }) {
-  const mobMechanismRef = useRef(null)
-  const mobWatchesRef = useRef(null)
 
-  const mobileSlideAnimation = (el) => {
-    return gsap.timeline({
-      scrollTrigger:{
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-        markers: true
-      },
-      onComplete: () => {
-        gsap.set(el, { y: 0 })
-      }
-    })
-    .set(el, {
-      height: '50%',
-      opacity: 1,
-    })
-    .to(mobMechanismRef.current, {
-      duration: 0.25,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(mobMechanismRef.current, {
-      duration: 0.25,
-      height: 0,
-      ease: 'none'
-    })
-    .to(mobWatchesRef.current, {
-      duration: 0.25,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
-      opacity: 0,
-      duration: .25,
-      ease: 'none',
-    })
-
-  }
   
   return (
     <>
@@ -100,7 +48,10 @@ export default function Slide1({ index, first, last }) {
                     </H4>
                   </Column>
 
-                  <Watches />
+                  <div css={css`position: relative;`}>
+                    <img src={WatchesFrontImg} alt="Accutron watches front" css={css`width: 63%;`} />
+                    <img src={WatchesBackImg} alt="Accutron watches back" css={css`width: 63%; position: absolute; right: 0; z-index: -1;`} />
+                  </div>
                 </Column>
               </Column>
             </Row>
@@ -109,24 +60,16 @@ export default function Slide1({ index, first, last }) {
       </BrowserView>
 
       <MobileView style={{height: "200vh"}}>
-        <Slide index={index} first animate={mobileSlideAnimation} height={2}>
+        <Slide index={index}>
           <Column h="100vh">
-            <Row ref={mobMechanismRef} h="100%">
-              <Image src={LeftBgImage} alt="Accutron mechanism" />
-            </Row>
-            <Column>
-              <P mobile>
-                Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
-              </P>
-              <H4 mobile>
-                the company was founded in 1875 by Joseph Bulova in New York City.
+            <P>
+              Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
+            </P>
+              <H4 css={css`margin-top: 32px;`}>
+                        the company was founded in 1875 by Joseph Bulova in New York City.
               </H4>
             </Column>
-            <Row ref={mobWatchesRef} css={css`opacity: 0;`}>
-              <Watches />
-            </Row>
-          </Column>
-        </Slide>
+          </Slide>
       </MobileView>
     </>
   );

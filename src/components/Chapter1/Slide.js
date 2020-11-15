@@ -7,11 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SlideRoot = styled.div`
   width: 100%;
-  height: 100vh;
+  height: ${({ height }) => height * 100}vh;
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
 
-const animate = (el, { first, last }) => {
+const animateDefault = (el, { first, last }) => {
   if (first) {
     return gsap.timeline({
       scrollTrigger:{
@@ -59,6 +59,7 @@ const animate = (el, { first, last }) => {
         pin: el,
         pinSpacing: false,
         scrub: true,
+        markers: true
       },
       onComplete: () => {
         gsap.set(el, { y: 0 })
@@ -77,7 +78,7 @@ const animate = (el, { first, last }) => {
   }
 }
 
-const Slide = ({ index, children, first, last }) =>  {
+const Slide = ({ index, children, first, last, height = 1, animate = animateDefault }) =>  {
   const { setSlideHeading } = useSlideHeading();
   const slideRef = useRef(null)
 
@@ -88,7 +89,7 @@ const Slide = ({ index, children, first, last }) =>  {
     });
 
     return () => tl.kill();
-  }, [first, last])
+  }, [first, last, animate])
 
   useEffect(() => {
     const sc = ScrollTrigger.create({
@@ -105,7 +106,7 @@ const Slide = ({ index, children, first, last }) =>  {
 	}, [index, setSlideHeading, slideRef]);
 
   return (
-    <SlideRoot ref={slideRef} visible={first}>
+    <SlideRoot ref={slideRef} visible={first} height={height}>
       {children}
     </SlideRoot>
   );
