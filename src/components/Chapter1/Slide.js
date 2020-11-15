@@ -1,13 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { useSlideHeading } from '../../providers/SlideHeadingProvider';
+import { useNavBar } from '../../providers/NavBarProvider';
+import { css } from '@emotion/core';
+import { Column } from '../UIKit';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SlideRoot = styled.div`
   width: 100%;
-  height: ${({ height }) => height * 100}vh;
+  height: ${({ subslides }) => subslides * 100}vh;
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
 
@@ -78,8 +81,8 @@ const animateDefault = (el, { first, last }) => {
   }
 }
 
-const Slide = ({ index, children, first, last, height = 1, animate = animateDefault }) =>  {
-  const { setSlideHeading } = useSlideHeading();
+const Slide = ({ index, children, first, last, subslides = 1, animate = animateDefault }) =>  {
+  const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
 
   useEffect(() => {
@@ -106,9 +109,20 @@ const Slide = ({ index, children, first, last, height = 1, animate = animateDefa
 	}, [index, setSlideHeading, slideRef]);
 
   return (
-    <SlideRoot ref={slideRef} visible={first} height={height}>
-      {children}
-    </SlideRoot>
+    <>
+      <BrowserView>
+        <SlideRoot ref={slideRef} visible={first} subslides={subslides}>
+          {children}
+        </SlideRoot>
+      </BrowserView>
+      <MobileView>
+        <SlideRoot ref={slideRef} visible={first} subslides={subslides}>
+          <Column h="100vh" css={css`padding: 211px 60px 82px;`}>
+            {children}
+          </Column>
+        </SlideRoot>
+      </MobileView>
+    </>
   );
 };
 

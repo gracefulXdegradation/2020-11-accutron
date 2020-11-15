@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import NavBar from './NavBar';
 import Slide from './Slide';
-import SlideHeadingProvider from '../../providers/SlideHeadingProvider';
+import NavBarProvider from '../../providers/NavBarProvider';
 import Slide1 from './slides/Slide1';
 import Slide2 from './slides/Slide2';
 import Slide3 from './slides/Slide3';
@@ -67,7 +67,7 @@ export default function Slider() {
 
   return (
     <SliderRoot ref={pinSectionRef}>
-      <SlideHeadingProvider headings={headings}>
+      <NavBarProvider headings={headings}>
         <Fixed ref={pinRef}>
           <Half>
             <Layer>
@@ -95,7 +95,7 @@ export default function Slider() {
           <Slide3 />
         </Slide>
         <NavBar sliderRef={pinSectionRef} />
-      </SlideHeadingProvider>
+      </NavBarProvider>
     </SliderRoot>
   );
 };

@@ -1,8 +1,8 @@
 import { useState, createContext, useCallback, useContext } from 'react';
 
-const SlideHeadingContext = createContext();
+const NavBarContext = createContext();
 
-const SlideHeadingProvider = ({ children, headings }) => {
+const NavBarProvider = ({ children, headings }) => {
 	const [slideHeading, setSlideHeading] = useState(headings[0]);
 
 	const switchSlideHeading = useCallback((index) => {
@@ -15,12 +15,12 @@ const SlideHeadingProvider = ({ children, headings }) => {
 	};
 
 	return (
-		<SlideHeadingContext.Provider value={value}>
+		<NavBarContext.Provider value={value}>
 			{children}
-		</SlideHeadingContext.Provider>
+		</NavBarContext.Provider>
 	);
 };
 
-export default SlideHeadingProvider;
+export default NavBarProvider;
 
-export const useSlideHeading = () => useContext(SlideHeadingContext);
+export const useNavBar = () => useContext(NavBarContext);

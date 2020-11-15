@@ -4,15 +4,16 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
-import { useSlideHeading } from '../../providers/SlideHeadingProvider';
+import { useNavBar } from '../../providers/NavBarProvider';
 import { Circle, Layer, Divider, Row, Column, Block, Camouflage } from '../UIKit';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function NavBar({ sliderRef }) {
-  const { slideHeading } = useSlideHeading();
+  const { slideHeading } = useNavBar();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
+  const dividerContainerRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -69,7 +70,7 @@ export default function NavBar({ sliderRef }) {
       <MobileView>
         <Layer>
           <Column w="100%" h="100%">
-            <Column align="center" css={css`margin-bottom: 40px;`}>
+            <Column align="center" css={css`padding-bottom: 20px;`}>
               <Block css={css`padding-top: 50px;`}>
                 <Circle ref={logoRef} size="s" />
                 <Layer top="0">
@@ -81,7 +82,7 @@ export default function NavBar({ sliderRef }) {
               <H4 alternative mobile css={css`margin: 12px 0;`}>Chapter 1</H4>
               <H3 css={css`font-size: 35px; line-height: 40px;`}>{slideHeading}</H3>
             </Column>
-            <Column align="flex-end" css={css`flex: 1;`} w="35px">
+            <Column ref={dividerContainerRef} align="flex-end" css={css`flex: 1;`} w="35px">
               <Divider vertical />
             </Column>
             <Row justify="center">

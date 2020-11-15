@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
 import { H3, H4 } from '../../styles/typography';
-import { useSlideHeading } from '../../providers/SlideHeadingProvider';
+import { useNavBar } from '../../providers/NavBarProvider';
 import { Layer } from '../UIKit';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -16,12 +16,6 @@ const NavRoot = styled.div`
   top: 0;
   left: 0;
   pointer-events: none;
-`;
-
-const Divider = styled.div`
-  width: 1px;
-  height: 100%;
-  background: ${props => props.theme.borderColor};
 `;
 
 const Circle = styled.div`
@@ -43,7 +37,7 @@ const Circle = styled.div`
 `;
 
 export default function NavBar({ sliderRef }) {
-  const { slideHeading } = useSlideHeading();
+  const { slideHeading } = useNavBar();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
 

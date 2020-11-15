@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { useSlideHeading } from '../../providers/SlideHeadingProvider';
+import { useNavBar } from '../../providers/NavBarProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +11,7 @@ const SlideRoot = styled.div`
 `;
 
 export default function Slide({ index, children }) {
-  const { setSlideHeading } = useSlideHeading();
+  const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
 
   useEffect(() => {

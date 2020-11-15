@@ -109,20 +109,20 @@ export default function Slide1({ index, first, last }) {
       </BrowserView>
 
       <MobileView style={{height: "200vh"}}>
-        <Slide index={index} first animate={mobileSlideAnimation} height={2}>
-          <Column h="100vh">
-            <Row ref={mobMechanismRef} h="100%">
-              <Image src={LeftBgImage} alt="Accutron mechanism" />
+        <Slide index={index} first animate={mobileSlideAnimation} subslides={2}>
+          <Column h="100%">
+            <Row h="100%" ref={mobMechanismRef}>
+              <Image src={LeftBgImage} alt="Accutron mechanism" css={css`padding-bottom: 30px;`} />
             </Row>
             <Column>
-              <P mobile>
+              <P mobile css={css`padding-bottom: 20px;`}>
                 Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
               </P>
               <H4 mobile>
                 the company was founded in 1875 by Joseph Bulova in New York City.
               </H4>
             </Column>
-            <Row ref={mobWatchesRef} css={css`opacity: 0;`}>
+            <Row ref={mobWatchesRef} css={css`opacity: 0; padding-top: 30px;`}>
               <Watches />
             </Row>
           </Column>

@@ -59,7 +59,7 @@ export default function Slide1({ index, first, last }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "200vh"}}>
+      <MobileView style={{height: "100vh"}}>
         <Slide index={index}>
           <Column h="100vh">
             <P>
