@@ -164,7 +164,7 @@ export default function Slide1({ index }) {
   return (
     <>
       <BrowserView style={{height: "300vh"}}>
-        <Slide index={index} subslides={3} visible animate={desktopAnimation}>
+        <Slide index={index} subslides={3} animate={desktopAnimation}>
           <Row h="100%">
             <LeftHalf>
               <Column w="50%" h="100%" css={css`max-width: 585px;`} justify="center">

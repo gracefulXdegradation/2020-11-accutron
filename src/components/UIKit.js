@@ -18,6 +18,8 @@ export const Layer = styled.div`
 
   ${({ top }) => top && `top: ${top};`}
   ${({ left }) => left && `left: ${left};`}
+  ${({ right }) => right && `right: ${right};`}
+  ${({ bottom }) => bottom && `bottom: ${bottom};`}
 `;
 
 export const Block = styled.div`

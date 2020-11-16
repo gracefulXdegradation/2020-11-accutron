@@ -2,51 +2,35 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography';
-import LeftImage from '../../../assets/ch1-s2-l.png'
-import RightImage from '../../../assets/ch1-s2-r.png'
-import { Column, LeftHalf, RightHalf, Row } from '../../UIKit';
+import { H2, H4, P } from '../../../styles/typography';
+import TunerImage from '../../../assets/ch1-s3-tuner.png'
+import { Column, Layer, LeftHalf, SlideImage, Row } from '../../UIKit';
 import Slide from '../Slide';
 
-const Image = styled.img`
-  ${({ greedy }) => greedy && css`
-    width: 100%;
-    height: 100%;
-  `}
-  object-fit: cover;
-`;
-
 export default function Slide1({ index, first, last }) {
-
-  
   return (
     <>
       <BrowserView>
-        <Slide index={index} first={first} last={last}>
-          <Row h="100%">
-            <LeftHalf>
-              <Column w="50%" h="100%" css={css`max-width: 585px;`} justify="center">
-                <Image src={LeftImage} alt="Accutron watches" />
-                <P css={css`margin-top: 60px;`}>
-                  Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.
-                </P>
-              </Column>
-            </LeftHalf>
-            <RightHalf>
-              <Column css={css`max-width: 540px;`} h="100%" justify="center">
-                <Column css={css`align-items: flex-end;`}>
-                  <P css={css`margin-bottom: 30px;`}>
-                    which guaranteed accuracy to within one minute per month, or 
-                    two seconds per day. This was unheard of at that time.
-                  </P>
-                  <Image src={RightImage} css={css`max-width: 438px;`} alt="Male and female hands" />
-                  <H4 css={css`margin-top: 60px;`}>
-                    that level of accuracy was far better than any mechanical watch could reproduce.
-                  </H4>
-                </Column>
-              </Column>
-            </RightHalf>
-          </Row>
+        <Slide index={index}>
+          <LeftHalf>
+            <Column css={css`max-width: 540px;`} h="100%" justify="center">
+              <H2 alternative>
+                The tuning fork
+              </H2>
+              <H4 css={css`margin: 20px 0 60px;`}>
+                A revolutionary invention for timekeeper precision.
+              </H4>
+              <P css={css`margin-bottom: 20px;`}>
+                Invented by Swiss engineer Max Hetzel, the secret to Accutron’s precision lies in the watch’s tuning fork
+              </P>
+              <P>
+              a small fork-shaped piece typically used as an acoustic resonator for musical instruments. Instead of the traditional balance wheel and spring, this new transistor movement divided each second into 360 equal parts and achieved unprecedented precision.
+              </P>
+            </Column>
+          </LeftHalf>
+          <Layer css={css`right: -10%; z-index: -1; width: 72%;`}>
+            <SlideImage src={TunerImage} alt="Tuning fork" css={css`position: absolute; top: 35%;`} />
+          </Layer>
         </Slide>
       </BrowserView>
 

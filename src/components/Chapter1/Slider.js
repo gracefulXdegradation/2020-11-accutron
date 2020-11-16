@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import NavBarProvider from '../../providers/NavBarProvider';
 import Slide1 from './slides/Slide1';
 import Slide2 from './slides/Slide2';
-// import Slide3 from './slides/Slide3';
+import Slide3 from './slides/Slide3';
 import Slide4 from './slides/Slide4';
 
 const SliderRoot = styled.div`
@@ -21,7 +21,7 @@ export default function Slider() {
       <NavBarProvider headings={headings}>
         <Slide1 index={0} />
         <Slide2 index={1} />
-        {/* <Slide3 index={1} /> */}
+        <Slide3 index={1} />
         <Slide4 index={2} last />
         <NavBar sliderRef={pinSectionRef} />
       </NavBarProvider>

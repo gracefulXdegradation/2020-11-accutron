@@ -60,7 +60,7 @@ export default function NavBar({ sliderRef }) {
             </Column>
             <Column align="center" css={css`padding: 30px 0 50px;`}>
               <Camouflage />
-              <Circle size="m" />
+              <Circle size="m" css={css`transform: rotateZ(90deg);`} />
               <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
             </Column>
           </Column>

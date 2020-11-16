@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { useNavBar } from '../../providers/NavBarProvider';
 import { css } from '@emotion/core';
-import { Column } from '../UIKit';
+import { Column, Row } from '../UIKit';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,7 +62,6 @@ const animateDefault = (el, { startVisible, last }) => {
         pin: el,
         pinSpacing: false,
         scrub: true,
-        markers: true
       },
       onComplete: () => {
         gsap.set(el, { y: 0 })
@@ -113,9 +112,9 @@ const Slide = ({ index, children, startVisible, last, subslides = 1, animate = a
     <>
       <BrowserView>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
-          <Column ref={slideInnerRef} h="100vh">
+          <Row ref={slideInnerRef} h="100vh">
             {children}
-          </Column>
+          </Row>
         </SlideRoot>
       </BrowserView>
       <MobileView>
