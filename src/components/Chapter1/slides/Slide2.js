@@ -10,7 +10,7 @@ import Sl1RImg from '../../../assets/ch1-s2-r1.png'
 import Sl2RaImg from '../../../assets/ch1-s2-r2a.png'
 import Sl2RbImg from '../../../assets/ch1-s2-r2b.png'
 import Sl3RImg from '../../../assets/ch1-s2-r3.png'
-import { Column, LeftHalf, RightHalf, Row, SlideImage } from '../../UIKit';
+import { Column, Layer, LeftHalf, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 
@@ -33,6 +33,8 @@ export default function Slide1({ index }) {
   const rightImg1Ref = useRef(null)
   const rightImg2Ref = useRef(null)
   const rightImg3Ref = useRef(null)
+  const pRef = useRef(null)
+  const hRef = useRef(null)
 
   const desktopAnimation = (el) => {
     return gsap.timeline({
@@ -71,6 +73,79 @@ export default function Slide1({ index }) {
     .to(el, {
       opacity: 0,
       duration: 1/6,
+      ease: 'none',
+    })
+  }
+
+  const mobileAnimation = (el) => {
+    const transitions = 12;
+
+    return gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        pin: el,
+        pinSpacing: false,
+        scrub: true,
+      }
+    })
+    .to(el, {
+      opacity: 1,
+      duration: 1/transitions,
+      ease: 'none',
+    })
+    .to(leftImg1Ref.current, {
+      duration: 1/transitions,
+      opacity: 0,
+      ease: 'none'
+    })
+    .to(rightImg1Ref.current, {
+      duration: 1/transitions,
+      opacity: 1,
+      ease: 'none'
+    })
+    .to([rightImg1Ref.current, pRef.current], {
+      duration: 1/transitions,
+      opacity: 0,
+      ease: 'none'
+    })
+    .to([leftImg2Ref.current, hRef.current], {
+      duration: 1/transitions,
+      opacity: 1,
+      ease: 'none'
+    })
+    .to(leftImg2Ref.current, {
+      duration: 1/transitions,
+      opacity: 0,
+      ease: 'none'
+    })
+    .to(rightImg2Ref.current, {
+      duration: 1/transitions,
+      opacity: 1,
+      ease: 'none'
+    })
+    .to(rightImg2Ref.current, {
+      duration: 1/transitions,
+      opacity: 0,
+      ease: 'none'
+    })
+    .to(leftImg3Ref.current, {
+      duration: 1/transitions,
+      opacity: 1,
+      ease: 'none'
+    })
+    .to(leftImg3Ref.current, {
+      duration: 1/transitions,
+      opacity: 0,
+      ease: 'none'
+    })
+    .to(rightImg3Ref.current, {
+      duration: 1/transitions,
+      opacity: 1,
+      ease: 'none'
+    })
+    .to(el, {
+      opacity: 0,
+      duration: 1/transitions,
       ease: 'none',
     })
   }
@@ -127,18 +202,49 @@ export default function Slide1({ index }) {
         </Slide>
       </BrowserView>
 
-      {/* <MobileView style={{height: "100vh"}}>
-        <Slide index={index}>
-          <Column h="100vh">
-            <P>
-              Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
-            </P>
-            <H4 css={css`margin-top: 32px;`}>
-              the company was founded in 1875 by Joseph Bulova in New York City.
-            </H4>
+      <MobileView style={{height: "400vh"}}>
+        <Slide index={index} subslides={4} animate={mobileAnimation}>
+          <Column h="100%" justify="space-evenly">
+            <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%;`}>
+              <ImageHolder ref={leftImg1Ref}>
+                <SlideImage src={Sl1LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+              </ImageHolder>
+              <ImageHolder ref={rightImg1Ref} css={css`opacity: 0;`}>
+                <SlideImage src={Sl1RImg} css={css`width: auto; height: 100%;`} alt="Male and female hands" />
+              </ImageHolder>
+              <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
+                <SlideImage src={Sl2LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+              </ImageHolder>
+              <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
+                <SlideImage src={Sl2RaImg} alt="Accutron watches" css={css`width: auto; height: 100%; position: relative; left: 7%;`} />
+                <SlideImage src={Sl2RbImg} alt="Accutron watches" css={css`width: auto; height: 80%; position: relative; right: 7%;`} />
+              </ImageHolder>
+              <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
+                <SlideImage src={Sl3LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+              </ImageHolder>
+              <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
+                <SlideImage src={Sl3RImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+              </ImageHolder>
+            </div>
+            <div css={css`position: relative; flex: 1;`}>
+              <Layer ref={pRef}>
+                <P mobile>
+                  Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.
+                </P>
+                <P mobile css={css`margin-top: 16px;`}>
+                  which guaranteed accuracy to within one minute per month, or 
+                  two seconds per day. This was unheard of at that time.
+                </P>
+              </Layer>
+              <Layer ref={hRef} css={css`opacity: 0;`}>
+                <H4 mobile css={css`margin-top: 32px;`}>
+                  that level of accuracy was far better than any mechanical watch could reproduce.
+                </H4>
+              </Layer>
+            </div>
           </Column>
         </Slide>
-      </MobileView> */}
+      </MobileView>
     </>
   );
 };
