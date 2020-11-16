@@ -8,7 +8,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SlideRoot = styled.div`
+const SlideRoot = styled.section`
   width: 100%;
   height: ${({ subslides }) => subslides * 100}vh;
   opacity: ${({ visible }) => visible ? 1 : 0};
