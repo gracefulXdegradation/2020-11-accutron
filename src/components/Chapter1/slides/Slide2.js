@@ -26,7 +26,7 @@ const ImageHolder = styled.div`
   justify-content: center;
 `;
 
-export default function Slide1({ index }) {
+export default function Slide2({ index }) {
   const leftImg1Ref = useRef(null)
   const leftImg2Ref = useRef(null)
   const leftImg3Ref = useRef(null)

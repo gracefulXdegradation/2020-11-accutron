@@ -1,16 +1,15 @@
 import React, { useRef } from 'react';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H2, H4, P } from '../../../styles/typography';
 import TunerImage from '../../../assets/ch1-s3-tuner.png'
-import { Column, Layer, LeftHalf, SlideImage, Row } from '../../UIKit';
+import { Column, Layer, LeftHalf, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Slide1({ index }) {
+export default function Slide3({ index }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
 
