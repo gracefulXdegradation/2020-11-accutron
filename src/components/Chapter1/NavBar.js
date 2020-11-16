@@ -79,14 +79,14 @@ export default function NavBar({ sliderRef }) {
                   </Row>
                 </Layer>
               </Block>
-              <H4 alternative mobile css={css`margin: 12px 0;`}>Chapter 1</H4>
-              <H3 css={css`font-size: 35px; line-height: 40px;`}>{slideHeading}</H3>
+              <H4 alternative mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
+              <H3 css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
             </Column>
             <Column ref={dividerContainerRef} align="flex-end" css={css`flex: 1;`} w="35px">
               <Divider vertical />
             </Column>
             <Row justify="center">
-              <H4 mobile css={css`margin: 25px 0 29px;`}>Chapter 2</H4>
+              <H4 mobile css={css`margin: 25px 0 29px; white-space: nowrap;`}>Chapter 2</H4>
             </Row>
           </Column>
         </Layer>
