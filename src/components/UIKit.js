@@ -84,3 +84,24 @@ export const Camouflage = ({ w, length }) => (
     </Row>
   </Layer>
 );
+
+const Half = styled(Row)`
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+  }
+`;
+
+export const LeftHalf = styled(Half)`
+  &:after { flex-grow: 2 }
+  &:before { flex-grow: 1 }
+`;
+
+export const RightHalf = styled(Half)`
+  &:after { flex-grow: 1 }
+  &:before { flex-grow: 2 }
+`;

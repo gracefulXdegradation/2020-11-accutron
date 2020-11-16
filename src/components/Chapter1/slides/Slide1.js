@@ -6,7 +6,7 @@ import { H4, P } from '../../../styles/typography';
 import LeftBgImage from '../../../assets/ch1-s1-l.png'
 import WatchesFrontImg from '../../../assets/ch1-s1-r1.png'
 import WatchesBackImg from '../../../assets/ch1-s1-r2.png'
-import { Column, Row } from '../../UIKit';
+import { Column, RightHalf, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 
@@ -80,15 +80,7 @@ export default function Slide1({ index, first, last }) {
             <Row w="50%" h="100%">
               <Image greedy src={LeftBgImage} alt="Accutron mechanism" />
             </Row>
-            <Row w="50%" h="100%" align="center" css={css`
-              &:before,
-              &:after {
-                content: '';
-                display: block;
-              }
-              &:after { flex-grow: 1 }
-              &:before { flex-grow: 2 }
-            `}>
+            <RightHalf>
               <Column css={css`max-width: 540px;`} h="100%" justify="center">
                 <Column css={css`max-height: 672px;`} h="100%" justify="space-between">
                   <Column>
@@ -103,7 +95,7 @@ export default function Slide1({ index, first, last }) {
                   <Watches />
                 </Column>
               </Column>
-            </Row>
+            </RightHalf>
           </Row>
         </Slide>
       </BrowserView>
