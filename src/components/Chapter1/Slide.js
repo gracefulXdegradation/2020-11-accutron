@@ -84,6 +84,7 @@ const animateDefault = (el, { first, last }) => {
 const Slide = ({ index, children, first, last, subslides = 1, animate = animateDefault }) =>  {
   const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
+  const slideInnerRef = useRef(null)
 
   useEffect(() => {
     const tl = animate(slideRef.current, {
@@ -96,7 +97,7 @@ const Slide = ({ index, children, first, last, subslides = 1, animate = animateD
 
   useEffect(() => {
     const sc = ScrollTrigger.create({
-      trigger: slideRef.current,
+      trigger: slideInnerRef.current || slideRef.current,
       start: 'center center',
       onToggle: (self) => {
         if (self.isActive) {
@@ -106,7 +107,7 @@ const Slide = ({ index, children, first, last, subslides = 1, animate = animateD
     });
 
     return () => sc.kill()
-	}, [index, setSlideHeading, slideRef]);
+	}, [index, setSlideHeading, slideRef, slideInnerRef]);
 
   return (
     <>
@@ -117,7 +118,7 @@ const Slide = ({ index, children, first, last, subslides = 1, animate = animateD
       </BrowserView>
       <MobileView>
         <SlideRoot ref={slideRef} visible={first} subslides={subslides}>
-          <Column h="100vh" css={css`padding: 211px 60px 82px;`}>
+          <Column ref={slideInnerRef} h="100vh" css={css`padding: 211px 60px 82px;`}>
             {children}
           </Column>
         </SlideRoot>
