@@ -35,6 +35,7 @@ export default function Slide1({ index }) {
   const rightImg3Ref = useRef(null)
   const pRef = useRef(null)
   const hRef = useRef(null)
+  const galleryRef = useRef(null)
 
   const desktopAnimation = (el) => {
     return gsap.timeline({
@@ -92,6 +93,16 @@ export default function Slide1({ index }) {
       opacity: 1,
       duration: 1/transitions,
       ease: 'none',
+    })
+    .to(galleryRef.current, {
+      duration: .5/transitions,
+      top: 0,
+      ease: 'none'
+    })
+    .to(pRef.current, {
+      duration: .5/transitions,
+      opacity: 1,
+      ease: 'none'
     })
     .to(leftImg1Ref.current, {
       duration: 1/transitions,
@@ -205,7 +216,7 @@ export default function Slide1({ index }) {
       <MobileView style={{height: "400vh"}}>
         <Slide index={index} subslides={4} animate={mobileAnimation}>
           <Column h="100%" justify="space-evenly">
-            <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%;`}>
+            <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%; top: 20%;`} ref={galleryRef}>
               <ImageHolder ref={leftImg1Ref}>
                 <SlideImage src={Sl1LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
               </ImageHolder>
@@ -227,8 +238,8 @@ export default function Slide1({ index }) {
               </ImageHolder>
             </div>
             <div css={css`position: relative; flex: 1;`}>
-              <Layer ref={pRef}>
-                <P mobile>
+              <Layer ref={pRef} css={css`opacity: 0;`}>
+                <P mobile css={css`margin-top: 16px;`}>
                   Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.
                 </P>
                 <P mobile css={css`margin-top: 16px;`}>
