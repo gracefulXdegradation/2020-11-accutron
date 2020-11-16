@@ -31,7 +31,7 @@ export default function Preamble() {
         <Column h="100vh" w="100%" align="center" justify="center">
           <Layer>
               <Row h="100%" justify="center">
-                <Divider length={hasAnimated ? '100%' : '0'} vertical />
+                <Divider length={hasAnimated ? '100%' : '0'} vertical css={css`transition-delay: .2s;`} />
               </Row>
           </Layer>
           
