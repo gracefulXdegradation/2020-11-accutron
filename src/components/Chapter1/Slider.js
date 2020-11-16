@@ -7,10 +7,11 @@ import Technology2 from './slides/2.Technology';
 import Technology3 from './slides/3.Technology';
 import Legacy4 from './slides/4.Legacy';
 import Legacy5 from './slides/5.Legacy';
-import Slide5 from './slides/Slide5';
+import Legacy6 from './slides/6.Legacy';
 
 const SliderRoot = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 
 const headings = ['origins', 'technology', 'legacy']
@@ -26,7 +27,7 @@ export default function Slider() {
         <Technology3 index={1} />
         <Legacy4 index={2} />
         <Legacy5 index={2} />
-        <Slide5 index={2} last />
+        <Legacy6 index={2} />
         <NavBar sliderRef={pinSectionRef} />
       </NavBarProvider>
     </SliderRoot>
