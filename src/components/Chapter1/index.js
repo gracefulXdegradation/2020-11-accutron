@@ -1,6 +1,6 @@
-import { H2 } from '../../styles/typography';
-import { Background, Column } from '../UIKit';
+import { Background } from '../UIKit';
 import Preamble from './Preamble';
+import Ending from './Ending';
 import Slider from './Slider';
 
 export default function Chapter({ nextChapter }) {
@@ -8,9 +8,7 @@ export default function Chapter({ nextChapter }) {
     <Background>
       <Preamble />
       <Slider />
-      <Column h="100vh" w="100%" align="center" justify="center">
-        <H2 alternative onClick={() => nextChapter(1)}>Chapter end</H2>
-      </Column>
+      <Ending nextChapter={() => nextChapter(1)} />
     </Background>
   );
 };

@@ -115,3 +115,20 @@ export const SlideImage = styled.img`
   `}
   object-fit: cover;
 `;
+
+export const ChapterCaption = ({ children }) => (
+  <Block>
+    <Layer css={css`
+      top: 16px;
+      
+      & > * {
+        white-space: nowrap;
+        transform: translateX(-50%);
+        display: inline-block;
+        text-align: center;
+      }
+    `}>
+      {children}
+    </Layer>
+  </Block>
+);

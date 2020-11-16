@@ -96,7 +96,7 @@ export default function Legacy5({ index }) {
     <>
       <BrowserView style={{height: "200vh"}}>
         <Slide index={index} subslides={2} animate={desktopAnimation}>
-          <Column h="100%" w="50%" justify="center" css={css`margin-left: 100px;`}>
+          <Column h="100%" w="50%" justify="center" css={css`margin: 0 100px;`}>
             <Column css={css`transform: translateY(50%);`}>
               <Layer ref={copy1Ref}>
                 <Column css={css`max-width: 580px;`}>
@@ -155,7 +155,7 @@ export default function Legacy5({ index }) {
                   </Column>
                 </Layer>
                 <Layer ref={copy2Ref} css={css`opacity: 0;`}>
-                  <H2 alternative mobile css={css`margin-top: 16px;`}>
+                  <H2 alternative mobile css={css`margin-top: 16px; text-align: center;`}>
                     “it’s not a timepiece,<br/>
                     it’s a conversation piece.”
                   </H2>

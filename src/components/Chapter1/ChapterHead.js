@@ -4,25 +4,8 @@ import {
   MobileView
 } from "react-device-detect";
 import { H4, P } from '../../styles/typography';
-import { Circle, CircleSizes, Divider, Layer, Block, Row, Column, Background } from '../UIKit';
+import { Circle, CircleSizes, Divider, Layer, Block, Row, Column, Background, ChapterCaption } from '../UIKit';
 import VideoContent from '../VideoContent';
-
-const ChapterCaption = ({ children }) => (
-  <Block>
-    <Layer css={css`
-      top: 16px;
-      
-      & > * {
-        white-space: nowrap;
-        transform: translateX(-50%);
-        display: inline-block;
-        text-align: center;
-      }
-    `}>
-      {children}
-    </Layer>
-  </Block>
-)
 
 export default function ChapterHead({toContent, nextChapter}) {
   return (
