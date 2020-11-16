@@ -3,11 +3,9 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
-import LeftBgImage from '../../../assets/ch1-s1-l.png'
-import WatchesFrontImg from '../../../assets/ch1-s1-r1.png'
-import WatchesBackImg from '../../../assets/ch1-s1-r2.png'
-import Animate, { Animations } from '../../Animate';
-import { Column, Row } from '../../UIKit';
+import LeftImage from '../../../assets/ch1-s2-l.png'
+import RightImage from '../../../assets/ch1-s2-r.png'
+import { Column, LeftHalf, RightHalf, Row } from '../../UIKit';
 import Slide from '../Slide';
 
 const Image = styled.img`
@@ -19,61 +17,51 @@ const Image = styled.img`
 `;
 
 export default function Slide1({ index, first, last }) {
+
+  
   return (
     <>
       <BrowserView>
         <Slide index={index} first={first} last={last}>
           <Row h="100%">
-            <Row w="50%" h="100%">
-              <Image greedy src={LeftBgImage} alt="Accutron mechanism" />
-            </Row>
-            <Row w="50%" h="100%" align="center" css={css`
-              &:before,
-              &:after {
-                content: '';
-                display: block;
-              }
-              &:after { flex-grow: 1 }
-              &:before { flex-grow: 2 }
-            `}>
+            <LeftHalf>
+              <Column w="50%" h="100%" css={css`max-width: 585px;`} justify="center">
+                <Image src={LeftImage} alt="Accutron watches" />
+                <P css={css`margin-top: 60px;`}>
+                  Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.
+                </P>
+              </Column>
+            </LeftHalf>
+            <RightHalf>
               <Column css={css`max-width: 540px;`} h="100%" justify="center">
-                <Column css={css`max-height: 672px;`} h="100%" justify="space-between">
-                  <Column>
-                    <P>
-                      Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
-                    </P>
-                    <H4 css={css`margin-top: 32px;`}>
-                      the company was founded in 1875 by Joseph Bulova in New York City.
-                    </H4>
-                  </Column>
-
-                  <div css={css`position: relative;`}>
-                    <img src={WatchesFrontImg} alt="Accutron watches front" css={css`width: 63%;`} />
-                    <img src={WatchesBackImg} alt="Accutron watches back" css={css`width: 63%; position: absolute; right: 0; z-index: -1;`} />
-                  </div>
+                <Column css={css`align-items: flex-end;`}>
+                  <P css={css`margin-bottom: 30px;`}>
+                    which guaranteed accuracy to within one minute per month, or 
+                    two seconds per day. This was unheard of at that time.
+                  </P>
+                  <Image src={RightImage} css={css`max-width: 438px;`} alt="Male and female hands" />
+                  <H4 css={css`margin-top: 60px;`}>
+                    that level of accuracy was far better than any mechanical watch could reproduce.
+                  </H4>
                 </Column>
               </Column>
-            </Row>
+            </RightHalf>
           </Row>
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "100%"}}>
+      {/* <MobileView style={{height: "100vh"}}>
         <Slide index={index}>
           <Column h="100vh">
             <P>
               Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
             </P>
+            <H4 css={css`margin-top: 32px;`}>
+              the company was founded in 1875 by Joseph Bulova in New York City.
+            </H4>
           </Column>
-          </Slide>
-          <Slide index={index} last>
-            <Column h="100vh">
-              <H4 css={css`margin-top: 32px;`}>
-                        the company was founded in 1875 by Joseph Bulova in New York City.
-              </H4>
-            </Column>
-          </Slide>
-      </MobileView>
+        </Slide>
+      </MobileView> */}
     </>
   );
 };

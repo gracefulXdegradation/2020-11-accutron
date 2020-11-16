@@ -14,8 +14,8 @@ const SlideRoot = styled.div`
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
 
-const animateDefault = (el, { first, last }) => {
-  if (first) {
+const animateDefault = (el, { startVisible, last }) => {
+  if (startVisible) {
     return gsap.timeline({
       scrollTrigger:{
         trigger: el,
@@ -81,19 +81,19 @@ const animateDefault = (el, { first, last }) => {
   }
 }
 
-const Slide = ({ index, children, first, last, subslides = 1, animate = animateDefault }) =>  {
+const Slide = ({ index, children, startVisible, last, subslides = 1, animate = animateDefault }) =>  {
   const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
   const slideInnerRef = useRef(null)
 
   useEffect(() => {
     const tl = animate(slideRef.current, {
-      first,
+      startVisible,
       last
     });
 
     return () => tl.kill();
-  }, [first, last, animate])
+  }, [startVisible, last, animate])
 
   useEffect(() => {
     const sc = ScrollTrigger.create({
@@ -112,12 +112,14 @@ const Slide = ({ index, children, first, last, subslides = 1, animate = animateD
   return (
     <>
       <BrowserView>
-        <SlideRoot ref={slideRef} visible={first} subslides={subslides}>
-          {children}
+        <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
+          <Column ref={slideInnerRef} h="100vh">
+            {children}
+          </Column>
         </SlideRoot>
       </BrowserView>
       <MobileView>
-        <SlideRoot ref={slideRef} visible={first} subslides={subslides}>
+        <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
           <Column ref={slideInnerRef} h="100vh" css={css`padding: 211px 60px 82px;`}>
             {children}
           </Column>

@@ -105,3 +105,11 @@ export const RightHalf = styled(Half)`
   &:after { flex-grow: 1 }
   &:before { flex-grow: 2 }
 `;
+
+export const SlideImage = styled.img`
+  ${({ greedy }) => greedy && css`
+    width: 100%;
+    height: 100%;
+  `}
+  object-fit: cover;
+`;
