@@ -9,7 +9,7 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Slide3({ index }) {
+export default function Technology3({ index }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
 

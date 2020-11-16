@@ -19,7 +19,7 @@ const Watches = React.forwardRef((props, ref) => (
   </div>
 ))
 
-export default function Slide1({ index, last }) {
+export default function Origins1({ index, last }) {
   const mobMechanismRef = useRef(null)
   const mobWatchesRef = useRef(null)
 
@@ -65,27 +65,25 @@ export default function Slide1({ index, last }) {
     <>
       <BrowserView>
         <Slide index={index} startVisible>
-          <Row h="100%">
-            <Row w="50%" h="100%">
-              <SlideImage greedy src={LeftBgImage} alt="Accutron mechanism" />
-            </Row>
-            <RightHalf>
-              <Column css={css`max-width: 540px;`} h="100%" justify="center">
-                <Column css={css`max-height: 672px;`} h="100%" justify="space-between">
-                  <Column>
-                    <P>
-                      Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
-                    </P>
-                    <H4 css={css`margin-top: 32px;`}>
-                      the company was founded in 1875 by Joseph Bulova in New York City.
-                    </H4>
-                  </Column>
-
-                  <Watches />
-                </Column>
-              </Column>
-            </RightHalf>
+          <Row w="50%" h="100%">
+            <SlideImage greedy src={LeftBgImage} alt="Accutron mechanism" />
           </Row>
+          <RightHalf>
+            <Column css={css`max-width: 540px;`} h="100%" justify="center">
+              <Column css={css`max-height: 672px;`} h="100%" justify="space-between">
+                <Column>
+                  <P>
+                    Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
+                  </P>
+                  <H4 css={css`margin-top: 32px;`}>
+                    the company was founded in 1875 by Joseph Bulova in New York City.
+                  </H4>
+                </Column>
+
+                <Watches />
+              </Column>
+            </Column>
+          </RightHalf>
         </Slide>
       </BrowserView>
 

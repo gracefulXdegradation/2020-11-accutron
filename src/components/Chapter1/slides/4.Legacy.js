@@ -2,14 +2,14 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
-import Image from '../../../assets/ch1-s4.png'
+import Image from '../../../assets/ch1-legacy-1.png'
 import { Column, LeftHalf, RightHalf, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Slide4({ index }) {
+export default function Legacy4({ index }) {
   const copyRef = useRef(null)
   const imageRef = useRef(null)
 
