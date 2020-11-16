@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
@@ -6,8 +6,47 @@ import { H2, H4, P } from '../../../styles/typography';
 import TunerImage from '../../../assets/ch1-s3-tuner.png'
 import { Column, Layer, LeftHalf, SlideImage, Row } from '../../UIKit';
 import Slide from '../Slide';
+import { gsap, ScrollTrigger } from 'gsap/all';
 
-export default function Slide1({ index, first, last }) {
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Slide1({ index }) {
+  const copy1Ref = useRef(null)
+  const copy2Ref = useRef(null)
+
+  const mobileAnimation = (el) => {
+    const transitions = 4;
+
+    return gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        pin: el,
+        pinSpacing: false,
+        scrub: true,
+      }
+    })
+    .to(el, {
+      opacity: 1,
+      duration: 1/transitions,
+      ease: 'none',
+    })
+    .to(copy1Ref.current, {
+      duration: 1/transitions,
+      opacity: 0,
+      ease: 'none'
+    })
+    .to(copy2Ref.current, {
+      duration: 1/transitions,
+      opacity: 1,
+      ease: 'none'
+    })
+    .to(el, {
+      opacity: 0,
+      duration: 1/transitions,
+      ease: 'none',
+    })
+  }
+
   return (
     <>
       <BrowserView>
@@ -34,18 +73,31 @@ export default function Slide1({ index, first, last }) {
         </Slide>
       </BrowserView>
 
-      {/* <MobileView style={{height: "100vh"}}>
-        <Slide index={index}>
-          <Column h="100vh">
-            <P>
-              Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
-            </P>
-            <H4 css={css`margin-top: 32px;`}>
-              the company was founded in 1875 by Joseph Bulova in New York City.
-            </H4>
-          </Column>
+      <MobileView style={{height: "100vh"}}>
+        <Slide index={index} animate={mobileAnimation}>
+          <Layer css={css`height: 100%; right: -20%; z-index: -1; width: 140%; top: 0;`}>
+            <SlideImage src={TunerImage} alt="Tuning fork" css={css`position: absolute; bottom: 80px;`} />
+          </Layer>
+          <div css={css`position: relative;`}>
+            <Column ref={copy1Ref} css={css`position: absolute;`}>
+              <H2 mobile alternative>
+                The tuning fork
+              </H2>
+              <H4 mobile css={css`margin-top: 16px;`}>
+                A revolutionary invention for timekeeper precision.
+              </H4>
+            </Column>
+            <Column ref={copy2Ref} css={css`position: absolute; opacity: 0;`}>
+              <P mobile css={css`margin-bottom: 20px;`}>
+                Invented by Swiss engineer Max Hetzel, the secret to Accutron’s precision lies in the watch’s tuning fork
+              </P>
+              <P mobile>
+              a small fork-shaped piece typically used as an acoustic resonator for musical instruments. Instead of the traditional balance wheel and spring, this new transistor movement divided each second into 360 equal parts and achieved unprecedented precision.
+              </P>
+            </Column>
+          </div>
         </Slide>
-      </MobileView> */}
+      </MobileView>
     </>
   );
 };

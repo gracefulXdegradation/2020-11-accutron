@@ -90,7 +90,7 @@ export default function Slide1({ index, last }) {
       </BrowserView>
 
       <MobileView style={{height: "200vh"}}>
-        <Slide index={index} animate={mobileSlideAnimation} subslides={2}>
+        <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2}>
           <Column h="100%">
             <Row h="100%" ref={mobMechanismRef}>
               <SlideImage src={LeftBgImage} alt="Accutron mechanism" css={css`padding-bottom: 30px;`} />
