@@ -29,7 +29,7 @@ export default function Origins1({ index, last }) {
         ...props,
         trigger: el,
         pin: el,
-        pinSpacing: false,
+        // pinSpacing: false,
         scrub: true,
       },
       onComplete: () => {

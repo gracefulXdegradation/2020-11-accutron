@@ -1,5 +1,6 @@
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import AccutronLogo from '../assets/accutron-logo.svg'
 
 export const Background = styled.div`
   width: 100%;
@@ -39,8 +40,6 @@ export const Column = styled(Block)`
   ${props => props.w && `width: ${props.w};`}
 `;
 
-export const Logo = () => <svg xmlns="http://www.w3.org/2000/svg" width="29.229" height="41.626" viewBox="0 0 29.229 41.626"><path d="M9.757,41.626,12.234,33.3H0C2.161,22.1,4.275,11.147,6.4.113H8.4C7.512,5.855,6.616,11.49,5.79,17.134A28.366,28.366,0,0,0,5.373,22.3c.21,5.4,3.892,8.694,9.432,8.615,5.425-.078,9.163-3.456,9.032-8.8A107.72,107.72,0,0,0,22.382,10.1c-.458-3.3-1.01-6.6-1.538-10.008L22.817,0c2.13,11.016,4.25,21.98,6.412,33.164H17.009l2.436,8.462Z" fill="#aa8c66"/></svg>
-
 export const CircleSizes = {
   s: 49,
   m: 69,
@@ -59,7 +58,18 @@ export const Circle = styled.div`
   justify-content: center;
   align-items: center;
 
-  ${({ children, theme, rotation }) => !children && css`
+  ${({ logo, theme, rotation }) => logo ? css`
+    padding: 12%;
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-image: url(${AccutronLogo});
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  ` : css`
     &:after {
       content: '';
       height: 100%;
@@ -68,8 +78,6 @@ export const Circle = styled.div`
       ${rotation && `transform: rotateZ(${rotation}deg);`}
     }
   `}
-
-  
 `;
 
 export const Divider = styled.div`

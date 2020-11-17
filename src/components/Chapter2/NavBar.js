@@ -38,7 +38,6 @@ export default function NavBar({ sliderRef }) {
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
       <BrowserView>
         <Layer>
-          {/* <Column h="100%" w="100%" justify="space-between" align="center"> */}
           <Column align="center">
             <Column align="center" css={css`margin-top: 32px;`}>
               <Circle ref={logoRef} size="m" />
@@ -46,14 +45,6 @@ export default function NavBar({ sliderRef }) {
             </Column>
             <H3 alternative css={css`margin-top: 8px;`}>{slideHeading}</H3>
           </Column>
-            {/* <Divider vertical />
-            <H3 css={css`margin-top: 8px;`}>{slideHeading}</H3>
-            <Divider vertical />
-            <Column align="center" css={css`padding: 30px 0 50px;`}>
-              <Circle size="m" css={css`transform: rotateZ(90deg);`} />
-              <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
-            </Column>
-          </Column> */}
         </Layer>
         <Layer fullScreen>
           <Row h="100%" align="center" justify="space-between">
@@ -66,9 +57,7 @@ export default function NavBar({ sliderRef }) {
             </Column>
             <Divider />
             <Column align="center" css={css`margin: 24px;`}>
-              <Circle size="m">
-                <Logo />
-              </Circle>
+              <Circle size="m" logo />
             </Column>
             <Divider length="90px" />
           </Row>
@@ -77,24 +66,26 @@ export default function NavBar({ sliderRef }) {
 
       <MobileView>
         <Layer>
-          <Column w="100%" h="100%">
-            <Column align="center" css={css`padding-bottom: 20px;`}>
-              <Block css={css`padding-top: 50px;`}>
-                <Circle ref={logoRef} size="s" />
-                <Layer top="0">
-                  <Row h="100%" justify="center">
-                    <Divider vertical length="35px" />
-                  </Row>
-                </Layer>
-              </Block>
-              <H4 alternative mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
-              <H3 css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
+          <Column w="100%" h="100%" justify="space-between">
+            <Column align="center">
+              <Divider vertical length="35px" />
+              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
+              <Row align="center">
+                <Divider />
+                <Column css={css`margin: 0 30px;`}>
+                  <Circle ref={logoRef} size="s" />
+                </Column>
+                <Divider />
+              </Row>
+              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 2</H4>
+              <H3 alternative css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
             </Column>
-            <Column ref={dividerContainerRef} align="flex-end" css={css`flex: 1;`} w="35px">
-              <Divider vertical />
-            </Column>
-            <Row justify="center">
-              <H4 mobile css={css`margin: 25px 0 29px; white-space: nowrap;`}>Chapter 2</H4>
+            <Row align="center" css={css`margin: 12px 0 16px;`}>
+              <Row />
+              <Column align="center" css={css`margin: 0 16px;`}>
+                <Circle size="s" logo />
+              </Column>
+              <Divider />
             </Row>
           </Column>
         </Layer>
