@@ -52,7 +52,7 @@ export default function Legacy5({ index }) {
   }
 
   const mobileAnimation = (el, props) => {
-    const transitions = 5;
+    const transitions = 6;
 
     return gsap.timeline({
       scrollTrigger: {
@@ -74,8 +74,8 @@ export default function Legacy5({ index }) {
       ease: 'none'
     })
     .to(nasaRef.current, {
-      duration: 1/transitions,
-      delay: -1/transitions,
+      duration: 1.2/transitions,
+      delay: -.2/transitions,
       opacity: 1,
       ease: 'none'
     })
@@ -123,8 +123,8 @@ export default function Legacy5({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "250vh"}}>
-        <Slide index={index} subslides={2.5} animate={mobileAnimation}>
+      <MobileView style={{height: "300vh"}}>
+        <Slide index={index} subslides={3} animate={mobileAnimation}>
           <Block>
             <Layer>
               <P ref={pRef} mobile css={css`margin-bottom: 20px;`}>

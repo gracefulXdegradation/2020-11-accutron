@@ -9,8 +9,6 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-window.ScrollTrigger = ScrollTrigger;
-
 export default function Legacy5({ index }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
