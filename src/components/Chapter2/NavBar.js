@@ -1,45 +1,19 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
+import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
-import { Layer } from '../UIKit';
+import { Circle, Layer, Divider, Row, Column, Block, ChapterCaption, Logo } from '../UIKit';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const NavRoot = styled.div`
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-`;
-
-const Circle = styled.div`
-  width: ${props => props.width}px;
-  height: ${props => props.width}px;
-  border: 1px solid ${props => props.theme.fontParagraph};
-  border-radius: 50%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  background: ${props => props.theme.bgColor};
-
-  &:after {
-    content: '';
-    height: 100%;
-    width: 1px;
-    background-color: ${props => props.theme.fontParagraph};
-  }
-`;
 
 export default function NavBar({ sliderRef }) {
   const { slideHeading } = useNavBar();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
+  const dividerContainerRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -61,45 +35,70 @@ export default function NavBar({ sliderRef }) {
   }, [sliderRef])
 
   return (
-    <NavRoot ref={pinRef}>
-      <Layer>
-        <div css={css`
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-direction: column;
-        `}>
-          <div css={css`
-            display: flex;
-            align-items: center;
-            flex-direction: column;
+    <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
+      <BrowserView>
+        <Layer>
+          {/* <Column h="100%" w="100%" justify="space-between" align="center"> */}
+          <Column align="center">
+            <Column align="center" css={css`margin-top: 32px;`}>
+              <Circle ref={logoRef} size="m" />
+              <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+            </Column>
+            <H3 alternative css={css`margin-top: 8px;`}>{slideHeading}</H3>
+          </Column>
+            {/* <Divider vertical />
+            <H3 css={css`margin-top: 8px;`}>{slideHeading}</H3>
+            <Divider vertical />
+            <Column align="center" css={css`padding: 30px 0 50px;`}>
+              <Circle size="m" css={css`transform: rotateZ(90deg);`} />
+              <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+            </Column>
+          </Column> */}
+        </Layer>
+        <Layer fullScreen>
+          <Row h="100%" align="center" justify="space-between">
+            <Divider length="90px" />
+            <Column align="center" css={css`margin: 24px;`}>
+              <Circle size="m" />
+              <ChapterCaption>
+                <H4>Chapter 1</H4>
+              </ChapterCaption>
+            </Column>
+            <Divider />
+            <Column align="center" css={css`margin: 24px;`}>
+              <Circle size="m">
+                <Logo />
+              </Circle>
+            </Column>
+            <Divider length="90px" />
+          </Row>
+        </Layer>
+      </BrowserView>
 
-            margin: 40px 0;
-            padding: 20px 0;
-          `}>
-            <Circle ref={logoRef} size="m" />
-            <div css={css`margin-top: 20px;`}>
-              <H4>Chapter 2</H4>
-            </div>
-            <H3 alternative>{slideHeading}</H3>
-          </div>
-          <div css={css`
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-
-            margin: 40px 0;
-            padding: 20px 0;
-          `}>
-            <Circle size="m" />
-            <div css={css`margin-top: 20px;`}>
-              <H4>Chapter 1</H4>
-            </div>
-          </div>
-        </div>
-      </Layer>
-    </NavRoot>
+      <MobileView>
+        <Layer>
+          <Column w="100%" h="100%">
+            <Column align="center" css={css`padding-bottom: 20px;`}>
+              <Block css={css`padding-top: 50px;`}>
+                <Circle ref={logoRef} size="s" />
+                <Layer top="0">
+                  <Row h="100%" justify="center">
+                    <Divider vertical length="35px" />
+                  </Row>
+                </Layer>
+              </Block>
+              <H4 alternative mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
+              <H3 css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
+            </Column>
+            <Column ref={dividerContainerRef} align="flex-end" css={css`flex: 1;`} w="35px">
+              <Divider vertical />
+            </Column>
+            <Row justify="center">
+              <H4 mobile css={css`margin: 25px 0 29px; white-space: nowrap;`}>Chapter 2</H4>
+            </Row>
+          </Column>
+        </Layer>
+      </MobileView>
+    </Layer>
   );
 };

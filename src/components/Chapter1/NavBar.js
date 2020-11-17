@@ -47,7 +47,7 @@ export default function NavBar({ sliderRef }) {
             <H3 css={css`margin-top: 8px;`}>{slideHeading}</H3>
             <Divider vertical />
             <Column align="center" css={css`padding: 30px 0 50px;`}>
-              <Circle size="m" css={css`transform: rotateZ(90deg);`} />
+              <Circle size="m" rotation="90" />
               <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
             </Column>
           </Column>

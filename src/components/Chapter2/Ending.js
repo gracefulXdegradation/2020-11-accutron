@@ -102,7 +102,7 @@ export default function Ending({ nextChapter }) {
               <Divider ref={leftDivRef} length="0" />
             </Row>
             <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`} onClick={nextChapter}>
-              <Circle size="xl" rotation="90" />
+              <Circle size="xl" css={css`transform: rotateZ(90deg);`} />
               <ChapterCaption>
                 <H4>Chapter 2</H4>
               </ChapterCaption>
@@ -152,7 +152,7 @@ export default function Ending({ nextChapter }) {
                 <Row align="center">
                   <Divider css={css`opacity: 0;`} />
                   <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px;`} onClick={nextChapter}>
-                    <Circle size="xl" rotation="90" />
+                    <Circle size="xl" css={css`transform: rotateZ(90deg);`} />
                     <ChapterCaption>
                       <H4>Chapter 2</H4>
                     </ChapterCaption>

@@ -7,8 +7,8 @@ import { themes, typefaceHeader } from '../styles/const';
 import GlobalStyle from '../styles/global';
 import Chapter1 from './Chapter1';
 import Chapter1Header from './Chapter1/ChapterHead';
-import Chapter2, { Header as Chapter2Header} from './Chapter2';
-import { Row } from './UIKit';
+import Chapter2 from './Chapter2';
+import Chapter2Header from './Chapter2/ChapterHead';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -77,11 +77,11 @@ function Layout() {
               <Chapter1 nextChapter={toChapter(1)} />
             </ThemeProvider>
           }
-          {/* { chapter === 1 && 
+          { chapter === 1 && 
             <ThemeProvider theme={themes.light}>
               <Chapter2 />
             </ThemeProvider>
-          } */}
+          }
         </div>
     </Root>
   );
