@@ -82,8 +82,8 @@ export default function TheSpaceview({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "300vh"}}>
-        <Slide index={index} startVisible subslides={3} animate={desktopAnimation}>
+      <BrowserView style={{height: "400vh"}}>
+        <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
           <Row w="50%" h="100%" justify="flex-end" align="center">
             <HalfWatches size={536} img={AccutronSpaceviewAlphaImg} />
           </Row>
@@ -97,9 +97,10 @@ export default function TheSpaceview({ index }) {
             
             <Layer ref={slide2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`margin-left: 32px; max-width: 520px;`}>
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
                   The original Accutron Spaceview – arguably its most popular and visually peculiar watch – was never meant for mass production.
-                  <br /><br />
+                </P>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
                   The Spaceview of yesteryear featured a deconstructed outer case design that exposed the inner workings of the watch and was only provided to retailers as display units to help explain how the innovative technology worked. 
                 </P>
               </Column>
@@ -115,9 +116,10 @@ export default function TheSpaceview({ index }) {
 
             <Layer ref={slide4Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`margin-left: 32px; max-width: 520px;`}>
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
                   Perhaps it was the Spaceview’s radical design, but eagle-eyed passersby started asking about the funky new watch in jewelry shop windows assuming it was a standard model. 
-                  <br /><br />
+                </P>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
                   Not wanting to pass up a sale, dealers were happy to offer up their display units,
                 </P>
               </Column>
@@ -133,8 +135,8 @@ export default function TheSpaceview({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "300vh"}}>
-        <Slide index={index} startVisible subslides={3} animate={desktopAnimation}>
+      <MobileView style={{height: "400vh"}}>
+        <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
           <Row h="100%" align="center">
             <Row w="50%" h="100%" justify="flex-end" align="center">
               <HalfWatches size={376} img={AccutronSpaceviewAlphaImg} />

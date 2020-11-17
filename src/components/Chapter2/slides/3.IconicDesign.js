@@ -1,10 +1,8 @@
 import React, { useRef } from 'react';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography';
 import SoldierImg from '../../../assets/2ES6A002_Soldier.png'
-import AccutronSpaceviewAlphaImg from '../../../assets/1961_Accutron-SpaceviewAlpha.png'
+import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
@@ -12,179 +10,158 @@ import HalfWatches from '../../HalfWatches';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Origins1({ index }) {
-  const slide1Ref = useRef(null)
-  const slide2Ref = useRef(null)
-  const slide3Ref = useRef(null)
-  const slide4Ref = useRef(null)
-  const slide5Ref = useRef(null)
+export default function IconicDesign2({ index }) {
+  const p1Ref = useRef(null);
+  const h1Ref = useRef(null);
+  const watchRef = useRef(null);
+  const p2Ref = useRef(null);
+  const h2Ref = useRef(null);
 
-  const desktopAnimation = (el, props) => {
-    return gsap.timeline({
+  const animation = (slide, props) => {
+    const tl = gsap.timeline({
       scrollTrigger:{
         ...props,
-        trigger: el,
-        pin: el,
+        trigger: slide,
+        pin: slide,
         pinSpacing: false,
         scrub: true,
       }
     })
-    .to(slide1Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide2Ref.current, {
-      duration: 1,
+    .to(slide, {
       opacity: 1,
-      ease: 'none'
-    })
-    .to(slide2Ref.current, {
       duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide3Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide3Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide4Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide4Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide5Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
+      ease: 'none',
+    });
+
+    tl.to(p1Ref.current, {
       opacity: 0,
       duration: 1,
       delay: .5,
       ease: 'none',
     })
+
+    tl.to(h1Ref.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'none',
+    })
+    tl.to(h1Ref.current, {
+      opacity: 0,
+      duration: 1,
+      delay: .5,
+      ease: 'none',
+    })
+
+    tl.to(watchRef.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'none',
+    })
+
+    tl.to(p2Ref.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'none',
+    })
+    tl.to(p2Ref.current, {
+      opacity: 0,
+      duration: 1,
+      delay: .5,
+      ease: 'none',
+    })
+
+    tl.to(h2Ref.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'none',
+    })
+
+    tl.to(slide, {
+      opacity: 0,
+      duration: 1,
+      delay: .5,
+      ease: 'none',
+    });
+
+    return tl;
   }
   
   return (
     <>
-      <BrowserView style={{height: "300vh"}}>
-        <Slide index={index} startVisible subslides={3} animate={desktopAnimation}>
-          <Row w="50%" h="100%" justify="flex-end" align="center">
-            <HalfWatches size={536} img={AccutronSpaceviewAlphaImg} />
-          </Row>
-          
+      <BrowserView style={{height: "700vh"}}>
+        <Slide index={index} subslides={7} animate={animation}>
           <Row w="50%" h="100%">
-            <Layer ref={slide1Ref}>
-              <Row h="100%" justify="flex-start" align="center">
-                <HalfWatches size={536} img={SoldierImg} right />
-              </Row>
-            </Layer>
-            
-            <Layer ref={slide2Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`margin-left: 32px; max-width: 520px;`}>
-                  The original Accutron Spaceview – arguably its most popular and visually peculiar watch – was never meant for mass production.
-                  <br /><br />
-                  The Spaceview of yesteryear featured a deconstructed outer case design that exposed the inner workings of the watch and was only provided to retailers as display units to help explain how the innovative technology worked. 
+            <Layer ref={p1Ref}>
+              <Column w="100%" h="100%" align="flex-end" justify="center">
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 610px; padding: 20px;`}>
+                  The Spaceview 2020 has been visually and internally redesigned with the world’s first electrostatic energy movement in a timepiece, promising accuracy to within five seconds per month.
+                </P>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 610px; padding: 20px;`}>
+                  Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
                 </P>
               </Column>
             </Layer>
 
-            <Layer ref={slide3Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <H4 css={css`margin-left: 32px; max-width: 520px;`}>
-                  But potential customers had other ideas. 
+            <Layer ref={h1Ref} css={css`opacity: 0;`}>
+              <Column w="100%" h="100%" align="flex-end" justify="center">
+                <H4 align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 50px 0; margin: 0 32px;`}>
+                  While more precise timekeeping is always welcome,
+                </H4>
+                <H4 align="right" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px;`}>
+                  it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.
                 </H4>
               </Column>
             </Layer>
 
-            <Layer ref={slide4Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`margin-left: 32px; max-width: 520px;`}>
-                  Perhaps it was the Spaceview’s radical design, but eagle-eyed passersby started asking about the funky new watch in jewelry shop windows assuming it was a standard model. 
-                  <br /><br />
-                  Not wanting to pass up a sale, dealers were happy to offer up their display units,
+            <Layer ref={watchRef} css={css`opacity: 0;`}>
+              <Row w="100%" h="100%" justify="flex-end" align="center">
+                <HalfWatches size={536} img={SoldierImg} />
+              </Row>
+            </Layer>
+          </Row>
+
+          <Row w="50%" h="100%" justify="flex-start" align="center">
+            <HalfWatches size={536} right img={SoldierImg} />
+
+            <Layer ref={p2Ref} css={css`opacity: 0;`}>
+              <Column h="100%" w="100%" justify="center" align="center">
+                <P css={css`transform: translateY(50%); padding: 20px; max-width: 380px;`}>
+                  The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents. 
                 </P>
               </Column>
             </Layer>
-
-            <Layer ref={slide5Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <HalfWatches size={536} img={AccutronSpaceviewAlphaImg} right />
-              </Column>
-            </Layer>
           </Row>
-          
+
+          <Layer ref={h2Ref} css={css`opacity: 0;`}>
+            <Column w="100%" h="100%" justify="flex-end" align="center">
+              <H4 align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
+                The best part is that it comes in two designs to suit different tastes:
+              </H4>
+            </Column>
+          </Layer>
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "300vh"}}>
-        <Slide index={index} startVisible subslides={3} animate={desktopAnimation}>
-          <Row h="100%" align="center">
-            <Row w="50%" h="100%" justify="flex-end" align="center">
-              <HalfWatches size={376} img={AccutronSpaceviewAlphaImg} />
-            </Row>
-
-            <Row w="50%" h="100%">
-              <Layer ref={slide1Ref}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches size={376} img={SoldierImg} right />
-                </Column>
-              </Layer>
-
-              <Layer ref={slide2Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <P mobile css={css`margin-left: 8px; max-width: 165px;`}>
-                    The original Accutron Spaceview – arguably its most popular and visually peculiar watch – was never meant for mass production.
-                    <br /><br />
-                    The Spaceview of yesteryear featured a deconstructed outer case design that exposed the inner workings of the watch and was only provided to retailers as display units to help explain how the innovative technology worked. 
-                  </P>
-                </Column>
-              </Layer>
-
-              <Layer ref={slide3Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <H4 mobile css={css`margin-left: 8px; max-width: 165px;`}>
-                    But potential customers had other ideas. 
-                  </H4>
-                </Column>
-              </Layer>
-
-              <Layer ref={slide4Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <P mobile css={css`margin-left: 8px; max-width: 165px;`}>
-                    Perhaps it was the Spaceview’s radical design, but eagle-eyed passersby started asking about the funky new watch in jewelry shop windows assuming it was a standard model. 
-                    <br /><br />
-                    Not wanting to pass up a sale, dealers were happy to offer up their display units,
-                  </P>
-                </Column>
-              </Layer>
-
-              <Layer ref={slide5Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches size={376} img={AccutronSpaceviewAlphaImg} right />
-                </Column>
-              </Layer>
-            </Row>
-          </Row>
+      {/* <MobileView style={{height: "300vh"}}>
+        <Slide index={index} subslides={3} animate={animation}>
+          <Column w="100%" h="100%">
+            <Layer ref={hRef0}>
+              <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
+                <H4 mobile align="center">
+                  unwittingly setting the stage for the Spaceview to become an official Accutron model and Bulova’s most sought after watch at the time.
+                </H4>
+              </Column>
+            </Layer>
+            <Layer ref={hRef} css={css`opacity: 0;`}>
+              <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
+                <H4 mobile align="center">
+                  Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
+                </H4>
+              </Column>
+            </Layer>
+          </Column>
         </Slide>
-      </MobileView>
+      </MobileView> */}
     </>
   );
 };

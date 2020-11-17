@@ -68,7 +68,7 @@ export default function IconicDesign2({ index }) {
       </BrowserView>
 
       <MobileView style={{height: "300vh"}}>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide index={index} subslides={3} animate={animation}>
           <Column w="100%" h="100%">
             <Layer ref={hRef0}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
