@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import NavBar from './NavBar';
 import NavBarProvider from '../../providers/NavBarProvider';
-import Origins1 from './slides/1.Origins';
+import TheSpaceview1 from './slides/1.TheSpaceview';
+import Legacy6 from './slides/6.Legacy';
 
 const SliderRoot = styled.div`
   position: relative;
@@ -17,8 +18,9 @@ export default function Slider() {
   return (
     <SliderRoot ref={pinSectionRef}>
       <NavBarProvider headings={headings}>
-        <Origins1 index={0} />
         <NavBar sliderRef={pinSectionRef} />
+        <TheSpaceview1 index={0} />
+        <Legacy6 index={2} />
       </NavBarProvider>
     </SliderRoot>
   );

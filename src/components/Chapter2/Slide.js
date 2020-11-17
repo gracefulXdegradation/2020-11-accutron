@@ -20,7 +20,7 @@ export const animateFadeOut = (el, props) => {
       ...props,
       trigger: el,
       pin: el,
-      // pinSpacing: false,
+      pinSpacing: false,
       scrub: true,
     },
     onComplete: () => {
@@ -110,7 +110,7 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
       </BrowserView>
       <MobileView>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
-          <Column ref={slideInnerRef} h="100vh" css={css`padding: 228px 60px 49px;`}>
+          <Column ref={slideInnerRef} h="100vh" css={css`padding: 228px 0 77px;`}>
             {children}
           </Column>
         </SlideRoot>

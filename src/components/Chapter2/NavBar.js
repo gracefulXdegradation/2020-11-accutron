@@ -82,7 +82,7 @@ export default function NavBar({ sliderRef }) {
             </Column>
             <Row align="center" css={css`margin: 12px 0 16px;`}>
               <Row />
-              <Column align="center" css={css`margin: 0 16px;`}>
+              <Column align="center" css={css`padding: 0 16px;`}>
                 <Circle size="s" logo />
               </Column>
               <Divider />

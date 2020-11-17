@@ -19,7 +19,7 @@ const Watches = React.forwardRef((props, ref) => (
   </div>
 ))
 
-export default function Origins1({ index, last }) {
+export default function Origins1({ index }) {
   const mobMechanismRef = useRef(null)
   const mobWatchesRef = useRef(null)
 
