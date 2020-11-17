@@ -8,19 +8,19 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
-const Image = styled.div`
-  width: 200%;
+const Image = styled.img`
   height: 100%;
-  background: url(${props => props.img}) no-repeat;
-  background-position: center center;
+  object-fit: contain;
+  width: 200%;
+  max-width: 200%;
   transform: translateX(${props => props.right ? '-50%' : '0'});
 `;
 
-const ImageHalfDisc = ({ size, right, img }) => {
+const HalfWatches = ({ size, right, img }) => {
   return (
   <Wrapper size={size} right={right}>
-    <Image img={img} right={right} />
+    <Image src={img} right={right} />
   </Wrapper>
 )};
 
-export default ImageHalfDisc
+export default HalfWatches

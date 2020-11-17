@@ -8,7 +8,7 @@ import AccutronSpaceviewAlphaImg from '../../../assets/1961_Accutron-SpaceviewAl
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import ImageHalfDisc from '../../ImageHalfDisc';
+import HalfWatches from '../../HalfWatches';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,37 +80,19 @@ export default function Origins1({ index }) {
       ease: 'none',
     })
   }
-
-  // const mobileAnimation = (el, props) => {
-  //   return gsap.timeline({
-  //     scrollTrigger:{
-  //       ...props,
-  //       trigger: el,
-  //       pin: el,
-  //       pinSpacing: false,
-  //       scrub: true,
-  //     }
-  //   })
-  //   .to(el, {
-  //     opacity: 0,
-  //     duration: 1,
-  //     delay: .5,
-  //     ease: 'none',
-  //   })
-  // }
   
   return (
     <>
       <BrowserView style={{height: "300vh"}}>
         <Slide index={index} startVisible subslides={3} animate={desktopAnimation}>
           <Row w="50%" h="100%" justify="flex-end" align="center">
-            <ImageHalfDisc size={536} img={AccutronSpaceviewAlphaImg} />
+            <HalfWatches size={536} img={AccutronSpaceviewAlphaImg} />
           </Row>
           
           <Row w="50%" h="100%">
             <Layer ref={slide1Ref}>
               <Row h="100%" justify="flex-start" align="center">
-                <ImageHalfDisc size={536} img={SoldierImg} right />
+                <HalfWatches size={536} img={SoldierImg} right />
               </Row>
             </Layer>
             
@@ -144,7 +126,7 @@ export default function Origins1({ index }) {
 
             <Layer ref={slide5Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <ImageHalfDisc size={536} img={AccutronSpaceviewAlphaImg} right />
+                <HalfWatches size={536} img={AccutronSpaceviewAlphaImg} right />
               </Column>
             </Layer>
           </Row>
@@ -156,13 +138,13 @@ export default function Origins1({ index }) {
         <Slide index={index} startVisible subslides={3} animate={desktopAnimation}>
           <Row h="100%" align="center">
             <Row w="50%" h="100%" justify="flex-end" align="center">
-              <ImageHalfDisc size={376} img={AccutronSpaceviewAlphaImg} />
+              <HalfWatches size={376} img={AccutronSpaceviewAlphaImg} />
             </Row>
 
             <Row w="50%" h="100%">
               <Layer ref={slide1Ref}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <ImageHalfDisc size={376} img={SoldierImg} right />
+                  <HalfWatches size={376} img={SoldierImg} right />
                 </Column>
               </Layer>
 
@@ -196,7 +178,7 @@ export default function Origins1({ index }) {
 
               <Layer ref={slide5Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <ImageHalfDisc size={376} img={AccutronSpaceviewAlphaImg} right />
+                  <HalfWatches size={376} img={AccutronSpaceviewAlphaImg} right />
                 </Column>
               </Layer>
             </Row>
