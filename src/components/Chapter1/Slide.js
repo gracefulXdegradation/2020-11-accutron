@@ -14,99 +14,90 @@ const SlideRoot = styled.section`
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
 
-const animateDefault = (el, { startVisible, last }) => {
-  if (startVisible) {
-    return gsap.timeline({
-      scrollTrigger:{
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      },
-      onComplete: () => {
-        gsap.set(el, { y: 0 })
-      }
-    })
-    .set(el, {
-      height: '50%',
-      opacity: 1
-    })
-    .to(el, {
-      opacity: 0,
-      duration: 1,
-      ease: 'none',
-    })
-  } else if (last) {
-    return gsap.timeline({
-      scrollTrigger:{
-        trigger: el,
-        pin: el,
-        scrub: true,
-      },
-      onComplete: () => {
-        gsap.set(el, { y: 0 })
-      }
-    })
-    .set(el, {
-      height: '50%'
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-  } else {
-    return gsap.timeline({
-      scrollTrigger:{
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      },
-      onComplete: () => {
-        gsap.set(el, { y: 0 })
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: .5,
-      ease: 'none',
-    })
-    .to(el, {
-      opacity: 0,
-      duration: .5,
-      ease: 'none',
-    })
-  }
+export const animateFadeOut = (el, props) => {
+  return gsap.timeline({
+    scrollTrigger:{
+      ...props,
+      trigger: el,
+      pin: el,
+      pinSpacing: false,
+      scrub: true,
+    },
+    onComplete: () => {
+      gsap.set(el, { y: 0 })
+    }
+  })
+  .set(el, {
+    height: '50%',
+    opacity: 1
+  })
+  .to(el, {
+    opacity: 0,
+    duration: 1,
+    ease: 'none',
+  })
 }
 
-const Slide = ({ index, children, startVisible, last, subslides = 1, animate = animateDefault }) =>  {
+export const animateFadeIn = (el, props) => {
+  return gsap.timeline({
+    scrollTrigger:{
+      ...props,
+      trigger: el,
+      pin: el,
+      scrub: true,
+    },
+    onComplete: () => {
+      gsap.set(el, { y: 0 })
+    }
+  })
+  .set(el, {
+    height: '50%'
+  })
+  .to(el, {
+    opacity: 1,
+    duration: 1,
+    ease: 'none',
+  })
+}
+
+export const animateFadeInOut = (el, props) => {
+  return gsap.timeline({
+    scrollTrigger:{
+      ...props,
+      trigger: el,
+      pin: el,
+      pinSpacing: false,
+      scrub: true,
+    },
+    onComplete: () => {
+      gsap.set(el, { y: 0 })
+    }
+  })
+  .to(el, {
+    opacity: 1,
+    duration: .5,
+    ease: 'none',
+  })
+  .to(el, {
+    opacity: 0,
+    duration: .5,
+    ease: 'none',
+  })
+}
+
+const Slide = ({ index, children, startVisible, last, subslides = 1, animate }) =>  {
   const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
   const slideInnerRef = useRef(null)
 
   useEffect(() => {
     const tl = animate(slideRef.current, {
-      startVisible,
-      last
+      onEnter: () => setSlideHeading(index),
+      onEnterBack: () => setSlideHeading(index),
     });
 
     return () => tl.kill();
-  }, [startVisible, last, animate])
-
-  useEffect(() => {
-    const sc = ScrollTrigger.create({
-      trigger: slideInnerRef.current || slideRef.current,
-      start: 'center center',
-      onToggle: (self) => {
-        if (self.isActive) {
-          setSlideHeading(index);
-        }
-      },
-    });
-
-    return () => sc.kill()
-	}, [index, setSlideHeading, slideRef, slideInnerRef]);
+  }, [startVisible, last, animate, index, setSlideHeading])
 
   return (
     <>

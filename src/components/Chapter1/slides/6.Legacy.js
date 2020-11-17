@@ -9,6 +9,8 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
+window.ScrollTrigger = ScrollTrigger;
+
 export default function Legacy5({ index }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
@@ -17,18 +19,19 @@ export default function Legacy5({ index }) {
   const mobLayer2 = useRef(null)
   const mobHead2 = useRef(null)
 
-  const desktopAnimation = (el) => {
+  const desktopAnimation = (el, props) => {
     const transitions = 3;
 
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         // pinSpacing: false,
         scrub: true,
         start: 'top top',
         end: 'bottom bottom',
-      }
+      },
     })
     .to(el, {
       opacity: 1,
@@ -47,11 +50,12 @@ export default function Legacy5({ index }) {
     })
   }
 
-  const mobileAnimation = (el) => {
+  const mobileAnimation = (el, props) => {
     const transitions = 6;
 
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         scrub: true,

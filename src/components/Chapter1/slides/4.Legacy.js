@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
 import Image from '../../../assets/ch1-legacy-1.png'
 import { Column, LeftHalf, RightHalf, SlideImage } from '../../UIKit';
-import Slide from '../Slide';
+import Slide, { animateFadeInOut } from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,11 +13,12 @@ export default function Legacy4({ index }) {
   const copyRef = useRef(null)
   const imageRef = useRef(null)
 
-  const mobileAnimation = (el) => {
+  const mobileAnimation = (el, props) => {
     const transitions = 4;
 
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         pinSpacing: false,
@@ -49,7 +50,7 @@ export default function Legacy4({ index }) {
   return (
     <>
       <BrowserView>
-        <Slide index={index}>
+        <Slide index={index} animate={animateFadeInOut}>
           <LeftHalf>
             <Column h="100%" justify="center">
               <SlideImage src={Image} alt="Accutron watches" />

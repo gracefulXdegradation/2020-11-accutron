@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H2, H4, P } from '../../../styles/typography';
 import TunerImage from '../../../assets/ch1-s3-tuner.png'
 import { Column, Layer, LeftHalf, SlideImage } from '../../UIKit';
-import Slide from '../Slide';
+import Slide, { animateFadeInOut } from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,11 +13,12 @@ export default function Technology3({ index }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
 
-  const mobileAnimation = (el) => {
+  const mobileAnimation = (el, props) => {
     const transitions = 4;
 
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         pinSpacing: false,
@@ -49,7 +50,7 @@ export default function Technology3({ index }) {
   return (
     <>
       <BrowserView>
-        <Slide index={index}>
+        <Slide index={index} animate={animateFadeInOut}>
           <LeftHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
               <H2 alternative>

@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 import React, { useEffect, useRef } from 'react';
-import { BrowserView } from "react-device-detect";
+import { BrowserView, isBrowser } from "react-device-detect";
 import styled from '@emotion/styled';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { H2, H4, P } from "../../styles/typography";
@@ -27,33 +27,35 @@ export default function Ending({ nextChapter }) {
   const chap2Ref = useRef(null)
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: rootRef.current,
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: true,
-      },
-      onComplete: () => {
-        gsap.set(chap2Ref.current, {
-          opacity: 1
-        })
-      }
-    })
-    .to(topDivRef.current, {
-      height: '100%',
-      duration: 1,
-      delay: .5,
-      ease: 'none'
-    })
-    .to([leftDivRef.current, rightDivRef.current], {
-      width: '100%',
-      duration: 1,
-      delay: -1,
-      ease: 'none'
-    })
+    if (isBrowser) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: rootRef.current,
+          start: 'top center',
+          end: 'bottom bottom',
+          scrub: true,
+        },
+        onComplete: () => {
+          gsap.set(chap2Ref.current, {
+            opacity: 1
+          })
+        }
+      })
+      .to(topDivRef.current, {
+        height: '100%',
+        duration: 1,
+        delay: .5,
+        ease: 'none'
+      })
+      .to([leftDivRef.current, rightDivRef.current], {
+        width: '100%',
+        duration: 1,
+        delay: -1,
+        ease: 'none'
+      })
 
-    return () => tl.kill()
+      return () => tl.kill()
+    }
   }, [])
 
   return (

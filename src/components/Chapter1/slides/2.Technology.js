@@ -37,9 +37,10 @@ export default function Technology2({ index }) {
   const hRef = useRef(null)
   const galleryRef = useRef(null)
 
-  const desktopAnimation = (el) => {
+  const desktopAnimation = (el, props) => {
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         pinSpacing: false,
@@ -78,11 +79,12 @@ export default function Technology2({ index }) {
     })
   }
 
-  const mobileAnimation = (el) => {
+  const mobileAnimation = (el, props) => {
     const transitions = 12;
 
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         pinSpacing: false,

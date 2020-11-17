@@ -16,11 +16,12 @@ export default function Legacy5({ index }) {
   const pRef = useRef(null)
   const hRef = useRef(null)
 
-  const desktopAnimation = (el) => {
+  const desktopAnimation = (el, props) => {
     const transitions = 3;
 
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         pinSpacing: false,
@@ -50,11 +51,12 @@ export default function Legacy5({ index }) {
     })
   }
 
-  const mobileAnimation = (el) => {
+  const mobileAnimation = (el, props) => {
     const transitions = 5;
 
     return gsap.timeline({
       scrollTrigger: {
+        ...props,
         trigger: el,
         pin: el,
         pinSpacing: false,

@@ -7,7 +7,7 @@ import LeftBgImage from '../../../assets/ch1-s1-l.png'
 import WatchesFrontImg from '../../../assets/ch1-s1-r1.png'
 import WatchesBackImg from '../../../assets/ch1-s1-r2.png'
 import { Column, RightHalf, Row, SlideImage } from '../../UIKit';
-import Slide from '../Slide';
+import Slide, { animateFadeOut } from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,9 +23,10 @@ export default function Origins1({ index, last }) {
   const mobMechanismRef = useRef(null)
   const mobWatchesRef = useRef(null)
 
-  const mobileSlideAnimation = (el) => {
+  const mobileSlideAnimation = (el, props) => {
     return gsap.timeline({
       scrollTrigger:{
+        ...props,
         trigger: el,
         pin: el,
         pinSpacing: false,
@@ -64,7 +65,7 @@ export default function Origins1({ index, last }) {
   return (
     <>
       <BrowserView>
-        <Slide index={index} startVisible>
+        <Slide index={index} startVisible animate={animateFadeOut}>
           <Row w="50%" h="100%">
             <SlideImage greedy src={LeftBgImage} alt="Accutron mechanism" />
           </Row>
