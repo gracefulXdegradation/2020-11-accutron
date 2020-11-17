@@ -13,11 +13,15 @@ gsap.registerPlugin(ScrollTrigger);
 export default function IconicDesign2({ index }) {
   const p1Ref = useRef(null);
   const h1Ref = useRef(null);
+  const h15Ref = useRef(null);
   const watchRef = useRef(null);
+  const watch2Ref = useRef(null);
   const p2Ref = useRef(null);
   const h2Ref = useRef(null);
 
   const animation = (slide, props) => {
+    const isMobile = !!h15Ref.current
+
     const tl = gsap.timeline({
       scrollTrigger:{
         ...props,
@@ -52,11 +56,33 @@ export default function IconicDesign2({ index }) {
       ease: 'none',
     })
 
+    if (isMobile) {
+      tl.to(h15Ref.current, {
+        opacity: 1,
+        duration: 1,
+        ease: 'none',
+      })
+      tl.to(h15Ref.current, {
+        opacity: 0,
+        duration: 1,
+        delay: .5,
+        ease: 'none',
+      })
+    }
+
     tl.to(watchRef.current, {
       opacity: 1,
       duration: 1,
       ease: 'none',
     })
+
+    if (isMobile) {
+      tl.to([watchRef.current, watch2Ref.current], {
+        top: 50,
+        duration: .5,
+        ease: 'none',
+      })
+    }
 
     tl.to(p2Ref.current, {
       opacity: 1,
@@ -69,6 +95,15 @@ export default function IconicDesign2({ index }) {
       delay: .5,
       ease: 'none',
     })
+
+    if (isMobile) {
+      tl.to([watchRef.current, watch2Ref.current], {
+        opacity: 0,
+        duration: 1,
+        delay: -.5,
+        ease: 'none',
+      })
+    }
 
     tl.to(h2Ref.current, {
       opacity: 1,
@@ -142,26 +177,69 @@ export default function IconicDesign2({ index }) {
         </Slide>
       </BrowserView>
 
-      {/* <MobileView style={{height: "300vh"}}>
-        <Slide index={index} subslides={3} animate={animation}>
-          <Column w="100%" h="100%">
-            <Layer ref={hRef0}>
-              <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-                <H4 mobile align="center">
-                  unwittingly setting the stage for the Spaceview to become an official Accutron model and Bulova’s most sought after watch at the time.
+      <MobileView style={{height: "800vh"}}>
+        <Slide index={index} subslides={8} animate={animation}>
+          <Row h="100%" align="center">
+            <Row w="50%" h="100%">
+              <Layer ref={p1Ref}>
+                <Column w="100%" h="100%" align="flex-end" justify="center">
+                  <P mobile css={css`margin-right: 8px; max-width: 146px;`}>
+                    The Spaceview 2020 has been visually and internally redesigned with the world’s first electrostatic energy movement in a timepiece, promising accuracy to within five seconds per month.
+                    <br /><br />
+                    Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
+                  </P>
+                </Column>
+              </Layer>
+
+              <Layer ref={h1Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-end" justify="center">
+                  <H4 mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
+                    While more precise timekeeping is always welcome,
+                  </H4>
+                </Column>
+              </Layer>
+
+              <Layer ref={h15Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-end" justify="center">
+                  <H4 mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
+                    it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.
+                  </H4>
+                </Column>
+              </Layer>
+
+              <Layer ref={watchRef} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-end" justify="center">
+                  <HalfWatches size={376} img={SoldierImg} />
+                </Column>
+              </Layer>
+            </Row>
+
+            <Row w="50%" h="100%" justify="flex-start" align="center">
+              <Layer ref={watch2Ref}>
+                <Column w="100%" h="100%" align="flex-start" justify="center">
+                  <HalfWatches size={376} right img={SoldierImg} />
+                </Column>
+              </Layer>
+            </Row>
+
+            <Layer ref={p2Ref} css={css`opacity: 0;`}>
+              <Column w="100%" h="100%" justify="flex-start" align="center">
+                <P mobile align="center" css={css`text-align: center; margin: 32px;`}>
+                  The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents. 
+                </P>
+              </Column>
+            </Layer>
+
+            <Layer ref={h2Ref} css={css`opacity: 0;`}>
+              <Column w="100%" h="100%" justify="center" align="center">
+                <H4 mobile align="center" css={css`text-align: center; margin: 60px;`}>
+                  The best part is that it comes in two designs to suit different tastes:
                 </H4>
               </Column>
             </Layer>
-            <Layer ref={hRef} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-                <H4 mobile align="center">
-                  Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
-                </H4>
-              </Column>
-            </Layer>
-          </Column>
+          </Row>
         </Slide>
-      </MobileView> */}
+      </MobileView>
     </>
   );
 };
