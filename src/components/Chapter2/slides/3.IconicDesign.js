@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
@@ -11,7 +12,7 @@ import HalfWatches from '../../HalfWatches';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function TheSpaceview({ index }) {
+export default function Origins1({ index }) {
   const slide1Ref = useRef(null)
   const slide2Ref = useRef(null)
   const slide3Ref = useRef(null)

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import NavBar from './NavBar';
 import NavBarProvider from '../../providers/NavBarProvider';
 import TheSpaceview1 from './slides/1.TheSpaceview';
+import IconicDesign2 from './slides/2.IconicDesign';
 import Legacy6 from './slides/6.Legacy';
 
 const SliderRoot = styled.div`
@@ -20,6 +21,7 @@ export default function Slider() {
       <NavBarProvider headings={headings}>
         <NavBar sliderRef={pinSectionRef} />
         <TheSpaceview1 index={0} />
+        <IconicDesign2 index={1} />
         <Legacy6 index={2} />
       </NavBarProvider>
     </SliderRoot>
