@@ -85,7 +85,7 @@ export const animateFadeInOut = (el, props) => {
   })
 }
 
-const Slide = ({ index, children, startVisible, last, subslides = 1, animate }) =>  {
+const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
   const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
   const slideInnerRef = useRef(null)
@@ -97,7 +97,7 @@ const Slide = ({ index, children, startVisible, last, subslides = 1, animate }) 
     });
 
     return () => tl.kill();
-  }, [startVisible, last, animate, index, setSlideHeading])
+  }, [animate, index, setSlideHeading])
 
   return (
     <>
