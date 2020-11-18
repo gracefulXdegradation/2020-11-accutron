@@ -16,30 +16,9 @@ export default function DNA6({ index }) {
   const svRef = useRef(null)
 
   const animation = (slide, props) => {
-    return gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: slide,
-        pin: slide,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(slide, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-  }
+    const isMobile = dnaRef.current
 
-  const mobileAnimation = (slide, props) => {
-    return gsap.timeline({
+    const tl = gsap.timeline({
       scrollTrigger:{
         ...props,
         trigger: slide,
@@ -54,24 +33,28 @@ export default function DNA6({ index }) {
       ease: 'none'
     })
 
-    .to(dnaRef.current, {
+    if (isMobile) {
+      tl.to(dnaRef.current, {
+        opacity: 0,
+        duration: 1,
+        delay: .5,
+        ease: 'none',
+      })
+      .to(svRef.current, {
+        duration: 1,
+        opacity: 1,
+        ease: 'none'
+      })
+    }
+
+    tl.to(slide, {
       opacity: 0,
       duration: 1,
       delay: .5,
       ease: 'none',
-    })
-    .to(svRef.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
     })
 
-    .to(slide, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
+    return tl
   }
   
   return (
@@ -98,7 +81,7 @@ export default function DNA6({ index }) {
       </BrowserView>
 
       <MobileView style={{height: "150vh"}}>
-        <Slide index={index} subslides={1.5} animate={mobileAnimation}>
+        <Slide index={index} subslides={1.5} animate={animation}>
           <Column h="100%" w="100%" justify="center" align="flex-start">
             <Column ref={dnaRef} w="100%">
               <HalfWatches right img={SoldierSportImg} alt="Accutron DNA" />

@@ -9,13 +9,15 @@ import Spaceview20204 from './slides/4.Spaceview2020';
 import DNA5 from './slides/5.DNA';
 import DNA6 from './slides/6.DNA';
 import Legacy7 from './slides/7.Legacy';
+import Legacy8 from './slides/8.Legacy';
+import Legacy11 from './slides/11.Legacy';
 
 const SliderRoot = styled.div`
   position: relative;
   overflow: hidden;
 `;
 
-const headings = ['the spaceview', 'iconic design', 'spaceview 2020', 'dna', 'the legacy collection']
+const headings = ['the spaceview', 'iconic design', 'spaceview 2020', 'dna', 'the legacy']
 
 export default function Slider() {
   const pinSectionRef = useRef(null);
@@ -30,7 +32,9 @@ export default function Slider() {
         <Spaceview20204 index={2} />
         <DNA5 index={3} />
         <DNA6 index={3} />
-        <Legacy7 index={2} />
+        <Legacy7 index={4} />
+        <Legacy8 index={4} />
+        <Legacy11 index={4} />
       </NavBarProvider>
     </SliderRoot>
   );
