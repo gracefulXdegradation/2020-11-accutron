@@ -8,7 +8,7 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function IconicDesign2({ index }) {
+export default function Legacy7({ index }) {
   const hRef = useRef(null);
   const hRef0 = useRef(null);
 

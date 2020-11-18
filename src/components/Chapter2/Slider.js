@@ -11,6 +11,7 @@ import DNA6 from './slides/6.DNA';
 import Legacy7 from './slides/7.Legacy';
 import Legacy8 from './slides/8.Legacy';
 import Legacy9 from './slides/9.Legacy';
+import Legacy10 from './slides/10.Legacy';
 import Legacy11 from './slides/11.Legacy';
 
 const SliderRoot = styled.div`
@@ -36,6 +37,7 @@ export default function Slider() {
         <Legacy7 index={4} />
         <Legacy8 index={4} />
         <Legacy9 index={4} />
+        <Legacy10 index={4} />
         <Legacy11 index={4} />
       </NavBarProvider>
     </SliderRoot>
