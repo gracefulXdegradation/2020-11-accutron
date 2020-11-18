@@ -95,7 +95,7 @@ export default function Legacy10({ index }) {
       </BrowserView>
 
       <MobileView style={{height: "300vh"}}>
-        <Slide index={index} subslides={4} animate={animation}>
+        <Slide index={index} subslides={3} animate={animation}>
           <Column w="100%" h="100%">
             <Layer ref={img1Ref}>
               <Column w="100%" h="100%" align="center" justify="center">
