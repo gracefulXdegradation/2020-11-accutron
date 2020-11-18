@@ -12,7 +12,7 @@ import { Watches } from '../../Watches';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function DNA({ index }) {
+export default function DNA5({ index }) {
   const watch1Ref = useRef(null)
   const watch2Ref = useRef(null)
   const watch3Ref = useRef(null)

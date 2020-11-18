@@ -7,7 +7,8 @@ import IconicDesign2 from './slides/2.IconicDesign';
 import IconicDesign3 from './slides/3.IconicDesign';
 import Spaceview20204 from './slides/4.Spaceview2020';
 import DNA5 from './slides/5.DNA';
-import Legacy6 from './slides/6.Legacy';
+import DNA6 from './slides/6.DNA';
+import Legacy7 from './slides/7.Legacy';
 
 const SliderRoot = styled.div`
   position: relative;
@@ -28,7 +29,8 @@ export default function Slider() {
         <IconicDesign3 index={1} />
         <Spaceview20204 index={2} />
         <DNA5 index={3} />
-        <Legacy6 index={2} />
+        <DNA6 index={3} />
+        <Legacy7 index={2} />
       </NavBarProvider>
     </SliderRoot>
   );
