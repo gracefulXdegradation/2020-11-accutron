@@ -7,7 +7,7 @@ import AccutronSpaceviewAlphaImg from '../../../assets/1961_Accutron-SpaceviewAl
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import HalfWatches from '../../HalfWatches';
+import { HalfWatches } from '../../Watches';
 
 gsap.registerPlugin(ScrollTrigger);
 

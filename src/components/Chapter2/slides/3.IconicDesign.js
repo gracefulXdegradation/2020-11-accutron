@@ -6,7 +6,7 @@ import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import HalfWatches from '../../HalfWatches';
+import { HalfWatches } from '../../Watches';
 
 gsap.registerPlugin(ScrollTrigger);
 
