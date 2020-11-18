@@ -5,6 +5,7 @@ import { Column, Layer, Row } from '../../UIKit';
 import CollectionWatches1 from '../../../assets/Collection-Watches-1.png'
 import CollectionWatches2 from '../../../assets/Collection-Watches-2.png'
 import CollectionWatches3 from '../../../assets/Collection-Watches-3.png'
+import CollectionWatches7 from '../../../assets/Collection-Watches-7.png'
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
@@ -107,7 +108,7 @@ export default function Legacy9({ index }) {
               <Watches src={CollectionWatches3} large alt="Collection Watches 3" />
             </Column>
             <Column ref={img4Ref} css={css`transform: translateX(${-shift * 3}%); opacity: 0;`}>
-              <Watches src={CollectionWatches3} large alt="Collection Watches 7" />
+              <Watches src={CollectionWatches7} large alt="Collection Watches 7" />
             </Column>
           </Row>
         </Slide>
@@ -133,7 +134,7 @@ export default function Legacy9({ index }) {
             </Layer>
             <Layer ref={img4Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="center" justify="center">
-                <Watches src={CollectionWatches3} alt="Collection Watches 7" />
+                <Watches src={CollectionWatches7} alt="Collection Watches 7" />
               </Column>
             </Layer>
           </Column>

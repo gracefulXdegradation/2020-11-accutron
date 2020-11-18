@@ -52,6 +52,10 @@ function Layout() {
     tl1.play()
   }
 
+  const toTop = (scrollUpDuration) => {
+    gsap.to(window, { duration: scrollUpDuration, scrollTo: 0 })
+  }
+
   const toChapterContent = () => {
     gsap.to(window, {
       duration: .6,
@@ -79,7 +83,7 @@ function Layout() {
           }
           { chapter === 1 && 
             <ThemeProvider theme={themes.light}>
-              <Chapter2 />
+              <Chapter2 prevChapter={toChapter(0)} toTop={toTop} />
             </ThemeProvider>
           }
         </div>

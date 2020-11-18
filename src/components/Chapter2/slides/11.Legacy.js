@@ -8,7 +8,7 @@ import CollectionWatches3 from '../../../assets/Collection-Watches-3.png'
 import CollectionWatches4 from '../../../assets/Collection-Watches-4.png'
 import CollectionWatches5 from '../../../assets/Collection-Watches-5.png'
 import CollectionWatches6 from '../../../assets/Collection-Watches-6.png'
-import CollectionWatches7 from '../../../assets/Collection-Watches-3.png'
+import CollectionWatches7 from '../../../assets/Collection-Watches-7.png'
 import { Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
@@ -118,15 +118,15 @@ export default function Legacy11({ index }) {
           <Layer ref={layer2Ref} css={css`opacity: 0;`}>
             <Column w="100%" h="100%">
               <Row h="50%" w="100%" justify="space-around" align="flex-end">
-                {[...watches.slice(0, 3), ...watches.slice(6)].map((img) => (
-                  <Column key={img}>
+                {[...watches.slice(0, 3), ...watches.slice(6)].map((img, i) => (
+                  <Column key={`${img}${i}`}>
                     <Watches src={img} alt={img} css={css`height: 165px;`} />
                   </Column>
                 ))}
               </Row>
               <Row h="50%" w="100%" justify="space-around" align="flex-start">
-              {watches.slice(3, 6).map((img) => (
-                <Column key={img}>
+              {watches.slice(3, 6).map((img, i) => (
+                <Column key={`${img}${i}`}>
                   <Watches src={img} alt={img} css={css`height: 165px;`} />
                 </Column>
               ))}

@@ -1,167 +1,97 @@
 import { css } from '@emotion/core';
-import React, { useEffect, useRef } from 'react';
-import { BrowserView, isBrowser, MobileView } from "react-device-detect";
-import styled from '@emotion/styled';
+import React from 'react';
+import { BrowserView, MobileView } from "react-device-detect";
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { H2, H4, P } from "../../styles/typography";
-import { Block, ChapterCaption, Circle, Column, Divider, Layer, Row } from "../UIKit";
-import EndingImage from '../../assets/ch1-ending.png';
+import { H4, P } from "../../styles/typography";
+import { Circle, Column, Divider, Row } from "../UIKit";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Image = styled.img`
-  object-fit: contain;
-  object-position: right;
-  height: 80%;
-  pointer-events: none;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-`;
-
-export default function Ending({ nextChapter }) {
-  const rootRef = useRef(null)
-  const topDivRef = useRef(null)
-  const leftDivRef = useRef(null)
-  const rightDivRef = useRef(null)
-  const chap2Ref = useRef(null)
-  const mobSlide1Ref = useRef(null)
-  const mobSlide2Ref = useRef(null)
-
-  useEffect(() => {
-    if (isBrowser) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: true,
-        },
-        onComplete: () => {
-          gsap.set(chap2Ref.current, {
-            opacity: 1
-          })
-        }
-      })
-      .to(topDivRef.current, {
-        height: '100%',
-        duration: 1,
-        delay: .5,
-        ease: 'none'
-      })
-      .to([leftDivRef.current, rightDivRef.current], {
-        width: '100%',
-        duration: 1,
-        delay: -1,
-        ease: 'none'
-      })
-
-      return () => tl.kill()
-    } else {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: rootRef.current,
-          pin: true,
-          pinSpacing: false,
-          scrub: true,
-          start: 'top top',
-          end: 'bottom bottom',
-        }
-      })
-      .to(mobSlide1Ref.current, {
-        opacity: 0,
-        duration: 1/2,
-        delay: 1/4,
-        ease: 'none'
-      })
-      .to(mobSlide2Ref.current, {
-        opacity: 1,
-        duration: 1/2,
-        ease: 'none'
-      })
-
-      return () => tl.kill()
-    }
-  }, [])
+export default function Ending({ prevChapter, toTop }) {
 
   return (
     <>
       <BrowserView>
-        <Column ref={rootRef} h="100vh" w="100%" align="center" justify="space-between">
-          <Column css={css`flex: 1;`} align="center">
-            <Column align="center" css={css`padding: 50px 0 20px;`}>
-              <Circle size="m" />
-              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
-            </Column>
-            <Column css={css`flex: 1;`}>
-              <Divider ref={topDivRef} vertical length="0" />
-            </Column>
-          </Column>
-          <Row align="center">
-            <Row css={css`flex: 1;`}>
-              <Divider ref={leftDivRef} length="0" />
+        <Column h="100vh" w="100%" align="center" justify="space-between">
+          <Column css={css`flex: 1;`} align="center" justify="flex-start">
+            <Row>
+              <Column align="center" css={css`cursor: pointer; padding: 50px 0 20px;`} onClick={prevChapter}>
+                <Circle size="m" />
+                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              </Column>
+
+              <Divider vertical css={css`margin: 0 150px;`} />
+
+              <Column align="center" css={css`cursor: pointer; padding: 50px 0 20px;`} onClick={toTop}>
+                <Circle size="m" rotation={90} />
+                <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+              </Column>
             </Row>
-            <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`} onClick={nextChapter}>
-              <Circle size="xl" css={css`transform: rotateZ(90deg);`} />
-              <ChapterCaption>
-                <H4>Chapter 2</H4>
-              </ChapterCaption>
+          </Column>
+
+          <Row align="center">
+            <Row css={css`flex: 1; margin-left: 20px;`}>
+              <Divider />
+            </Row>
+            <Column align="center" css={css`margin: 0 100px;`}>
+              <Circle size="xl" logo />
             </Column>
-            <Row css={css`flex-direction: row-reverse; flex: 1;`}>
-              <Divider ref={rightDivRef} length="0" />
+            <Row css={css`flex-direction: row-reverse; flex: 1; margin-right: 20px;`}>
+              <Divider />
             </Row>
           </Row>
-          <Image src={EndingImage} alt="Accutron watches" />
-          <Column css={css`flex: 1;`} justify="center" align="center">
+
+          <Column css={css`flex: 1; margin-top: 50px;`} justify="flex-start" align="center">
             <P css={css`margin-bottom: 16px;`}>
-              Learn more about this new industry standard and  Accutron’s updated range of watches.
+            Explore Accutron’s entire assortment at accutronwatch.com and start searching for 
             </P>
-            <H2 alternative>
-              In the following chapter
-            </H2>
+            <H4>
+            a conversation piece that you can call your own
+            </H4>
           </Column>
         </Column>
       </BrowserView>
 
       <MobileView>
-        <Column ref={rootRef} w="100%" h="200vh">
-          <Column w="100%" h="100vh">
-            <Column align="center" css={css`padding-bottom: 20px;`}>
-              <Block css={css`padding-top: 50px;`}>
+        <Column h="100vh" w="100%" align="center" justify="space-between">
+          <Column css={css`flex: 1;`} justify="flex-start" align="center" w="100%">
+            <Row h="20vh" align="center">
+              <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={prevChapter}>
                 <Circle size="s" />
-                <Layer top="0">
-                  <Row h="100%" justify="center">
-                    <Divider vertical length="35px" />
-                  </Row>
-                </Layer>
-              </Block>
-              <H4 alternative mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
-            </Column>
-            <Column css={css`flex: 1;`}>
-              <Layer ref={mobSlide1Ref}>
-                <P mobile css={css`margin: 0 50px;`}>
-                  Learn more about this new industry standard and Accutron’s updated range of watches
-                </P>
-                <Image src={EndingImage} alt="Accutron watches" />
-              </Layer>
-              <Layer ref={mobSlide2Ref} css={css`opacity: 0;`}>
-                <H2 mobile alternative align="center" css={css`margin: 0 60px;`}>
-                  In the following chapter
-                </H2>
+                <H4 mobile css={css`margin-top: 20px;`}>Chapter 1</H4>
+              </Column>
 
-                <Row align="center">
-                  <Divider css={css`opacity: 0;`} />
-                  <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px;`} onClick={nextChapter}>
-                    <Circle size="xl" css={css`transform: rotateZ(90deg);`} />
-                    <ChapterCaption>
-                      <H4>Chapter 2</H4>
-                    </ChapterCaption>
-                  </Column>
-                  <Divider />
-                </Row>
-              </Layer>
-            </Column>
+              <Divider vertical />
+
+              <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toTop}>
+                <Circle size="s" rotation={90} />
+                <H4 mobile css={css`margin-top: 20px;`}>Chapter 2</H4>
+              </Column>
+            </Row>
           </Column>
+
+          <Column w="100%" align="center" css={css`padding: 0 20px;`}>
+            <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
+            Explore Accutron’s entire assortment at accutronwatch.com and start searching for 
+            </P>
+            <H4 align="center" mobile>
+            a conversation piece that you can call your own
+            </H4>
+          </Column>
+
+          <Row css={css`flex: 1; margin-top: 50px;`} align="flex-end">
+            <Row align="center" h="50%">
+              <Row css={css`flex: 1;`}>
+                <Divider />
+              </Row>
+              <Column align="center" css={css`margin: 0 20px;`}>
+                <Circle size="l" logo />
+              </Column>
+              <Row css={css`flex-direction: row-reverse; flex: 1;`}>
+                <Divider />
+              </Row>
+            </Row>
+          </Row>
         </Column>
       </MobileView>
     </>
