@@ -16,7 +16,8 @@ const Image = styled.img`
   transform: translateX(${props => props.right ? '-50%' : '0'});
 `;
 
-const HalfWatches = ({ size, right, img }) => {
+const HalfWatches = ({ large, right, img }) => {
+  const size = large ? 500 : 376;
   return (
   <Wrapper size={size} right={right}>
     <Image src={img} right={right} />

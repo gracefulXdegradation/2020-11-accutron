@@ -43,7 +43,7 @@ export default function NavBar({ sliderRef }) {
               <Circle ref={logoRef} size="m" />
               <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
             </Column>
-            <H3 alternative css={css`margin-top: 8px;`}>{slideHeading}</H3>
+            <H3 alternative>{slideHeading}</H3>
           </Column>
         </Layer>
         <Layer fullScreen>

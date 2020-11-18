@@ -85,13 +85,13 @@ export default function TheSpaceview({ index }) {
       <BrowserView style={{height: "400vh"}}>
         <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
           <Row w="50%" h="100%" justify="flex-end" align="center">
-            <HalfWatches size={536} img={AccutronSpaceviewAlphaImg} />
+            <HalfWatches large img={AccutronSpaceviewAlphaImg} />
           </Row>
           
           <Row w="50%" h="100%">
             <Layer ref={slide1Ref}>
               <Row h="100%" justify="flex-start" align="center">
-                <HalfWatches size={536} img={SoldierImg} right />
+                <HalfWatches large img={SoldierImg} right />
               </Row>
             </Layer>
             
@@ -127,7 +127,7 @@ export default function TheSpaceview({ index }) {
 
             <Layer ref={slide5Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <HalfWatches size={536} img={AccutronSpaceviewAlphaImg} right />
+                <HalfWatches large img={AccutronSpaceviewAlphaImg} right />
               </Column>
             </Layer>
           </Row>
@@ -139,13 +139,13 @@ export default function TheSpaceview({ index }) {
         <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
           <Row h="100%" align="center">
             <Row w="50%" h="100%" justify="flex-end" align="center">
-              <HalfWatches size={376} img={AccutronSpaceviewAlphaImg} />
+              <HalfWatches img={AccutronSpaceviewAlphaImg} />
             </Row>
 
             <Row w="50%" h="100%">
               <Layer ref={slide1Ref}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches size={376} img={SoldierImg} right />
+                  <HalfWatches img={SoldierImg} right />
                 </Column>
               </Layer>
 
@@ -179,7 +179,7 @@ export default function TheSpaceview({ index }) {
 
               <Layer ref={slide5Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches size={376} img={AccutronSpaceviewAlphaImg} right />
+                  <HalfWatches img={AccutronSpaceviewAlphaImg} right />
                 </Column>
               </Layer>
             </Row>

@@ -139,10 +139,10 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={h1Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
-                <H4 align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 50px 0; margin: 0 32px;`}>
+                <H4 align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
                   While more precise timekeeping is always welcome,
                 </H4>
-                <H4 align="right" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px;`}>
+                <H4 align="right" css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
                   it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.
                 </H4>
               </Column>
@@ -150,13 +150,13 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={watchRef} css={css`opacity: 0;`}>
               <Row w="100%" h="100%" justify="flex-end" align="center">
-                <HalfWatches size={536} img={SoldierImg} />
+                <HalfWatches large img={SoldierImg} />
               </Row>
             </Layer>
           </Row>
 
           <Row w="50%" h="100%" justify="flex-start" align="center">
-            <HalfWatches size={536} right img={SoldierImg} />
+            <HalfWatches large right img={SoldierImg} />
 
             <Layer ref={p2Ref} css={css`opacity: 0;`}>
               <Column h="100%" w="100%" justify="center" align="center">
@@ -209,7 +209,7 @@ export default function IconicDesign2({ index }) {
 
               <Layer ref={watchRef} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
-                  <HalfWatches size={376} img={SoldierImg} />
+                  <HalfWatches img={SoldierImg} />
                 </Column>
               </Layer>
             </Row>
@@ -217,7 +217,7 @@ export default function IconicDesign2({ index }) {
             <Row w="50%" h="100%" justify="flex-start" align="center">
               <Layer ref={watch2Ref}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches size={376} right img={SoldierImg} />
+                  <HalfWatches right img={SoldierImg} />
                 </Column>
               </Layer>
             </Row>
