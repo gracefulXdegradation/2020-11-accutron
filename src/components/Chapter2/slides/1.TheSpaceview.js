@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
-import SoldierImg from '../../../assets/2ES6A002_Soldier.png'
-import AccutronSpaceviewAlphaImg from '../../../assets/1961_Accutron-SpaceviewAlpha.png'
+import SoldierImg from '../../../assets/2ES6A001_Soldier_short.png'
+import AccutronSpaceviewAlphaImg from '../../../assets/1961_Accutron-SpaceviewAlpha_short.png'
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';

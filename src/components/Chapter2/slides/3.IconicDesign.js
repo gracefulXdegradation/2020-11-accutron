@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import SoldierImg from '../../../assets/2ES6A002_Soldier.png'
+import SoldierImg from '../../../assets/2ES6A001_Soldier_short.png'
 import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
