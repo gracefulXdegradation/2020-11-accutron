@@ -139,10 +139,10 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={h1Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
-                <H4 align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
+                <H4 tertiary align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
                   While more precise timekeeping is always welcome,
                 </H4>
-                <H4 align="right" css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
+                <H4 tertiary align="right" css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
                   it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.
                 </H4>
               </Column>
@@ -169,7 +169,7 @@ export default function IconicDesign2({ index }) {
 
           <Layer ref={h2Ref} css={css`opacity: 0;`}>
             <Column w="100%" h="100%" justify="flex-end" align="center">
-              <H4 align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
+              <H4 tertiary align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
                 The best part is that it comes in two designs to suit different tastes:
               </H4>
             </Column>
@@ -193,7 +193,7 @@ export default function IconicDesign2({ index }) {
 
               <Layer ref={h1Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
-                  <H4 mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
+                  <H4 tertiary mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
                     While more precise timekeeping is always welcome,
                   </H4>
                 </Column>
@@ -201,7 +201,7 @@ export default function IconicDesign2({ index }) {
 
               <Layer ref={h15Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
-                  <H4 mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
+                  <H4 tertiary mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
                     it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.
                   </H4>
                 </Column>
@@ -232,7 +232,7 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={h2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" justify="center" align="center">
-                <H4 mobile align="center" css={css`text-align: center; margin: 60px;`}>
+                <H4 tertiary mobile align="center" css={css`text-align: center; margin: 60px;`}>
                   The best part is that it comes in two designs to suit different tastes:
                 </H4>
               </Column>

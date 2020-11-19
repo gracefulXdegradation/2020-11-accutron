@@ -108,7 +108,7 @@ export default function TheSpaceview({ index }) {
 
             <Layer ref={slide3Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <H4 css={css`margin-left: 32px; max-width: 520px;`}>
+                <H4 tertiary css={css`margin-left: 32px; max-width: 520px;`}>
                   But potential customers had other ideas. 
                 </H4>
               </Column>
@@ -161,7 +161,7 @@ export default function TheSpaceview({ index }) {
 
               <Layer ref={slide3Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <H4 mobile css={css`margin-left: 8px; max-width: 165px;`}>
+                  <H4 tertiary mobile css={css`margin-left: 8px; max-width: 165px;`}>
                     But potential customers had other ideas. 
                   </H4>
                 </Column>

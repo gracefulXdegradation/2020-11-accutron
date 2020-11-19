@@ -45,7 +45,7 @@ export default function Spaceview2020({ index }) {
           <Layer>
             <Row w="100%" h="100%" justify="flex-end">
               <Column h="50%" w="50%" justify="flex-end" css={css`padding: 0 0 20px 200px;`}>
-                <H4>
+                <H4 tertiary>
                   the Spaceview 2020
                 </H4>
                 <P>
@@ -62,7 +62,7 @@ export default function Spaceview2020({ index }) {
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Watches src={SoldierImg} alt="Spaceview 2020" />
             <Column align="center">
-              <H4 mobile>
+              <H4 tertiary mobile>
                 the Spaceview 2020
               </H4>
               <P mobile>

@@ -88,7 +88,7 @@ export default function DNA6({ index }) {
               <Layer>
                 <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                   <Column css={css`margin-right: 30px;`}>
-                    <H4 mobile>The Accutron DNA</H4>
+                    <H4 tertiary mobile>The Accutron DNA</H4>
                     <P mobile>Costs $3,300</P>
                   </Column>
                 </Row>
@@ -102,7 +102,7 @@ export default function DNA6({ index }) {
                   <Layer>
                     <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                       <Column css={css`margin-right: 30px;`}>
-                        <H4 mobile>The Spaceview 2020</H4>
+                        <H4 tertiary mobile>The Spaceview 2020</H4>
                         <P mobile>Costs $3,450</P>
                       </Column>
                     </Row>

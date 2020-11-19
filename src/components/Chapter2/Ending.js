@@ -45,7 +45,7 @@ export default function Ending({ prevChapter, toTop }) {
             <P css={css`margin-bottom: 16px;`}>
             Explore Accutron’s entire assortment at accutronwatch.com and start searching for 
             </P>
-            <H4>
+            <H4 tertiary>
             a conversation piece that you can call your own
             </H4>
           </Column>
@@ -74,7 +74,7 @@ export default function Ending({ prevChapter, toTop }) {
             <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
             Explore Accutron’s entire assortment at accutronwatch.com and start searching for 
             </P>
-            <H4 align="center" mobile>
+            <H4 tertiary align="center" mobile>
             a conversation piece that you can call your own
             </H4>
           </Column>

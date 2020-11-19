@@ -39,7 +39,7 @@ export default function Legacy8({ index }) {
       <BrowserView style={{height: "100vh"}}>
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
-            <H4 align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px;`}>
+            <H4 tertiary align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px;`}>
             They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…
             </H4>
           </Column>
@@ -49,7 +49,7 @@ export default function Legacy8({ index }) {
       <MobileView style={{height: "100vh"}}>
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-            <H4 mobile align="center">
+            <H4 tertiary mobile align="center">
             They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…
             </H4>
           </Column>

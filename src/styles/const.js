@@ -2,6 +2,7 @@ export const themes = {
   ch1: {
     fontHeaderPrimary: '#AA8C66',
     fontHeaderAlternative: '#E2E5E6',
+    fontHeaderTertiary: '#000000',
     fontParagraph: '#E2E5E6',
     borderColor: '#707070',
     bgColor: '#000000',
@@ -10,6 +11,7 @@ export const themes = {
   ch2: {
     fontHeaderPrimary: '#AA8C66',
     fontHeaderAlternative: '#E2E5E6',
+    fontHeaderTertiary: '#006953',
     fontParagraph: '#E2E5E6',
     borderColor: '#707070',
     bgColor: '#000000',

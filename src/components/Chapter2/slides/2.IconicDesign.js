@@ -57,10 +57,10 @@ export default function IconicDesign2({ index }) {
       <BrowserView style={{height: "200vh"}}>
         <Slide index={index} subslides={2} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
-            <H4 align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 50px 0; margin: 0 32px;`}>
+            <H4 tertiary align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 50px 0; margin: 0 32px;`}>
               unwittingly setting the stage for the Spaceview to become an official Accutron model and Bulova’s most sought after watch at the time.
             </H4>
-            <H4 ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px; opacity: 0;`}>
+            <H4 tertiary ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px; opacity: 0;`}>
               Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
             </H4>
           </Column>
@@ -72,14 +72,14 @@ export default function IconicDesign2({ index }) {
           <Column w="100%" h="100%">
             <Layer ref={hRef0}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-                <H4 mobile align="center">
+                <H4 tertiary mobile align="center">
                   unwittingly setting the stage for the Spaceview to become an official Accutron model and Bulova’s most sought after watch at the time.
                 </H4>
               </Column>
             </Layer>
             <Layer ref={hRef} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-                <H4 mobile align="center">
+                <H4 tertiary mobile align="center">
                   Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
                 </H4>
               </Column>

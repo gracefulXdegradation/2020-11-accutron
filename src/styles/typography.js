@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { typefaceHeader, typefaceParagraph } from './const';
 
-const headingColor = ({ theme, alternative, inverse }) =>
-  alternative ? theme.fontHeaderAlternative : inverse ? theme.bgColor :theme.fontHeaderPrimary
+const headingColor = ({ theme, alternative, tertiary }) =>
+  alternative ? theme.fontHeaderAlternative : tertiary ? theme.fontHeaderTertiary :theme.fontHeaderPrimary
 
 export const H2 = styled.h2`
   position: relative;

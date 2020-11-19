@@ -91,7 +91,7 @@ export default function Legacy11({ index }) {
             <Layer>
               <Column w="100%" h="100%">
                 <Row h="50%" align="center" justify="center">
-                  <H4>
+                  <H4 tertiary>
                     each style only has 600 individually numbered pieces
                   </H4>
                 </Row>
@@ -110,7 +110,7 @@ export default function Legacy11({ index }) {
         <Slide index={index} subslides={2} animate={animation}>
         <Column w="100%" h="100%">
           <Column ref={layer1Ref} w="100%" h="100%" align="center" justify="center">
-            <H4 align="center" mobile css={css`margin: 35px;`}>
+            <H4 tertiary align="center" mobile css={css`margin: 35px;`}>
               each style only has 600 individually numbered pieces
             </H4>
           </Column>
