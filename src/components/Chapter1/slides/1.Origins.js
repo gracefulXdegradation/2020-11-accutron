@@ -73,7 +73,7 @@ export default function Origins1({ index }) {
                   <P>
                     Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
                   </P>
-                  <H4 css={css`margin-top: 32px;`}>
+                  <H4 alternative css={css`margin-top: 32px;`}>
                     the company was founded in 1875 by Joseph Bulova in New York City.
                   </H4>
                 </Column>
@@ -95,7 +95,7 @@ export default function Origins1({ index }) {
               <P mobile css={css`padding-bottom: 20px;`}>
                 Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
               </P>
-              <H4 mobile>
+              <H4 alternative mobile>
                 the company was founded in 1875 by Joseph Bulova in New York City.
               </H4>
             </Column>

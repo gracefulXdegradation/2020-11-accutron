@@ -68,21 +68,21 @@ function Layout() {
     <Root>
       <GlobalStyle />
         <HorizontalLayout ref={horSliderRef} chapters={chapters}>
-          <ThemeProvider theme={themes.dark}>
+          <ThemeProvider theme={themes.ch1}>
             <Chapter1Header nextChapter={toChapter(1)} toContent={toChapterContent} />
           </ThemeProvider>
-          <ThemeProvider theme={themes.light}>
+          <ThemeProvider theme={themes.ch2}>
             <Chapter2Header prevChapter={toChapter(0)} />
           </ThemeProvider>
         </HorizontalLayout>
         <div ref={chapterContentRef}>
           { chapter === 0 && 
-            <ThemeProvider theme={themes.dark}>
+            <ThemeProvider theme={themes.ch1}>
               <Chapter1 nextChapter={toChapter(1)} />
             </ThemeProvider>
           }
           { chapter === 1 && 
-            <ThemeProvider theme={themes.light}>
+            <ThemeProvider theme={themes.ch2}>
               <Chapter2 prevChapter={toChapter(0)} toTop={toTop} />
             </ThemeProvider>
           }

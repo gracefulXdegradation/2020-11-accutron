@@ -105,7 +105,7 @@ export default function Legacy5({ index }) {
                   <P>
                     In 2014, Emmy-award winning advertising drama Mad Men opened its final season with an entire episode dedicated to pitching the watch.
                   </P>
-                  <H4 css={css`margin: 25px 0 56px;`}>
+                  <H4 alternative css={css`margin: 25px 0 56px;`}>
                     Their tagline was surprisingly simple, yet effective:
                   </H4>
                 </Column>
@@ -116,7 +116,7 @@ export default function Legacy5({ index }) {
               </Layer>
               <Layer ref={copy2Ref} css={css`opacity: 0;`}>
                 <Column css={css`max-width: 580px;`}>
-                  <H4>
+                  <H4 alternative>
                     And the conversation has only just begun.
                   </H4>
                   <P css={css`margin: 25px 0 56px;`}>
@@ -151,7 +151,7 @@ export default function Legacy5({ index }) {
                     <P mobile css={css`margin-top: 16px;`}>
                       In 2014, Emmy-award winning advertising drama Mad Men opened its final season with an entire episode dedicated to pitching the watch.
                     </P>
-                    <H4 mobile css={css`margin-top: 16px;`}>
+                    <H4 mobile alternative css={css`margin-top: 16px;`}>
                       Their tagline was surprisingly simple, yet effective:
                     </H4>
                   </Column>
@@ -166,7 +166,7 @@ export default function Legacy5({ index }) {
             </Layer>
             <Layer ref={mobLayer2} css={css`opacity: 0;`}>
               <Column>
-                <H4 mobile>
+                <H4 mobile alternative>
                   And the conversation has only just begun.
                 </H4>
                 <P mobile css={css`margin: 16px 0 40px;`}>

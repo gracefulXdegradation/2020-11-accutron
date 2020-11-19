@@ -56,7 +56,7 @@ export default function Technology3({ index }) {
               <H2 alternative>
                 The tuning fork
               </H2>
-              <H4 css={css`margin: 20px 0 60px;`}>
+              <H4 alternative css={css`margin: 20px 0 60px;`}>
                 A revolutionary invention for timekeeper precision.
               </H4>
               <P css={css`margin-bottom: 20px;`}>
@@ -83,7 +83,7 @@ export default function Technology3({ index }) {
               <H2 mobile alternative>
                 The tuning fork
               </H2>
-              <H4 mobile css={css`margin-top: 16px;`}>
+              <H4 alternative mobile css={css`margin-top: 16px;`}>
                 A revolutionary invention for timekeeper precision.
               </H4>
             </Column>

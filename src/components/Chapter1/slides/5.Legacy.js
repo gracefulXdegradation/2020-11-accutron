@@ -114,7 +114,7 @@ export default function Legacy5({ index }) {
                 <P>
                   When lives and billions of dollars worth of technology are at stake, that says a lot about who you can trust.
                 </P>
-                <H4 ref={pRef} css={css`margin-top: 32px; opacity: 0;`}>
+                <H4 ref={pRef} alternative css={css`margin-top: 32px; opacity: 0;`}>
                   While Accutron’s tech saw its fair share of real-world applications, its legacy wasn’t just limited to governmental uses. 
                 </H4>
               </Column>
@@ -140,7 +140,7 @@ export default function Legacy5({ index }) {
               </Block>
             </Layer>
             <Layer ref={hRef} css={css`opacity: 0;`}>
-              <H4>
+              <H4 alternative>
                 While Accutron’s tech saw its fair share of real-world applications, its legacy wasn’t just limited to governmental uses. 
               </H4>
             </Layer>

@@ -62,7 +62,7 @@ export default function Legacy4({ index }) {
                 <P>
                   Bulova’s tuning fork technology was so revolutionary that
                 </P>
-                <H4 css={css`margin: 20px 0;`}>
+                <H4 alternative css={css`margin: 20px 0;`}>
                   NASA opted to use Accutron technology for its manned space missions
                 </H4>
                 <P>
@@ -81,7 +81,7 @@ export default function Legacy4({ index }) {
             <P mobile>
               Bulova’s tuning fork technology was so revolutionary that
             </P>
-            <H4 mobile css={css`margin: 20px 0;`}>
+            <H4 alternative mobile css={css`margin: 20px 0;`}>
               NASA opted to use Accutron technology for its manned space missions
             </H4>
             <P mobile>

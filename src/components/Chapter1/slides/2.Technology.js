@@ -205,7 +205,7 @@ export default function Technology2({ index }) {
                       <SlideImage src={Sl3RImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
                     </ImageHolder>
                   </div>
-                  <H4 css={css`margin-top: 60px;`}>
+                  <H4 alternative css={css`margin-top: 60px;`}>
                     that level of accuracy was far better than any mechanical watch could reproduce.
                   </H4>
                 </Column>
@@ -250,7 +250,7 @@ export default function Technology2({ index }) {
                 </P>
               </Layer>
               <Layer ref={hRef} css={css`opacity: 0;`}>
-                <H4 mobile css={css`margin-top: 32px;`}>
+                <H4 alternative mobile css={css`margin-top: 32px;`}>
                   that level of accuracy was far better than any mechanical watch could reproduce.
                 </H4>
               </Layer>

@@ -44,7 +44,7 @@ export default function NavBar({ sliderRef }) {
               <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
             </Column>
             <Divider vertical />
-            <H3 css={css`margin-top: 8px;`}>{slideHeading}</H3>
+            <H3 inverse css={css`margin-top: 8px;`}>{slideHeading}</H3>
             <Divider vertical />
             <Column align="center" css={css`padding: 30px 0 50px;`}>
               <Circle size="m" rotation="90" />
@@ -67,7 +67,7 @@ export default function NavBar({ sliderRef }) {
                 </Layer>
               </Block>
               <H4 alternative mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
-              <H3 css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
+              <H3 inverse css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
             </Column>
             <Column ref={dividerContainerRef} align="flex-end" css={css`flex: 1;`} w="35px">
               <Divider vertical />
