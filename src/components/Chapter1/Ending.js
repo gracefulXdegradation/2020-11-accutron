@@ -19,6 +19,24 @@ const Image = styled.img`
   right: 0;
 `;
 
+const HoverableCircle = styled(Column)`
+  align-items: center;
+
+  ${Circle}, ${H4} {
+    transition: transform .2s ease-in;
+  }
+
+  &:hover {
+    ${Circle} { 
+      transform: rotateZ(90deg) scale(1.05);
+    }
+
+    ${H4} {
+      transform: translateX(-50%) scale(1.05);
+    }
+  }
+`
+
 export default function Ending({ nextChapter }) {
   const rootRef = useRef(null)
   const topDivRef = useRef(null)
@@ -102,10 +120,12 @@ export default function Ending({ nextChapter }) {
               <Divider ref={leftDivRef} length="0" />
             </Row>
             <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`} onClick={nextChapter}>
-              <Circle size="xl" rotation="90" />
-              <ChapterCaption>
-                <H4>Chapter 2</H4>
-              </ChapterCaption>
+              <HoverableCircle>
+                <Circle size="xl" />
+                <ChapterCaption>
+                  <H4>Chapter 2</H4>
+                </ChapterCaption>
+              </HoverableCircle>
             </Column>
             <Row css={css`flex-direction: row-reverse; flex: 1;`}>
               <Divider ref={rightDivRef} length="0" />

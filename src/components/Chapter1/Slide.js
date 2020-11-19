@@ -23,9 +23,6 @@ export const animateFadeOut = (el, props) => {
       pinSpacing: false,
       scrub: true,
     },
-    onComplete: () => {
-      gsap.set(el, { y: 0 })
-    }
   })
   .set(el, {
     height: '50%',
@@ -46,9 +43,7 @@ export const animateFadeIn = (el, props) => {
       pin: el,
       scrub: true,
     },
-    onComplete: () => {
-      gsap.set(el, { y: 0 })
-    }
+
   })
   .set(el, {
     height: '50%'
@@ -69,9 +64,6 @@ export const animateFadeInOut = (el, props) => {
       pinSpacing: false,
       scrub: true,
     },
-    onComplete: () => {
-      gsap.set(el, { y: 0 })
-    }
   })
   .to(el, {
     opacity: 1,
