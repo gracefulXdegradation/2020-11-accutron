@@ -13,6 +13,7 @@ import Legacy8 from './slides/8.Legacy';
 import Legacy9 from './slides/9.Legacy';
 import Legacy10 from './slides/10.Legacy';
 import Legacy11 from './slides/11.Legacy';
+import { BrandBackground } from '../BrandBackground';
 
 const SliderRoot = styled.div`
   position: relative;
@@ -27,6 +28,7 @@ export default function Slider() {
   return (
     <SliderRoot ref={pinSectionRef}>
       <NavBarProvider headings={headings}>
+        <BrandBackground sliderRef={pinSectionRef} chapter={2} />
         <NavBar sliderRef={pinSectionRef} />
         <TheSpaceview1 index={0} />
         <IconicDesign2 index={1} />

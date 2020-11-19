@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { gsap, ScrollTrigger } from 'gsap/all';
@@ -13,16 +13,24 @@ const FixedBackground = styled(Layer)`
   /* background: radial-gradient(ellipse farthest-corner, #000000, #030302 90%, ${({ theme }) => theme.gradientColor} 100%); */
 `;
 
-const BrowserFixedBG = styled(FixedBackground)`
+const Ch1BrowserFixedBG = styled(FixedBackground)`
   background: radial-gradient(ellipse farthest-corner, ${({ theme }) => theme.gradientColor}, #030302 30%, #000000 100%);
   transform: rotateZ(23deg);
 `;
 
-const MobileFixedBG = styled(FixedBackground)`
+const Ch1MobileFixedBG = styled(FixedBackground)`
   background: linear-gradient(to bottom, ${({ theme }) => theme.gradientColor}, #030302 40%, #000000 100%);
 `;
 
-export const BrandBackground = ({ sliderRef }) => {
+const Ch2BrowserFixedBG = styled(FixedBackground)`
+  background: radial-gradient(ellipse farthest-corner, #000000, #030302 90%, ${({ theme }) => theme.gradientColor} 100%);
+`;
+
+const Ch2MobileFixedBG = styled(FixedBackground)`
+  background: linear-gradient(to bottom, #000000, #030302 80%, ${({ theme }) => theme.gradientColor} 100%);
+`;
+
+export const BrandBackground = ({ sliderRef, chapter = 1 }) => {
   const pinRef = useRef(null);
   const bgRef = useRef(null);
   const [opacity, setOpacity] = useState(0)
@@ -55,12 +63,26 @@ export const BrandBackground = ({ sliderRef }) => {
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
-      <BrowserView style={{}}>
-        <BrowserFixedBG ref={bgRef} css={css`opacity: ${opacity};`} />
-      </BrowserView>
-      <MobileView>
-        <MobileFixedBG css={css`opacity: ${opacity};`} />
-      </MobileView>
+      { chapter === 1 && (
+        <>
+          <BrowserView style={{}}>
+            <Ch1BrowserFixedBG ref={bgRef} css={css`opacity: ${opacity};`} />
+          </BrowserView>
+          <MobileView>
+            <Ch1MobileFixedBG css={css`opacity: ${opacity};`} />
+          </MobileView>
+        </>
+      )}
+      { chapter === 2 && (
+        <>
+          <BrowserView style={{}}>
+            <Ch2BrowserFixedBG css={css`opacity: ${opacity};`} />
+          </BrowserView>
+          <MobileView>
+            <Ch2MobileFixedBG css={css`opacity: ${opacity};`} />
+          </MobileView>
+        </>
+      )}
     </Layer>
   )
 }

@@ -9,10 +9,10 @@ export const themes = {
   },
   ch2: {
     fontHeaderPrimary: '#AA8C66',
-    fontHeaderAlternative: '#474D4B',
-    fontParagraph: '#262C30',
+    fontHeaderAlternative: '#E2E5E6',
+    fontParagraph: '#E2E5E6',
     borderColor: '#707070',
-    bgColor: '#E2E5E6',
+    bgColor: '#000000',
     gradientColor: '#006953'
   }
 }
