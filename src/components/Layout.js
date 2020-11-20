@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
 import { useRef, useState } from 'react';
@@ -9,6 +10,8 @@ import Chapter1 from './Chapter1';
 import Chapter1Header from './Chapter1/ChapterHead';
 import Chapter2 from './Chapter2';
 import Chapter2Header from './Chapter2/ChapterHead';
+import VideoScreen from './VideoScreen';
+import StoryStateProvider from '../providers/StoryStateProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -18,7 +21,7 @@ window.gsap = gsap
 const chapters = 2;
 
 const HorizontalLayout = styled.div`
-  width: ${props => props.chapters * 100}%;
+  width: ${props => props.slides * 100}%;
   height: 100vh;
   display: flex;
   flex-wrap: nowrap;
@@ -64,29 +67,50 @@ function Layout() {
     })
   }
 
+  window.setChapter = setChapter
+
   return (
     <Root>
-      <GlobalStyle />
-        <HorizontalLayout ref={horSliderRef} chapters={chapters}>
+      <StoryStateProvider>
+        <GlobalStyle />
+        {/* { chapter === 0 && 
           <ThemeProvider theme={themes.ch1}>
-            <Chapter1Header nextChapter={toChapter(1)} toContent={toChapterContent} />
-          </ThemeProvider>
-          <ThemeProvider theme={themes.ch2}>
-            <Chapter2Header prevChapter={toChapter(0)} />
-          </ThemeProvider>
-        </HorizontalLayout>
-        <div ref={chapterContentRef}>
-          { chapter === 0 && 
-            <ThemeProvider theme={themes.ch1}>
+            <VideoScreen nextChapter={toChapter(1)} toContent={toChapterContent} />
+            <div ref={chapterContentRef}>
+              <Chapter1Header />
               <Chapter1 nextChapter={toChapter(1)} />
-            </ThemeProvider>
-          }
-          { chapter === 1 && 
-            <ThemeProvider theme={themes.ch2}>
+            </div>
+          </ThemeProvider>
+        } */}
+
+          <ThemeProvider theme={themes.ch2}>
+          {/* <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              // height: '100vh',
+              transform: 'translate3d(100%,0,0)',
+              transition: 'transform .8s ease'
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                left: '-100%'
+              }}>
+            </div>
+            <div
+              style={{
+              width: '100%',
+              minHeight: '100vh',
+            }}> */}
               <Chapter2 prevChapter={toChapter(0)} toTop={toTop} />
-            </ThemeProvider>
-          }
-        </div>
+            {/* </div>
+          </div> */}
+          </ThemeProvider>
+        </StoryStateProvider>
     </Root>
   );
 }

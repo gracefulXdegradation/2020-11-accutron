@@ -5,6 +5,7 @@ import { useNavBar } from '../../providers/NavBarProvider';
 import { css } from '@emotion/core';
 import { Column, Row } from '../UIKit';
 import { BrowserView, MobileView } from 'react-device-detect';
+import { useStoryState } from '../../providers/StoryStateProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,18 +87,21 @@ export const animateFadeInOut = (el, props) => {
 }
 
 const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
+  const { hasChapter2Init } = useStoryState();
   const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
   const slideInnerRef = useRef(null)
 
   useEffect(() => {
-    const tl = animate(slideRef.current, {
-      onEnter: () => setSlideHeading(index),
-      onEnterBack: () => setSlideHeading(index),
-    });
+    if (hasChapter2Init) {
+      const tl = animate(slideRef.current, {
+        onEnter: () => setSlideHeading(index),
+        onEnterBack: () => setSlideHeading(index),
+      });
 
-    return () => tl.kill();
-  }, [animate, index, setSlideHeading])
+      return () => tl.kill();
+    }
+  }, [animate, index, setSlideHeading, hasChapter2Init])
 
   return (
     <>

@@ -84,10 +84,12 @@ export const Divider = styled.div`
   ${({ vertical, length }) => vertical
     ? css`
       width: 1px;
+      max-width: 1px;
       height: ${length || '100%'};
     `
     : css`
       height: 1px;
+      max-height: 1px;
       width: ${length || '100%'};
     `}
   transition: all .4s linear;

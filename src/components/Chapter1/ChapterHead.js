@@ -1,81 +1,118 @@
+import React, { useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/core';
-import {
-  BrowserView,
-  MobileView
-} from "react-device-detect";
-import { H4, P } from '../../styles/typography';
-import { Circle, CircleSizes, Divider, Layer, Block, Row, Column, Background, ChapterCaption } from '../UIKit';
-import VideoContent from '../VideoContent';
+import styled from '@emotion/styled';
+import { BrowserView, MobileView } from "react-device-detect";
+import ReactVisibilitySensor from 'react-visibility-sensor';
+import { H2, H4 } from '../../styles/typography';
+import { Circle, Divider, Layer, Block, Row, Column, Camouflage, Background } from '../UIKit';
 
-export default function ChapterHead({toContent, nextChapter}) {
+const Em = styled.em`
+  font-style: normal;
+  color: ${props => props.theme.fontParagraph};
+`;
+
+export default function Preamble() {
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const mobChapterCaptionRef = useRef(null)
+  const mobPaddingTop = useRef(null)
+
+  useEffect(() => {
+    if (mobChapterCaptionRef.current) {
+      mobPaddingTop.current = mobChapterCaptionRef.current.getBoundingClientRect().height * 2;
+    }
+  }, [])
+
+  const onAppear = isVisible =>
+    !hasAnimated && isVisible && setHasAnimated(true)
+
   return (
-    <Background>
-      <Layer>
-        <VideoContent videoId={479786374} />
-      </Layer>
-
+    <Background css={css`height: 100vh;`}>
       <BrowserView>
-        <Layer>
-          <Row h="100%" justify="center">
-            <Divider vertical />
-          </Row>
-        </Layer>
-        <Layer>
-          <Block h="100%">
-            <Row w="50%" justify="center" align="center">
-              <Column align="center" css={css`cursor: pointer;`} onClick={toContent}>
-                <Circle size="xl" />
-                <ChapterCaption>
-                  <H4>Chapter 1</H4>
-                  <P>ACCUracy through<br />elecTRONics</P>
-                </ChapterCaption>
-              </Column>
-            </Row>
-            <Row w="50%" justify="center" align="center">
-              <Layer>
-                <Row h="100%" align="center" justify="flex-end">
-                  <Divider length={`calc(50% - ${CircleSizes.xl}px / 2 - 40px)`} />
-                </Row>
-              </Layer>
-              <Column align="center" css={css`cursor: pointer;`} onClick={nextChapter}>
-                <Circle size="xl" rotation={90} />
-                <ChapterCaption>
-                  <H4>Chapter 2</H4>
-                  <P>A legacy Reborn</P>
-                </ChapterCaption>
-              </Column>
-            </Row>
-          </Block>
-        </Layer>
-      </BrowserView>
-      
-      <MobileView>
-        <Column h="100vh">
-          <Row align="center" h="50%" justify="center">
-            <Column align="center" onClick={toContent}>
-              <Circle size="l" />
-              <ChapterCaption>
-                <H4>Chapter 1</H4>
-                <P>ACCUracy through<br />elecTRONics</P>
-              </ChapterCaption>
-            </Column>
-          </Row>
-          <Row align="center" h="50%" justify="center">
-            <Column align="center" w="100%" onClick={nextChapter}>
-              <Row justify="center">
-                <Layer>
-                  <Row h="100%" align="center" justify="flex-end">
-                    <Divider length={`calc(50% - ${CircleSizes.l}px / 2 - 40px)`} />
-                  </Row>
-                </Layer>
-                <Circle size="l" rotation={90} />
+        <Column h="100vh" w="100%" align="center" justify="center">
+          <Layer>
+              <Row h="100%" justify="center">
+                <Divider length={hasAnimated ? '100%' : '0'} vertical css={css`transition-delay: .2s;`} />
               </Row>
-              <H4 css={css`margin-top: 16px;`}>Chapter 2</H4>
-              <P>A legacy Reborn</P>
+          </Layer>
+          
+          <Layer>
+            <Column w="100%" h="100%">
+              <Column w="100%" h="50%" justify="flex-end" align="center">
+                <ReactVisibilitySensor
+                  partialVisibility={true}
+                  minTopValue={300}
+                  onChange={onAppear}
+                >
+                  <Column align="center" css={css`padding: 32px 0 12px;`}>
+                    <Camouflage />
+                    <Circle size="xl" />
+                    <H4 css={css`margin-top: 16px;`}>Chapter 1</H4>
+                    <Camouflage w="100%" length={hasAnimated ? '0' : '100%'} />
+                  </Column>
+                </ReactVisibilitySensor>
+              </Column>
+              <Column w="100%" h="50%" align="center">
+                <Block css={css`margin-top: 28px;`}>
+                  <Camouflage />
+                  <H2 css={css`padding: 12px 0 6px;`}>
+                    <Em>Accu</Em>racy through elec<Em>tron</Em>ics
+                  </H2>
+                </Block>
+                <Column justify="center" align="center" css={css`flex: 1;`}>
+                  <Block css={css`padding: 14px 0 6px;`}>
+                    <Camouflage />
+                    <H4 alternative align="center">
+                      That’s the simple meaning behind Accutron’s name,<br />
+                      but the technology that powered the brand’s iconic timepieces<br />
+                      are anything but.
+                    </H4>
+                  </Block>
+                </Column>
+              </Column>
             </Column>
-          </Row>
+          </Layer>
+        </Column>
+      </BrowserView>
+
+      <MobileView>
+        <Column h="100vh" w="100%" align="center" justify="center">
+          <Layer>
+              <Row h="100%" justify="center">
+                <Divider length={hasAnimated ? '100%' : '0'} vertical />
+              </Row>
+          </Layer>
+
+          <Layer>
+            <Column w="100%" h="100%" css={css`padding-top: ${mobPaddingTop.current}px;`}>
+              <Column w="100%" h="50%" justify="flex-end" align="center"> 
+                <ReactVisibilitySensor
+                  partialVisibility={true}
+                  minTopValue={300}
+                  onChange={onAppear}
+                >
+                  <Column align="center" css={css`padding-top: 32px;`}>
+                    <Camouflage />
+                    <Circle size="xl" />
+                    <Block ref={mobChapterCaptionRef}>
+                      <H4 css={css`margin: 16px 0 12px;`}>Chapter 1</H4>
+                    </Block>
+                    <Camouflage w="100%" length={hasAnimated ? '0' : '100%'} />
+                  </Column>
+                </ReactVisibilitySensor>
+              </Column>
+
+              <Column w="100%" h="50%" align="center">
+                <Block css={css`margin-top: 28px;`}>
+                  <Camouflage />
+                  <H2 mobile css={css`padding: 12px 0 6px;`} align="center">
+                    <Em>Accu</Em>racy through elec<Em>tron</Em>ics
+                  </H2>
+                </Block>
+              </Column>
+            </Column>
+          </Layer>
         </Column>
       </MobileView>
     </Background>
-  );
+  )
 }

@@ -1,46 +1,75 @@
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/core';
-import { useState } from 'react';
-import { BrowserView, MobileView } from 'react-device-detect';
+import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 import ReactVisibilitySensor from 'react-visibility-sensor';
+import { gsap } from 'gsap/all';
 import { H2, H4 } from '../../styles/typography';
-import { Column, Background, Divider, Circle, Row, Layer, Camouflage } from '../UIKit';
+import { Column, Divider, Circle, Row, Layer, Camouflage } from '../UIKit';
 
-export default function ChapterHead({prevChapter}) {
+export default function ChapterHead({ onAnimateEnd = () => null }) {
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const dividerRef = useRef(null)
+  const circleRef = useRef(null)
 
-  const onAppear = isVisible =>
-    !hasAnimated && isVisible && setHasAnimated(true);
+  const onAppear = isVisible => {
+    setIsVisible(isVisible)
+    animate()
+  }
+
+  const animate = useCallback(() => {
+    if (isVisible && !hasAnimated && dividerRef.current && circleRef.current) {
+      gsap.timeline({
+        onComplete: () => {
+          setHasAnimated(true)
+          onAnimateEnd()
+        }
+      })
+        .to(circleRef.current, {
+          opacity: 1,
+          duration: .8,
+          delay: .5,
+          ease: 'easeIn'
+        })
+        .to(dividerRef.current, Object.assign({
+          duration: 1,
+          ease: 'none',
+        }, isMobile ? {height: '100%'} : {width: '100%'}))
+    }
+  }, [hasAnimated, isVisible, onAnimateEnd])
+
+  useEffect(() => animate(), [animate])
 
   return (
-    <Background>
-      <BrowserView style={{ height: '100%' }}>
-        <Column h="100%" w="100%" align="center" justify="center">
+    <>
+      <BrowserView renderWithFragment>
+        <Column h="100%" w="100vh" align="center" justify="center">
           <Row css={css`flex: 1;`} justify="center" align="flex-end">
             <ReactVisibilitySensor
               partialVisibility={true}
               minTopValue={300}
               onChange={onAppear}
             >
-              <Column align="center" css={css`margin-bottom: 12px;`}>
+              <Column ref={circleRef} align="center" css={css`margin-bottom: 12px; opacity: 0;`}>
                 <Circle size="xl" rotation={90} />
                 <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
               </Column>
             </ReactVisibilitySensor>
           </Row>
           <Row>
-            <Divider length={hasAnimated ? '100%' : '0'} css={css`transition-delay: .2s;`} />
+            <Divider ref={dividerRef} length={`0%`} />
           </Row>
           <Row css={css`flex: 1;`} justify="center" align="flex-start">
-            <H2 align="center" css={css`margin-top: 40px;`} alternative onClick={() => prevChapter(0)}>A Legacy Reborn</H2>
+            <H2 align="center" css={css`margin-top: 40px;`} alternative>A Legacy Reborn</H2>
           </Row>
         </Column>
       </BrowserView>
 
-      <MobileView style={{ height: '100%' }}>
-        <Column h="100%" w="100%">
+      <MobileView renderWithFragment>
+        <Column h="100vh" w="100%">
           <Layer>
             <Column w="100%" h="100%" align="center">
-              <Divider vertical length={hasAnimated ? '100%' : '0'} css={css`transition-delay: .2s;`} />
+              <Divider ref={dividerRef} vertical length={`0`} />
             </Column>
           </Layer>
 
@@ -50,7 +79,7 @@ export default function ChapterHead({prevChapter}) {
               minTopValue={300}
               onChange={onAppear}
             >
-              <Column align="center" css={css`padding-top: 12px;`}>
+              <Column ref={circleRef} align="center" css={css`padding-top: 12px; opacity: 0;`}>
                 <Camouflage />
                 <Circle size="xl" rotation={90} />
               </Column>
@@ -71,6 +100,6 @@ export default function ChapterHead({prevChapter}) {
           </Row>
         </Column>
       </MobileView>
-    </Background>
+    </>
   );
 }
