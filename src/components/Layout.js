@@ -73,43 +73,16 @@ function Layout() {
     <Root>
       <StoryStateProvider>
         <GlobalStyle />
-        {/* { chapter === 0 && 
+        { chapter === 0 && 
           <ThemeProvider theme={themes.ch1}>
-            <VideoScreen nextChapter={toChapter(1)} toContent={toChapterContent} />
-            <div ref={chapterContentRef}>
-              <Chapter1Header />
-              <Chapter1 nextChapter={toChapter(1)} />
-            </div>
+            {/* <VideoScreen nextChapter={toChapter(1)} toContent={toChapterContent} /> */}
+            <Chapter1 nextChapter={toChapter(1)} />
           </ThemeProvider>
-        } */}
+        }
 
-          <ThemeProvider theme={themes.ch2}>
-          {/* <div
-            style={{
-              position: 'relative',
-              width: '100%',
-              // height: '100vh',
-              transform: 'translate3d(100%,0,0)',
-              transition: 'transform .8s ease'
-            }}
-          >
-            <div
-              style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                left: '-100%'
-              }}>
-            </div>
-            <div
-              style={{
-              width: '100%',
-              minHeight: '100vh',
-            }}> */}
+          {/* <ThemeProvider theme={themes.ch2}>
               <Chapter2 prevChapter={toChapter(0)} toTop={toTop} />
-            {/* </div>
-          </div> */}
-          </ThemeProvider>
+          </ThemeProvider> */}
         </StoryStateProvider>
     </Root>
   );

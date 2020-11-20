@@ -33,10 +33,6 @@ export default function Origins1({ index }) {
         scrub: true,
       },
     })
-    .set(el, {
-      height: '50%',
-      opacity: 1,
-    })
     .to(mobMechanismRef.current, {
       duration: 0.25,
       opacity: 0,
@@ -86,7 +82,7 @@ export default function Origins1({ index }) {
       </BrowserView>
 
       <MobileView style={{height: "200vh"}}>
-        <Slide index={index} animate={mobileSlideAnimation} subslides={2}>
+        <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2}>
           <Column h="100%">
             <Row h="100%" ref={mobMechanismRef}>
               <SlideImage src={LeftBgImage} alt="Accutron mechanism" css={css`padding-bottom: 30px;`} />

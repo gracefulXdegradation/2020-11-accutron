@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { gsap } from 'gsap/all';
 import { BrowserView, MobileView } from "react-device-detect";
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { H2, H4 } from '../../styles/typography';
@@ -11,10 +12,13 @@ const Em = styled.em`
   color: ${props => props.theme.fontParagraph};
 `;
 
-export default function Preamble() {
-  const [hasAnimated, setHasAnimated] = useState(false)
+export default function ChapterHead({ onAnimateEnd }) {
   const mobChapterCaptionRef = useRef(null)
   const mobPaddingTop = useRef(null)
+
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const dividerRef = useRef(null)
 
   useEffect(() => {
     if (mobChapterCaptionRef.current) {
@@ -22,8 +26,28 @@ export default function Preamble() {
     }
   }, [])
 
-  const onAppear = isVisible =>
-    !hasAnimated && isVisible && setHasAnimated(true)
+  const onAppear = isVisible => {
+    setIsVisible(isVisible)
+    animate()
+  }
+
+  const animate = useCallback(() => {
+    if (isVisible && !hasAnimated && dividerRef.current) {
+      gsap.timeline({
+        onComplete: () => {
+          setHasAnimated(true)
+          onAnimateEnd()
+        }
+      })
+        .to(dividerRef.current, {
+          duration: 1,
+          ease: 'none',
+          height: '100%'
+        })
+    }
+  }, [hasAnimated, isVisible, onAnimateEnd])
+
+  useEffect(() => animate(), [animate])
 
   return (
     <Background css={css`height: 100vh;`}>
@@ -31,7 +55,7 @@ export default function Preamble() {
         <Column h="100vh" w="100%" align="center" justify="center">
           <Layer>
               <Row h="100%" justify="center">
-                <Divider length={hasAnimated ? '100%' : '0'} vertical css={css`transition-delay: .2s;`} />
+                <Divider ref={dividerRef} vertical length="0" />
               </Row>
           </Layer>
           
@@ -47,7 +71,7 @@ export default function Preamble() {
                     <Camouflage />
                     <Circle size="xl" />
                     <H4 css={css`margin-top: 16px;`}>Chapter 1</H4>
-                    <Camouflage w="100%" length={hasAnimated ? '0' : '100%'} />
+                    <Camouflage w="100%" length={isVisible && !hasAnimated ? '0' : '100%'} />
                   </Column>
                 </ReactVisibilitySensor>
               </Column>
@@ -78,7 +102,7 @@ export default function Preamble() {
         <Column h="100vh" w="100%" align="center" justify="center">
           <Layer>
               <Row h="100%" justify="center">
-                <Divider length={hasAnimated ? '100%' : '0'} vertical />
+                <Divider ref={dividerRef} vertical length="0" />
               </Row>
           </Layer>
 
@@ -96,7 +120,7 @@ export default function Preamble() {
                     <Block ref={mobChapterCaptionRef}>
                       <H4 css={css`margin: 16px 0 12px;`}>Chapter 1</H4>
                     </Block>
-                    <Camouflage w="100%" length={hasAnimated ? '0' : '100%'} />
+                    <Camouflage w="100%" length={isVisible && !hasAnimated ? '0' : '100%'} />
                   </Column>
                 </ReactVisibilitySensor>
               </Column>

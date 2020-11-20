@@ -22,13 +22,13 @@ const Ch2MobileFixedBG = styled(FixedBackground)`
 `;
 
 export const BrandBackground = ({ sliderRef }) => {
-  const { hasChapter2Init } = useStoryState();
+  const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const bgRef = useRef(null);
   const [opacity, setOpacity] = useState(0)
 
   useEffect(() => {
-    if (!hasChapter2Init) return;
+    if (!hasChapterInit) return;
 
     const tl = gsap.timeline({
       scrollTrigger:{
@@ -53,7 +53,7 @@ export const BrandBackground = ({ sliderRef }) => {
     }
 
     return () => tl.kill()
-  }, [sliderRef, hasChapter2Init])
+  }, [sliderRef, hasChapterInit])
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>

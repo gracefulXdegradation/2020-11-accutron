@@ -37,7 +37,7 @@ const HoverableCircle = styled(Column)`
   }
 `
 
-export default function Ending({ nextChapter }) {
+export default function Ending({ nextChapter = () => null }) {
   const rootRef = useRef(null)
   const topDivRef = useRef(null)
   const leftDivRef = useRef(null)

@@ -6,10 +6,10 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'chapter2.init':
+    case 'chapter.init':
       return {
 				...state,
-				hasChapter2Init: true
+				hasChapterInit: true
 			};
     default:
       throw new Error();
@@ -18,13 +18,13 @@ function reducer(state, action) {
 
 const StoryStateContext = createContext();
 
-const StoryStateProvider = ({ children, headings }) => {
+const StoryStateProvider = ({ children }) => {
 	const [storyState, dispatch] = useReducer(reducer, initialState);
 
 	const value = {
 		...storyState,
-		initChapter2: useCallback(() => {
-			dispatch({ type: 'chapter2.init' })
+		initChapter: useCallback(() => {
+			dispatch({ type: 'chapter.init' })
 		}, [dispatch])
 	};
 

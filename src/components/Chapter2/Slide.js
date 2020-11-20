@@ -87,13 +87,13 @@ export const animateFadeInOut = (el, props) => {
 }
 
 const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
-  const { hasChapter2Init } = useStoryState();
+  const { hasChapterInit } = useStoryState();
   const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
   const slideInnerRef = useRef(null)
 
   useEffect(() => {
-    if (hasChapter2Init) {
+    if (hasChapterInit) {
       const tl = animate(slideRef.current, {
         onEnter: () => setSlideHeading(index),
         onEnterBack: () => setSlideHeading(index),
@@ -101,7 +101,7 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
 
       return () => tl.kill();
     }
-  }, [animate, index, setSlideHeading, hasChapter2Init])
+  }, [animate, index, setSlideHeading, hasChapterInit])
 
   return (
     <>

@@ -12,12 +12,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function NavBar({ sliderRef }) {
   const { slideHeading } = useNavBar();
-  const { hasChapter2Init } = useStoryState();
+  const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
 
   useEffect(() => {
-    if (hasChapter2Init) {
+    if (hasChapterInit) {
       const tl = gsap.timeline({
         scrollTrigger:{
           trigger: sliderRef.current,
@@ -35,7 +35,7 @@ export default function NavBar({ sliderRef }) {
 
       return () => tl.kill()
     }
-  }, [sliderRef, hasChapter2Init])
+  }, [sliderRef, hasChapterInit])
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
