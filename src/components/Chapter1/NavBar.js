@@ -6,33 +6,37 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
 import { Circle, Layer, Divider, Row, Column, Block } from '../UIKit';
+import { useStoryState } from '../../providers/StoryStateProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function NavBar({ sliderRef }) {
   const { slideHeading } = useNavBar();
+  const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
   const dividerContainerRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger:{
-        trigger: sliderRef.current,
-        pin: pinRef.current,
-        scrub: true,
-        start: 'top top',
-        end:'bottom bottom',
-      }
-    })
-    .to(logoRef.current, {
-      rotation: 90,
-      duration: 1,
-      ease: 'none',
-    })
+    if (hasChapterInit) {
+      const tl = gsap.timeline({
+        scrollTrigger:{
+          trigger: sliderRef.current,
+          pin: pinRef.current,
+          scrub: true,
+          start: 'top top',
+          end:'bottom bottom',
+        }
+      })
+      .to(logoRef.current, {
+        rotation: 90,
+        duration: 1,
+        ease: 'none',
+      })
 
-    return () => tl.kill()
-  }, [sliderRef])
+      return () => tl.kill()
+    }
+  }, [sliderRef, hasChapterInit])
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>

@@ -1,36 +1,56 @@
-import { gsap } from 'gsap/all';
-import { Background } from '../UIKit';
-import Ending from './Ending';
-import ChapterHead from './ChapterHead';
-import Slider from './Slider';
-import { useRef } from 'react';
-import { useStoryState } from '../../providers/StoryStateProvider';
+import React, { useRef } from 'react';
+import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { gsap } from 'gsap/all';
+import { useStoryState } from '../../providers/StoryStateProvider';
+import { Background } from '../UIKit';
+import ChapterHead from './ChapterHead';
+import Ending from './Ending';
+import Slider from './Slider';
 
-export default function Chapter({ nextChapter }) {
-  const sliderRef = useRef(null)
+const TopScreen = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+`;
+
+const HorizontalSlider = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`
+
+export default function Chapter({ nextChapter, toTop }) {
+  const horSlider = useRef(null)
   const { initChapter, hasChapterInit } = useStoryState()
 
+  window.initChapter = initChapter
+
   const toSlider = () => {
-    if (sliderRef.current) {
-      gsap.to(window, {
-        duration: 1.4,
-        scrollTo: sliderRef.current,
-        ease: 'easeIn',
-        onComplete: () => {
-          initChapter()
-        }
-      })
-    }
+    gsap.to(horSlider.current, {
+      duration: 1,
+      ease: 'none',
+      y: 0,
+      onComplete: () => {
+        // clear transform for scroll triggers to position correctly
+        gsap.set(horSlider.current, {
+          clearProps: 'transform'
+        })
+        initChapter()
+      }
+    })
   }
 
   return (
-    <Background css={!hasChapterInit && css`height: ${200}vh; overflow: hidden;`}>
-      <ChapterHead onAnimateEnd={toSlider} />
-      <div ref={sliderRef}>
+    <Background css={!hasChapterInit && css`height: 100vh; overflow: hidden;`}>
+      <HorizontalSlider ref={horSlider} style={{transform: 'translate3d(0,100%,0)'}}> 
+        <TopScreen>
+          <ChapterHead onAnimateEnd={toSlider} />
+        </TopScreen>
         <Slider />
-      </div>
-      <Ending nextChapter={nextChapter} />
+        <Ending nextChapter={nextChapter} toTop={() => null} />
+      </HorizontalSlider>
     </Background>
   );
 };

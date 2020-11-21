@@ -8,7 +8,7 @@ import Technology3 from './slides/3.Technology';
 import Legacy4 from './slides/4.Legacy';
 import Legacy5 from './slides/5.Legacy';
 import Legacy6 from './slides/6.Legacy';
-import { BrandBackground } from '../BrandBackground';
+import { BrandBackground } from './BrandBackground';
 
 const SliderRoot = styled.div`
   position: relative;
