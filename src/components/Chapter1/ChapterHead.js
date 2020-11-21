@@ -48,7 +48,7 @@ export default function ChapterHead({ onAnimateEnd }) {
         })
         .to(camouflageRef.current, {
           duration: .5,
-          delay: -.5,
+          delay: -1,
           ease: 'none',
           height: 0
         })
@@ -132,7 +132,11 @@ export default function ChapterHead({ onAnimateEnd }) {
                     <Block ref={mobChapterCaptionRef}>
                       <H4 css={css`margin: 16px 0 12px;`}>Chapter 1</H4>
                     </Block>
-                    <Camouflage w="100%" length={isVisible && !hasAnimated ? '0' : '100%'} />
+                    <Layer top="0">
+                      <Row justify="center" h="100%">
+                        <Divider ref={camouflageRef} vertical camouflage css={css`max-width: 100%; width: 100%; height: 100%;`} />
+                      </Row>
+                    </Layer>
                   </Column>
                 </ReactVisibilitySensor>
               </Column>
