@@ -29,6 +29,11 @@ const HoverableCircle = styled(Column)`
   &:hover {
     ${Circle} { 
       transform: rotateZ(90deg) scale(1.05);
+      box-shadow: 0px 0px 8px 2px #FFF inset;
+
+      &:after {
+        box-shadow: 0px 0px 8px 2px #FFF;
+      }
     }
 
     ${H4} {

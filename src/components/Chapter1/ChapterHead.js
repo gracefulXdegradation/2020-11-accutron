@@ -59,7 +59,7 @@ export default function ChapterHead({ onAnimateEnd }) {
 
   return (
     <Background css={css`height: 100vh;`}>
-      <BrowserView>
+      <BrowserView renderWithFragment>
         <Column h="100vh" w="100%" align="center" justify="center">
           <Layer>
               <Row h="100%" justify="center">
@@ -110,7 +110,7 @@ export default function ChapterHead({ onAnimateEnd }) {
         </Column>
       </BrowserView>
 
-      <MobileView>
+      <MobileView renderWithFragment>
         <Column h="100vh" w="100%" align="center" justify="center">
           <Layer>
               <Row h="100%" justify="center">
