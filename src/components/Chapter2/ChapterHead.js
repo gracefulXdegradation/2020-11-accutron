@@ -43,7 +43,7 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Column h="100%" w="100vh" align="center" justify="center">
+        <Column h="100%" w="100%" align="center" justify="center">
           <Row css={css`flex: 1;`} justify="center" align="flex-end">
             <ReactVisibilitySensor
               partialVisibility={true}

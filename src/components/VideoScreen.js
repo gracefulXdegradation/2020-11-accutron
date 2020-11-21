@@ -23,7 +23,7 @@ export default function ChapterHead({toContent, nextChapter}) {
         <Layer>
           <Block h="100%">
             <Row w="50%" justify="center" align="center">
-              <Column align="center" css={css`cursor: pointer;`} onClick={toContent}>
+              <Column align="center" css={css`cursor: pointer;`} onClick={nextChapter}>
                 <Circle size="xl" />
                 <ChapterCaption>
                   <H4>Chapter 1</H4>
@@ -31,7 +31,7 @@ export default function ChapterHead({toContent, nextChapter}) {
                 </ChapterCaption>
               </Column>
             </Row>
-            <Row w="50%" justify="center" align="center">
+            {/* <Row w="50%" justify="center" align="center">
               <Layer>
                 <Row h="100%" align="center" justify="flex-end">
                   <Divider length={`calc(50% - ${CircleSizes.xl}px / 2 - 40px)`} />
@@ -44,7 +44,7 @@ export default function ChapterHead({toContent, nextChapter}) {
                   <P>A legacy Reborn</P>
                 </ChapterCaption>
               </Column>
-            </Row>
+            </Row> */}
           </Block>
         </Layer>
       </BrowserView>
@@ -52,7 +52,7 @@ export default function ChapterHead({toContent, nextChapter}) {
       <MobileView>
         <Column h="100vh">
           <Row align="center" h="50%" justify="center">
-            <Column align="center" onClick={toContent}>
+            <Column align="center" onClick={nextChapter}>
               <Circle size="l" />
               <ChapterCaption>
                 <H4>Chapter 1</H4>
@@ -60,7 +60,7 @@ export default function ChapterHead({toContent, nextChapter}) {
               </ChapterCaption>
             </Column>
           </Row>
-          <Row align="center" h="50%" justify="center">
+          {/* <Row align="center" h="50%" justify="center">
             <Column align="center" w="100%" onClick={nextChapter}>
               <Row justify="center">
                 <Layer>
@@ -73,7 +73,7 @@ export default function ChapterHead({toContent, nextChapter}) {
               <H4 css={css`margin-top: 16px;`}>Chapter 2</H4>
               <P>A legacy Reborn</P>
             </Column>
-          </Row>
+          </Row> */}
         </Column>
       </MobileView>
     </Background>

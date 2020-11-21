@@ -19,6 +19,7 @@ const LeftScreen = styled.div`
 const HorizontalSlider = styled.div`
   position: relative;
   width: 100%;
+  height: 100%;
 `
 
 export default function Chapter({ prevChapter, toTop }) {
@@ -63,7 +64,7 @@ export default function Chapter({ prevChapter, toTop }) {
                 <ChapterHead onAnimateEnd={toSlider} />
               </LeftScreen>
               <Slider />
-              <Ending prevChapter={prevChapter} toTop={() => toTop(1)} />
+              <Ending prevChapter={prevChapter} toTop={() => null} />
             </HorizontalSlider>
         </Background>
       </BrowserView>
@@ -74,7 +75,7 @@ export default function Chapter({ prevChapter, toTop }) {
           <div ref={mobSliderRef}>
             <Slider />
           </div>
-          <Ending prevChapter={prevChapter} toTop={() => toTop(1)} />
+          <Ending prevChapter={prevChapter} toTop={() => null} />
         </Background>
       </MobileView>
     </>

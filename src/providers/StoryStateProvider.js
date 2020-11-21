@@ -4,12 +4,12 @@ const initialState = {
 	hasChapter2Init: false
 };
 
-function reducer(state, action) {
-  switch (action.type) {
+function reducer(state, {type, value}) {
+  switch (type) {
     case 'chapter.init':
       return {
 				...state,
-				hasChapterInit: true
+				hasChapterInit: value
 			};
     default:
       throw new Error();
@@ -23,8 +23,8 @@ const StoryStateProvider = ({ children }) => {
 
 	const value = {
 		...storyState,
-		initChapter: useCallback(() => {
-			dispatch({ type: 'chapter.init' })
+		initChapter: useCallback((value = true) => {
+			dispatch({ type: 'chapter.init', value })
 		}, [dispatch])
 	};
 

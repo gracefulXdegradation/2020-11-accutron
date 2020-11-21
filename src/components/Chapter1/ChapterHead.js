@@ -19,6 +19,7 @@ export default function ChapterHead({ onAnimateEnd }) {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const dividerRef = useRef(null)
+  const camouflageRef = useRef(null)
 
   useEffect(() => {
     if (mobChapterCaptionRef.current) {
@@ -41,8 +42,15 @@ export default function ChapterHead({ onAnimateEnd }) {
       })
         .to(dividerRef.current, {
           duration: 1,
+          delay: 1,
           ease: 'none',
           height: '100%'
+        })
+        .to(camouflageRef.current, {
+          duration: .5,
+          delay: -.5,
+          ease: 'none',
+          height: 0
         })
     }
   }, [hasAnimated, isVisible, onAnimateEnd])
@@ -71,7 +79,11 @@ export default function ChapterHead({ onAnimateEnd }) {
                     <Camouflage />
                     <Circle size="xl" />
                     <H4 css={css`margin-top: 16px;`}>Chapter 1</H4>
-                    <Camouflage w="100%" length={isVisible && !hasAnimated ? '0' : '100%'} />
+                    <Layer top="0">
+                      <Row justify="center" h="100%">
+                        <Divider ref={camouflageRef} vertical camouflage css={css`max-width: 100%; width: 100%; height: 100%;`} />
+                      </Row>
+                    </Layer>
                   </Column>
                 </ReactVisibilitySensor>
               </Column>

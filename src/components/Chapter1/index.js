@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import { useStoryState } from '../../providers/StoryStateProvider';
 import { css } from '@emotion/core';
 
-export default function Chapter() {
+export default function Chapter({ nextChapter }) {
   const sliderRef = useRef(null)
   const { initChapter, hasChapterInit } = useStoryState()
 
@@ -19,11 +19,6 @@ export default function Chapter() {
         ease: 'easeIn',
         onComplete: () => {
           initChapter()
-          // gsap.to(window, {
-          //   duration: 1,
-          //   scrollTo: `+=${window.innerHeight / 4}`,
-          //   ease: 'none',
-          // })
         }
       })
     }
@@ -35,7 +30,7 @@ export default function Chapter() {
       <div ref={sliderRef}>
         <Slider />
       </div>
-      <Ending />
+      <Ending nextChapter={nextChapter} />
     </Background>
   );
 };
