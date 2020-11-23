@@ -6,6 +6,7 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 import { H2, H4, P } from "../../styles/typography";
 import { Block, ChapterCaption, Circle, Column, Divider, Layer, Row } from "../UIKit";
 import EndingImage from '../../assets/ch1-ending.png';
+import { useStoryState } from '../../providers/StoryStateProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +30,11 @@ const HoverableCircle = styled(Column)`
   &:hover {
     ${Circle} { 
       transform: rotateZ(90deg) scale(1.05);
+      box-shadow: 0px 0px 8px 2px #FFF inset;
+
+      &:after {
+        box-shadow: 0px 0px 8px 2px #FFF;
+      }
     }
 
     ${H4} {
@@ -37,7 +43,8 @@ const HoverableCircle = styled(Column)`
   }
 `
 
-export default function Ending({ nextChapter }) {
+export default function Ending({ nextChapter = () => null }) {
+  const { hasChapterInit } = useStoryState();
   const rootRef = useRef(null)
   const topDivRef = useRef(null)
   const leftDivRef = useRef(null)
@@ -47,6 +54,8 @@ export default function Ending({ nextChapter }) {
   const mobSlide2Ref = useRef(null)
 
   useEffect(() => {
+    if (!hasChapterInit) return;
+
     if (isBrowser) {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -100,7 +109,7 @@ export default function Ending({ nextChapter }) {
 
       return () => tl.kill()
     }
-  }, [])
+  }, [hasChapterInit])
 
   return (
     <>

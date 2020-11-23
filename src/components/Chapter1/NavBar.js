@@ -6,33 +6,37 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
 import { Circle, Layer, Divider, Row, Column, Block } from '../UIKit';
+import { useStoryState } from '../../providers/StoryStateProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function NavBar({ sliderRef }) {
   const { slideHeading } = useNavBar();
+  const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
   const dividerContainerRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger:{
-        trigger: sliderRef.current,
-        pin: pinRef.current,
-        scrub: true,
-        start: 'top top',
-        end:'bottom bottom',
-      }
-    })
-    .to(logoRef.current, {
-      rotation: 90,
-      duration: 1,
-      ease: 'none',
-    })
+    if (hasChapterInit) {
+      const tl = gsap.timeline({
+        scrollTrigger:{
+          trigger: sliderRef.current,
+          pin: pinRef.current,
+          scrub: true,
+          start: 'top top',
+          end:'bottom bottom',
+        }
+      })
+      .to(logoRef.current, {
+        rotation: 90,
+        duration: 1,
+        ease: 'none',
+      })
 
-    return () => tl.kill()
-  }, [sliderRef])
+      return () => tl.kill()
+    }
+  }, [sliderRef, hasChapterInit])
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
@@ -44,7 +48,7 @@ export default function NavBar({ sliderRef }) {
               <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
             </Column>
             <Divider vertical />
-            <H3 teriary css={css`margin-top: 8px;`}>{slideHeading}</H3>
+            <H3 tertiary css={css`margin-top: 8px;`}>{slideHeading}</H3>
             <Divider vertical />
             <Column align="center" css={css`padding: 30px 0 50px;`}>
               <Circle size="m" rotation="90" />
@@ -67,7 +71,7 @@ export default function NavBar({ sliderRef }) {
                 </Layer>
               </Block>
               <H4 alternative mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
-              <H3 teriary css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
+              <H3 tertiary css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
             </Column>
             <Column ref={dividerContainerRef} align="flex-end" css={css`flex: 1;`} w="35px">
               <Divider vertical />

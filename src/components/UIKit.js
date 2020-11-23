@@ -84,20 +84,21 @@ export const Divider = styled.div`
   ${({ vertical, length }) => vertical
     ? css`
       width: 1px;
+      max-width: 1px;
       height: ${length || '100%'};
     `
     : css`
       height: 1px;
+      max-height: 1px;
       width: ${length || '100%'};
     `}
-  transition: all .4s linear;
   background: ${({ camouflage, theme }) => camouflage ? theme.bgColor : theme.fontParagraph};
 `;
 
 export const Camouflage = ({ w, length }) => (
   <Layer top="0">
     <Row justify="center" h="100%">
-      <Divider vertical length={length} camouflage css={w && css`width: ${w};`} />
+      <Divider vertical length={length} camouflage css={w && css`width: ${w}; max-width: ${w}; transition: all .4s linear; transition-delay: .2s;`} />
     </Row>
   </Layer>
 );

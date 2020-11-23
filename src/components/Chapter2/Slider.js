@@ -13,7 +13,9 @@ import Legacy8 from './slides/8.Legacy';
 import Legacy9 from './slides/9.Legacy';
 import Legacy10 from './slides/10.Legacy';
 import Legacy11 from './slides/11.Legacy';
-import { BrandBackground } from '../BrandBackground';
+import { BrandBackground } from './BrandBackground';
+import { Background } from '../UIKit';
+import { css } from '@emotion/core';
 
 const SliderRoot = styled.div`
   position: relative;
@@ -27,6 +29,7 @@ export default function Slider() {
 
   return (
     <SliderRoot ref={pinSectionRef}>
+      <Background css={css`height: 100%;`}>
       <NavBarProvider headings={headings}>
         <BrandBackground sliderRef={pinSectionRef} chapter={2} />
         <NavBar sliderRef={pinSectionRef} />
@@ -42,6 +45,7 @@ export default function Slider() {
         <Legacy10 index={4} />
         <Legacy11 index={4} />
       </NavBarProvider>
+      </Background>
     </SliderRoot>
   );
 };
