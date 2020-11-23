@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
-import { Circle, Layer, Divider, Row, Column, ChapterCaption, HoverableCircle } from '../UIKit';
+import { Circle, Layer, Divider, Row, Column, HoverableCircle } from '../UIKit';
 import { useStoryState } from '../../providers/StoryStateProvider';
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 

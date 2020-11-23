@@ -17,7 +17,6 @@ export default function Legacy5({ index }) {
 
   const mobLayer1 = useRef(null)
   const mobLayer2 = useRef(null)
-  const mobHead2 = useRef(null)
 
   const desktopAnimation = (el, props) => {
     const transitions = 3;
@@ -27,7 +26,7 @@ export default function Legacy5({ index }) {
         ...props,
         trigger: el,
         pin: el,
-        // pinSpacing: false,
+        pinSpacing: false,
         scrub: true,
         start: 'top top',
         end: 'bottom bottom',
@@ -51,8 +50,6 @@ export default function Legacy5({ index }) {
   }
 
   const mobileAnimation = (el, props) => {
-    const transitions = 6;
-
     return gsap.timeline({
       scrollTrigger: {
         ...props,
@@ -66,39 +63,34 @@ export default function Legacy5({ index }) {
     })
     .to(el, {
       opacity: 1,
-      duration: 1/transitions,
+      duration: 1,
       ease: 'none',
     })
     .to(copy1Ref.current, {
       opacity: 0,
-      duration: 1/transitions,
+      duration: 1,
       ease: 'none',
     })
     .to(copy2Ref.current, {
       opacity: 1,
-      duration: 1/transitions,
+      duration: 1,
       ease: 'none',
     })
-    .to(mobLayer1.current, {
+    .to(copy2Ref.current, {
       opacity: 0,
-      duration: 1/transitions,
+      duration: 1,
       ease: 'none',
     })
     .to(mobLayer2.current, {
       opacity: 1,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-    .to(mobHead2.current, {
-      opacity: 1,
-      duration: 1/transitions,
+      duration: 1,
       ease: 'none',
     })
   }
 
   return (
     <>
-      <BrowserView style={{height: "200vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={desktopAnimation}>
           <Column h="100%" w="50%" justify="center" css={css`margin: 0 100px;`}>
             <Column css={css`transform: translateY(50%);`}>
@@ -107,9 +99,9 @@ export default function Legacy5({ index }) {
                   <P>
                   {d.copy[0].text}
                   </P>
-                  <H4 alternative css={css`margin: 25px 0 56px;`}>
+                  <P alternative css={css`margin: 20px 0 50px;`}>
                   {d.copy[1].text}
-                  </H4>
+                  </P>
                 </Column>
                 <H2 alternative>
                 {d.copy[2].text}
@@ -117,16 +109,16 @@ export default function Legacy5({ index }) {
               </Layer>
               <Layer ref={copy2Ref} css={css`opacity: 0;`}>
                 <Column css={css`max-width: 580px;`}>
-                  <H4 alternative>
+                  <P>
                   {d.copy[3].text}
-                  </H4>
-                  <P css={css`margin: 25px 0 56px;`}>
+                  </P>
+                  <P css={css`margin: 20px 0;`}>
                   {d.copy[4].text}
                   </P>
+                  <P>
+                  {d.copy[5].text}
+                  </P>
                 </Column>
-                <H2 alternative>
-                {d.copy[5].text}
-                </H2>
               </Layer>
             </Column>
           </Column>
@@ -140,7 +132,7 @@ export default function Legacy5({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "300vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={3} animate={mobileAnimation}>
           <Column h="100%">
             <Layer ref={mobLayer1} css={css`height: 50%;`}>
@@ -151,9 +143,9 @@ export default function Legacy5({ index }) {
                     <P mobile css={css`margin-top: 16px;`}>
                     {d.copy[0].text}
                     </P>
-                    <H4 mobile alternative css={css`margin-top: 16px;`}>
+                    <P mobile css={css`margin-top: 20px;`}>
                     {d.copy[1].text}
-                    </H4>
+                    </P>
                   </Column>
                 </Layer>
                 <Layer ref={copy2Ref} css={css`opacity: 0;`}>
@@ -161,19 +153,19 @@ export default function Legacy5({ index }) {
                   {d.copy[2].text}
                   </H2>
                 </Layer>
-              </Column>
-            </Layer>
-            <Layer ref={mobLayer2} css={css`opacity: 0;`}>
-              <Column>
-                <H4 mobile alternative>
-                {d.copy[3].text}
-                </H4>
-                <P mobile css={css`margin: 16px 0 40px;`}>
-                {d.copy[4].text}
-                </P>
-                <H2 ref={mobHead2} mobile alternative css={css`opacity: 0;`}>
-                {d.copy[5].text}
-                </H2>
+                <Layer ref={mobLayer2} css={css`opacity: 0;`}>
+                  <Column>
+                    <P mobile>
+                    {d.copy[3].text}
+                    </P>
+                    <P mobile css={css`margin: 20px 0;`}>
+                    {d.copy[4].text}
+                    </P>
+                    <P mobile>
+                    {d.copy[5].text}
+                    </P>
+                  </Column>
+                </Layer>
               </Column>
             </Layer>
           </Column>

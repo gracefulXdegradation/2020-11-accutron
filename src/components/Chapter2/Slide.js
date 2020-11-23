@@ -12,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 const SlideRoot = styled.section`
   width: 100%;
   position: relative;
-  z-index: 0;
   height: ${({ subslides }) => subslides * 100}vh;
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;

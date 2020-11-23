@@ -52,16 +52,16 @@ export default function Technology3({ index }) {
 
   return (
     <>
-      <BrowserView>
+      <BrowserView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
           <LeftHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
               <H2 alternative>
                 {d.copy[0].text}
               </H2>
-              <H4 alternative css={css`margin: 20px 0 60px;`}>
+              <P css={css`margin: 20px 0;`}>
               {d.copy[1].text}
-              </H4>
+              </P>
               <P css={css`margin-bottom: 20px;`}>
               {d.copy[2].text}
               </P>
@@ -76,7 +76,7 @@ export default function Technology3({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "100vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} animate={mobileAnimation}>
           <Layer css={css`height: 100%; right: -20%; z-index: -1; width: 140%; top: 0;`}>
             <SlideImage {...d.images[0]} css={css`position: absolute; bottom: 80px;`} />
@@ -86,9 +86,9 @@ export default function Technology3({ index }) {
               <H2 mobile alternative>
                 {d.copy[0].text}
               </H2>
-              <H4 alternative mobile css={css`margin-top: 16px;`}>
+              <P mobile css={css`margin-top: 16px;`}>
               {d.copy[1].text}
-              </H4>
+              </P>
             </Column>
             <Column ref={copy2Ref} css={css`position: absolute; opacity: 0;`}>
               <P mobile css={css`margin-bottom: 20px;`}>

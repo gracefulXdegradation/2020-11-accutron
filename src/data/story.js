@@ -31,10 +31,7 @@ const story = {
           title: 'origins',
           copy: [
             {
-              text: 'Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,'
-            },
-            {
-              text: 'the company was founded in 1875 by Joseph Bulova in New York City.'
+              text: 'Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960, the company was founded in 1875 by Joseph Bulova in New York City.'
             },
           ],
           images: [
@@ -61,10 +58,10 @@ const story = {
               text: 'Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.'
             },
             {
-              text: 'which guaranteed accuracy to within one minute per month, or two seconds per day. This was unheard of at that time.'
+              text: 'Which guaranteed accuracy to within one minute per month, or two seconds per day. This was unheard of at that time.'
             },
             {
-              text: 'that level of accuracy was far better than any mechanical watch could reproduce.'
+              text: 'That level of accuracy was far better than any mechanical watch could reproduce.'
             }
           ],
           images: [
@@ -129,13 +126,7 @@ const story = {
           title: 'legacy',
           copy: [
             {
-              text: 'Bulova’s tuning fork technology was so revolutionary that'
-            },
-            {
-              text: 'NASA opted to use Accutron technology for its manned space missions'
-            },
-            {
-              text: 'outfitting cockpit flight instruments during the Gemini and Apollo programs.'
+              text: 'Bulova’s tuning fork technology was so revolutionary that NASA opted to use Accutron technology for its manned space missions outfitting cockpit flight instruments during the Gemini and Apollo programs.'
             },
           ],
           images: [
@@ -192,7 +183,7 @@ const story = {
               text: 'As Accutron celebrates its 60th anniversary this year, they’re relaunching the watch with yet another timekeeping innovation.'
             },
             {
-              text: 'the  world’s first timepiece powered by electrostatic energy. '
+              text: 'The world’s first timepiece powered by electrostatic energy.'
             },
           ],
           images: [

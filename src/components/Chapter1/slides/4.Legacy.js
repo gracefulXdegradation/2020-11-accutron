@@ -52,7 +52,7 @@ export default function Legacy4({ index }) {
 
   return (
     <>
-      <BrowserView>
+      <BrowserView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
           <LeftHalf>
             <Column h="100%" justify="center">
@@ -65,30 +65,18 @@ export default function Legacy4({ index }) {
                 <P>
                 {d.copy[0].text}
                 </P>
-                <H4 alternative css={css`margin: 20px 0;`}>
-                {d.copy[1].text}
-                </H4>
-                <P>
-                {d.copy[2].text}
-                </P>
               </Column>
             </Column>
           </RightHalf>
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "100vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} animate={mobileAnimation}>
           <SlideImage ref={imageRef} {...d.images[0]} css={css`top: 20%; position: relative;`} />
           <Column ref={copyRef} css={css`opacity: 0; margin-top: 40px;`}>
             <P mobile>
             {d.copy[0].text}
-            </P>
-            <H4 alternative mobile css={css`margin: 20px 0;`}>
-            {d.copy[1].text}
-            </H4>
-            <P mobile>
-            {d.copy[2].text}
             </P>
           </Column>
         </Slide>

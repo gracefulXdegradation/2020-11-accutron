@@ -168,7 +168,7 @@ export default function Technology2({ index }) {
 
   return (
     <>
-      <BrowserView style={{height: "300vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} subslides={3} animate={desktopAnimation}>
           <Row h="100%">
             <LeftHalf>
@@ -207,9 +207,9 @@ export default function Technology2({ index }) {
                       <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
                     </ImageHolder>
                   </div>
-                  <H4 alternative css={css`margin-top: 60px;`}>
+                  <P css={css`margin-top: 60px;`}>
                     {d.copy[2].text}
-                  </H4>
+                  </P>
                 </Column>
               </Column>
             </RightHalf>
@@ -217,7 +217,7 @@ export default function Technology2({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "400vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={4} animate={mobileAnimation}>
           <Column h="100%" justify="space-evenly">
             <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%; top: 20%;`} ref={galleryRef}>
@@ -251,9 +251,9 @@ export default function Technology2({ index }) {
                 </P>
               </Layer>
               <Layer ref={hRef} css={css`opacity: 0;`}>
-                <H4 alternative mobile css={css`margin-top: 32px;`}>
+                <P mobile css={css`margin-top: 32px;`}>
                   {d.copy[2].text}
-                </H4>
+                </P>
               </Layer>
             </div>
           </Column>

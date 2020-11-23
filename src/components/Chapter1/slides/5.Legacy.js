@@ -53,8 +53,6 @@ export default function Legacy5({ index }) {
   }
 
   const mobileAnimation = (el, props) => {
-    const transitions = 6;
-
     return gsap.timeline({
       scrollTrigger: {
         ...props,
@@ -66,40 +64,30 @@ export default function Legacy5({ index }) {
     })
     .to(el, {
       opacity: 1,
-      duration: 1/transitions,
+      duration: 1,
       ease: 'none',
     })
     .to([bulovaRef.current, pRef.current], {
-      duration: 1/transitions,
+      duration: 1,
+      delay: .5,
       opacity: 0,
       ease: 'none'
     })
-    .to(nasaRef.current, {
-      duration: 1.2/transitions,
-      delay: -.2/transitions,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(nasaRef.current, {
-      duration: 1/transitions,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(hRef.current, {
-      duration: 1/transitions,
+    .to([nasaRef.current, hRef.current], {
+      duration: 1,
       opacity: 1,
       ease: 'none'
     })
     .to(el, {
       opacity: 0,
-      duration: 1/transitions,
+      duration: 1,
       ease: 'none',
     })
   }
 
   return (
     <>
-      <BrowserView style={{height: "150vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} subslides={1.5} animate={desktopAnimation}>
           <Row w="50%" h="100%">
             <Layer ref={bulovaRef} top="0" left="0" bottom="0" right="0">
@@ -115,35 +103,35 @@ export default function Legacy5({ index }) {
                 <P>
                 {d.copy[0].text}
                 </P>
-                <H4 ref={pRef} alternative css={css`margin-top: 32px; opacity: 0;`}>
+                <P ref={pRef} css={css`margin-top: 32px; opacity: 0;`}>
                 {d.copy[1].text}
-                </H4>
+                </P>
               </Column>
             </Column>
           </RightHalf>
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "300vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={3} animate={mobileAnimation}>
           <Block>
             <Layer>
-              <P ref={pRef} mobile css={css`margin-bottom: 20px;`}>
-              {d.copy[0].text}
-              </P>
               <Block>
-                <Layer ref={bulovaRef}>
-                  <SlideImage {...d.images[0]} />
-                </Layer>
+                <SlideImage ref={bulovaRef} {...d.images[0]} />
                 <Layer ref={nasaRef} css={css`opacity: 0;`}>
                   <SlideImage {...d.images[1]} />
                 </Layer>
               </Block>
-            </Layer>
-            <Layer ref={hRef} css={css`opacity: 0;`}>
-              <H4 alternative>
-              {d.copy[1].text}
-              </H4>
+              <Block css={css`margin-top: 20px;`}>
+                <P mobile ref={pRef}>
+                {d.copy[0].text}
+                </P>
+                <Layer ref={hRef} css={css`opacity: 0;`}>
+                  <P mobile>
+                  {d.copy[1].text}
+                  </P>
+                </Layer>
+              </Block>
             </Layer>
           </Block>
         </Slide>

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { gsap } from 'gsap/all';
 import { BrowserView, MobileView } from "react-device-detect";
 import ReactVisibilitySensor from 'react-visibility-sensor';
-import { H2, H4 } from '../../styles/typography';
+import { H2, H4, P } from '../../styles/typography';
 import { Circle, Divider, Layer, Block, Row, Column, Camouflage, Background } from '../UIKit';
 import data from '../../data/story';
 
@@ -94,10 +94,10 @@ export default function ChapterHead({ onAnimateEnd }) {
                 </Block>
                 <Column justify="center" align="center" css={css`flex: 1;`}>
                   <Block css={css`padding: 14px 0 6px;`}>
-                    <Camouflage />
-                    <H4 alternative align="center">
+                    <Camouflage w="100%" />
+                    <P css={css`text-align: center; position: relative;`}>
                       {d.copy[1].text}
-                    </H4>
+                    </P>
                   </Block>
                 </Column>
               </Column>

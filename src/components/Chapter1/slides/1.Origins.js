@@ -57,7 +57,7 @@ export default function Origins1({ index }) {
   
   return (
     <>
-      <BrowserView>
+      <BrowserView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
           <Row w="50%" h="100%">
             <SlideImage greedy src={d.images[0].src} alt={d.images[0].alt} />
@@ -69,9 +69,6 @@ export default function Origins1({ index }) {
                   <P>
                     {d.copy[0].text}
                   </P>
-                  <H4 alternative css={css`margin-top: 32px;`}>
-                    {d.copy[1].text}
-                  </H4>
                 </Column>
 
                 <Watches />
@@ -81,7 +78,7 @@ export default function Origins1({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "200vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2}>
           <Column h="100%">
             <Row h="100%" ref={mobMechanismRef}>
@@ -91,9 +88,6 @@ export default function Origins1({ index }) {
               <P mobile css={css`padding-bottom: 20px;`}>
                 {d.copy[0].text}
               </P>
-              <H4 alternative mobile>
-                {d.copy[1].text}
-              </H4>
             </Column>
             <Row ref={mobWatchesRef} css={css`opacity: 0; padding-top: 30px;`}>
               <Watches />
