@@ -8,6 +8,9 @@ import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { HalfWatches } from '../../Watches';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[5]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,18 +65,18 @@ export default function DNA6({ index }) {
       <BrowserView style={{height: "100vh"}}>
         <Slide index={index} animate={animation}>
           <Row w="50%" h="100%" justify="flex-start" align="center" css={css`flex-direction: row-reverse;`}>
-            <HalfWatches img={SoldierImg} large alt="Spaceview 2020" />
+            <HalfWatches {...d.images[0]} />
             <Column css={css`transform: translateY(100%);`}>
               <P>
-              The Spaceview 2020 retails at $3,450
+              {d.copy[0].text}{' '}{d.copy[1].text}
               </P>
             </Column>
           </Row>
           <Row w="50%" h="100%" justify="flex-start" align="center">
-            <HalfWatches img={SoldierSportImg} right large alt="Accutron DNA" />
+            <HalfWatches right {...d.images[1]} />
             <Column css={css`transform: translateY(100%);`}>
               <P>
-              The Accutron DNA costs $3,300
+              {d.copy[2].text}{' '}{d.copy[3].text}
               </P>
             </Column>
           </Row>
@@ -84,12 +87,12 @@ export default function DNA6({ index }) {
         <Slide index={index} subslides={1.5} animate={animation}>
           <Column h="100%" w="100%" justify="center" align="flex-start">
             <Column ref={dnaRef} w="100%">
-              <HalfWatches right img={SoldierSportImg} alt="Accutron DNA" />
+              <HalfWatches right {...d.images[1]} />
               <Layer>
                 <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                   <Column css={css`margin-right: 30px;`}>
-                    <H4 tertiary mobile>The Accutron DNA</H4>
-                    <P mobile>Costs $3,300</P>
+                    <H4 tertiary mobile>{d.copy[2].text}</H4>
+                    <P mobile>{d.copy[3].text}</P>
                   </Column>
                 </Row>
               </Layer>
@@ -98,12 +101,12 @@ export default function DNA6({ index }) {
             <Layer ref={svRef} css={css`opacity: 0;`}>
               <Column h="100%" w="100%" justify="center" align="flex-start">
                 <Column w="100%">
-                  <HalfWatches right img={SoldierImg} alt="Spaceview 2020" />
+                  <HalfWatches right {...d.images[0]} />
                   <Layer>
                     <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                       <Column css={css`margin-right: 30px;`}>
-                        <H4 tertiary mobile>The Spaceview 2020</H4>
-                        <P mobile>Costs $3,450</P>
+                        <H4 tertiary mobile>{d.copy[0].text}</H4>
+                        <P mobile>{d.copy[1].text}</P>
                       </Column>
                     </Row>
                   </Layer>

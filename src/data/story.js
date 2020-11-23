@@ -220,6 +220,271 @@ const story = {
         ]
       }
     },
+
+    {
+      opening: {
+        copy: [
+          {
+            text: 'A Legacy Reborn'
+          }
+        ]
+      },
+      slides: [
+        {
+          id: 0,
+          title: 'the spaceview',
+          copy: [
+            {
+              text: 'The original Accutron Spaceview – arguably its most popular and visually peculiar watch – was never meant for mass production.'
+            },
+            {
+              text: 'The Spaceview of yesteryear featured a deconstructed outer case design that exposed the inner workings of the watch and was only provided to retailers as display units to help explain how the innovative technology worked.'
+            },
+            {
+              text: 'But potential customers had other ideas.'
+            },
+            {
+              text: 'Perhaps it was the Spaceview’s radical design, but eagle-eyed passersby started asking about the funky new watch in jewelry shop windows assuming it was a standard model.'
+            },
+            {
+              text: 'Not wanting to pass up a sale, dealers were happy to offer up their display units,'
+            },
+          ],
+          images: [
+            {
+              src: resolveImage('2ES6A001_Soldier_short.6ecda448.png'),
+            },
+            {
+              src: resolveImage('1961_Accutron-SpaceviewAlpha_short.ce98c864.png'),
+            },
+          ]
+        },
+
+        {
+          id: 1,
+          title: 'iconic design',
+          copy: [
+            {
+              text: 'unwittingly setting the stage for the Spaceview to become an official Accutron model and Bulova’s most sought after watch at the time.'
+            },
+            {
+              text: 'Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.'
+            },
+          ]
+        },
+        
+        {
+          id: 2,
+          title: 'iconic design',
+          copy: [
+            {
+              text: 'The Spaceview 2020 has been visually and internally redesigned with the world’s first electrostatic energy movement in a timepiece, promising accuracy to within five seconds per month.'
+            },
+            {
+              text: 'Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.'
+            },
+            {
+              text: 'While more precise timekeeping is always welcome,'
+            },
+            {
+              text: 'it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.'
+            },
+            {
+              text: 'The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents.'
+            },
+            {
+              text: 'The best part is that it comes in two designs to suit different tastes:'
+            },
+          ],
+          images: [
+            {
+              src: resolveImage('2ES6A001_Soldier_short.6ecda448.png'),
+            }
+          ]
+        },
+
+        {
+          id: 3,
+          title: 'spaceview 2020',
+          copy: [
+            {
+              text: 'the Spaceview 2020'
+            },
+            {
+              text: 'Is a modern reinterpretation of the original.'
+            },
+          ],
+          images: [
+            {
+              src: resolveImage('2ES6A001_Soldier.90d82ef8.png'),
+              alt: 'Spaceview 2020'
+            }
+          ]
+        },
+
+        {
+          id: 4,
+          title: 'dna',
+          copy: [
+            {
+              text: 'the Accutron DNA'
+            },
+            {
+              text: 'a sportier update of the Spaceview featuring sleeker lines and more modern design accents.'
+            },
+          ],
+          images: [
+            {
+              src: resolveImage('2ES8A004_Soldier.ec3c4b27.png'),
+              alt: 'DNA 2ES8A004 Soldier blue'
+            },
+            {
+              src: resolveImage('2ES8A004_Soldier_black.4e137517.png'),
+              alt: 'DNA 2ES8A004 Soldier black'
+            },
+            {
+              src: resolveImage('2ES8A004_Soldier_green.b6ddfb02.png'),
+              alt: 'DNA 2ES8A004 Soldier green'
+            },
+          ]
+        },
+
+        {
+          id: 5,
+          title: 'dna',
+          copy: [
+            {
+              text: 'The Spaceview 2020'
+            },
+            {
+              text: 'retails at $3,450.'
+            },
+            {
+              text: 'The Accutron DNA'
+            },
+            {
+              text: 'costs $3,300.'
+            },
+          ],
+          images: [
+            {
+              src: resolveImage('2ES6A001_Soldier_short.6ecda448.png'),
+              alt: 'Spaceview 2020'
+            },
+            {
+              src: resolveImage('2ES8A004_Soldier_short.4a845fea.png'),
+              alt: 'The Accutron DNA'
+            },
+          ]
+        },
+
+        {
+          id: 6,
+          title: 'legacy',
+          copy: [
+            {
+              text: 'If a more retro vibe is what you’re after'
+            },
+            {
+              text: 'Accutron’s Legacy collection offers twelve of its most memorable styles from the ‘60s and ‘70s that are each timeless in their own right.'
+            },
+          ],
+          images: []
+        },
+
+        {
+          id: 7,
+          title: 'legacy',
+          copy: [
+            {
+              text: 'They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…'
+            },
+          ],
+          images: []
+        },
+
+        {
+          id: 8,
+          title: 'legacy',
+          images: [
+            {
+              src: resolveImage('Collection-Watches-1.cda49b2e.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-2.eb740e8d.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-3.42ac0e5e.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-7.8695a1bd.png')
+            },
+          ]
+        },
+
+        {
+          id: 9,
+          title: 'legacy',
+          images: [
+            {
+              src: resolveImage('Collection-Watches-4.7eafe2aa.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-5.00a0f825.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-6.0e0df6f3.png')
+            },
+          ],
+        },
+
+        {
+          id: 10,
+          title: 'legacy',
+          copy: [
+            {
+              text: 'Each style only has 600 individually numbered pieces.'
+            },
+            {
+              text: 'The Legacy collection ranges between $1,290-$1,550.'
+            },
+          ],
+          images: [
+            {
+              src: resolveImage('Collection-Watches-1.cda49b2e.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-2.eb740e8d.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-3.42ac0e5e.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-4.7eafe2aa.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-5.00a0f825.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-6.0e0df6f3.png')
+            },
+            {
+              src: resolveImage('Collection-Watches-7.8695a1bd.png')
+            },
+          ]
+        },
+      ],
+      ending: {
+        copy: [
+          {
+            text: 'Explore Accutron’s entire assortment at accutronwatch.com and start searching for'
+          },
+          {
+            text: 'a conversation piece that you can call your own'
+          }
+        ]
+      },
+    }
   ]
 }
 

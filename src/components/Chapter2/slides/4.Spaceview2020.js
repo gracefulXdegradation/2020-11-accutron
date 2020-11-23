@@ -2,11 +2,13 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
-import SoldierImg from '../../../assets/2ES6A001_Soldier.png'
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[3]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,17 +41,17 @@ export default function Spaceview2020({ index }) {
       <BrowserView style={{height: "100vh"}}>
         <Slide index={index} animate={animation}>
           <Row w="100%" h="100%" justify="center" align="center">
-            <Watches src={SoldierImg} large alt="Spaceview 2020" />
+            <Watches {...d.images[0]} />
           </Row>
           
           <Layer>
             <Row w="100%" h="100%" justify="flex-end">
               <Column h="50%" w="50%" justify="flex-end" css={css`padding: 0 0 20px 200px;`}>
                 <H4 tertiary>
-                  the Spaceview 2020
+                  {d.copy[0].text}
                 </H4>
                 <P>
-                  Is a modern reinterpretation of the original. 
+                {d.copy[1].text}
                 </P>
               </Column>
             </Row>
@@ -60,13 +62,13 @@ export default function Spaceview2020({ index }) {
       <MobileView style={{height: "100vh"}}>
         <Slide index={index} animate={animation}>
           <Column h="100%" w="100%" justify="space-around" align="center">
-            <Watches src={SoldierImg} alt="Spaceview 2020" />
+            <Watches {...d.images[0]} />
             <Column align="center">
               <H4 tertiary mobile>
-                the Spaceview 2020
+              {d.copy[0].text}
               </H4>
               <P mobile>
-                Is a modern reinterpretation of the original. 
+              {d.copy[1].text}
               </P>
             </Column>
           </Column>

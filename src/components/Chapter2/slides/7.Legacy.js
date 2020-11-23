@@ -5,6 +5,9 @@ import { H4 } from '../../../styles/typography';
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[6]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,10 +61,10 @@ export default function Legacy7({ index }) {
         <Slide index={index} subslides={2} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
             <H4 tertiary align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 50px 0; margin: 0 32px;`}>
-            If a more retro vibe is what you’re after
+              {d.copy[0].text}
             </H4>
             <H4 tertiary ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px; opacity: 0;`}>
-            Accutron’s Legacy collection offers twelve of its most memorable styles from the ‘60s and ‘70s that are each timeless in their own right. 
+              {d.copy[1].text}
             </H4>
           </Column>
         </Slide>
@@ -73,14 +76,14 @@ export default function Legacy7({ index }) {
             <Layer ref={hRef0}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
                 <H4 tertiary mobile align="center">
-                If a more retro vibe is what you’re after
+                  {d.copy[0].text}
                 </H4>
               </Column>
             </Layer>
             <Layer ref={hRef} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
                 <H4 tertiary mobile align="center">
-                Accutron’s Legacy collection offers twelve of its most memorable styles from the ‘60s and ‘70s that are each timeless in their own right. 
+                  {d.copy[1].text}
                 </H4>
               </Column>
             </Layer>

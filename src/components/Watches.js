@@ -21,11 +21,11 @@ const ImageHeight = {
   small: 376
 }
 
-export const HalfWatches = ({ large, right, img }) => {
+export const HalfWatches = ({ large, right, src, alt = '' }) => {
   const size = large ? ImageHeight.large : ImageHeight.small;
   return (
     <Wrapper size={size} right={right}>
-      <FullWatchImage src={img} right={right} />
+      <FullWatchImage src={src} alt={alt} right={right} />
     </Wrapper>
   )
 };

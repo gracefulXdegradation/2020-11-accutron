@@ -2,29 +2,17 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H2, H4, P } from '../../../styles/typography';
-import CollectionWatches1 from '../../../assets/Collection-Watches-1.png'
-import CollectionWatches2 from '../../../assets/Collection-Watches-2.png'
-import CollectionWatches3 from '../../../assets/Collection-Watches-3.png'
-import CollectionWatches4 from '../../../assets/Collection-Watches-4.png'
-import CollectionWatches5 from '../../../assets/Collection-Watches-5.png'
-import CollectionWatches6 from '../../../assets/Collection-Watches-6.png'
-import CollectionWatches7 from '../../../assets/Collection-Watches-7.png'
 import { Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[10]
 
 gsap.registerPlugin(ScrollTrigger);
 
-const watches = [
-  CollectionWatches1,
-  CollectionWatches2,
-  CollectionWatches3,
-  CollectionWatches4,
-  CollectionWatches5,
-  CollectionWatches6,
-  CollectionWatches7,
-]
+const watches = d.images
 
 const mid = Math.ceil(watches.length / 2) - 1
 
@@ -85,19 +73,19 @@ export default function Legacy11({ index }) {
           <Row w="100%" h="100%" align="center" justify="space-around">
             {watches.map((img, i) => (
               <Column key={img} css={css`transform: translateX(${(mid - i) * 2 * shift}%);`}>
-                <Watches src={img} alt={img} />
+                <Watches {...img} />
               </Column>
             ))}
             <Layer>
               <Column w="100%" h="100%">
                 <Row h="50%" align="center" justify="center">
                   <H4 tertiary>
-                    each style only has 600 individually numbered pieces
+                    {d.copy[0].text}
                   </H4>
                 </Row>
                 <Row h="50%" align="center" justify="center">
                   <P css={css`text-align: center; max-width: 350px;`}>
-                  The Legacy collection ranges between $1,290-$1,550. 
+                    {d.copy[1].text}
                   </P>
                 </Row>
               </Column>
@@ -111,7 +99,7 @@ export default function Legacy11({ index }) {
         <Column w="100%" h="100%">
           <Column ref={layer1Ref} w="100%" h="100%" align="center" justify="center">
             <H4 tertiary align="center" mobile css={css`margin: 35px;`}>
-              each style only has 600 individually numbered pieces
+              {d.copy[0].text}
             </H4>
           </Column>
 
@@ -120,14 +108,14 @@ export default function Legacy11({ index }) {
               <Row h="50%" w="100%" justify="space-around" align="flex-end">
                 {[...watches.slice(0, 3), ...watches.slice(6)].map((img, i) => (
                   <Column key={`${img}${i}`}>
-                    <Watches src={img} alt={img} css={css`height: 165px;`} />
+                    <Watches {...img} css={css`height: 165px;`} />
                   </Column>
                 ))}
               </Row>
               <Row h="50%" w="100%" justify="space-around" align="flex-start">
               {watches.slice(3, 6).map((img, i) => (
                 <Column key={`${img}${i}`}>
-                  <Watches src={img} alt={img} css={css`height: 165px;`} />
+                  <Watches {...img} css={css`height: 165px;`} />
                 </Column>
               ))}
               </Row>
@@ -135,7 +123,7 @@ export default function Legacy11({ index }) {
               <Layer ref={pRef} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="center" justify="flex-end">
                   <P mobile css={css`text-align: center; margin: 30px;`}>
-                  The Legacy collection ranges between $1,290-$1,550.
+                    {d.copy[1].text}
                   </P>
                 </Column>
               </Layer>

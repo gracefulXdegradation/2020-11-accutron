@@ -5,6 +5,9 @@ import { H4 } from '../../../styles/typography';
 import { Column } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[7]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +43,7 @@ export default function Legacy8({ index }) {
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
             <H4 tertiary align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px;`}>
-            They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…
+              {d.copy[0].text}
             </H4>
           </Column>
         </Slide>
@@ -50,7 +53,7 @@ export default function Legacy8({ index }) {
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
             <H4 tertiary mobile align="center">
-            They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…
+              {d.copy[0].text}
             </H4>
           </Column>
         </Slide>

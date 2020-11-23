@@ -2,13 +2,12 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { Column, Layer, Row } from '../../UIKit';
-import CollectionWatches1 from '../../../assets/Collection-Watches-1.png'
-import CollectionWatches2 from '../../../assets/Collection-Watches-2.png'
-import CollectionWatches3 from '../../../assets/Collection-Watches-3.png'
-import CollectionWatches7 from '../../../assets/Collection-Watches-7.png'
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[8]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,16 +98,16 @@ export default function Legacy9({ index }) {
         <Slide index={index} subslides={2.5} animate={animation}>
           <Row w="100%" h="100%" align="center" justify="space-around">
             <Column css={css`transform: translateX(${shift * 3 }%);`}>
-              <Watches src={CollectionWatches1} large alt="Collection Watches 1" />
+              <Watches {...d.images[0]} large />
             </Column>
             <Column ref={img2Ref} css={css`transform: translateX(${shift}%); opacity: 0;`}>
-              <Watches src={CollectionWatches2} large alt="Collection Watches 2" />
+              <Watches {...d.images[1]} large />
             </Column>
             <Column ref={img3Ref} css={css`transform: translateX(${-shift}%); opacity: 0;`}>
-              <Watches src={CollectionWatches3} large alt="Collection Watches 3" />
+              <Watches {...d.images[2]} large />
             </Column>
             <Column ref={img4Ref} css={css`transform: translateX(${-shift * 3}%); opacity: 0;`}>
-              <Watches src={CollectionWatches7} large alt="Collection Watches 7" />
+              <Watches {...d.images[3]} large />
             </Column>
           </Row>
         </Slide>
@@ -119,22 +118,22 @@ export default function Legacy9({ index }) {
           <Column w="100%" h="100%">
             <Layer ref={img1Ref}>
               <Column w="100%" h="100%" align="center" justify="center">
-                <Watches src={CollectionWatches1} alt="Collection Watches 1" />
+                <Watches {...d.images[0]} />
               </Column>
             </Layer>
             <Layer ref={img2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="center" justify="center">
-                <Watches src={CollectionWatches2} alt="Collection Watches 2" />
+                <Watches {...d.images[1]} />
               </Column>
             </Layer>
             <Layer ref={img3Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="center" justify="center">
-                <Watches src={CollectionWatches3} alt="Collection Watches 3" />
+                <Watches {...d.images[2]} />
               </Column>
             </Layer>
             <Layer ref={img4Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="center" justify="center">
-                <Watches src={CollectionWatches7} alt="Collection Watches 7" />
+                <Watches {...d.images[3]} />
               </Column>
             </Layer>
           </Column>

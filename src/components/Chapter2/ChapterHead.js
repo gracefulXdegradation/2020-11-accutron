@@ -5,6 +5,9 @@ import ReactVisibilitySensor from 'react-visibility-sensor';
 import { gsap } from 'gsap/all';
 import { H2, H4 } from '../../styles/typography';
 import { Column, Divider, Circle, Row, Layer, Camouflage } from '../UIKit';
+import data from '../../data/story';
+
+const d = data.chapters[1].opening
 
 export default function ChapterHead({ onAnimateEnd = () => null }) {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -60,7 +63,9 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
             <Divider ref={dividerRef} length={`0%`} />
           </Row>
           <Row css={css`flex: 1;`} justify="center" align="flex-start">
-            <H2 align="center" css={css`margin-top: 40px;`} alternative>A Legacy Reborn</H2>
+            <H2 align="center" css={css`margin-top: 40px;`} alternative>
+              {d.copy[0].text}
+            </H2>
           </Row>
         </Column>
       </BrowserView>
@@ -94,7 +99,9 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
               </Row>
               <Row justify="center" css={css`margin-top: 12px;`}>
                 <Camouflage />
-                <H2 alternative mobile css={css`padding-top: 8px;`}>A legacy reborn</H2>
+                <H2 alternative mobile css={css`padding-top: 8px;`}>
+                  {d.copy[0].text}
+                </H2>
               </Row>
             </Column>
           </Row>

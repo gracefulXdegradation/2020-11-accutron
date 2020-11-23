@@ -9,6 +9,9 @@ import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[4]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,16 +102,16 @@ export default function DNA5({ index }) {
       <BrowserView style={{height: "100vh"}}>
         <Slide index={index} animate={animation}>
           <Row w="100%" h="100%" justify="center" align="center">
-            <Watches src={SoldierImg} large alt="2ES8A004 Soldier blue" />
+            <Watches {...d.images[0]} large />
           </Row>
           <Layer ref={watch2Ref} css={css`opacity: 0; transition: opacity .4s linear;`} >
             <Row w="100%" h="100%" justify="center" align="center">
-              <Watches src={SoldierBlackImg} large alt="2ES8A004 Soldier black" css={css`transform: translateX(-50%);`} />
+              <Watches {...d.images[1]} large css={css`transform: translateX(-50%);`} />
             </Row>
           </Layer>
           <Layer ref={watch3Ref} css={css`opacity: 0; transition: opacity .4s linear; transition-delay: .2s;`} >
             <Row w="100%" h="100%" justify="center" align="center">
-              <Watches src={SoldierGreenImg} large alt="2ES8A004 Soldier green" css={css`transform: translateX(-100%);`} />
+              <Watches {...d.images[2]} large css={css`transform: translateX(-100%);`} />
             </Row>
           </Layer>
           
@@ -116,10 +119,10 @@ export default function DNA5({ index }) {
             <Row w="100%" h="100%" justify="flex-end" align="flex-end">
               <Column h="50%" w="50%" justify="flex-start" css={css`padding: 20px 0 0 200px;`}>
                 <H4 tertiary>
-                the Accutron DNA
+                  {d.copy[0].text}
                 </H4>
                 <P css={css`max-width: 500px;`}>
-                a sportier update of the Spaceview featuring sleeker lines and more modern design accents.
+                  {d.copy[1].text}
                 </P>
               </Column>
             </Row>
@@ -132,21 +135,21 @@ export default function DNA5({ index }) {
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Column>
               <Row ref={watch1Ref}>
-                <Watches src={SoldierImg} alt="2ES8A004 Soldier blue" />
+                <Watches {...d.images[0]} />
               </Row>
               <Layer ref={watch2Ref} css={css`opacity: 0;`}>
-                <Watches src={SoldierBlackImg} alt="2ES8A004 Soldier black" />
+                <Watches {...d.images[1]} />
               </Layer>
               <Layer ref={watch3Ref} css={css`opacity: 0;`}>
-                <Watches src={SoldierGreenImg} alt="2ES8A004 Soldier green" />
+                <Watches {...d.images[2]} />
               </Layer>
             </Column>
             <Column align="center">
               <H4 tertiary mobile>
-                the Spaceview 2020
+                {d.copy[0].text}
               </H4>
               <P mobile>
-                Is a modern reinterpretation of the original. 
+                {d.copy[1].text}
               </P>
             </Column>
           </Column>

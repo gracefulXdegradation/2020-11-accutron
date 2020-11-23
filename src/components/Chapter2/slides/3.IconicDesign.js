@@ -1,12 +1,14 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import SoldierImg from '../../../assets/2ES6A001_Soldier_short.png'
 import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { HalfWatches } from '../../Watches';
+import data from '../../../data/story';
+
+const d = data.chapters[1].slides[2]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -129,10 +131,10 @@ export default function IconicDesign2({ index }) {
             <Layer ref={p1Ref}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
                 <P css={css`position: absolute; transform: translateY(-50%); max-width: 610px; padding: 20px;`}>
-                  The Spaceview 2020 has been visually and internally redesigned with the world’s first electrostatic energy movement in a timepiece, promising accuracy to within five seconds per month.
+                  {d.copy[0].text}
                 </P>
                 <P css={css`position: absolute; transform: translateY(50%); max-width: 610px; padding: 20px;`}>
-                  Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
+                {d.copy[1].text}
                 </P>
               </Column>
             </Layer>
@@ -140,28 +142,28 @@ export default function IconicDesign2({ index }) {
             <Layer ref={h1Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
                 <H4 tertiary align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
-                  While more precise timekeeping is always welcome,
+                {d.copy[2].text}
                 </H4>
                 <H4 tertiary align="right" css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
-                  it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.
+                {d.copy[3].text}
                 </H4>
               </Column>
             </Layer>
 
             <Layer ref={watchRef} css={css`opacity: 0;`}>
               <Row w="100%" h="100%" justify="flex-end" align="center">
-                <HalfWatches large img={SoldierImg} />
+                <HalfWatches large src={d.images[0].src} />
               </Row>
             </Layer>
           </Row>
 
           <Row w="50%" h="100%" justify="flex-start" align="center">
-            <HalfWatches large right img={SoldierImg} />
+            <HalfWatches large right src={d.images[0].src} />
 
             <Layer ref={p2Ref} css={css`opacity: 0;`}>
               <Column h="100%" w="100%" justify="center" align="center">
                 <P css={css`transform: translateY(50%); padding: 20px; max-width: 380px;`}>
-                  The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents. 
+                {d.copy[4].text}
                 </P>
               </Column>
             </Layer>
@@ -170,7 +172,7 @@ export default function IconicDesign2({ index }) {
           <Layer ref={h2Ref} css={css`opacity: 0;`}>
             <Column w="100%" h="100%" justify="flex-end" align="center">
               <H4 tertiary align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
-                The best part is that it comes in two designs to suit different tastes:
+              {d.copy[5].text}
               </H4>
             </Column>
           </Layer>
@@ -184,9 +186,9 @@ export default function IconicDesign2({ index }) {
               <Layer ref={p1Ref}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
                   <P mobile css={css`margin-right: 8px; max-width: 146px;`}>
-                    The Spaceview 2020 has been visually and internally redesigned with the world’s first electrostatic energy movement in a timepiece, promising accuracy to within five seconds per month.
+                  {d.copy[0].text}
                     <br /><br />
-                    Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.
+                    {d.copy[1].text}
                   </P>
                 </Column>
               </Layer>
@@ -194,7 +196,7 @@ export default function IconicDesign2({ index }) {
               <Layer ref={h1Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
                   <H4 tertiary mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
-                    While more precise timekeeping is always welcome,
+                  {d.copy[2].text}
                   </H4>
                 </Column>
               </Layer>
@@ -202,14 +204,14 @@ export default function IconicDesign2({ index }) {
               <Layer ref={h15Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
                   <H4 tertiary mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
-                    it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.
+                  {d.copy[3].text}
                   </H4>
                 </Column>
               </Layer>
 
               <Layer ref={watchRef} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
-                  <HalfWatches img={SoldierImg} />
+                  <HalfWatches src={d.images[0].src} />
                 </Column>
               </Layer>
             </Row>
@@ -217,7 +219,7 @@ export default function IconicDesign2({ index }) {
             <Row w="50%" h="100%" justify="flex-start" align="center">
               <Layer ref={watch2Ref}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches right img={SoldierImg} />
+                  <HalfWatches right src={d.images[0].src} />
                 </Column>
               </Layer>
             </Row>
@@ -225,7 +227,7 @@ export default function IconicDesign2({ index }) {
             <Layer ref={p2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" justify="flex-start" align="center">
                 <P mobile align="center" css={css`text-align: center; margin: 32px;`}>
-                  The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents. 
+                {d.copy[4].text}
                 </P>
               </Column>
             </Layer>
@@ -233,7 +235,7 @@ export default function IconicDesign2({ index }) {
             <Layer ref={h2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" justify="center" align="center">
                 <H4 tertiary mobile align="center" css={css`text-align: center; margin: 60px;`}>
-                  The best part is that it comes in two designs to suit different tastes:
+                {d.copy[5].text}
                 </H4>
               </Column>
             </Layer>

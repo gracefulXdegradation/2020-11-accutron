@@ -4,6 +4,9 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { H4, P } from "../../styles/typography";
 import { Circle, Column, Divider, Row } from "../UIKit";
+import data from '../../data/story';
+
+const d = data.chapters[1].ending
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,10 +46,10 @@ export default function Ending({ prevChapter, toTop }) {
 
           <Column css={css`flex: 1; margin-top: 50px;`} justify="flex-start" align="center">
             <P css={css`margin-bottom: 16px;`}>
-            Explore Accutron’s entire assortment at accutronwatch.com and start searching for 
+              {d.copy[0].text}
             </P>
             <H4 tertiary>
-            a conversation piece that you can call your own
+            {d.copy[1].text}
             </H4>
           </Column>
         </Column>
@@ -72,10 +75,10 @@ export default function Ending({ prevChapter, toTop }) {
 
           <Column w="100%" align="center" css={css`padding: 0 20px;`}>
             <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
-            Explore Accutron’s entire assortment at accutronwatch.com and start searching for 
+              {d.copy[0].text}
             </P>
             <H4 tertiary align="center" mobile>
-            a conversation piece that you can call your own
+              {d.copy[1].text}
             </H4>
           </Column>
 
