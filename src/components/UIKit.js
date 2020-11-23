@@ -1,6 +1,8 @@
+import React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import AccutronLogo from '../assets/accutron-logo.svg'
+import { H4 } from '../styles/typography';
 
 export const Background = styled.div`
   width: 100%;
@@ -70,12 +72,12 @@ export const Circle = styled.div`
       background-size: contain;
     }
   ` : css`
+    ${rotation && `transform: rotateZ(${rotation}deg);`}
     &:after {
       content: '';
       height: 100%;
       width: 1px;
       background-color: ${theme.fontParagraph};
-      ${rotation && `transform: rotateZ(${rotation}deg);`}
     }
   `}
 `;
@@ -153,3 +155,45 @@ export const Em = styled.em`
   font-style: normal;
   color: ${props => props.theme.fontParagraph};
 `;
+
+const GlowingCircle = styled(Column)`
+  align-items: center;
+  cursor: pointer;
+
+  ${Circle}, ${Circle}:after, ${H4} {
+    transition: transform .2s ease-in;
+  }
+
+  &:hover {
+    ${Circle} { 
+      transform: scale(1.05);
+      box-shadow: 0px 0px 4px 1px #FFF inset;
+
+      &:after {
+        box-shadow: 0px 0px 4px 1px #FFF;
+        transform: rotateZ(${({rotation = 0}) => rotation + 90}deg);
+      }
+    }
+
+    ${Layer} ${H4} {
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    ${H4} {
+      transform: scale(1.05);
+    }
+  }
+`
+
+export const HoverableCircle = React.forwardRef(({ size, children, rotation, wrapChildren }, ref) => {
+  return (
+    <GlowingCircle rotation={rotation}>
+      <Circle ref={ref} size={size} rotation={rotation} />
+      { wrapChildren ? (
+        <ChapterCaption>
+          {children}
+        </ChapterCaption>
+      ) : <>{children}</> }
+    </GlowingCircle>
+  )
+})

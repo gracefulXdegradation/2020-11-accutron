@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
-import { Circle, Layer, Divider, Row, Column, Block } from '../UIKit';
+import { Circle, Layer, Divider, Row, Column, Block, HoverableCircle } from '../UIKit';
 import { useStoryState } from '../../providers/StoryStateProvider';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -39,26 +39,33 @@ export default function NavBar({ sliderRef }) {
   }, [sliderRef, hasChapterInit])
 
   return (
-    <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
-      <BrowserView>
+    <Layer ref={pinRef} fullScreen>
+      <BrowserView renderWithFragment>
         <Layer>
           <Column h="100%" w="100%" justify="space-between" align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
-              <Circle ref={logoRef} size="m" />
-              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              {/* <Circle ref={logoRef} size="m" /> */}
+              {/* <H4 css={css`margin-top: 20px;`}>Chapter 1</H4> */}
+
+              <HoverableCircle size="m" ref={logoRef}>
+                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              </HoverableCircle>
             </Column>
             <Divider vertical />
             <H3 tertiary css={css`margin-top: 8px;`}>{slideHeading}</H3>
             <Divider vertical />
-            <Column align="center" css={css`padding: 30px 0 50px;`}>
-              <Circle size="m" rotation="90" />
-              <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+            <Column align="center" css={css`padding: 30px 0 50px;`} onClick={() => console.log('yo')}>
+              <HoverableCircle size="m" rotation={90}>
+                <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+              </HoverableCircle>
+              {/* <Circle size="m" rotation="90" /> */}
+              {/* <H4 css={css`margin-top: 20px;`}>Chapter 2</H4> */}
             </Column>
           </Column>
         </Layer>
       </BrowserView>
 
-      <MobileView>
+      <MobileView renderWithFragment>
         <Layer>
           <Column w="100%" h="100%">
             <Column align="center" css={css`padding-bottom: 20px;`}>
