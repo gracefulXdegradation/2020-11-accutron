@@ -1,10 +1,7 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography';
-import SoldierImg from '../../../assets/2ES8A004_Soldier.png'
-import SoldierBlackImg from '../../../assets/2ES8A004_Soldier_black.png'
-import SoldierGreenImg from '../../../assets/2ES8A004_Soldier_green.png'
+import { H4, P } from '../../../styles/typography'
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';

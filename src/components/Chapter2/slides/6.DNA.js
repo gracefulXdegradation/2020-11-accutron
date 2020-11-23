@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
-import SoldierSportImg from '../../../assets/2ES8A004_Soldier_short.png'
-import SoldierImg from '../../../assets/2ES6A001_Soldier_short.png'
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';

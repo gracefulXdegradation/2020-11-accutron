@@ -480,12 +480,24 @@ const story = {
             text: 'Explore Accutron’s entire assortment at accutronwatch.com and start searching for'
           },
           {
-            text: 'a conversation piece that you can call your own'
+            text: 'A conversation piece that you can call your own'
           }
         ]
       },
     }
   ]
 }
+
+export const images = (() => {
+  const images =  story.chapters.reduce((acc, ch) => {
+    return [...acc,
+      ...(ch.opening.images || []),
+      ...(ch.ending.images || []),
+      ...(ch.slides.reduce((acc, s) => [...acc, ...(s.images || [])], []))
+    ]
+  }, [])
+
+  return Array.from(new Set(images.map(({ src }) => src)))
+})()
 
 export default story;

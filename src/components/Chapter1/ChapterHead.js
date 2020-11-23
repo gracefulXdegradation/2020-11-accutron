@@ -88,7 +88,7 @@ export default function ChapterHead({ onAnimateEnd }) {
               <Column w="100%" h="50%" align="center">
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
-                  <H2 css={css`padding: 12px 0 6px;`}>
+                  <H2 align="center" css={css`padding: 12px 0 6px;`}>
                     {d.copy[0].text}
                   </H2>
                 </Block>

@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H2, H4, P } from '../../../styles/typography';
-import { Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
+import { H4, P } from '../../../styles/typography';
+import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
