@@ -238,7 +238,7 @@ const story = {
               text: 'Perhaps it was the Spaceview’s radical design, but eagle-eyed passersby started asking about the funky new watch in jewelry shop windows assuming it was a standard model.'
             },
             {
-              text: 'Not wanting to pass up a sale, dealers were happy to offer up their display units,'
+              text: 'Not wanting to pass up a sale, dealers were happy to offer up their display units.'
             },
           ],
           images: [
@@ -256,7 +256,7 @@ const story = {
           title: 'iconic design',
           copy: [
             {
-              text: 'unwittingly setting the stage for the Spaceview to become an official Accutron model and Bulova’s most sought after watch at the time.'
+              text: 'Unwittingly setting the stage for the Spaceview to become an official Accutron model and Bulova’s most sought after watch at the time.'
             },
             {
               text: 'Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.'
@@ -272,7 +272,7 @@ const story = {
               text: 'The Spaceview 2020 has been visually and internally redesigned with the world’s first electrostatic energy movement in a timepiece, promising accuracy to within five seconds per month.'
             },
             {
-              text: 'Now, 60 years later, the Spaceview is reborn and powered by a whole new method of timekeeping that again places it at the forefront of innovation.'
+              text: 'That electrostatic energy is created by twin turbines that rotate when you move your wrist.'
             },
             {
               text: 'While more precise timekeeping is always welcome,'

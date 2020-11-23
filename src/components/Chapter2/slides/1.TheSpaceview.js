@@ -18,6 +18,7 @@ export default function TheSpaceview({ index }) {
   const slide3Ref = useRef(null)
   const slide4Ref = useRef(null)
   const slide5Ref = useRef(null)
+  const slide6Ref = useRef(null)
 
   const desktopAnimation = (el, props) => {
     return gsap.timeline({
@@ -73,6 +74,17 @@ export default function TheSpaceview({ index }) {
       opacity: 1,
       ease: 'none'
     })
+    .to(slide5Ref.current, {
+      duration: 1,
+      delay: .5,
+      opacity: 0,
+      ease: 'none'
+    })
+    .to(slide6Ref.current, {
+      duration: 1,
+      opacity: 1,
+      ease: 'none'
+    })
     .to(el, {
       opacity: 0,
       duration: 1,
@@ -109,9 +121,9 @@ export default function TheSpaceview({ index }) {
 
             <Layer ref={slide3Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <H4 tertiary css={css`margin-left: 32px; max-width: 520px;`}>
+                <P css={css`margin-left: 32px; max-width: 520px;`}>
                 {d.copy[2].text}
-                </H4>
+                </P>
               </Column>
             </Layer>
 
@@ -137,7 +149,7 @@ export default function TheSpaceview({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
+        <Slide index={index} startVisible subslides={5} animate={desktopAnimation}>
           <Row h="100%" align="center">
             <Row w="50%" h="100%" justify="flex-end" align="center">
               <HalfWatches src={d.images[1].src} />
@@ -162,9 +174,9 @@ export default function TheSpaceview({ index }) {
 
               <Layer ref={slide3Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <H4 tertiary mobile css={css`margin-left: 8px; max-width: 165px;`}>
+                  <P mobile css={css`margin-left: 8px; max-width: 165px;`}>
                     {d.copy[2].text}
-                  </H4>
+                  </P>
                 </Column>
               </Layer>
 
@@ -172,13 +184,19 @@ export default function TheSpaceview({ index }) {
                 <Column w="100%" h="100%" align="flex-start" justify="center">
                   <P mobile css={css`margin-left: 8px; max-width: 165px;`}>
                     {d.copy[3].text}
-                    <br /><br />
-                    {d.copy[4].text}
                   </P>
                 </Column>
               </Layer>
 
               <Layer ref={slide5Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-start" justify="center">
+                  <P mobile css={css`margin-left: 8px; max-width: 165px;`}>
+                    {d.copy[4].text}
+                  </P>
+                </Column>
+              </Layer>
+
+              <Layer ref={slide6Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
                   <HalfWatches src={d.images[1].src} right />
                 </Column>

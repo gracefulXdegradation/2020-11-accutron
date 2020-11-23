@@ -115,7 +115,7 @@ export default function DNA5({ index }) {
           <Layer>
             <Row w="100%" h="100%" justify="flex-end" align="flex-end">
               <Column h="50%" w="50%" justify="flex-start" css={css`padding: 20px 0 0 200px;`}>
-                <H4 tertiary>
+                <H4 alternative>
                   {d.copy[0].text}
                 </H4>
                 <P css={css`max-width: 500px;`}>
@@ -142,10 +142,10 @@ export default function DNA5({ index }) {
               </Layer>
             </Column>
             <Column align="center">
-              <H4 tertiary mobile>
+              <H4 alternative mobile>
                 {d.copy[0].text}
               </H4>
-              <P mobile>
+              <P mobile align="center" css={css`margin: 0 20px;`}>
                 {d.copy[1].text}
               </P>
             </Column>

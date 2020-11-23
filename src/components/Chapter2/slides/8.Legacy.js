@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4 } from '../../../styles/typography';
+import { H4, P } from '../../../styles/typography';
 import { Column } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
@@ -42,9 +42,9 @@ export default function Legacy8({ index }) {
       <BrowserView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
-            <H4 tertiary align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px;`}>
+            <P align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 20px 0; margin: 0 32px;`}>
               {d.copy[0].text}
-            </H4>
+            </P>
           </Column>
         </Slide>
       </BrowserView>
@@ -52,9 +52,9 @@ export default function Legacy8({ index }) {
       <MobileView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-            <H4 tertiary mobile align="center">
+            <P mobile align="center">
               {d.copy[0].text}
-            </H4>
+            </P>
           </Column>
         </Slide>
       </MobileView>

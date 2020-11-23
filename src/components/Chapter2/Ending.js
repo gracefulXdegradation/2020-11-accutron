@@ -52,7 +52,7 @@ export default function Ending() {
             <P css={css`margin-bottom: 16px;`}>
               {d.copy[0].text}
             </P>
-            <H4 tertiary>
+            <H4 alternative>
             {d.copy[1].text}
             </H4>
           </Column>
@@ -81,7 +81,7 @@ export default function Ending() {
             <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
               {d.copy[0].text}
             </P>
-            <H4 tertiary align="center" mobile>
+            <H4 alternative align="center" mobile>
               {d.copy[1].text}
             </H4>
           </Column>

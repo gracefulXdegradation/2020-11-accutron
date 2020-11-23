@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4 } from '../../../styles/typography';
+import { H4, P } from '../../../styles/typography';
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
@@ -60,12 +60,12 @@ export default function IconicDesign2({ index }) {
       <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
-            <H4 tertiary align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 50px 0; margin: 0 32px;`}>
+            <P align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 10px 0; margin: 0 32px;`}>
               {d.copy[0].text}
-            </H4>
-            <H4 tertiary ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px; opacity: 0;`}>
+            </P>
+            <P ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 10px 0; margin: 0 32px; opacity: 0;`}>
               {d.copy[1].text}
-            </H4>
+            </P>
           </Column>
         </Slide>
       </BrowserView>
@@ -75,16 +75,16 @@ export default function IconicDesign2({ index }) {
           <Column w="100%" h="100%">
             <Layer ref={hRef0}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-                <H4 tertiary mobile align="center">
+                <P mobile align="center">
                   {d.copy[0].text}
-                </H4>
+                </P>
               </Column>
             </Layer>
             <Layer ref={hRef} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
-                <H4 tertiary mobile align="center">
+                <P mobile align="center">
                   {d.copy[1].text}
-                </H4>
+                </P>
               </Column>
             </Layer>
           </Column>

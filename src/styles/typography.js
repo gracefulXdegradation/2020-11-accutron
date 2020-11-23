@@ -42,4 +42,5 @@ export const P = styled.p`
   color: ${props => props.theme.fontParagraph};
   font-size: ${({ mobile }) => mobile ? '15px' : '20px'};
   line-height: ${({ mobile }) => mobile ? '20px' : '25px'};
+  ${({ align }) => align && `text-align: ${align};`};
 `

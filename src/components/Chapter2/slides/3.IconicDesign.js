@@ -141,12 +141,12 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={h1Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
-                <H4 tertiary align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
+                <P align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
                 {d.copy[2].text}
-                </H4>
-                <H4 tertiary align="right" css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 50px 0; margin: 0 32px;`}>
+                </P>
+                <P align="right" css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
                 {d.copy[3].text}
-                </H4>
+                </P>
               </Column>
             </Layer>
 
@@ -171,9 +171,9 @@ export default function IconicDesign2({ index }) {
 
           <Layer ref={h2Ref} css={css`opacity: 0;`}>
             <Column w="100%" h="100%" justify="flex-end" align="center">
-              <H4 tertiary align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
+              <P align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
               {d.copy[5].text}
-              </H4>
+              </P>
             </Column>
           </Layer>
         </Slide>
@@ -195,17 +195,17 @@ export default function IconicDesign2({ index }) {
 
               <Layer ref={h1Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
-                  <H4 tertiary mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
+                  <P mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
                   {d.copy[2].text}
-                  </H4>
+                  </P>
                 </Column>
               </Layer>
 
               <Layer ref={h15Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%" align="flex-end" justify="center">
-                  <H4 tertiary mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
+                  <P mobile align="right" css={css`margin-right: 8px; max-width: 165px;`}>
                   {d.copy[3].text}
-                  </H4>
+                  </P>
                 </Column>
               </Layer>
 
@@ -234,9 +234,9 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={h2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" justify="center" align="center">
-                <H4 tertiary mobile align="center" css={css`text-align: center; margin: 60px;`}>
+                <P mobile align="center" css={css`text-align: center; margin: 60px;`}>
                 {d.copy[5].text}
-                </H4>
+                </P>
               </Column>
             </Layer>
           </Row>
