@@ -2,11 +2,12 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
-import BulovaImage from '../../../assets/ch1-legacy-2.png'
-import NasaImage from '../../../assets/ch1-legacy-3.png'
 import { Block, Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[0].slides[4]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,20 +103,20 @@ export default function Legacy5({ index }) {
         <Slide index={index} subslides={1.5} animate={desktopAnimation}>
           <Row w="50%" h="100%">
             <Layer ref={bulovaRef} top="0" left="0" bottom="0" right="0">
-              <SlideImage greedy src={BulovaImage} alt="Bulova" />
+              <SlideImage greedy {...d.images[0]} />
             </Layer>
             <Layer ref={nasaRef} top="0" left="0" bottom="0" right="0" css={css`opacity: 0;`}>
-              <SlideImage greedy src={NasaImage} alt="NASA control panel" css={css`object-position: left;`} />
+              <SlideImage greedy {...d.images[1]} css={css`object-position: left;`} />
             </Layer>
           </Row>
           <RightHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
               <Column css={css`transform: translateY(50%);`}>
                 <P>
-                  When lives and billions of dollars worth of technology are at stake, that says a lot about who you can trust.
+                {d.copy[0].text}
                 </P>
                 <H4 ref={pRef} alternative css={css`margin-top: 32px; opacity: 0;`}>
-                  While Accutron’s tech saw its fair share of real-world applications, its legacy wasn’t just limited to governmental uses. 
+                {d.copy[1].text}
                 </H4>
               </Column>
             </Column>
@@ -128,20 +129,20 @@ export default function Legacy5({ index }) {
           <Block>
             <Layer>
               <P ref={pRef} mobile css={css`margin-bottom: 20px;`}>
-                When lives and billions of dollars worth of technology are at stake, that says a lot about who you can trust.
+              {d.copy[0].text}
               </P>
               <Block>
                 <Layer ref={bulovaRef}>
-                  <SlideImage src={BulovaImage} alt="Bulova" />
+                  <SlideImage {...d.images[0]} />
                 </Layer>
                 <Layer ref={nasaRef} css={css`opacity: 0;`}>
-                  <SlideImage src={NasaImage} alt="NASA control panel" />
+                  <SlideImage {...d.images[1]} />
                 </Layer>
               </Block>
             </Layer>
             <Layer ref={hRef} css={css`opacity: 0;`}>
               <H4 alternative>
-                While Accutron’s tech saw its fair share of real-world applications, its legacy wasn’t just limited to governmental uses. 
+              {d.copy[1].text}
               </H4>
             </Layer>
           </Block>

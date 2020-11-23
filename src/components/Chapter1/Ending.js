@@ -5,8 +5,10 @@ import styled from '@emotion/styled';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { H2, H4, P } from "../../styles/typography";
 import { Block, ChapterCaption, Circle, Column, Divider, Layer, Row } from "../UIKit";
-import EndingImage from '../../assets/ch1-ending.png';
 import { useStoryState } from '../../providers/StoryStateProvider';
+import data from '../../data/story';
+
+const d = data.chapters[0].ending
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -140,13 +142,13 @@ export default function Ending({ nextChapter = () => null }) {
               <Divider ref={rightDivRef} length="0" />
             </Row>
           </Row>
-          <Image src={EndingImage} alt="Accutron watches" />
+          <Image {...d.images[0]} />
           <Column css={css`flex: 1;`} justify="center" align="center">
             <P css={css`margin-bottom: 16px;`}>
-              Learn more about this new industry standard and  Accutron’s updated range of watches.
+              {d.copy[0].text}
             </P>
             <H2 alternative>
-              In the following chapter
+            {d.copy[1].text}
             </H2>
           </Column>
         </Column>
@@ -169,13 +171,13 @@ export default function Ending({ nextChapter = () => null }) {
             <Column css={css`flex: 1;`}>
               <Layer ref={mobSlide1Ref}>
                 <P mobile css={css`margin: 0 50px;`}>
-                  Learn more about this new industry standard and Accutron’s updated range of watches
+                {d.copy[0].text}
                 </P>
-                <Image src={EndingImage} alt="Accutron watches" />
+                <Image {...d.images[0]} />
               </Layer>
               <Layer ref={mobSlide2Ref} css={css`opacity: 0;`}>
                 <H2 mobile alternative align="center" css={css`margin: 0 60px;`}>
-                  In the following chapter
+                {d.copy[1].text}
                 </H2>
 
                 <Row align="center">

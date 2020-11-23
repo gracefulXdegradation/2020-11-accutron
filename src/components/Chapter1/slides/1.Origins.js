@@ -3,19 +3,19 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
-import LeftBgImage from '../../../assets/ch1-s1-l.png'
-import WatchesFrontImg from '../../../assets/ch1-s1-r1.png'
-import WatchesBackImg from '../../../assets/ch1-s1-r2.png'
 import { Column, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide, { animateFadeInOut } from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[0].slides[0]
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Watches = React.forwardRef((props, ref) => (
   <div ref={ref} css={css`position: relative;`}>
-    <img src={WatchesFrontImg} alt="Accutron watches front" css={css`width: 63%;`} />
-    <img src={WatchesBackImg} alt="Accutron watches back" css={css`width: 63%; position: absolute; right: 0; z-index: -1;`} />
+    <img src={d.images[1].src} alt={d.images[1].alt} css={css`width: 63%;`} />
+    <img src={d.images[2].src} alt={d.images[2].alt} css={css`width: 63%; position: absolute; right: 0; z-index: -1;`} />
   </div>
 ))
 
@@ -60,17 +60,17 @@ export default function Origins1({ index }) {
       <BrowserView>
         <Slide index={index} animate={animateFadeInOut}>
           <Row w="50%" h="100%">
-            <SlideImage greedy src={LeftBgImage} alt="Accutron mechanism" />
+            <SlideImage greedy src={d.images[0].src} alt={d.images[0].alt} />
           </Row>
           <RightHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
               <Column css={css`max-height: 672px;`} h="100%" justify="space-between">
                 <Column>
                   <P>
-                    Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
+                    {d.copy[0].text}
                   </P>
                   <H4 alternative css={css`margin-top: 32px;`}>
-                    the company was founded in 1875 by Joseph Bulova in New York City.
+                    {d.copy[1].text}
                   </H4>
                 </Column>
 
@@ -85,14 +85,14 @@ export default function Origins1({ index }) {
         <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2}>
           <Column h="100%">
             <Row h="100%" ref={mobMechanismRef}>
-              <SlideImage src={LeftBgImage} alt="Accutron mechanism" css={css`padding-bottom: 30px;`} />
+              <SlideImage src={d.images[0].src} alt={d.images[0].alt} css={css`padding-bottom: 30px;`} />
             </Row>
             <Column>
               <P mobile css={css`padding-bottom: 20px;`}>
-                Long before American watchmaker Bulova introduced its legendary Accutron watch in October 1960,
+                {d.copy[0].text}
               </P>
               <H4 alternative mobile>
-                the company was founded in 1875 by Joseph Bulova in New York City.
+                {d.copy[1].text}
               </H4>
             </Column>
             <Row ref={mobWatchesRef} css={css`opacity: 0; padding-top: 30px;`}>

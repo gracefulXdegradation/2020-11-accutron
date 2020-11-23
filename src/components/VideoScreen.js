@@ -6,12 +6,13 @@ import {
 import { H4, P } from '../styles/typography';
 import { Circle, CircleSizes, Divider, Layer, Block, Row, Column, Background, ChapterCaption } from './UIKit';
 import VideoContent from './VideoContent';
+import data from '../data/story';
 
 export default function ChapterHead({toContent, nextChapter}) {
   return (
     <Background css={css`height: 100vh;`}>
       <Layer>
-        <VideoContent videoId={479786374} />
+        <VideoContent videoId={data.video.id} />
       </Layer>
 
       <BrowserView>

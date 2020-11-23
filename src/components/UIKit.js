@@ -148,3 +148,8 @@ export const ChapterCaption = ({ children }) => (
     </Layer>
   </Block>
 );
+
+export const Em = styled.em`
+  font-style: normal;
+  color: ${props => props.theme.fontParagraph};
+`;

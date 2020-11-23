@@ -6,11 +6,9 @@ import { BrowserView, MobileView } from "react-device-detect";
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { H2, H4 } from '../../styles/typography';
 import { Circle, Divider, Layer, Block, Row, Column, Camouflage, Background } from '../UIKit';
+import data from '../../data/story';
 
-const Em = styled.em`
-  font-style: normal;
-  color: ${props => props.theme.fontParagraph};
-`;
+const d = data.chapters[0].opening
 
 export default function ChapterHead({ onAnimateEnd }) {
   const mobChapterCaptionRef = useRef(null)
@@ -91,16 +89,14 @@ export default function ChapterHead({ onAnimateEnd }) {
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
                   <H2 css={css`padding: 12px 0 6px;`}>
-                    <Em>Accu</Em>racy through elec<Em>tron</Em>ics
+                    {d.copy[0].text}
                   </H2>
                 </Block>
                 <Column justify="center" align="center" css={css`flex: 1;`}>
                   <Block css={css`padding: 14px 0 6px;`}>
                     <Camouflage />
                     <H4 alternative align="center">
-                      That’s the simple meaning behind Accutron’s name,<br />
-                      but the technology that powered the brand’s iconic timepieces<br />
-                      are anything but.
+                      {d.copy[1].text}
                     </H4>
                   </Block>
                 </Column>
@@ -145,7 +141,7 @@ export default function ChapterHead({ onAnimateEnd }) {
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
                   <H2 mobile css={css`padding: 12px 0 6px;`} align="center">
-                    <Em>Accu</Em>racy through elec<Em>tron</Em>ics
+                    {d.copy[0].text}
                   </H2>
                 </Block>
               </Column>

@@ -2,10 +2,12 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H2, H4, P } from '../../../styles/typography';
-import SpaceviewAlphaImage from '../../../assets/1961_Accutron-SpaceviewAlpha.png';
 import { Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[0].slides[5]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,29 +105,27 @@ export default function Legacy5({ index }) {
               <Layer ref={copy1Ref}>
                 <Column css={css`max-width: 580px;`}>
                   <P>
-                    In 2014, Emmy-award winning advertising drama Mad Men opened its final season with an entire episode dedicated to pitching the watch.
+                  {d.copy[0].text}
                   </P>
                   <H4 alternative css={css`margin: 25px 0 56px;`}>
-                    Their tagline was surprisingly simple, yet effective:
+                  {d.copy[1].text}
                   </H4>
                 </Column>
                 <H2 alternative>
-                  “it’s not a timepiece,<br/>
-                  it’s a conversation piece.”
+                {d.copy[2].text}
                 </H2>
               </Layer>
               <Layer ref={copy2Ref} css={css`opacity: 0;`}>
                 <Column css={css`max-width: 580px;`}>
                   <H4 alternative>
-                    And the conversation has only just begun.
+                  {d.copy[3].text}
                   </H4>
                   <P css={css`margin: 25px 0 56px;`}>
-                    As Accutron celebrates its 60th anniversary this year, they’re 
-                    relaunching the watch with yet another timekeeping innovation.
+                  {d.copy[4].text}
                   </P>
                 </Column>
                 <H2 alternative>
-                  the  world’s first timepiece powered by electrostatic energy. 
+                {d.copy[5].text}
                 </H2>
               </Layer>
             </Column>
@@ -133,7 +133,7 @@ export default function Legacy5({ index }) {
           <RightHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
               <Row css={css`max-height: 600px;`} h="100%" justify="flex-end">
-                <SlideImage src={SpaceviewAlphaImage} alt="1961 Accutron Spaceview Alpha" />
+                <SlideImage {...d.images[0]} />
               </Row>
             </Column>
           </RightHalf>
@@ -144,22 +144,21 @@ export default function Legacy5({ index }) {
         <Slide index={index} subslides={3} animate={mobileAnimation}>
           <Column h="100%">
             <Layer ref={mobLayer1} css={css`height: 50%;`}>
-              <SlideImage src={SpaceviewAlphaImage} alt="1961 Accutron Spaceview Alpha" css={css`object-fit: contain; height: 100%;`} />
+              <SlideImage {...d.images[0]} css={css`object-fit: contain; height: 100%;`} />
               <Column>
                 <Layer ref={copy1Ref}>
                   <Column>
                     <P mobile css={css`margin-top: 16px;`}>
-                      In 2014, Emmy-award winning advertising drama Mad Men opened its final season with an entire episode dedicated to pitching the watch.
+                    {d.copy[0].text}
                     </P>
                     <H4 mobile alternative css={css`margin-top: 16px;`}>
-                      Their tagline was surprisingly simple, yet effective:
+                    {d.copy[1].text}
                     </H4>
                   </Column>
                 </Layer>
                 <Layer ref={copy2Ref} css={css`opacity: 0;`}>
                   <H2 alternative mobile css={css`margin-top: 16px; text-align: center;`}>
-                    “it’s not a timepiece,<br/>
-                    it’s a conversation piece.”
+                  {d.copy[2].text}
                   </H2>
                 </Layer>
               </Column>
@@ -167,14 +166,13 @@ export default function Legacy5({ index }) {
             <Layer ref={mobLayer2} css={css`opacity: 0;`}>
               <Column>
                 <H4 mobile alternative>
-                  And the conversation has only just begun.
+                {d.copy[3].text}
                 </H4>
                 <P mobile css={css`margin: 16px 0 40px;`}>
-                  As Accutron celebrates its 60th anniversary this year, they’re 
-                  relaunching the watch with yet another timekeeping innovation.
+                {d.copy[4].text}
                 </P>
                 <H2 ref={mobHead2} mobile alternative css={css`opacity: 0;`}>
-                  the  world’s first timepiece powered by electrostatic energy. 
+                {d.copy[5].text}
                 </H2>
               </Column>
             </Layer>

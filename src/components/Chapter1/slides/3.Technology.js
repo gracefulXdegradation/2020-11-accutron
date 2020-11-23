@@ -6,6 +6,9 @@ import TunerImage from '../../../assets/ch1-s3-tuner.png'
 import { Column, Layer, LeftHalf, SlideImage } from '../../UIKit';
 import Slide, { animateFadeInOut } from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[0].slides[2]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,21 +57,21 @@ export default function Technology3({ index }) {
           <LeftHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
               <H2 alternative>
-                The tuning fork
+                {d.copy[0].text}
               </H2>
               <H4 alternative css={css`margin: 20px 0 60px;`}>
-                A revolutionary invention for timekeeper precision.
+              {d.copy[1].text}
               </H4>
               <P css={css`margin-bottom: 20px;`}>
-                Invented by Swiss engineer Max Hetzel, the secret to Accutron’s precision lies in the watch’s tuning fork
+              {d.copy[2].text}
               </P>
               <P>
-              a small fork-shaped piece typically used as an acoustic resonator for musical instruments. Instead of the traditional balance wheel and spring, this new transistor movement divided each second into 360 equal parts and achieved unprecedented precision.
+              {d.copy[3].text}
               </P>
             </Column>
           </LeftHalf>
           <Layer css={css`right: -10%; z-index: -1; width: 72%;`}>
-            <SlideImage src={TunerImage} alt="Tuning fork" css={css`position: absolute; top: 35%;`} />
+            <SlideImage {...d.images[0]} css={css`position: absolute; top: 35%;`} />
           </Layer>
         </Slide>
       </BrowserView>
@@ -76,23 +79,23 @@ export default function Technology3({ index }) {
       <MobileView style={{height: "100vh"}}>
         <Slide index={index} animate={mobileAnimation}>
           <Layer css={css`height: 100%; right: -20%; z-index: -1; width: 140%; top: 0;`}>
-            <SlideImage src={TunerImage} alt="Tuning fork" css={css`position: absolute; bottom: 80px;`} />
+            <SlideImage {...d.images[0]} css={css`position: absolute; bottom: 80px;`} />
           </Layer>
           <div css={css`position: relative;`}>
             <Column ref={copy1Ref} css={css`position: absolute;`}>
               <H2 mobile alternative>
-                The tuning fork
+                {d.copy[0].text}
               </H2>
               <H4 alternative mobile css={css`margin-top: 16px;`}>
-                A revolutionary invention for timekeeper precision.
+              {d.copy[1].text}
               </H4>
             </Column>
             <Column ref={copy2Ref} css={css`position: absolute; opacity: 0;`}>
               <P mobile css={css`margin-bottom: 20px;`}>
-                Invented by Swiss engineer Max Hetzel, the secret to Accutron’s precision lies in the watch’s tuning fork
+              {d.copy[2].text}
               </P>
               <P mobile>
-              a small fork-shaped piece typically used as an acoustic resonator for musical instruments. Instead of the traditional balance wheel and spring, this new transistor movement divided each second into 360 equal parts and achieved unprecedented precision.
+              {d.copy[3].text}
               </P>
             </Column>
           </div>

@@ -6,6 +6,9 @@ import Image from '../../../assets/ch1-legacy-1.png'
 import { Column, LeftHalf, RightHalf, SlideImage } from '../../UIKit';
 import Slide, { animateFadeInOut } from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[0].slides[3]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,20 +56,20 @@ export default function Legacy4({ index }) {
         <Slide index={index} animate={animateFadeInOut}>
           <LeftHalf>
             <Column h="100%" justify="center">
-              <SlideImage src={Image} alt="Accutron watches" />
+              <SlideImage {...d.images[0]} />
             </Column>
           </LeftHalf>
           <RightHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
               <Column css={css`transform: translateY(50%);`}>
                 <P>
-                  Bulova’s tuning fork technology was so revolutionary that
+                {d.copy[0].text}
                 </P>
                 <H4 alternative css={css`margin: 20px 0;`}>
-                  NASA opted to use Accutron technology for its manned space missions
+                {d.copy[1].text}
                 </H4>
                 <P>
-                outfitting cockpit flight instruments during the Gemini and Apollo programs. 
+                {d.copy[2].text}
                 </P>
               </Column>
             </Column>
@@ -76,16 +79,16 @@ export default function Legacy4({ index }) {
 
       <MobileView style={{height: "100vh"}}>
         <Slide index={index} animate={mobileAnimation}>
-          <SlideImage ref={imageRef} src={Image} alt="Accutron watches" css={css`top: 20%; position: relative;`} />
+          <SlideImage ref={imageRef} {...d.images[0]} css={css`top: 20%; position: relative;`} />
           <Column ref={copyRef} css={css`opacity: 0; margin-top: 40px;`}>
             <P mobile>
-              Bulova’s tuning fork technology was so revolutionary that
+            {d.copy[0].text}
             </P>
             <H4 alternative mobile css={css`margin: 20px 0;`}>
-              NASA opted to use Accutron technology for its manned space missions
+            {d.copy[1].text}
             </H4>
             <P mobile>
-            outfitting cockpit flight instruments during the Gemini and Apollo programs. 
+            {d.copy[2].text}
             </P>
           </Column>
         </Slide>

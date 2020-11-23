@@ -13,6 +13,9 @@ import Sl3RImg from '../../../assets/ch1-s2-r3.png'
 import { Column, Layer, LeftHalf, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import data from '../../../data/story';
+
+const d = data.chapters[0].slides[1]
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -172,17 +175,17 @@ export default function Technology2({ index }) {
               <Column w="50%" h="100%" css={css`max-width: 585px;`} justify="center">
                 <div css={css`position: relative; padding-bottom: 114.7%; height: 0; width: 100%;`}>
                   <ImageHolder ref={leftImg1Ref}>
-                    <SlideImage src={Sl1LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                    <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
                   </ImageHolder>
                   <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
-                    <SlideImage src={Sl2LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                    <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
                   </ImageHolder>
                   <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
-                    <SlideImage src={Sl3LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                    <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
                   </ImageHolder>
                 </div>
                 <P css={css`margin-top: 60px;`}>
-                  Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.
+                  {d.copy[0].text}
                 </P>
               </Column>
             </LeftHalf>
@@ -190,23 +193,22 @@ export default function Technology2({ index }) {
               <Column css={css`max-width: 540px;`} h="100%" justify="center">
                 <Column css={css`align-items: flex-end;`}>
                   <P css={css`margin-bottom: 30px;`}>
-                    which guaranteed accuracy to within one minute per month, or 
-                    two seconds per day. This was unheard of at that time.
+                    {d.copy[1].text}
                   </P>
                   <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%;`}>
                     <ImageHolder ref={rightImg1Ref} css={css`justify-content: flex-end;`}>
-                      <SlideImage src={Sl1RImg} css={css`width: auto; height: 100%;`} alt="Male and female hands" />
+                      <SlideImage {...d.images[3]} css={css`width: auto; height: 100%;`} />
                     </ImageHolder>
                     <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
-                      <SlideImage src={Sl2RaImg} alt="Accutron watches" css={css`width: auto; height: 80%; position: relative; left: 7%;`} />
-                      <SlideImage src={Sl2RbImg} alt="Accutron watches" css={css`width: auto; height: 60%; position: relative; right: 7%;`} />
+                      <SlideImage {...d.images[4]} css={css`width: auto; height: 80%; position: relative; left: 7%;`} />
+                      <SlideImage {...d.images[5]} css={css`width: auto; height: 60%; position: relative; right: 7%;`} />
                     </ImageHolder>
                     <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
-                      <SlideImage src={Sl3RImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
                     </ImageHolder>
                   </div>
                   <H4 alternative css={css`margin-top: 60px;`}>
-                    that level of accuracy was far better than any mechanical watch could reproduce.
+                    {d.copy[2].text}
                   </H4>
                 </Column>
               </Column>
@@ -220,38 +222,37 @@ export default function Technology2({ index }) {
           <Column h="100%" justify="space-evenly">
             <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%; top: 20%;`} ref={galleryRef}>
               <ImageHolder ref={leftImg1Ref}>
-                <SlideImage src={Sl1LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
               </ImageHolder>
               <ImageHolder ref={rightImg1Ref} css={css`opacity: 0;`}>
-                <SlideImage src={Sl1RImg} css={css`width: auto; height: 100%;`} alt="Male and female hands" />
+                <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
               </ImageHolder>
               <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
-                <SlideImage src={Sl2LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
               </ImageHolder>
               <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
-                <SlideImage src={Sl2RaImg} alt="Accutron watches" css={css`width: auto; height: 100%; position: relative; left: 7%;`} />
-                <SlideImage src={Sl2RbImg} alt="Accutron watches" css={css`width: auto; height: 80%; position: relative; right: 7%;`} />
+                <SlideImage {...d.images[3]} css={css`width: auto; height: 100%; position: relative; left: 7%;`} />
+                <SlideImage {...d.images[4]} css={css`width: auto; height: 80%; position: relative; right: 7%;`} />
               </ImageHolder>
               <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
-                <SlideImage src={Sl3LImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                <SlideImage {...d.images[5]} css={css`width: auto; height: 100%;`} />
               </ImageHolder>
               <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
-                <SlideImage src={Sl3RImg} alt="Accutron watches" css={css`width: auto; height: 100%;`} />
+                <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
               </ImageHolder>
             </div>
             <div css={css`position: relative; flex: 1;`}>
               <Layer ref={pRef} css={css`opacity: 0;`}>
                 <P mobile css={css`margin-top: 16px;`}>
-                  Before the quartz movement swept the horological world by storm during the 1970s and early-80s, Bulova began developing its electronic Accutron watch in 1952.
+                  {d.copy[0].text}
                 </P>
                 <P mobile css={css`margin-top: 16px;`}>
-                  which guaranteed accuracy to within one minute per month, or 
-                  two seconds per day. This was unheard of at that time.
+                  {d.copy[1].text}
                 </P>
               </Layer>
               <Layer ref={hRef} css={css`opacity: 0;`}>
                 <H4 alternative mobile css={css`margin-top: 32px;`}>
-                  that level of accuracy was far better than any mechanical watch could reproduce.
+                  {d.copy[2].text}
                 </H4>
               </Layer>
             </div>
