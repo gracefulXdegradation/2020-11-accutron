@@ -44,9 +44,6 @@ export default function NavBar({ sliderRef }) {
         <Layer>
           <Column h="100%" w="100%" justify="space-between" align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
-              {/* <Circle ref={logoRef} size="m" /> */}
-              {/* <H4 css={css`margin-top: 20px;`}>Chapter 1</H4> */}
-
               <HoverableCircle size="m" ref={logoRef}>
                 <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
               </HoverableCircle>
@@ -58,8 +55,6 @@ export default function NavBar({ sliderRef }) {
               <HoverableCircle size="m" rotation={90}>
                 <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
               </HoverableCircle>
-              {/* <Circle size="m" rotation="90" /> */}
-              {/* <H4 css={css`margin-top: 20px;`}>Chapter 2</H4> */}
             </Column>
           </Column>
         </Layer>

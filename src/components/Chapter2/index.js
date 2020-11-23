@@ -29,7 +29,7 @@ const HorizontalSlider = styled.div`
   height: 100%;
 `
 
-export default function Chapter({ prevChapter, toTop }) {
+export default function Chapter2({ prevChapter, toTop }) {
   const horSlider = useRef(null)
   const { initChapter, hasChapterInit } = useStoryState()
 

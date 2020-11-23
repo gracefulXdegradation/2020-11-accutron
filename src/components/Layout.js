@@ -2,10 +2,9 @@ import React, { useCallback } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { gsap, ScrollTrigger, ScrollToPlugin } from 'gsap/all';
 import { themes, typefaceHeader } from '../styles/const';
-import GlobalStyle from '../styles/global';
 import Chapter1 from './Chapter1';
 import Chapter2 from './Chapter2';
 import VideoScreen from './VideoScreen';
@@ -24,11 +23,7 @@ const Root = styled.div`
 
 function Layout() {
   const fixedRef = useRef(null)
-  const [{ chapter, ts }, setChapter] = useState({
-    chapter: -2,
-    ts: Date.now()
-  })
-  const { initChapter } = useStoryState()
+  const { chapter, ts, setChapter } = useStoryState()
 
   const toChapter = useCallback((chapterIndex) => {
     gsap.to(fixedRef.current, {
@@ -36,11 +31,7 @@ function Layout() {
       duration: 1,
       ease: 'none',
       onComplete: () => {
-        initChapter(false)
-        setChapter({
-          chapter: chapterIndex,
-          ts: Date.now()
-        })
+        setChapter(chapterIndex)
 
         gsap.to(fixedRef.current, {
           opacity: 0,
@@ -49,7 +40,7 @@ function Layout() {
         })
       }
     })
-  }, [initChapter])
+  }, [setChapter])
 
   const toVideo = useCallback(() => toChapter(-1), [toChapter])
   const toChapter1 = useCallback(() => toChapter(0), [toChapter])
@@ -58,7 +49,6 @@ function Layout() {
   return (
     <ThemeProvider theme={chapter === 1 ? themes.ch2 : themes.ch1}>
       <Root>
-        <GlobalStyle />
         { chapter === -2 && <Preloader images={images} onLoad={toVideo} /> }
         { chapter === -1 && <VideoScreen nextChapter={toChapter1} /> }
         { chapter === 0 &&  <Chapter1 key={`${ts}-1`} nextChapter={toChapter2} /> }

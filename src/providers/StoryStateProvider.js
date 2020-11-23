@@ -1,7 +1,16 @@
 import { useReducer, createContext, useCallback, useContext } from 'react';
 
+const StoryStages = {
+	Preloader: -2,
+	Video: -1,
+	Chapter1: 0,
+	Chapter2: 1
+}
+
 const initialState = {
-	hasChapter2Init: false
+	hasChapterInit: false,
+	chapter: StoryStages.Preloader,
+	ts: Date.now()
 };
 
 function reducer(state, {type, value}) {
@@ -10,6 +19,13 @@ function reducer(state, {type, value}) {
       return {
 				...state,
 				hasChapterInit: value
+			};
+		case 'chapter.set':
+			return {
+				...state,
+				hasChapterInit: false,
+				chapter: value,
+				ts: Date.now()
 			};
     default:
       throw new Error();
@@ -23,9 +39,12 @@ const StoryStateProvider = ({ children }) => {
 
 	const value = {
 		...storyState,
-		initChapter: useCallback((value = true) => {
+		initChapter: useCallback((value) => {
 			dispatch({ type: 'chapter.init', value })
-		}, [dispatch])
+		}, [dispatch]),
+		setChapter: useCallback((value) => {
+			dispatch({ type: 'chapter.set', value })
+		}, [dispatch]),
 	};
 
 	return (

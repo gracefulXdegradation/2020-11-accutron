@@ -72,7 +72,7 @@ export default function Legacy11({ index }) {
         <Slide index={index} subslides={2} animate={animation}>
           <Row w="100%" h="100%" align="center" justify="space-around">
             {watches.map((img, i) => (
-              <Column key={img} css={css`transform: translateX(${(mid - i) * 2 * shift}%);`}>
+              <Column key={img.src} css={css`transform: translateX(${(mid - i) * 2 * shift}%);`}>
                 <Watches {...img} />
               </Column>
             ))}
@@ -107,14 +107,14 @@ export default function Legacy11({ index }) {
             <Column w="100%" h="100%">
               <Row h="50%" w="100%" justify="space-around" align="flex-end">
                 {[...watches.slice(0, 3), ...watches.slice(6)].map((img, i) => (
-                  <Column key={`${img}${i}`}>
+                  <Column key={`${img.src}${i}`}>
                     <Watches {...img} css={css`height: 165px;`} />
                   </Column>
                 ))}
               </Row>
               <Row h="50%" w="100%" justify="space-around" align="flex-start">
               {watches.slice(3, 6).map((img, i) => (
-                <Column key={`${img}${i}`}>
+                <Column key={`${img.src}${i}`}>
                   <Watches {...img} css={css`height: 165px;`} />
                 </Column>
               ))}

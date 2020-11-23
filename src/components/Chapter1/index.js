@@ -21,11 +21,9 @@ const HorizontalSlider = styled.div`
   height: 100%;
 `
 
-export default function Chapter({ nextChapter, toTop }) {
+export default function Chapter1({ nextChapter, toTop }) {
   const horSlider = useRef(null)
   const { initChapter, hasChapterInit } = useStoryState()
-
-  window.initChapter = initChapter
 
   const toSlider = () => {
     gsap.to(horSlider.current, {
