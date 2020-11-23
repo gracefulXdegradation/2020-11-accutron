@@ -11,6 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SlideRoot = styled.section`
   width: 100%;
+  position: relative;
+  z-index: 0;
   height: ${({ subslides }) => subslides * 100}vh;
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
@@ -104,22 +106,22 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
   }, [animate, index, setSlideHeading, hasChapterInit])
 
   return (
-    <>
-      <BrowserView>
+    <div css={css`pointer-events: none;`}>
+      <BrowserView renderWithFragment>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
           <Row ref={slideInnerRef} h="100vh">
             {children}
           </Row>
         </SlideRoot>
       </BrowserView>
-      <MobileView>
+      <MobileView renderWithFragment>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
           <Column ref={slideInnerRef} h="100vh" css={css`padding: 228px 0 77px;`}>
             {children}
           </Column>
         </SlideRoot>
       </MobileView>
-    </>
+    </div>
   );
 };
 

@@ -78,7 +78,7 @@ export default function Legacy10({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "200vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
           <Row w="100%" h="100%" align="center" justify="space-around">
             <Column css={css`transform: translateX(${shift * 2 }%);`}>
@@ -94,7 +94,7 @@ export default function Legacy10({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "300vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={3} animate={animation}>
           <Column w="100%" h="100%">
             <Layer ref={img1Ref}>

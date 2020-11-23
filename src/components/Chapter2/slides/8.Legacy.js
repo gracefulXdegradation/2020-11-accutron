@@ -39,7 +39,7 @@ export default function Legacy8({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "100vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
             <H4 tertiary align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 50px 0; margin: 0 32px;`}>
@@ -49,7 +49,7 @@ export default function Legacy8({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "100vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>
             <H4 tertiary mobile align="center">

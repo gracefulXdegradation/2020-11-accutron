@@ -5,12 +5,14 @@ import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
-import { Circle, Layer, Divider, Row, Column, ChapterCaption } from '../UIKit';
+import { Circle, Layer, Divider, Row, Column, ChapterCaption, HoverableCircle } from '../UIKit';
 import { useStoryState } from '../../providers/StoryStateProvider';
+import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function NavBar({ sliderRef }) {
+  const { toChapter1, toChapter2 } = useChapterAnimation();
   const { slideHeading } = useNavBar();
   const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
@@ -38,32 +40,35 @@ export default function NavBar({ sliderRef }) {
   }, [sliderRef, hasChapterInit])
 
   return (
-    <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
+    <Layer ref={pinRef} fullScreen>
       <BrowserView>
-        <Layer>
-          <Column align="center">
-            <Column align="center" css={css`margin-top: 32px;`}>
-              <Circle ref={logoRef} size="m" />
-              <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
-            </Column>
-            <H3 alternative>{slideHeading}</H3>
-          </Column>
-        </Layer>
         <Layer fullScreen>
-          <Row h="100%" align="center" justify="space-between">
-            <Divider length="90px" />
-            <Column align="center" css={css`margin: 24px;`}>
-              <Circle size="m" />
-              <ChapterCaption>
-                <H4>Chapter 1</H4>
-              </ChapterCaption>
+          <Column w="100%" h="100%">
+            <Column align="center" css={css`flex: 1;`}>
+              <Column align="center" css={css`margin-top: 32px;`}>
+                <HoverableCircle size="m" ref={logoRef} onClick={toChapter2}>
+                  <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+                </HoverableCircle>
+              </Column>
+              <H3 alternative>{slideHeading}</H3>
             </Column>
-            <Divider />
-            <Column align="center" css={css`margin: 24px;`}>
-              <Circle size="m" logo />
-            </Column>
-            <Divider length="90px" />
-          </Row>
+
+            <Row align="center" justify="space-between">
+              <Divider length="90px" />
+              <Column align="center" css={css`margin: 24px;`}>
+                <HoverableCircle size="m" onClick={toChapter1} wrapChildren>
+                  <H4>Chapter 1</H4>
+                </HoverableCircle>
+              </Column>
+              <Divider />
+              <Column align="center" css={css`margin: 24px;`}>
+                <Circle size="m" logo />
+              </Column>
+              <Divider length="90px" />
+            </Row>
+
+            <Column align="center" css={css`flex: 1;`} />
+          </Column>
         </Layer>
       </BrowserView>
 
@@ -72,15 +77,15 @@ export default function NavBar({ sliderRef }) {
           <Column w="100%" h="100%" justify="space-between">
             <Column align="center">
               <Divider vertical length="35px" />
-              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
+              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter1}>Chapter 1</H4>
               <Row align="center">
                 <Divider />
-                <Column css={css`margin: 0 30px;`}>
+                <Column css={css`margin: 0 30px;`} onClick={toChapter2}>
                   <Circle ref={logoRef} size="s" />
                 </Column>
                 <Divider />
               </Row>
-              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 2</H4>
+              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter2}>Chapter 2</H4>
               <H3 alternative css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
             </Column>
             <Row align="center" css={css`margin: 12px 0 16px;`}>

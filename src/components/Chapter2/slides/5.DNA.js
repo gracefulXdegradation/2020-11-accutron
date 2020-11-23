@@ -96,7 +96,7 @@ export default function DNA5({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "100vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Row w="100%" h="100%" justify="center" align="center">
             <Watches {...d.images[0]} large />
@@ -127,7 +127,7 @@ export default function DNA5({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "300vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={3} animate={mobileAnimation}>
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Column>

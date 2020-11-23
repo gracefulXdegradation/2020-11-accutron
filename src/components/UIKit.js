@@ -185,9 +185,9 @@ const GlowingCircle = styled(Column)`
   }
 `
 
-export const HoverableCircle = React.forwardRef(({ size, children, rotation, wrapChildren }, ref) => {
+export const HoverableCircle = React.forwardRef(({ size, children, rotation, wrapChildren, onClick }, ref) => {
   return (
-    <GlowingCircle rotation={rotation}>
+    <GlowingCircle rotation={rotation} onClick={onClick}>
       <Circle ref={ref} size={size} rotation={rotation} />
       { wrapChildren ? (
         <ChapterCaption>

@@ -60,7 +60,7 @@ export default function DNA6({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "100vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Row w="50%" h="100%" justify="flex-start" align="center" css={css`flex-direction: row-reverse;`}>
             <HalfWatches {...d.images[0]} />
@@ -81,7 +81,7 @@ export default function DNA6({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "150vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={1.5} animate={animation}>
           <Column h="100%" w="100%" justify="center" align="flex-start">
             <Column ref={dnaRef} w="100%">

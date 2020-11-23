@@ -29,7 +29,7 @@ const HorizontalSlider = styled.div`
   height: 100%;
 `
 
-export default function Chapter2({ prevChapter, toTop }) {
+export default function Chapter2() {
   const horSlider = useRef(null)
   const { initChapter, hasChapterInit } = useStoryState()
 
@@ -57,7 +57,7 @@ export default function Chapter2({ prevChapter, toTop }) {
                 <ChapterHead onAnimateEnd={toSlider} />
               </LeftScreen>
               <Slider />
-              <Ending prevChapter={prevChapter} toTop={() => null} />
+              <Ending />
             </HorizontalSlider>
         </Background>
       </BrowserView>
@@ -69,7 +69,7 @@ export default function Chapter2({ prevChapter, toTop }) {
               <ChapterHead onAnimateEnd={toSlider} />
             </TopScreen>
             <Slider />
-            <Ending prevChapter={prevChapter} toTop={() => null} />
+            <Ending />
           </HorizontalSlider>
         </Background>
       </MobileView>

@@ -7,6 +7,7 @@ import { H2, H4, P } from "../../styles/typography";
 import { Block, ChapterCaption, Circle, Column, Divider, HoverableCircle, Layer, Row } from "../UIKit";
 import { useStoryState } from '../../providers/StoryStateProvider';
 import data from '../../data/story';
+import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 
 const d = data.chapters[0].ending
 
@@ -22,7 +23,8 @@ const Image = styled.img`
   right: 0;
 `;
 
-export default function Ending({ nextChapter = () => null }) {
+export default function Ending() {
+  const { toChapter1, toChapter2 } = useChapterAnimation();
   const { hasChapterInit } = useStoryState();
   const rootRef = useRef(null)
   const topDivRef = useRef(null)
@@ -96,8 +98,9 @@ export default function Ending({ nextChapter = () => null }) {
         <Column ref={rootRef} h="100vh" w="100%" align="center" justify="space-between">
           <Column css={css`flex: 1;`} align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
-              <Circle size="m" />
-              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              <HoverableCircle size="m" onClick={toChapter1}>
+                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              </HoverableCircle>
             </Column>
             <Column css={css`flex: 1;`}>
               <Divider ref={topDivRef} vertical length="0" />
@@ -107,8 +110,8 @@ export default function Ending({ nextChapter = () => null }) {
             <Row css={css`flex: 1;`}>
               <Divider ref={leftDivRef} length="0" />
             </Row>
-            <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`} onClick={nextChapter}>
-              <HoverableCircle size="xl" wrapChildren>
+            <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`}>
+              <HoverableCircle size="xl" wrapChildren onClick={toChapter2}>
                 <H4>Chapter 2</H4>
               </HoverableCircle>
             </Column>
@@ -132,7 +135,7 @@ export default function Ending({ nextChapter = () => null }) {
         <Column ref={rootRef} w="100%" h="200vh">
           <Column w="100%" h="100vh">
             <Column align="center" css={css`padding-bottom: 20px;`}>
-              <Block css={css`padding-top: 50px;`}>
+              <Block css={css`padding-top: 50px;`} onClick={toChapter1}>
                 <Circle size="s" />
                 <Layer top="0">
                   <Row h="100%" justify="center">
@@ -156,7 +159,7 @@ export default function Ending({ nextChapter = () => null }) {
 
                 <Row align="center">
                   <Divider css={css`opacity: 0;`} />
-                  <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px;`} onClick={nextChapter}>
+                  <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px;`} onClick={toChapter2}>
                     <Circle size="xl" rotation="90" />
                     <ChapterCaption>
                       <H4>Chapter 2</H4>

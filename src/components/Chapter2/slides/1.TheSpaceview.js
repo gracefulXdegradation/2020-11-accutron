@@ -83,7 +83,7 @@ export default function TheSpaceview({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "400vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
           <Row w="50%" h="100%" justify="flex-end" align="center">
             <HalfWatches large src={d.images[1].src} />
@@ -136,7 +136,7 @@ export default function TheSpaceview({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "400vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
           <Row h="100%" align="center">
             <Row w="50%" h="100%" justify="flex-end" align="center">

@@ -7,10 +7,12 @@ import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
 import { Circle, Layer, Divider, Row, Column, Block, HoverableCircle } from '../UIKit';
 import { useStoryState } from '../../providers/StoryStateProvider';
+import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function NavBar({ sliderRef }) {
+  const { toChapter1, toChapter2 } = useChapterAnimation();
   const { slideHeading } = useNavBar();
   const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
@@ -44,15 +46,15 @@ export default function NavBar({ sliderRef }) {
         <Layer>
           <Column h="100%" w="100%" justify="space-between" align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
-              <HoverableCircle size="m" ref={logoRef}>
+              <HoverableCircle size="m" ref={logoRef} onClick={toChapter1}>
                 <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
               </HoverableCircle>
             </Column>
             <Divider vertical />
             <H3 tertiary css={css`margin-top: 8px;`}>{slideHeading}</H3>
             <Divider vertical />
-            <Column align="center" css={css`padding: 30px 0 50px;`} onClick={() => console.log('yo')}>
-              <HoverableCircle size="m" rotation={90}>
+            <Column align="center" css={css`padding: 30px 0 50px;`}>
+              <HoverableCircle size="m" rotation={90} onClick={toChapter2}>
                 <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
               </HoverableCircle>
             </Column>
@@ -63,7 +65,7 @@ export default function NavBar({ sliderRef }) {
       <MobileView renderWithFragment>
         <Layer>
           <Column w="100%" h="100%">
-            <Column align="center" css={css`padding-bottom: 20px;`}>
+            <Column align="center" css={css`padding-bottom: 20px;`} onClick={toChapter1}>
               <Block css={css`padding-top: 50px;`}>
                 <Circle ref={logoRef} size="s" />
                 <Layer top="0">
@@ -79,7 +81,7 @@ export default function NavBar({ sliderRef }) {
               <Divider vertical />
             </Column>
             <Row justify="center">
-              <H4 mobile css={css`margin: 25px 0 29px; white-space: nowrap;`}>Chapter 2</H4>
+              <H4 mobile css={css`margin: 25px 0 29px; white-space: nowrap;`} onClick={toChapter2}>Chapter 2</H4>
             </Row>
           </Column>
         </Layer>

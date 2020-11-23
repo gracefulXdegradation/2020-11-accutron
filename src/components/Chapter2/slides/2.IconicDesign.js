@@ -57,7 +57,7 @@ export default function IconicDesign2({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "200vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
             <H4 tertiary align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 50px 0; margin: 0 32px;`}>
@@ -70,7 +70,7 @@ export default function IconicDesign2({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "300vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={3} animate={animation}>
           <Column w="100%" h="100%">
             <Layer ref={hRef0}>

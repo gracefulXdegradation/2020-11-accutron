@@ -39,8 +39,8 @@ const StoryStateProvider = ({ children }) => {
 
 	const value = {
 		...storyState,
-		initChapter: useCallback((value) => {
-			dispatch({ type: 'chapter.init', value })
+		initChapter: useCallback(() => {
+			dispatch({ type: 'chapter.init', value: true })
 		}, [dispatch]),
 		setChapter: useCallback((value) => {
 			dispatch({ type: 'chapter.set', value })

@@ -28,6 +28,7 @@ export default function Legacy11({ index }) {
         ...props,
         trigger: el,
         pin: el,
+        pinSpacing: false,
         scrub: true,
         start: 'top top',
         end: 'bottom bottom',
@@ -68,7 +69,7 @@ export default function Legacy11({ index }) {
 
   return (
     <>
-      <BrowserView style={{height: "200vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
           <Row w="100%" h="100%" align="center" justify="space-around">
             {watches.map((img, i) => (
@@ -94,7 +95,7 @@ export default function Legacy11({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "200vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
         <Column w="100%" h="100%">
           <Column ref={layer1Ref} w="100%" h="100%" align="center" justify="center">

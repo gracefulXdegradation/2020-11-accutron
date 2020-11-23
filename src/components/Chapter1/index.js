@@ -21,7 +21,7 @@ const HorizontalSlider = styled.div`
   height: 100%;
 `
 
-export default function Chapter1({ nextChapter, toTop }) {
+export default function Chapter1() {
   const horSlider = useRef(null)
   const { initChapter, hasChapterInit } = useStoryState()
 
@@ -47,7 +47,7 @@ export default function Chapter1({ nextChapter, toTop }) {
           <ChapterHead onAnimateEnd={toSlider} />
         </TopScreen>
         <Slider />
-        <Ending nextChapter={nextChapter} toTop={() => null} />
+        <Ending />
       </HorizontalSlider>
     </Background>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './components/Layout';
 import StoryStateProvider from './providers/StoryStateProvider';
+import ChapterAnimationProvider from './providers/ChapterAnimationProvider';
 import GlobalStyle from './styles/global';
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
     <>
       <GlobalStyle />
       <StoryStateProvider>
-        <Layout />
+        <ChapterAnimationProvider>
+          <Layout />
+        </ChapterAnimationProvider>
       </StoryStateProvider>
     </>
   );

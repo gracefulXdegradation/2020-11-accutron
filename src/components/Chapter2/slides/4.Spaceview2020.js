@@ -38,7 +38,7 @@ export default function Spaceview2020({ index }) {
   
   return (
     <>
-      <BrowserView style={{height: "100vh"}}>
+      <BrowserView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Row w="100%" h="100%" justify="center" align="center">
             <Watches {...d.images[0]} />
@@ -59,7 +59,7 @@ export default function Spaceview2020({ index }) {
         </Slide>
       </BrowserView>
 
-      <MobileView style={{height: "100vh"}}>
+      <MobileView renderWithFragment>
         <Slide index={index} animate={animation}>
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Watches {...d.images[0]} />
