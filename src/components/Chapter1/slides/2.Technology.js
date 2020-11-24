@@ -112,28 +112,30 @@ export default function Technology2({ index }) {
 
       <MobileView renderWithFragment>
         <Slide index={index} subslides={7} animate={mobileAnimation}>
-          <Column h="100%" justify="space-evenly">
-            <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%; top: 20%;`} ref={galleryRef}>
-              <ImageHolder ref={leftImg1Ref}>
-                <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
-              </ImageHolder>
-              <ImageHolder ref={rightImg1Ref} css={css`opacity: 0;`}>
-                <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
-              </ImageHolder>
-              <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
-                <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
-              </ImageHolder>
-              <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
-                <SlideImage {...d.images[4]} css={css`width: auto; height: 100%; position: relative; left: 7%;`} />
-                <SlideImage {...d.images[5]} css={css`width: auto; height: 80%; position: relative; right: 7%;`} />
-              </ImageHolder>
-              <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
-                <SlideImage {...d.images[3]} css={css`width: auto; height: 100%;`} />
-              </ImageHolder>
-              <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
-                <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
-              </ImageHolder>
-            </div>
+          <Column h="100%" justify="center">
+            <Column w="100%" justify="center" css={css`min-height: 50%;`}>
+              <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%; top: 20%;`} ref={galleryRef}>
+                <ImageHolder ref={leftImg1Ref}>
+                  <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                </ImageHolder>
+                <ImageHolder ref={rightImg1Ref} css={css`opacity: 0;`}>
+                  <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                </ImageHolder>
+                <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
+                  <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
+                </ImageHolder>
+                <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
+                  <SlideImage {...d.images[4]} css={css`width: auto; height: 100%; position: relative; left: 7%;`} />
+                  <SlideImage {...d.images[5]} css={css`width: auto; height: 80%; position: relative; right: 7%;`} />
+                </ImageHolder>
+                <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
+                  <SlideImage {...d.images[3]} css={css`width: auto; height: 100%;`} />
+                </ImageHolder>
+                <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
+                  <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
+                </ImageHolder>
+              </div>
+            </Column>
             <div css={css`position: relative; flex: 1;`}>
               <Layer ref={p1Ref} css={css`opacity: 0;`}>
                 <P mobile css={css`margin-top: 16px;`}>

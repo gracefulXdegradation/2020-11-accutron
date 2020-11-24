@@ -46,7 +46,7 @@ export default function Legacy4({ index }) {
       <MobileView renderWithFragment>
         <Slide index={index} subslides={2} animate={mobileAnimation}>
           <SlideImage ref={imageRef} {...d.images[0]} css={css`top: 20%; position: relative;`} />
-          <Column ref={copyRef} css={css`opacity: 0; margin-top: 40px;`}>
+          <Column ref={copyRef} css={css`opacity: 0; margin-top: 20px;`}>
             <P mobile>
             {d.copy[0].text}
             </P>
