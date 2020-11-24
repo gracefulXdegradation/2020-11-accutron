@@ -4,95 +4,26 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography'
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
 import data from '../../../data/story';
+import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[4]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function DNA5({ index }) {
   const watch1Ref = useRef(null)
   const watch2Ref = useRef(null)
   const watch3Ref = useRef(null)
 
-  const animation = (slide, props) => {
-    return gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: slide,
-        pin: slide,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(slide, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to([watch2Ref.current, watch3Ref.current], {
-      duration: 0,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-  }
+  const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
+    fadeIn(tl, [watch2Ref.current, watch3Ref.current])
+  })
 
-  const mobileAnimation = (slide, props) => {
-    return gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: slide,
-        pin: slide,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(slide, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-
-    .to(watch1Ref.current, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-
-    .to(watch2Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(watch2Ref.current, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-
-    .to(watch3Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-
-    .to(slide, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-  }
+  const mobileAnimation = (slide, props) => animateFadeInOut(slide, props, tl => {
+    fadeOut(tl, watch1Ref.current)
+    fadeInOut(tl, watch2Ref.current)
+    fadeIn(tl, watch3Ref.current)
+  })
   
   return (
     <>

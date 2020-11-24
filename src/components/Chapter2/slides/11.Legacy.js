@@ -4,13 +4,11 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
 import data from '../../../data/story';
+import { animateFadeIn, fadeIn, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[10]
-
-gsap.registerPlugin(ScrollTrigger);
 
 const watches = d.images
 
@@ -21,49 +19,17 @@ export default function Legacy11({ index }) {
   const layer2Ref = useRef(null)
   const pRef = useRef(null)
 
-  const animation = (el, props) => {
-
-    const tl = gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-        start: 'top top',
-        end: 'bottom bottom',
-      }
-    })
-    tl.to(el, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    if (layer1Ref.current) {
-      tl.to(layer1Ref.current, {
-        opacity: 0,
-        duration: 1,
-        delay: .5,
-        ease: 'none',
-      })
-    }
-
+  const animation = (el, props) => animateFadeIn(el, {
+    ...props,
+    start: 'top top',
+    end: 'bottom bottom',
+  }, tl => {
+    layer1Ref.current && fadeOut(tl, layer1Ref.current)
     if (layer2Ref.current) {
-      tl.to(layer2Ref.current, {
-        opacity: 1,
-        duration: 1,
-        ease: 'none',
-      })
-      tl.to(pRef.current, {
-        opacity: 1,
-        duration: 1,
-        ease: 'none',
-      })
+      fadeIn(tl, layer2Ref.current)
+      fadeOut(tl, pRef.current)
     }
-
-    return tl;
-  }
+  })
 
   const shift = 12
 

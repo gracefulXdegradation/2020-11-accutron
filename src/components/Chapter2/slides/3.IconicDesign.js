@@ -4,13 +4,11 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import { HalfWatches } from '../../Watches';
 import data from '../../../data/story';
+import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[2]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function IconicDesign2({ index }) {
   const p1Ref = useRef(null);
@@ -21,112 +19,27 @@ export default function IconicDesign2({ index }) {
   const p2Ref = useRef(null);
   const h2Ref = useRef(null);
 
-  const animation = (slide, props) => {
+  const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
     const isMobile = !!h15Ref.current
 
-    const tl = gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: slide,
-        pin: slide,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(slide, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    });
-
-    tl.to(p1Ref.current, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
+    fadeOut(tl, p1Ref.current)
+    fadeInOut(tl, h1Ref.current)
+    isMobile && fadeInOut(tl, h15Ref.current)
+    fadeIn(tl, watchRef.current)
+    isMobile && tl.to([watchRef.current, watch2Ref.current], {
+      top: 50,
+      duration: .5,
       ease: 'none',
     })
-
-    tl.to(h1Ref.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-    tl.to(h1Ref.current, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-
-    if (isMobile) {
-      tl.to(h15Ref.current, {
-        opacity: 1,
-        duration: 1,
-        ease: 'none',
-      })
-      tl.to(h15Ref.current, {
-        opacity: 0,
-        duration: 1,
-        delay: .5,
-        ease: 'none',
-      })
-    }
-
-    tl.to(watchRef.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    if (isMobile) {
-      tl.to([watchRef.current, watch2Ref.current], {
-        top: 50,
-        duration: .5,
-        ease: 'none',
-      })
-    }
-
-    tl.to(p2Ref.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-    tl.to(p2Ref.current, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-
-    if (isMobile) {
-      tl.to([watchRef.current, watch2Ref.current], {
-        opacity: 0,
-        duration: 1,
-        delay: -.5,
-        ease: 'none',
-      })
-    }
-
-    tl.to(h2Ref.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    tl.to(slide, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    });
-
-    return tl;
-  }
+    fadeInOut(tl, p2Ref.current)
+    isMobile && fadeOut(tl, [watchRef.current, watch2Ref.current])
+    fadeIn(tl, h2Ref.current)
+  })
   
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={7} animate={animation}>
+        <Slide index={index} subslides={5} animate={animation}>
           <Row w="50%" h="100%">
             <Layer ref={p1Ref}>
               <Column w="100%" h="100%" align="flex-end" justify="center">

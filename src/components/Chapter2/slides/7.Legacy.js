@@ -4,61 +4,24 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import data from '../../../data/story';
+import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[6]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Legacy7({ index }) {
   const hRef = useRef(null);
   const hRef0 = useRef(null);
 
-  const animation = (el, props) => {
-    const tl = gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    if (hRef0.current) {
-      tl.to(hRef0.current, {
-        opacity: 0,
-        delay: .5,
-        duration: 1,
-        ease: 'none',
-      })
-    }
-
-    tl.to(hRef.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-    .to(el, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-
-    return tl;
-  }
+  const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
+    hRef0.current && fadeOut(tl, hRef0.current)
+    fadeIn(tl, hRef.current)
+  })
   
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide index={index} subslides={1.5} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
             <P align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 20px 0; margin: 0 32px;`}>
               {d.copy[0].text}
@@ -71,7 +34,7 @@ export default function Legacy7({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={3} animate={animation}>
+        <Slide index={index} subslides={2.5} animate={animation}>
           <Column w="100%" h="100%">
             <Layer ref={hRef0}>
               <Column w="100%" h="100%" align="center" justify="center" css={css`padding: 0 60px;`}>

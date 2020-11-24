@@ -3,13 +3,11 @@ import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches } from '../../Watches';
 import data from '../../../data/story';
+import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[8]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Legacy9({ index }) {
   const img1Ref = useRef(null);
@@ -17,78 +15,16 @@ export default function Legacy9({ index }) {
   const img3Ref = useRef(null);
   const img4Ref = useRef(null);
 
-  const animation = (el, props) => {
+  const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
     const isMobile = !!img1Ref.current
 
-    const tl = gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    if (isMobile) {
-      tl.to(img1Ref.current, {
-        opacity: 0,
-        duration: 1,
-        delay: .5,
-        ease: 'none',
-      })
-    }
-
-    tl.to(img2Ref.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    if (isMobile) {
-      tl.to(img2Ref.current, {
-        opacity: 0,
-        duration: 1,
-        delay: .5,
-        ease: 'none',
-      })
-    }
-
-    tl.to(img3Ref.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    if (isMobile) {
-      tl.to(img3Ref.current, {
-        opacity: 0,
-        duration: 1,
-        delay: .5,
-        ease: 'none',
-      })
-    }
-
-    tl.to(img4Ref.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-
-    .to(el, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-
-    return tl;
-  }
+    isMobile && fadeOut(tl, img1Ref.current)
+    fadeIn(tl, img2Ref.current)
+    isMobile && fadeOut(tl, img2Ref.current)
+    fadeIn(tl, img3Ref.current)
+    isMobile && fadeOut(tl, img3Ref.current)
+    fadeIn(tl, img4Ref.current)
+  })
 
   const shift = 16
   

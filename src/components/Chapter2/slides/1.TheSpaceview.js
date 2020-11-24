@@ -4,13 +4,11 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import { HalfWatches } from '../../Watches';
 import data from '../../../data/story';
+import { animateFadeOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[0]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function TheSpaceview({ index }) {
   const slide1Ref = useRef(null)
@@ -20,83 +18,19 @@ export default function TheSpaceview({ index }) {
   const slide5Ref = useRef(null)
   const slide6Ref = useRef(null)
 
-  const desktopAnimation = (el, props) => {
-    return gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(slide1Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide2Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide2Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide3Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide3Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide4Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide4Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide5Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(slide5Ref.current, {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(slide6Ref.current, {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
-      opacity: 0,
-      duration: 1,
-      delay: .5,
-      ease: 'none',
-    })
-  }
+  const animation = (el, props) => animateFadeOut(el, props, tl => {
+    fadeOut(tl, slide1Ref.current);
+    fadeInOut(tl, slide2Ref.current);
+    fadeInOut(tl, slide3Ref.current);
+    fadeInOut(tl, slide4Ref.current);
+    slide5Ref.current && fadeInOut(tl, slide5Ref.current);
+    fadeIn(tl, slide6Ref.current);
+  })
   
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} startVisible subslides={4} animate={desktopAnimation}>
+        <Slide index={index} startVisible subslides={4} animate={animation}>
           <Row w="50%" h="100%" justify="flex-end" align="center">
             <HalfWatches large src={d.images[1].src} />
           </Row>
@@ -138,7 +72,7 @@ export default function TheSpaceview({ index }) {
               </Column>
             </Layer>
 
-            <Layer ref={slide5Ref} css={css`opacity: 0;`}>
+            <Layer ref={slide6Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
                 <HalfWatches large src={d.images[1].src} right />
               </Column>
@@ -149,7 +83,7 @@ export default function TheSpaceview({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} startVisible subslides={5} animate={desktopAnimation}>
+        <Slide index={index} startVisible subslides={5} animate={animation}>
           <Row h="100%" align="center">
             <Row w="50%" h="100%" justify="flex-end" align="center">
               <HalfWatches src={d.images[1].src} />
