@@ -18,7 +18,7 @@ function Preloader({ images, onLoad }) {
   const duration = 6
 
   return (
-    <Background css={css`height: 100vh;`}>
+    <Background css={css`height: 100vh; position: absolute; z-index: 2;`}>
       <Row h="100%" align="center" justify="center">
         <Block css={css`
           width: ${size}px;

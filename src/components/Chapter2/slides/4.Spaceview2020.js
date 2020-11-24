@@ -15,7 +15,7 @@ export default function Spaceview2020({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
-          <WatchesSafeArea justify="center" align="center">
+          <WatchesSafeArea justify="center">
             <Watches {...d.images[0]} />
 
             <Layer left="0">
@@ -39,7 +39,9 @@ export default function Spaceview2020({ index }) {
       <MobileView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
           <Column h="100%" w="100%" justify="space-around" align="center">
-            <Watches {...d.images[0]} />
+            <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
+              <Watches {...d.images[0]} />
+            </Column>
             <Column align="center">
               <H4 alternative mobile>
               {d.copy[0].text}

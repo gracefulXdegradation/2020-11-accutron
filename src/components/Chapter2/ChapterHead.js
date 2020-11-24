@@ -84,7 +84,7 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
               minTopValue={300}
               onChange={onAppear}
             >
-              <Column ref={circleRef} align="center" css={css`padding-top: 12px; opacity: 0;`}>
+              <Column ref={circleRef} align="center" css={css`padding-top: 20px; opacity: 0;`}>
                 <Camouflage />
                 <Circle size="xl" rotation={90} />
               </Column>

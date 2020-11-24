@@ -18,15 +18,14 @@ const FullWatchImage = styled.img`
 export const WatchesSafeArea = styled(Row)`
   height: 100%;
   padding: 220px 0;
+  align-items: center;
 `
 
 export const HalfWatches = ({ right, src, alt = '' }) => {
   return (
-    <WatchesSafeArea justify={right ? 'flex-start' : 'flex-end'} align="center">
-      <Wrapper>
-        <FullWatchImage src={src} alt={alt} right={right} />
-      </Wrapper>
-    </WatchesSafeArea>
+    <Wrapper>
+      <FullWatchImage src={src} alt={alt} right={right} />
+    </Wrapper>
   )
 };
 

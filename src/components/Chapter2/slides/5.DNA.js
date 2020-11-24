@@ -30,7 +30,7 @@ export default function DNA5({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} animate={animation} subslides={2}>
-          <WatchesSafeArea justify="center" align="center">
+          <WatchesSafeArea justify="center">
             <Watches {...d.images[0]} />
 
             <Layer left="0">
@@ -49,12 +49,12 @@ export default function DNA5({ index }) {
             </Layer>
           </WatchesSafeArea>
           <Layer left="0" ref={watch2Ref} css={css`opacity: 0;`} >
-            <WatchesSafeArea justify="center" align="center">
+            <WatchesSafeArea justify="center">
               <Watches {...d.images[1]} css={css`transform: translateX(-50%);`} />
             </WatchesSafeArea>
           </Layer>
           <Layer left="0" ref={watch3Ref} css={css`opacity: 0;`} >
-            <WatchesSafeArea justify="center" align="center">
+            <WatchesSafeArea justify="center">
               <Watches {...d.images[2]} css={css`transform: translateX(-100%);`} />
             </WatchesSafeArea>
           </Layer>
@@ -63,16 +63,22 @@ export default function DNA5({ index }) {
 
       <MobileView renderWithFragment>
         <Slide index={index} subslides={3} animate={mobileAnimation}>
-          <Column h="100%" w="100%" justify="space-around" align="center">
-            <Column>
-              <Row ref={watch1Ref}>
-                <Watches {...d.images[0]} />
-              </Row>
+          <Column h="100%" w="100%" justify="space-around">
+            <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
+              <Layer ref={watch1Ref}>
+                <Column h="100%">
+                  <Watches {...d.images[0]} />
+                </Column>
+              </Layer>
               <Layer ref={watch2Ref} css={css`opacity: 0;`}>
-                <Watches {...d.images[1]} />
+                <Column h="100%">
+                  <Watches {...d.images[1]} />
+                </Column>
               </Layer>
               <Layer ref={watch3Ref} css={css`opacity: 0;`}>
-                <Watches {...d.images[2]} />
+                <Column h="100%">
+                  <Watches {...d.images[2]} />
+                </Column>
               </Layer>
             </Column>
             <Column align="center">

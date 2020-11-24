@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { HalfWatches } from '../Watches';
+import { HalfWatches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
@@ -13,6 +13,7 @@ const d = data.chapters[1].slides[0]
 export default function TheSpaceview({ index }) {
   const slide1Ref = useRef(null)
   const slide2Ref = useRef(null)
+  const slide2_5Ref = useRef(null)
   const slide3Ref = useRef(null)
   const slide4Ref = useRef(null)
   const slide5Ref = useRef(null)
@@ -21,6 +22,7 @@ export default function TheSpaceview({ index }) {
   const animation = (el, props) => animateFadeOut(el, props, tl => {
     fadeOut(tl, slide1Ref.current);
     fadeInOut(tl, slide2Ref.current);
+    slide2_5Ref.current && fadeInOut(tl, slide2_5Ref.current);
     fadeInOut(tl, slide3Ref.current);
     fadeInOut(tl, slide4Ref.current);
     slide5Ref.current && fadeInOut(tl, slide5Ref.current);
@@ -32,13 +34,17 @@ export default function TheSpaceview({ index }) {
       <BrowserView renderWithFragment>
         <Slide index={index} startVisible subslides={4} animate={animation}>
             <Row w="50%" h="100%">
-              <HalfWatches src={d.images[1].src} />
+              <WatchesSafeArea justify="flex-end">
+                <HalfWatches src={d.images[1].src} />
+              </WatchesSafeArea>
             </Row>
             
             <Row w="50%" h="100%">
               <Layer ref={slide1Ref}>
                 <Row h="100%">
-                  <HalfWatches src={d.images[0].src} right />
+                  <WatchesSafeArea justify="flex-start">
+                    <HalfWatches src={d.images[0].src} right />
+                  </WatchesSafeArea>
                 </Row>
               </Layer>
               
@@ -74,7 +80,9 @@ export default function TheSpaceview({ index }) {
 
               <Layer ref={slide6Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%">
-                  <HalfWatches large src={d.images[1].src} right />
+                  <WatchesSafeArea justify="flex-end">
+                    <HalfWatches src={d.images[1].src} right />
+                  </WatchesSafeArea>
                 </Column>
               </Layer>
             </Row>
@@ -82,8 +90,8 @@ export default function TheSpaceview({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} startVisible subslides={5} animate={animation}>
-          <Row h="100%" align="center">
+        <Slide index={index} startVisible subslides={6} animate={animation}>
+          <Row h="100%" align="center" css={css`padding: 20px 0;`}>
             <Row w="50%" h="100%" justify="flex-end" align="center">
               <HalfWatches src={d.images[1].src} />
             </Row>
@@ -99,7 +107,13 @@ export default function TheSpaceview({ index }) {
                 <Column w="100%" h="100%" align="flex-start" justify="center">
                   <P mobile css={css`margin-left: 8px; max-width: 165px;`}>
                     {d.copy[0].text}
-                    <br /><br />
+                  </P>
+                </Column>
+              </Layer>
+
+              <Layer ref={slide2_5Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-start" justify="center">
+                  <P mobile css={css`margin-left: 8px; max-width: 165px;`}>
                     {d.copy[1].text}
                   </P>
                 </Column>

@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { HalfWatches } from '../Watches';
+import { HalfWatches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
@@ -24,7 +24,9 @@ export default function DNA6({ index }) {
       <BrowserView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
           <Row w="50%" h="100%" justify="flex-start" align="center" css={css`flex-direction: row-reverse; padding-left: 50px;`}>
-            <HalfWatches {...d.images[0]} />
+            <WatchesSafeArea justify="flex-end">
+              <HalfWatches {...d.images[0]} />
+            </WatchesSafeArea>
             <Column css={css`transform: translateY(100%);`}>
               <P>
               {d.copy[0].text}{' '}{d.copy[1].text}
@@ -32,7 +34,9 @@ export default function DNA6({ index }) {
             </Column>
           </Row>
           <Row w="50%" h="100%" justify="flex-start" align="center" css={css`padding-right: 50px;`}>
-            <HalfWatches right {...d.images[1]} />
+            <WatchesSafeArea justify="flex-start">
+              <HalfWatches right {...d.images[1]} />
+            </WatchesSafeArea>
             <Column css={css`transform: translateY(100%);`}>
               <P>
               {d.copy[2].text}{' '}{d.copy[3].text}
@@ -45,12 +49,12 @@ export default function DNA6({ index }) {
       <MobileView renderWithFragment>
         <Slide index={index} subslides={2} animate={mobileAnimation}>
           <Column h="100%" w="100%" justify="center" align="flex-start">
-            <Column ref={dnaRef} w="100%">
+            <Column ref={dnaRef} h="100%" w="100%">
               <HalfWatches right {...d.images[1]} />
               <Layer>
                 <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                   <Column css={css`margin-right: 30px;`}>
-                    <H4 tertiary mobile>{d.copy[2].text}</H4>
+                    <H4 alternative mobile>{d.copy[2].text}</H4>
                     <P mobile>{d.copy[3].text}</P>
                   </Column>
                 </Row>
@@ -59,12 +63,12 @@ export default function DNA6({ index }) {
 
             <Layer ref={svRef} css={css`opacity: 0;`}>
               <Column h="100%" w="100%" justify="center" align="flex-start">
-                <Column w="100%">
+                <Column h="100%" w="100%">
                   <HalfWatches right {...d.images[0]} />
                   <Layer>
                     <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                       <Column css={css`margin-right: 30px;`}>
-                        <H4 tertiary mobile>{d.copy[0].text}</H4>
+                        <H4 alternative mobile>{d.copy[0].text}</H4>
                         <P mobile>{d.copy[1].text}</P>
                       </Column>
                     </Row>

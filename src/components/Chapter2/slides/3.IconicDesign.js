@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { HalfWatches } from '../Watches';
+import { HalfWatches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
@@ -65,13 +65,17 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={watchRef} css={css`opacity: 0;`}>
               <Row w="100%" h="100%" justify="flex-end" align="center">
-                <HalfWatches src={d.images[0].src} />
+                <WatchesSafeArea justify="flex-end">
+                  <HalfWatches src={d.images[0].src} />
+                </WatchesSafeArea>
               </Row>
             </Layer>
           </Row>
 
           <Row w="50%" h="100%" justify="flex-start" align="center">
-            <HalfWatches right src={d.images[0].src} />
+            <WatchesSafeArea justify="flex-start">
+              <HalfWatches right src={d.images[0].src} />
+            </WatchesSafeArea>
           </Row>
 
           <Layer left="0" ref={p2Ref} css={css`opacity: 0;`}>

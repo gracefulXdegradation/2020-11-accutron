@@ -30,7 +30,7 @@ export default function Legacy10({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
-          <WatchesSafeArea align="center" justify="center">
+          <WatchesSafeArea justify="center">
             <Column h="100%" css={css`margin: 0 20px;`}>
               <Watches {...d.images[0]} />
             </Column>

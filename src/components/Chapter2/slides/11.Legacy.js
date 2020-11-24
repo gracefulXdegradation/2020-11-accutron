@@ -12,8 +12,6 @@ const d = data.chapters[1].slides[10]
 
 const watches = d.images
 
-const mid = Math.ceil(watches.length / 2) - 1
-
 export default function Legacy11({ index }) {
   const layer1Ref = useRef(null)
   const layer2Ref = useRef(null)
@@ -35,7 +33,7 @@ export default function Legacy11({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
-          <WatchesSafeArea align="center" justify="space-around">
+          <WatchesSafeArea justify="space-around">
             {watches.map((img, i) => (
               <Column key={img.src} h="100%" css={css`margin: 0 20px;`}>
                 <Watches {...img} />
