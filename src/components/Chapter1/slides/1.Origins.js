@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
-import { BrowserView, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import { P } from '../../../styles/typography';
-import { Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
+import { Column, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import data from '../../../data/story';
 import { animateFadeInOut, animateFadeOut, fadeIn, fadeOut } from '../../../helpers/animation';
@@ -29,7 +29,7 @@ const Watches = React.forwardRef((props, ref) => (
   </div>
 ))
 
-export default function Origins1({ index }) {
+function Origins1({ index, isPortrait, isLandscape }) {
   const mobMechanismRef = useRef(null)
   const mobWatchesRef = useRef(null)
 
@@ -40,7 +40,7 @@ export default function Origins1({ index }) {
   
   return (
     <>
-      <BrowserView renderWithFragment>
+      {isBrowser && (
         <Slide index={index} animate={animateFadeInOut}>
           <Row w="50%" h="100%">
             <SlideImage greedy src={d.images[0].src} alt={d.images[0].alt} />
@@ -58,9 +58,9 @@ export default function Origins1({ index }) {
             </Column>
           </RightHalf>
         </Slide>
-      </BrowserView>
+      )}
 
-      <MobileView renderWithFragment>
+      {isMobile && isPortrait && (
         <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2}>
           <Column h="100%">
             <div css={css`position: relative; padding-bottom: 100%; height: 0; width: 100%;`}>
@@ -78,7 +78,29 @@ export default function Origins1({ index }) {
             </Column>
           </Column>
         </Slide>
-      </MobileView>
+      )}
+
+      {isMobile && isLandscape && (
+        <Slide index={index} animate={animateFadeInOut}>
+          <Row w="50%" h="100%">
+            <SlideImage greedy src={d.images[0].src} alt={d.images[0].alt} />
+          </Row>
+          <RightHalf mobile>
+            <Column h="100%" justify="center">
+              <Column h="100%" justify="space-around">
+                <Column>
+                  <P mobile>
+                    {d.copy[0].text}
+                  </P>
+                </Column>
+                <Watches />
+              </Column>
+            </Column>
+          </RightHalf>
+        </Slide>
+      )}
     </>
   );
 };
+
+export default withOrientationChange(Origins1)

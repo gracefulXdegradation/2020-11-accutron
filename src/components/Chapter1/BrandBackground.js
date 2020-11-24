@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { BrowserView, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import { Layer } from "../UIKit";
 import { useStoryState } from "../../providers/StoryStateProvider";
 
@@ -14,15 +14,21 @@ const FixedBackground = styled(Layer)`
 `;
 
 const Ch1BrowserFixedBG = styled(FixedBackground)`
-  background: radial-gradient(ellipse farthest-corner, ${({ theme }) => theme.gradientColor}, #030302 30%, #000000 100%);
+  background: radial-gradient(ellipse farthest-corner, ${({ theme }) => theme.gradientColor}, #030302 40%, #000000 100%);
   transform: rotateZ(23deg);
+`;
+
+const Ch1MobileLandscapeFixedBG = styled(FixedBackground)`
+  background: radial-gradient(ellipse farthest-corner, ${({ theme }) => theme.gradientColor}, #030302 60%, #000000 100%);
+  transform: rotateZ(23deg);
+  top: 25px;
 `;
 
 const Ch1MobileFixedBG = styled(FixedBackground)`
   background: linear-gradient(to bottom, ${({ theme }) => theme.gradientColor}, #030302 40%, #000000 100%);
 `;
 
-export const BrandBackground = ({ sliderRef }) => {
+const BrandBackground = ({ sliderRef, isPortrait, isLandscape }) => {
   const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const bgRef = useRef(null);
@@ -58,12 +64,17 @@ export const BrandBackground = ({ sliderRef }) => {
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
-      <BrowserView style={{}}>
+      {isBrowser &&
         <Ch1BrowserFixedBG ref={bgRef} css={css`opacity: ${opacity};`} />
-      </BrowserView>
-      <MobileView>
+      }
+      {isMobile && isLandscape &&
+        <Ch1MobileLandscapeFixedBG ref={bgRef} css={css`opacity: ${opacity};`} />
+      }
+      {isMobile && isPortrait &&
         <Ch1MobileFixedBG css={css`opacity: ${opacity};`} />
-      </MobileView>
+      }
     </Layer>
   )
 }
+
+export default withOrientationChange(BrandBackground)

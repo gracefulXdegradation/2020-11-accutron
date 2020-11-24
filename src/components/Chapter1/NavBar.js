@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
-import { BrowserView, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
 import { Circle, Layer, Divider, Row, Column, Block, HoverableCircle } from '../UIKit';
@@ -11,7 +11,7 @@ import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function NavBar({ sliderRef }) {
+function NavBar({ sliderRef, isLandscape, isPortrait }) {
   const { toChapter1, toChapter2 } = useChapterAnimation();
   const { slideHeading } = useNavBar();
   const { hasChapterInit } = useStoryState();
@@ -42,7 +42,7 @@ export default function NavBar({ sliderRef }) {
 
   return (
     <Layer ref={pinRef} fullScreen>
-      <BrowserView renderWithFragment>
+      {isBrowser && (
         <Layer>
           <Column h="100%" w="100%" justify="space-between" align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
@@ -60,9 +60,9 @@ export default function NavBar({ sliderRef }) {
             </Column>
           </Column>
         </Layer>
-      </BrowserView>
+      )}
 
-      <MobileView renderWithFragment>
+      {isMobile && isPortrait && (
         <Layer>
           <Column w="100%" h="100%">
             <Column align="center" css={css`padding-bottom: 20px;`} onClick={toChapter1}>
@@ -85,7 +85,27 @@ export default function NavBar({ sliderRef }) {
             </Row>
           </Column>
         </Layer>
-      </MobileView>
+      )}
+
+    {isMobile && isLandscape && (
+        <Layer>
+          <Column h="100%" w="100%" justify="space-between" align="center">
+            <Column align="center" css={css`padding: 10px 0;`}>
+              <HoverableCircle size="s" ref={logoRef} onClick={toChapter1}>
+                <H4 mobile css={css`margin-top: 10px;`}>Chapter 1</H4>
+              </HoverableCircle>
+            </Column>
+            <Divider vertical />
+            <H4 mobile tertiary css={css`margin-top: 8px;`}>{slideHeading}</H4>
+            <Divider vertical />
+            <Column align="center" css={css`padding: 10px 0;`}>
+              <H4 mobile css={css`margin-top: 10px;`} onClick={toChapter2}>Chapter 2</H4>
+            </Column>
+          </Column>
+        </Layer>
+      )}
     </Layer>
   );
 };
+
+export default withOrientationChange(NavBar)

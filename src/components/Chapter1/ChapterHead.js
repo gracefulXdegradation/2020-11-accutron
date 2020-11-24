@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
 import { gsap } from 'gsap/all';
-import { BrowserView, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { H2, H4, P } from '../../styles/typography';
 import { Circle, Divider, Layer, Block, Row, Column, Camouflage, Background } from '../UIKit';
@@ -10,7 +9,7 @@ import data from '../../data/story';
 
 const d = data.chapters[0].opening
 
-export default function ChapterHead({ onAnimateEnd }) {
+function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
   const mobChapterCaptionRef = useRef(null)
   const mobPaddingTop = useRef(null)
 
@@ -57,7 +56,7 @@ export default function ChapterHead({ onAnimateEnd }) {
 
   return (
     <Background css={css`height: 100vh;`}>
-      <BrowserView renderWithFragment>
+      {isBrowser && (
         <Column h="100vh" w="100%" align="center" justify="center">
           <Layer>
               <Row h="100%" justify="center">
@@ -104,9 +103,9 @@ export default function ChapterHead({ onAnimateEnd }) {
             </Column>
           </Layer>
         </Column>
-      </BrowserView>
+      )}
 
-      <MobileView renderWithFragment>
+      {isMobile && isPortrait && (
         <Column h="100vh" w="100%" align="center" justify="center">
           <Layer>
               <Row h="100%" justify="center">
@@ -148,7 +147,58 @@ export default function ChapterHead({ onAnimateEnd }) {
             </Column>
           </Layer>
         </Column>
-      </MobileView>
+      )}
+
+      {isMobile && isLandscape && (
+        <Column h="100vh" w="100%" align="center" justify="center">
+          <Layer>
+            <Row h="100%" justify="center">
+              <Divider ref={dividerRef} vertical length="0" />
+            </Row>
+          </Layer>
+          
+          <Layer>
+            <Column w="100%" h="100%">
+              <Column w="100%" h="50%" justify="flex-end" align="center">
+                <ReactVisibilitySensor
+                  partialVisibility={true}
+                  minTopValue={300}
+                  onChange={onAppear}
+                >
+                  <Column align="center" css={css`padding: 32px 0 12px;`}>
+                    <Camouflage />
+                    <Circle size="m" />
+                    <H4 mobile css={css`margin-top: 16px;`}>Chapter 1</H4>
+                    <Layer top="0">
+                      <Row justify="center" h="100%">
+                        <Divider ref={camouflageRef} vertical camouflage css={css`max-width: 100%; width: 100%; height: 100%;`} />
+                      </Row>
+                    </Layer>
+                  </Column>
+                </ReactVisibilitySensor>
+              </Column>
+              <Column w="100%" h="50%" align="center">
+                <Block css={css`margin-top: 28px;`}>
+                  <Camouflage />
+                  <H2 mobile align="center" css={css`padding: 12px 0 6px;`}>
+                    {d.copy[0].text}
+                  </H2>
+                </Block>
+                <Column justify="center" align="center" css={css`flex: 1;`}>
+                  <Block css={css`padding: 14px 0 6px;`}>
+                    <Camouflage w="100%" />
+                    <P mobile css={css`text-align: center; position: relative;`}>
+                      {d.copy[1].text}
+                    </P>
+                  </Block>
+                </Column>
+              </Column>
+            </Column>
+          </Layer>
+        </Column>
+      )}
     </Background>
   )
 }
+
+export default withOrientationChange(ChapterHead)

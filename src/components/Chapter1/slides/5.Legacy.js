@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
-import { BrowserView, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
+import styled from '@emotion/styled';
 import { P } from '../../../styles/typography';
 import { Block, Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
-import styled from '@emotion/styled';
 
 const d = data.chapters[0].slides[4]
 
@@ -20,7 +20,7 @@ const ImageHolder = styled.div`
   justify-content: center;
 `;
 
-export default function Legacy5({ index }) {
+function Legacy5({ index, isPortrait, isLandscape }) {
   const bulovaRef = useRef(null)
   const nasaRef = useRef(null)
   const pRef = useRef(null)
@@ -38,7 +38,7 @@ export default function Legacy5({ index }) {
 
   return (
     <>
-      <BrowserView renderWithFragment>
+      {isBrowser && (
         <Slide index={index} subslides={2} animate={desktopAnimation}>
           <Row w="50%" h="100%">
             <Layer ref={bulovaRef} top="0" left="0" bottom="0" right="0">
@@ -61,9 +61,9 @@ export default function Legacy5({ index }) {
             </Column>
           </RightHalf>
         </Slide>
-      </BrowserView>
+      )}
 
-      <MobileView renderWithFragment>
+      {isMobile && isPortrait && (
         <Slide index={index} subslides={2} animate={mobileAnimation}>
           <Block>
             <Layer>
@@ -89,7 +89,32 @@ export default function Legacy5({ index }) {
             </Layer>
           </Block>
         </Slide>
-      </MobileView>
+      )}
+
+      {isMobile && isLandscape && (
+        <Slide index={index} subslides={2} animate={desktopAnimation}>
+          <Row w="50%" h="100%">
+            <Layer ref={bulovaRef} top="0" left="0" bottom="0" right="0">
+              <SlideImage greedy {...d.images[0]} />
+            </Layer>
+            <Layer ref={nasaRef} top="0" left="0" bottom="0" right="0" css={css`opacity: 0;`}>
+              <SlideImage greedy {...d.images[1]} css={css`object-position: left;`} />
+            </Layer>
+          </Row>
+          <RightHalf mobile>
+            <Column css={css`max-width: 540px;`} h="100%" justify="center">
+              <P mobile>
+              {d.copy[0].text}
+              </P>
+              <P mobile ref={pRef} css={css`margin-top: 32px; opacity: 0;`}>
+              {d.copy[1].text}
+              </P>
+            </Column>
+          </RightHalf>
+        </Slide>
+      )}
     </>
   );
 };
+
+export default withOrientationChange(Legacy5)

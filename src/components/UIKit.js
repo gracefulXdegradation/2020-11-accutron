@@ -108,7 +108,6 @@ export const Camouflage = ({ w, length }) => (
 const Half = styled(Row)`
   width: 50%;
   height: 100%;
-  padding: 0 90px;
   justify-content: center;
   &:before,
   &:after {
@@ -120,11 +119,13 @@ const Half = styled(Row)`
 export const LeftHalf = styled(Half)`
   &:after { flex-grow: 2 }
   &:before { flex-grow: 1 }
+  padding: ${props => props.mobile ? '0 80px 0 40px' : '0 90px'};
 `;
 
 export const RightHalf = styled(Half)`
   &:after { flex-grow: 1 }
   &:before { flex-grow: 2 }
+  padding: ${props => props.mobile ? '0 40px 0 80px' : '0 90px'};
 `;
 
 export const SlideImage = styled.img`

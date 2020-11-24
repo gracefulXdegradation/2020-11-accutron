@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
-import { BrowserView, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, LeftHalf, RightHalf, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
@@ -9,7 +9,7 @@ import { animateFadeInOut, fadeIn } from '../../../helpers/animation';
 
 const d = data.chapters[0].slides[3]
 
-export default function Legacy4({ index }) {
+function Legacy4({ index, isPortrait, isLandscape }) {
   const copyRef = useRef(null)
   const imageRef = useRef(null)
 
@@ -24,7 +24,7 @@ export default function Legacy4({ index }) {
 
   return (
     <>
-      <BrowserView renderWithFragment>
+      {isBrowser && (
         <Slide index={index} animate={animateFadeInOut}>
           <LeftHalf>
             <Column h="100%" justify="center">
@@ -41,9 +41,9 @@ export default function Legacy4({ index }) {
             </Column>
           </RightHalf>
         </Slide>
-      </BrowserView>
+      )}
 
-      <MobileView renderWithFragment>
+      {isMobile && isPortrait && (
         <Slide index={index} subslides={2} animate={mobileAnimation}>
           <SlideImage ref={imageRef} {...d.images[0]} css={css`top: 20%; position: relative;`} />
           <Column ref={copyRef} css={css`opacity: 0; margin-top: 20px;`}>
@@ -52,7 +52,26 @@ export default function Legacy4({ index }) {
             </P>
           </Column>
         </Slide>
-      </MobileView>
+      )}
+
+      {isMobile && isLandscape && (
+        <Slide index={index} animate={animateFadeInOut}>
+          <LeftHalf mobile>
+            <Column h="100%" justify="center">
+              <SlideImage {...d.images[0]} />
+            </Column>
+          </LeftHalf>
+          <RightHalf mobile>
+            <Column h="100%" justify="center">
+              <P mobile>
+              {d.copy[0].text}
+              </P>
+            </Column>
+          </RightHalf>
+        </Slide>
+      )}
     </>
   );
 };
+
+export default withOrientationChange(Legacy4)

@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 import React, { useEffect, useRef } from 'react';
-import { BrowserView, isBrowser, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import styled from '@emotion/styled';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { H2, H4, P } from "../../styles/typography";
@@ -23,7 +23,7 @@ const Image = styled.img`
   right: 0;
 `;
 
-export default function Ending() {
+function Ending({ isPortrait, isLandscape }) {
   const { toChapter1, toChapter2 } = useChapterAnimation();
   const { hasChapterInit } = useStoryState();
   const rootRef = useRef(null)
@@ -37,7 +37,7 @@ export default function Ending() {
   useEffect(() => {
     if (!hasChapterInit) return;
 
-    if (isBrowser) {
+    if (isBrowser || (isMobile && isLandscape)) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: rootRef.current,
@@ -90,11 +90,11 @@ export default function Ending() {
 
       return () => tl.kill()
     }
-  }, [hasChapterInit])
+  }, [hasChapterInit, isLandscape])
 
   return (
     <>
-      <BrowserView>
+      {isBrowser && (
         <Column ref={rootRef} h="100vh" w="100%" align="center" justify="space-between">
           <Column css={css`flex: 1;`} align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
@@ -129,9 +129,9 @@ export default function Ending() {
             </H2>
           </Column>
         </Column>
-      </BrowserView>
+      )}
 
-      <MobileView>
+      {isMobile && isPortrait && (
         <Column ref={rootRef} w="100%" h="200vh">
           <Column w="100%" h="100vh">
             <Column align="center" css={css`padding-bottom: 20px;`}>
@@ -171,7 +171,44 @@ export default function Ending() {
             </Column>
           </Column>
         </Column>
-      </MobileView>
+      )}
+
+      {isMobile && isLandscape && (
+        <Column ref={rootRef} h="100vh" w="100%" align="center" justify="space-between">
+          <Column css={css`flex: 1;`} align="center">
+            <Column align="center" css={css`padding: 20px 0;`}>
+              <H4 mobile onClick={toChapter1}>Chapter 1</H4>
+            </Column>
+            <Column css={css`flex: 1;`}>
+              <Divider ref={topDivRef} vertical length="0" />
+            </Column>
+          </Column>
+          <Row align="center">
+            <Row css={css`flex: 1;`}>
+              <Divider ref={leftDivRef} length="0" />
+            </Row>
+            <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`}>
+              <HoverableCircle size="m" wrapChildren onClick={toChapter2}>
+                <H4 mobile>Chapter 2</H4>
+              </HoverableCircle>
+            </Column>
+            <Row css={css`flex-direction: row-reverse; flex: 1;`}>
+              <Divider ref={rightDivRef} length="0" />
+            </Row>
+          </Row>
+          <Image {...d.images[0]} />
+          <Column css={css`flex: 1;`} justify="center" align="center">
+            <P mobile css={css`margin-bottom: 16px;`}>
+              {d.copy[0].text}
+            </P>
+            <H4 mobile alternative>
+            {d.copy[1].text}
+            </H4>
+          </Column>
+        </Column>
+      )}
     </>
   )
 }
+
+export default withOrientationChange(Ending)

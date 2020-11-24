@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { BrowserView, MobileView } from "react-device-detect";
+import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, LeftHalf, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
@@ -20,7 +20,7 @@ const ImageHolder = styled.div`
   justify-content: center;
 `;
 
-export default function Technology2({ index }) {
+function Technology2({ index, isPortrait, isLandscape }) {
   const leftImg1Ref = useRef(null)
   const leftImg2Ref = useRef(null)
   const leftImg3Ref = useRef(null)
@@ -59,7 +59,7 @@ export default function Technology2({ index }) {
 
   return (
     <>
-      <BrowserView renderWithFragment>
+      {isBrowser && (
         <Slide index={index} subslides={3} animate={desktopAnimation}>
           <Row h="100%">
             <LeftHalf>
@@ -108,9 +108,9 @@ export default function Technology2({ index }) {
             </RightHalf>
           </Row>
         </Slide>
-      </BrowserView>
+      )}
 
-      <MobileView renderWithFragment>
+      {isMobile && isPortrait && (
         <Slide index={index} subslides={7} animate={mobileAnimation}>
           <Column h="100%" justify="center">
             <Column w="100%" justify="center" css={css`min-height: 50%;`}>
@@ -155,7 +155,60 @@ export default function Technology2({ index }) {
             </div>
           </Column>
         </Slide>
-      </MobileView>
+      )}
+
+      {isMobile && isLandscape && (
+        <Slide index={index} subslides={3} animate={desktopAnimation}>
+          <Row h="100%">
+            <LeftHalf mobile>
+              <Column w="100%" h="100%" justify="center" align="center">
+                <Column w="70%">
+                  <div css={css`position: relative; padding-bottom: 114.7%; height: 0; width: 100%;`}>
+                    <ImageHolder ref={leftImg1Ref}>
+                      <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                    <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
+                      <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                    <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
+                      <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                  </div>
+                </Column>
+                <P mobile css={css`margin-top: 30px;`}>
+                  {d.copy[0].text}
+                </P>
+              </Column>
+            </LeftHalf>
+            <RightHalf mobile>
+              <Column h="100%" justify="center">
+                <Column css={css`align-items: flex-end;`}>
+                  <P mobile css={css`margin-bottom: 20px;`}>
+                    {d.copy[1].text}
+                  </P>
+                  <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%;`}>
+                    <ImageHolder ref={rightImg1Ref} css={css`justify-content: flex-end;`}>
+                      <SlideImage {...d.images[3]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                    <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
+                      <SlideImage {...d.images[4]} css={css`width: auto; height: 80%; position: relative; left: 7%;`} />
+                      <SlideImage {...d.images[5]} css={css`width: auto; height: 60%; position: relative; right: 7%;`} />
+                    </ImageHolder>
+                    <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
+                      <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                  </div>
+                  <P mobile css={css`margin-top: 20px;`}>
+                    {d.copy[2].text}
+                  </P>
+                </Column>
+              </Column>
+            </RightHalf>
+          </Row>
+        </Slide>
+      )}
     </>
   );
 };
+
+export default withOrientationChange(Technology2)
