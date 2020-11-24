@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { HalfWatches } from '../../Watches';
+import { HalfWatches } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
@@ -54,10 +54,10 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={h1Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
-                <P align="right" css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
                 {d.copy[2].text}
                 </P>
-                <P align="right" css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
                 {d.copy[3].text}
                 </P>
               </Column>
@@ -65,24 +65,24 @@ export default function IconicDesign2({ index }) {
 
             <Layer ref={watchRef} css={css`opacity: 0;`}>
               <Row w="100%" h="100%" justify="flex-end" align="center">
-                <HalfWatches large src={d.images[0].src} />
+                <HalfWatches src={d.images[0].src} />
               </Row>
             </Layer>
           </Row>
 
           <Row w="50%" h="100%" justify="flex-start" align="center">
-            <HalfWatches large right src={d.images[0].src} />
-
-            <Layer ref={p2Ref} css={css`opacity: 0;`}>
-              <Column h="100%" w="100%" justify="center" align="center">
-                <P css={css`transform: translateY(50%); padding: 20px; max-width: 380px;`}>
-                {d.copy[4].text}
-                </P>
-              </Column>
-            </Layer>
+            <HalfWatches right src={d.images[0].src} />
           </Row>
 
-          <Layer ref={h2Ref} css={css`opacity: 0;`}>
+          <Layer left="0" ref={p2Ref} css={css`opacity: 0;`}>
+            <Column h="100%" w="100%" justify="flex-end" align="center">
+              <P align="center" css={css`max-width: 380px; margin-bottom: 50px;`}>
+              {d.copy[4].text}
+              </P>
+            </Column>
+          </Layer>
+
+          <Layer left="0" ref={h2Ref} css={css`opacity: 0;`}>
             <Column w="100%" h="100%" justify="flex-end" align="center">
               <P align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
               {d.copy[5].text}

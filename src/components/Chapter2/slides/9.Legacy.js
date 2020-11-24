@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { Watches } from '../../Watches';
+import { Watches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
@@ -25,27 +25,25 @@ export default function Legacy9({ index }) {
     isMobile && fadeOut(tl, img3Ref.current)
     fadeIn(tl, img4Ref.current)
   })
-
-  const shift = 16
   
   return (
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} subslides={2.5} animate={animation}>
-          <Row w="100%" h="100%" align="center" justify="space-around">
-            <Column css={css`transform: translateX(${shift * 3 }%);`}>
-              <Watches {...d.images[0]} large />
+          <WatchesSafeArea align="center" justify="space-around">
+            <Column h="100%">
+              <Watches {...d.images[0]} />
             </Column>
-            <Column ref={img2Ref} css={css`transform: translateX(${shift}%); opacity: 0;`}>
-              <Watches {...d.images[1]} large />
+            <Column h="100%" ref={img2Ref} css={css`opacity: 0;`}>
+              <Watches {...d.images[1]} />
             </Column>
-            <Column ref={img3Ref} css={css`transform: translateX(${-shift}%); opacity: 0;`}>
-              <Watches {...d.images[2]} large />
+            <Column h="100%" ref={img3Ref} css={css`opacity: 0;`}>
+              <Watches {...d.images[2]} />
             </Column>
-            <Column ref={img4Ref} css={css`transform: translateX(${-shift * 3}%); opacity: 0;`}>
-              <Watches {...d.images[3]} large />
+            <Column h="100%" ref={img4Ref} css={css`opacity: 0;`}>
+              <Watches {...d.images[3]} />
             </Column>
-          </Row>
+          </WatchesSafeArea>
         </Slide>
       </BrowserView>
 

@@ -34,11 +34,12 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
     <div css={css`pointer-events: none;`}>
       <BrowserView renderWithFragment>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
-          <Row ref={slideInnerRef} h="100vh">
+          <Row ref={slideInnerRef} h="100vh" css={css`padding: 0 200px;`}>
             {children}
           </Row>
         </SlideRoot>
       </BrowserView>
+
       <MobileView renderWithFragment>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
           <Column ref={slideInnerRef} h="100vh" css={css`padding: 228px 0 77px;`}>

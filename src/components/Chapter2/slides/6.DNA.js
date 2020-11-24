@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { HalfWatches } from '../../Watches';
+import { HalfWatches } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
@@ -23,7 +23,7 @@ export default function DNA6({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
-          <Row w="50%" h="100%" justify="flex-start" align="center" css={css`flex-direction: row-reverse;`}>
+          <Row w="50%" h="100%" justify="flex-start" align="center" css={css`flex-direction: row-reverse; padding-left: 50px;`}>
             <HalfWatches {...d.images[0]} />
             <Column css={css`transform: translateY(100%);`}>
               <P>
@@ -31,7 +31,7 @@ export default function DNA6({ index }) {
               </P>
             </Column>
           </Row>
-          <Row w="50%" h="100%" justify="flex-start" align="center">
+          <Row w="50%" h="100%" justify="flex-start" align="center" css={css`padding-right: 50px;`}>
             <HalfWatches right {...d.images[1]} />
             <Column css={css`transform: translateY(100%);`}>
               <P>

@@ -1,12 +1,12 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { Watches } from '../../Watches';
+import { Watches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeInOut } from '../../../helpers/animation';
+import { css } from '@emotion/core';
 
 const d = data.chapters[1].slides[3]
 
@@ -15,22 +15,24 @@ export default function Spaceview2020({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} animate={animateFadeInOut}>
-          <Row w="100%" h="100%" justify="center" align="center">
+          <WatchesSafeArea justify="center" align="center">
             <Watches {...d.images[0]} />
-          </Row>
-          
-          <Layer>
-            <Row w="100%" h="100%" justify="flex-end">
-              <Column h="50%" w="50%" justify="flex-end" css={css`padding: 0 0 20px 200px;`}>
-                <H4 alternative>
-                  {d.copy[0].text}
-                </H4>
-                <P>
-                {d.copy[1].text}
-                </P>
-              </Column>
-            </Row>
-          </Layer>
+
+            <Layer left="0">
+              <Row w="100%" h="100%" justify="flex-end">
+                <Column h="50%" w="50%" justify="flex-end" align="flex-end">
+                  <Column css={css`padding-bottom: 20px;`}>
+                    <H4 alternative>
+                      {d.copy[0].text}
+                    </H4>
+                    <P>
+                    {d.copy[1].text}
+                    </P>
+                  </Column>
+                </Column>
+              </Row>
+            </Layer>
+          </WatchesSafeArea>
         </Slide>
       </BrowserView>
 

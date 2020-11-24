@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { Watches } from '../../Watches';
+import { Watches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeIn, fadeIn, fadeOut } from '../../../helpers/animation';
 
@@ -31,33 +31,29 @@ export default function Legacy11({ index }) {
     }
   })
 
-  const shift = 12
-
   return (
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
-          <Row w="100%" h="100%" align="center" justify="space-around">
+          <WatchesSafeArea align="center" justify="space-around">
             {watches.map((img, i) => (
-              <Column key={img.src} css={css`transform: translateX(${(mid - i) * 2 * shift}%);`}>
+              <Column key={img.src} h="100%" css={css`margin: 0 20px;`}>
                 <Watches {...img} />
               </Column>
             ))}
             <Layer>
-              <Column w="100%" h="100%">
-                <Row h="50%" align="center" justify="center">
-                  <P>
+              <Column w="100%" h="100%" justify="flex-end">
+                <Column h="50%" align="center" justify="flex-end" css={css`margin-bottom: 50px;`}>
+                  <P css={css`margin-bottom: 20px;`}>
                     {d.copy[0].text}
                   </P>
-                </Row>
-                <Row h="50%" align="center" justify="center">
                   <P css={css`text-align: center; max-width: 350px;`}>
                     {d.copy[1].text}
                   </P>
-                </Row>
+                </Column>
               </Column>
             </Layer>
-          </Row>
+          </WatchesSafeArea>
         </Slide>
       </BrowserView>
 

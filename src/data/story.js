@@ -307,7 +307,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES6A001_Soldier.90d82ef8.png'),
+              src: resolveImage('2ES6A001_Soldier.png'),
               alt: 'Spaceview 2020'
             }
           ]
@@ -321,20 +321,20 @@ const story = {
               text: 'the Accutron DNA'
             },
             {
-              text: 'a sportier update of the Spaceview featuring sleeker lines and more modern design accents.'
+              text: 'A sportier update of the Spaceview featuring sleeker lines and more modern design accents.'
             },
           ],
           images: [
             {
-              src: resolveImage('2ES8A004_Soldier.ec3c4b27.png'),
+              src: resolveImage('2ES8A004_Soldier.png'),
               alt: 'DNA 2ES8A004 Soldier blue'
             },
             {
-              src: resolveImage('2ES8A004_Soldier_black.4e137517.png'),
+              src: resolveImage('2ES8A004_Soldier_black.png'),
               alt: 'DNA 2ES8A004 Soldier black'
             },
             {
-              src: resolveImage('2ES8A004_Soldier_green.b6ddfb02.png'),
+              src: resolveImage('2ES8A004_Soldier_green.png'),
               alt: 'DNA 2ES8A004 Soldier green'
             },
           ]
@@ -399,16 +399,16 @@ const story = {
           title: 'legacy',
           images: [
             {
-              src: resolveImage('Collection-Watches-1.cda49b2e.png')
+              src: resolveImage('Collection-Watches-1.png')
             },
             {
-              src: resolveImage('Collection-Watches-2.eb740e8d.png')
+              src: resolveImage('Collection-Watches-2.png')
             },
             {
-              src: resolveImage('Collection-Watches-3.42ac0e5e.png')
+              src: resolveImage('Collection-Watches-3.png')
             },
             {
-              src: resolveImage('Collection-Watches-7.8695a1bd.png')
+              src: resolveImage('Collection-Watches-7.png')
             },
           ]
         },
@@ -418,13 +418,13 @@ const story = {
           title: 'legacy',
           images: [
             {
-              src: resolveImage('Collection-Watches-4.7eafe2aa.png')
+              src: resolveImage('Collection-Watches-4.png')
             },
             {
-              src: resolveImage('Collection-Watches-5.00a0f825.png')
+              src: resolveImage('Collection-Watches-5.png')
             },
             {
-              src: resolveImage('Collection-Watches-6.0e0df6f3.png')
+              src: resolveImage('Collection-Watches-6.png')
             },
           ],
         },
@@ -442,25 +442,25 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('Collection-Watches-1.cda49b2e.png')
+              src: resolveImage('Collection-Watches-1.png')
             },
             {
-              src: resolveImage('Collection-Watches-2.eb740e8d.png')
+              src: resolveImage('Collection-Watches-2.png')
             },
             {
-              src: resolveImage('Collection-Watches-3.42ac0e5e.png')
+              src: resolveImage('Collection-Watches-3.png')
             },
             {
-              src: resolveImage('Collection-Watches-4.7eafe2aa.png')
+              src: resolveImage('Collection-Watches-4.png')
             },
             {
-              src: resolveImage('Collection-Watches-5.00a0f825.png')
+              src: resolveImage('Collection-Watches-5.png')
             },
             {
-              src: resolveImage('Collection-Watches-6.0e0df6f3.png')
+              src: resolveImage('Collection-Watches-6.png')
             },
             {
-              src: resolveImage('Collection-Watches-7.8695a1bd.png')
+              src: resolveImage('Collection-Watches-7.png')
             },
           ]
         },

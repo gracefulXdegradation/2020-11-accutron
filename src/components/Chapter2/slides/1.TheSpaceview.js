@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { HalfWatches } from '../../Watches';
+import { HalfWatches } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
@@ -31,54 +31,53 @@ export default function TheSpaceview({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} startVisible subslides={4} animate={animation}>
-          <Row w="50%" h="100%" justify="flex-end" align="center">
-            <HalfWatches large src={d.images[1].src} />
-          </Row>
-          
-          <Row w="50%" h="100%">
-            <Layer ref={slide1Ref}>
-              <Row h="100%" justify="flex-start" align="center">
-                <HalfWatches large src={d.images[0].src} right />
-              </Row>
-            </Layer>
+            <Row w="50%" h="100%">
+              <HalfWatches src={d.images[1].src} />
+            </Row>
             
-            <Layer ref={slide2Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                  {d.copy[0].text}
-                </P>
-                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                {d.copy[1].text}
-                </P>
-              </Column>
-            </Layer>
+            <Row w="50%" h="100%">
+              <Layer ref={slide1Ref}>
+                <Row h="100%">
+                  <HalfWatches src={d.images[0].src} right />
+                </Row>
+              </Layer>
+              
+              <Layer ref={slide2Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-start" justify="center">
+                  <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                    {d.copy[0].text}
+                  </P>
+                  <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                  {d.copy[1].text}
+                  </P>
+                </Column>
+              </Layer>
 
-            <Layer ref={slide3Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`margin-left: 32px; max-width: 520px;`}>
-                {d.copy[2].text}
-                </P>
-              </Column>
-            </Layer>
+              <Layer ref={slide3Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-start" justify="center">
+                  <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin-left:  32px;`}>
+                  {d.copy[2].text}
+                  </P>
+                </Column>
+              </Layer>
 
-            <Layer ref={slide4Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                {d.copy[3].text}
-                </P>
-                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                {d.copy[4].text}
-                </P>
-              </Column>
-            </Layer>
+              <Layer ref={slide4Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%" align="flex-start" justify="center">
+                  <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                  {d.copy[3].text}
+                  </P>
+                  <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                  {d.copy[4].text}
+                  </P>
+                </Column>
+              </Layer>
 
-            <Layer ref={slide6Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" align="flex-start" justify="center">
-                <HalfWatches large src={d.images[1].src} right />
-              </Column>
-            </Layer>
-          </Row>
-          
+              <Layer ref={slide6Ref} css={css`opacity: 0;`}>
+                <Column w="100%" h="100%">
+                  <HalfWatches large src={d.images[1].src} right />
+                </Column>
+              </Layer>
+            </Row>
         </Slide>
       </BrowserView>
 
