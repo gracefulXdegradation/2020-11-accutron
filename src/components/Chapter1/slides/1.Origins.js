@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
-import { Column, RightHalf, Row, SlideImage } from '../../UIKit';
+import { Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import data from '../../../data/story';
 import { animateFadeInOut, animateFadeOut, fadeIn, fadeOut } from '../../../helpers/animation';
@@ -22,11 +22,6 @@ export default function Origins1({ index }) {
 
   const mobileSlideAnimation = (el, props) => animateFadeOut(el, props, tl => {
     fadeOut(tl, mobMechanismRef.current)
-    tl.to(mobMechanismRef.current, {
-      duration: 0.5,
-      height: 0,
-      ease: 'none'
-    })
     fadeIn(tl, mobWatchesRef.current)
   })
   
@@ -54,19 +49,21 @@ export default function Origins1({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2.25}>
+        <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2}>
           <Column h="100%">
-            <Row h="100%" ref={mobMechanismRef}>
-              <SlideImage src={d.images[0].src} alt={d.images[0].alt} css={css`padding-bottom: 30px;`} />
+            <Row h="100%">
+              <SlideImage ref={mobMechanismRef} src={d.images[0].src} alt={d.images[0].alt} css={css`padding-bottom: 30px;`} />
+              <Layer ref={mobWatchesRef} css={css`opacity: 0;`}>
+                <Column h="100%" w="100%" justify="center" align="center">
+                  <Watches />
+                </Column>
+              </Layer>
             </Row>
             <Column>
               <P mobile css={css`padding-bottom: 20px;`}>
                 {d.copy[0].text}
               </P>
             </Column>
-            <Row ref={mobWatchesRef} css={css`opacity: 0; padding-top: 30px;`}>
-              <Watches />
-            </Row>
           </Column>
         </Slide>
       </MobileView>
