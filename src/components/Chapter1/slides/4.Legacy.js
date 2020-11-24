@@ -1,54 +1,26 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography';
-import Image from '../../../assets/ch1-legacy-1.png'
+import { P } from '../../../styles/typography';
 import { Column, LeftHalf, RightHalf, SlideImage } from '../../UIKit';
-import Slide, { animateFadeInOut } from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
+import Slide from '../Slide';
 import data from '../../../data/story';
+import { animateFadeInOut, fadeIn } from '../../../helpers/animation';
 
 const d = data.chapters[0].slides[3]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Legacy4({ index }) {
   const copyRef = useRef(null)
   const imageRef = useRef(null)
 
-  const mobileAnimation = (el, props) => {
-    const transitions = 4;
-
-    return gsap.timeline({
-      scrollTrigger: {
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-    .to(imageRef.current, {
-      duration: 1/transitions,
+  const mobileAnimation = (el, props) => animateFadeInOut(el, props, tl => {
+    tl.to(imageRef.current, {
+      duration: 1,
       top: 0,
       ease: 'none'
-    })
-    .to(copyRef.current, {
-      duration: 1/transitions,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
-      opacity: 0,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-  }
+    });
+    fadeIn(tl, copyRef.current);
+  })
 
   return (
     <>
@@ -72,7 +44,7 @@ export default function Legacy4({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} animate={mobileAnimation}>
+        <Slide index={index} subslides={2} animate={mobileAnimation}>
           <SlideImage ref={imageRef} {...d.images[0]} css={css`top: 20%; position: relative;`} />
           <Column ref={copyRef} css={css`opacity: 0; margin-top: 40px;`}>
             <P mobile>

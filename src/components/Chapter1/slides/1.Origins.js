@@ -1,16 +1,13 @@
 import React, { useRef } from 'react';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography';
+import { P } from '../../../styles/typography';
 import { Column, RightHalf, Row, SlideImage } from '../../UIKit';
-import Slide, { animateFadeInOut } from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
+import Slide from '../Slide';
 import data from '../../../data/story';
+import { animateFadeInOut, animateFadeOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[0].slides[0]
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Watches = React.forwardRef((props, ref) => (
   <div ref={ref} css={css`position: relative;`}>
@@ -23,37 +20,15 @@ export default function Origins1({ index }) {
   const mobMechanismRef = useRef(null)
   const mobWatchesRef = useRef(null)
 
-  const mobileSlideAnimation = (el, props) => {
-    return gsap.timeline({
-      scrollTrigger:{
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      },
-    })
-    .to(mobMechanismRef.current, {
-      duration: 0.25,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(mobMechanismRef.current, {
-      duration: 0.25,
+  const mobileSlideAnimation = (el, props) => animateFadeOut(el, props, tl => {
+    fadeOut(tl, mobMechanismRef.current)
+    tl.to(mobMechanismRef.current, {
+      duration: 0.5,
       height: 0,
       ease: 'none'
     })
-    .to(mobWatchesRef.current, {
-      duration: 0.25,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
-      opacity: 0,
-      duration: .25,
-      ease: 'none',
-    })
-  }
+    fadeIn(tl, mobWatchesRef.current)
+  })
   
   return (
     <>
@@ -79,7 +54,7 @@ export default function Origins1({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2}>
+        <Slide index={index} startVisible animate={mobileSlideAnimation} subslides={2.25}>
           <Column h="100%">
             <Row h="100%" ref={mobMechanismRef}>
               <SlideImage src={d.images[0].src} alt={d.images[0].alt} css={css`padding-bottom: 30px;`} />

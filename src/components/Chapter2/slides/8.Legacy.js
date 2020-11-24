@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography';
+import { P } from '../../../styles/typography';
 import { Column } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';

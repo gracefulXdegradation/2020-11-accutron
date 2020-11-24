@@ -1,15 +1,13 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography';
+import { P } from '../../../styles/typography';
 import { Block, Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import data from '../../../data/story';
+import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[0].slides[4]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Legacy5({ index }) {
   const bulovaRef = useRef(null)
@@ -17,78 +15,20 @@ export default function Legacy5({ index }) {
   const pRef = useRef(null)
   const hRef = useRef(null)
 
-  const desktopAnimation = (el, props) => {
-    const transitions = 3;
+  const desktopAnimation = (el, props) => animateFadeInOut(el, props, tl => {
+    fadeOut(tl, bulovaRef.current);
+    fadeIn(tl, [nasaRef.current, pRef.current]);
+  })
 
-    return gsap.timeline({
-      scrollTrigger: {
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-    .to(bulovaRef.current, {
-      duration: 1/transitions,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to([nasaRef.current, pRef.current], {
-      duration: 1/transitions,
-      delay: -1/transitions,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
-      opacity: 0,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-  }
-
-  const mobileAnimation = (el, props) => {
-    return gsap.timeline({
-      scrollTrigger: {
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-    .to([bulovaRef.current, pRef.current], {
-      duration: 1,
-      delay: .5,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to([nasaRef.current, hRef.current], {
-      duration: 1,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
-      opacity: 0,
-      duration: 1,
-      ease: 'none',
-    })
-  }
+  const mobileAnimation = (el, props) => animateFadeInOut(el, props, tl => {
+    fadeOut(tl, [bulovaRef.current, pRef.current]);
+    fadeIn(tl, [nasaRef.current, hRef.current]);
+  })
 
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={1.5} animate={desktopAnimation}>
+        <Slide index={index} subslides={2} animate={desktopAnimation}>
           <Row w="50%" h="100%">
             <Layer ref={bulovaRef} top="0" left="0" bottom="0" right="0">
               <SlideImage greedy {...d.images[0]} />
@@ -113,7 +53,7 @@ export default function Legacy5({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={3} animate={mobileAnimation}>
+        <Slide index={index} subslides={2} animate={mobileAnimation}>
           <Block>
             <Layer>
               <Block>

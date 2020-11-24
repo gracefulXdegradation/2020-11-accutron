@@ -1,54 +1,22 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H2, H4, P } from '../../../styles/typography';
-import TunerImage from '../../../assets/ch1-s3-tuner.png'
+import { H2, P } from '../../../styles/typography';
 import { Column, Layer, LeftHalf, SlideImage } from '../../UIKit';
-import Slide, { animateFadeInOut } from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
+import Slide from '../Slide';
 import data from '../../../data/story';
+import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[0].slides[2]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Technology3({ index }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
 
-  const mobileAnimation = (el, props) => {
-    const transitions = 4;
-
-    return gsap.timeline({
-      scrollTrigger: {
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-    .to(copy1Ref.current, {
-      duration: 1/transitions,
-      opacity: 0,
-      ease: 'none'
-    })
-    .to(copy2Ref.current, {
-      duration: 1/transitions,
-      opacity: 1,
-      ease: 'none'
-    })
-    .to(el, {
-      opacity: 0,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-  }
+  const mobileAnimation = (el, props) => animateFadeInOut(el, props, tl => {
+    fadeOut(tl, copy1Ref.current);
+    fadeIn(tl, copy2Ref.current);
+  })
 
   return (
     <>
@@ -77,7 +45,7 @@ export default function Technology3({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} animate={mobileAnimation}>
+        <Slide index={index} subslides={2} animate={mobileAnimation}>
           <Layer css={css`height: 100%; right: -20%; z-index: -1; width: 140%; top: 0;`}>
             <SlideImage {...d.images[0]} css={css`position: absolute; bottom: 80px;`} />
           </Layer>

@@ -205,7 +205,7 @@ const story = {
         ],
         images: [
           {
-            src: resolveImage('ch1-ending.ceaaacbd.png'),
+            src: resolveImage('ch1-ending.5218a31a.png'),
             alt: '2ES6A001 Soldier'
           }
         ]

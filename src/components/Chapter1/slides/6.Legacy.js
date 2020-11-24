@@ -1,15 +1,13 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H2, H4, P } from '../../../styles/typography';
+import { H2, P } from '../../../styles/typography';
 import { Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
-import { gsap, ScrollTrigger } from 'gsap/all';
 import data from '../../../data/story';
+import { animateFadeIn, fadeOut, fadeIn, fadeInOut } from '../../../helpers/animation';
 
 const d = data.chapters[0].slides[5]
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Legacy5({ index }) {
   const copy1Ref = useRef(null)
@@ -18,75 +16,24 @@ export default function Legacy5({ index }) {
   const mobLayer1 = useRef(null)
   const mobLayer2 = useRef(null)
 
-  const desktopAnimation = (el, props) => {
-    const transitions = 3;
+  const desktopAnimation = (el, props) => animateFadeIn(el, {
+    ...props,
+    start: 'top top',
+    end: 'bottom bottom',
+  }, tl => {
+    fadeOut(tl, copy1Ref.current);
+    fadeIn(tl, copy2Ref.current);
+  })
 
-    return gsap.timeline({
-      scrollTrigger: {
-        ...props,
-        trigger: el,
-        pin: el,
-        pinSpacing: false,
-        scrub: true,
-        start: 'top top',
-        end: 'bottom bottom',
-      },
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-    .to(copy1Ref.current, {
-      opacity: 0,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-    .to(copy2Ref.current, {
-      opacity: 1,
-      duration: 1/transitions,
-      ease: 'none',
-    })
-  }
-
-  const mobileAnimation = (el, props) => {
-    return gsap.timeline({
-      scrollTrigger: {
-        ...props,
-        trigger: el,
-        pin: el,
-        scrub: true,
-        pinSpacing: false,
-        start: 'top top',
-        end: 'bottom bottom',
-      }
-    })
-    .to(el, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-    .to(copy1Ref.current, {
-      opacity: 0,
-      duration: 1,
-      ease: 'none',
-    })
-    .to(copy2Ref.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-    .to(copy2Ref.current, {
-      opacity: 0,
-      duration: 1,
-      ease: 'none',
-    })
-    .to(mobLayer2.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'none',
-    })
-  }
+  const mobileAnimation = (el, props) => animateFadeIn(el, {
+    ...props,
+    start: 'top top',
+    end: 'bottom bottom',
+  }, tl => {
+    fadeOut(tl, copy1Ref.current);
+    fadeInOut(tl, copy2Ref.current);
+    fadeIn(tl, mobLayer2.current);
+  })
 
   return (
     <>
