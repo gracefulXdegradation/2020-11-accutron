@@ -6,8 +6,19 @@ import { Block, Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
+import styled from '@emotion/styled';
 
 const d = data.chapters[0].slides[4]
+
+const ImageHolder = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+`;
 
 export default function Legacy5({ index }) {
   const bulovaRef = useRef(null)
@@ -38,8 +49,8 @@ export default function Legacy5({ index }) {
             </Layer>
           </Row>
           <RightHalf>
-            <Column css={css`max-width: 540px;`} h="100%" justify="center">
-              <Column css={css`transform: translateY(50%);`}>
+            <Column css={css`max-width: 540px;`} h="100%" justify="flex-end">
+              <Column w="100%" h="50%" justify="flex-start" css={css`padding-top: 20px;`}>
                 <P>
                 {d.copy[0].text}
                 </P>
@@ -56,12 +67,15 @@ export default function Legacy5({ index }) {
         <Slide index={index} subslides={2} animate={mobileAnimation}>
           <Block>
             <Layer>
-              <Block>
-                <SlideImage ref={bulovaRef} {...d.images[0]} />
-                <Layer ref={nasaRef} css={css`opacity: 0;`}>
-                  <SlideImage {...d.images[1]} />
-                </Layer>
-              </Block>
+              <div css={css`position: relative; padding-bottom: 112.5%; height: 0; width: 100%;`}>
+                <ImageHolder ref={bulovaRef}>
+                  <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                </ImageHolder>
+                <ImageHolder ref={nasaRef} css={css`opacity: 0;`}>
+                  <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                </ImageHolder>
+              </div>
+
               <Block css={css`margin-top: 20px;`}>
                 <P mobile ref={pRef}>
                 {d.copy[0].text}

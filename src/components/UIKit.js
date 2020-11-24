@@ -108,6 +108,7 @@ export const Camouflage = ({ w, length }) => (
 const Half = styled(Row)`
   width: 50%;
   height: 100%;
+  padding: 0 90px;
   justify-content: center;
   &:before,
   &:after {

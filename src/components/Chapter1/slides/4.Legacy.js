@@ -32,8 +32,8 @@ export default function Legacy4({ index }) {
             </Column>
           </LeftHalf>
           <RightHalf>
-            <Column css={css`max-width: 540px;`} h="100%" justify="center">
-              <Column css={css`transform: translateY(50%);`}>
+            <Column css={css`max-width: 540px;`} h="100%" justify="flex-end">
+              <Column w="100%" h="50%" justify="flex-start" css={css`padding-top: 20px;`}>
                 <P>
                 {d.copy[0].text}
                 </P>

@@ -13,7 +13,7 @@ export default function Technology3({ index }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
 
-  const mobileAnimation = (el, props) => animateFadeInOut(el, props, tl => {
+  const animation = (el, props) => animateFadeInOut(el, props, tl => {
     fadeOut(tl, copy1Ref.current);
     fadeIn(tl, copy2Ref.current);
   })
@@ -21,21 +21,27 @@ export default function Technology3({ index }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} animate={animateFadeInOut}>
+        <Slide index={index} animate={animation} subslides={2}>
           <LeftHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
-              <H2 alternative>
-                {d.copy[0].text}
-              </H2>
-              <P css={css`margin: 20px 0;`}>
-              {d.copy[1].text}
-              </P>
-              <P css={css`margin-bottom: 20px;`}>
-              {d.copy[2].text}
-              </P>
-              <P>
-              {d.copy[3].text}
-              </P>
+              <Column h="50%" w="100%" justify="flex-end" css={css`margin-bottom: 20px;`}>
+                <H2 alternative>
+                  {d.copy[0].text}
+                </H2>
+              </Column>
+              <Column h="50%" w="100%" justify="flex-start" css={css`margin-top: 20px;`}>
+                <Layer ref={copy1Ref}>
+                  <P>
+                  {d.copy[1].text}
+                  </P>
+                  <P css={css`margin-top: 20px;`}>
+                  {d.copy[2].text}
+                  </P>
+                </Layer>
+                <P ref={copy2Ref} css={css`opacity: 0;`}>
+                {d.copy[3].text}
+                </P>
+              </Column>
             </Column>
           </LeftHalf>
           <Layer css={css`right: -10%; z-index: -1; width: 72%;`}>
@@ -45,7 +51,7 @@ export default function Technology3({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={2} animate={mobileAnimation}>
+        <Slide index={index} subslides={2} animate={animation}>
           <Layer css={css`height: 100%; right: -20%; z-index: -1; width: 140%; top: 0;`}>
             <SlideImage {...d.images[0]} css={css`position: absolute; bottom: 80px;`} />
           </Layer>

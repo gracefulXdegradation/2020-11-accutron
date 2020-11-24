@@ -34,13 +34,12 @@ export default function Origins1({ index }) {
           </Row>
           <RightHalf>
             <Column css={css`max-width: 540px;`} h="100%" justify="center">
-              <Column css={css`max-height: 672px;`} h="100%" justify="space-between">
+              <Column css={css`max-height: 672px;`} h="100%" justify="space-around">
                 <Column>
                   <P>
                     {d.copy[0].text}
                   </P>
                 </Column>
-
                 <Watches />
               </Column>
             </Column>

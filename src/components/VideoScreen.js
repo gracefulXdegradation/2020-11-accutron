@@ -4,7 +4,7 @@ import {
   MobileView
 } from "react-device-detect";
 import { H4, P } from '../styles/typography';
-import { Circle, Layer, Row, Column, Background, ChapterCaption, HoverableCircle } from './UIKit';
+import { Circle, Layer, Row, Column, Background, HoverableCircle } from './UIKit';
 import VideoContent from './VideoContent';
 import data from '../data/story';
 import { useChapterAnimation } from '../providers/ChapterAnimationProvider';
@@ -22,9 +22,9 @@ export default function VideoScreen() {
         <Column h="100%" w="100%" justify="flex-end" align="center">
           <Column h="50%" justify="center">
             <Column align="center" css={css`cursor: pointer;`}>
-              <HoverableCircle size="xl" wrapChildren onClick={toChapter1}>
-                <H4>Chapter 1</H4>
-                <P>ACCUracy through<br />elecTRONics</P>
+              <HoverableCircle size="xl" onClick={toChapter1}>
+                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+                <P align="center">ACCUracy through<br />elecTRONics</P>
               </HoverableCircle>
             </Column>
           </Column>
@@ -36,10 +36,10 @@ export default function VideoScreen() {
           <Row align="center" h="70%" justify="center">
             <Column align="center" onClick={toChapter1}>
               <Circle size="l" />
-              <ChapterCaption>
-                <H4>Chapter 1</H4>
-                <P>ACCUracy through<br />elecTRONics</P>
-              </ChapterCaption>
+              <Column align="center">
+                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+                <P align="center">ACCUracy through<br />elecTRONics</P>
+              </Column>
             </Column>
           </Row>
         </Column>

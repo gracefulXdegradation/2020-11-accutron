@@ -27,8 +27,9 @@ export default function Technology2({ index }) {
   const rightImg1Ref = useRef(null)
   const rightImg2Ref = useRef(null)
   const rightImg3Ref = useRef(null)
-  const pRef = useRef(null)
-  const hRef = useRef(null)
+  const p1Ref = useRef(null)
+  const p2Ref = useRef(null)
+  const p3Ref = useRef(null)
   const galleryRef = useRef(null)
 
   const desktopAnimation = (el, props) => animateFadeInOut(el, props, tl => {
@@ -43,14 +44,16 @@ export default function Technology2({ index }) {
       top: 0,
       ease: 'none'
     });
-    fadeIn(tl, pRef.current);
+    fadeIn(tl, p1Ref.current);
     fadeOut(tl, leftImg1Ref.current);
     fadeIn(tl, rightImg1Ref.current);
-    fadeOut(tl, [rightImg1Ref.current, pRef.current]);
-    fadeIn(tl, [leftImg2Ref.current, hRef.current]);
+    fadeOut(tl, [rightImg1Ref.current, p1Ref.current]);
+    fadeIn(tl, [leftImg2Ref.current, p2Ref.current]);
     fadeOut(tl, leftImg2Ref.current);
-    fadeInOut(tl, rightImg2Ref.current);
-    fadeInOut(tl, leftImg3Ref.current);
+    fadeIn(tl, rightImg2Ref.current);
+    fadeOut(tl, [rightImg2Ref.current, p2Ref.current]);
+    fadeIn(tl, [leftImg3Ref.current, p3Ref.current]);
+    fadeOut(tl, leftImg3Ref.current);
     fadeIn(tl, rightImg3Ref.current);
   })
 
@@ -60,18 +63,20 @@ export default function Technology2({ index }) {
         <Slide index={index} subslides={3} animate={desktopAnimation}>
           <Row h="100%">
             <LeftHalf>
-              <Column w="50%" h="100%" css={css`max-width: 585px;`} justify="center">
-                <div css={css`position: relative; padding-bottom: 114.7%; height: 0; width: 100%;`}>
-                  <ImageHolder ref={leftImg1Ref}>
-                    <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
-                  </ImageHolder>
-                  <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
-                    <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
-                  </ImageHolder>
-                  <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
-                    <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
-                  </ImageHolder>
-                </div>
+              <Column w="100%" h="100%" css={css`max-width: 585px;`} justify="center" align="center">
+                <Column w="70%">
+                  <div css={css`position: relative; padding-bottom: 114.7%; height: 0; width: 100%;`}>
+                    <ImageHolder ref={leftImg1Ref}>
+                      <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                    <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
+                      <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                    <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
+                      <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
+                    </ImageHolder>
+                  </div>
+                </Column>
                 <P css={css`margin-top: 60px;`}>
                   {d.copy[0].text}
                 </P>
@@ -130,15 +135,17 @@ export default function Technology2({ index }) {
               </ImageHolder>
             </div>
             <div css={css`position: relative; flex: 1;`}>
-              <Layer ref={pRef} css={css`opacity: 0;`}>
+              <Layer ref={p1Ref} css={css`opacity: 0;`}>
                 <P mobile css={css`margin-top: 16px;`}>
                   {d.copy[0].text}
                 </P>
+              </Layer>
+              <Layer ref={p2Ref} css={css`opacity: 0;`}>
                 <P mobile css={css`margin-top: 16px;`}>
                   {d.copy[1].text}
                 </P>
               </Layer>
-              <Layer ref={hRef} css={css`opacity: 0;`}>
+              <Layer ref={p3Ref} css={css`opacity: 0;`}>
                 <P mobile css={css`margin-top: 32px;`}>
                   {d.copy[2].text}
                 </P>

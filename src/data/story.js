@@ -107,10 +107,10 @@ const story = {
               text: 'A revolutionary invention for timekeeper precision.'
             },
             {
-              text: 'Invented by Swiss engineer Max Hetzel, the secret to Accutron’s precision lies in the watch’s tuning fork'
+              text: 'Invented by Swiss engineer Max Hetzel, the secret to Accutron’s precision lies in the watch’s tuning fork.'
             },
             {
-              text: 'a small fork-shaped piece typically used as an acoustic resonator for musical instruments. Instead of the traditional balance wheel and spring, this new transistor movement divided each second into 360 equal parts and achieved unprecedented precision.'
+              text: 'A small fork-shaped piece typically used as an acoustic resonator for musical instruments. Instead of the traditional balance wheel and spring, this new transistor movement divided each second into 360 equal parts and achieved unprecedented precision.'
             },
           ],
           images: [
