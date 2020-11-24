@@ -1,15 +1,31 @@
 import { css } from '@emotion/core';
 import React from 'react';
 import { BrowserView, MobileView } from "react-device-detect";
-import { gsap, ScrollTrigger } from 'gsap/all';
+import styled from '@emotion/styled';
 import { H4, P } from "../../styles/typography";
+import { typefaceParagraph } from "../../styles/const";
 import { Circle, Column, Divider, HoverableCircle, Row } from "../UIKit";
 import data from '../../data/story';
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 
 const d = data.chapters[1].ending
 
-gsap.registerPlugin(ScrollTrigger);
+const ShopNow = styled.button`
+  font-size: 20px;
+  line-height: 1em;
+  padding: 20px 83px 17px;
+  font-family: ${typefaceParagraph};
+  border: 1px solid ${props => props.theme.borderColor};
+  text-transform: uppercase;
+  background: transparent;
+  color: ${props => props.theme.fontHeaderPrimary};
+  cursor: pointer;
+  transition: box-shadow .2s ease-in;
+
+  &:hover {
+    box-shadow: 0px 0px 4px 1px #FFF inset;
+  }
+`
 
 export default function Ending() {
   const { toChapter1, toChapter2 } = useChapterAnimation()
@@ -41,7 +57,7 @@ export default function Ending() {
               <Divider />
             </Row>
             <Column align="center" css={css`margin: 0 100px;`}>
-              <Circle size="xl" logo />
+              <ShopNow>Shop Now</ShopNow>
             </Column>
             <Row css={css`flex-direction: row-reverse; flex: 1; margin-right: 20px;`}>
               <Divider />
@@ -52,9 +68,12 @@ export default function Ending() {
             <P css={css`margin-bottom: 16px;`}>
               {d.copy[0].text}
             </P>
-            <H4 alternative>
+            <H4 alternative align="center" css={css`margin-bottom: 32px; max-width: 500px;`}>
             {d.copy[1].text}
             </H4>
+            <Column css={css`margin-bottom: 50px;`}>
+              <Circle size="xl" logo />
+            </Column>
           </Column>
         </Column>
       </BrowserView>
