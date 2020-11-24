@@ -15,7 +15,7 @@ function Layout() {
   return (
     <>
       { chapter === -2 && <Preloader images={images} onLoad={toVideo} /> }
-      { chapter === -1 && <VideoScreen /> }
+      { (chapter === -1 || chapter === -2) && <VideoScreen /> }
       { chapter === 0 &&  <Chapter1 key={`${ts}-1`} /> }
       { chapter === 1 &&  <Chapter2 key={`${ts}-2`} /> }
     </>
