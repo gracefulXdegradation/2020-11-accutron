@@ -16,7 +16,8 @@ export default function DNA5({ index }) {
   const watch3Ref = useRef(null)
 
   const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
-    fadeIn(tl, [watch2Ref.current, watch3Ref.current])
+    fadeIn(tl, watch2Ref.current)
+    fadeIn(tl, watch3Ref.current)
   })
 
   const mobileAnimation = (slide, props) => animateFadeInOut(slide, props, tl => {
@@ -28,7 +29,7 @@ export default function DNA5({ index }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} animate={animation}>
+        <Slide index={index} animate={animation} subslides={2}>
           <WatchesSafeArea justify="center" align="center">
             <Watches {...d.images[0]} />
 
@@ -47,12 +48,12 @@ export default function DNA5({ index }) {
               </Row>
             </Layer>
           </WatchesSafeArea>
-          <Layer left="0" ref={watch2Ref} css={css`opacity: 0; transition: opacity .4s linear;`} >
+          <Layer left="0" ref={watch2Ref} css={css`opacity: 0;`} >
             <WatchesSafeArea justify="center" align="center">
               <Watches {...d.images[1]} css={css`transform: translateX(-50%);`} />
             </WatchesSafeArea>
           </Layer>
-          <Layer left="0" ref={watch3Ref} css={css`opacity: 0; transition: opacity .4s linear; transition-delay: .2s;`} >
+          <Layer left="0" ref={watch3Ref} css={css`opacity: 0;`} >
             <WatchesSafeArea justify="center" align="center">
               <Watches {...d.images[2]} css={css`transform: translateX(-100%);`} />
             </WatchesSafeArea>

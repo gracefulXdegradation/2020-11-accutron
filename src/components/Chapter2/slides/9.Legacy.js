@@ -30,17 +30,17 @@ export default function Legacy9({ index }) {
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} subslides={2.5} animate={animation}>
-          <WatchesSafeArea align="center" justify="space-around">
-            <Column h="100%">
+          <WatchesSafeArea align="center" justify="center">
+            <Column h="100%" css={css`margin: 0 20px;`}>
               <Watches {...d.images[0]} />
             </Column>
-            <Column h="100%" ref={img2Ref} css={css`opacity: 0;`}>
+            <Column h="100%" ref={img2Ref} css={css`opacity: 0; margin: 0 20px;`}>
               <Watches {...d.images[1]} />
             </Column>
-            <Column h="100%" ref={img3Ref} css={css`opacity: 0;`}>
+            <Column h="100%" ref={img3Ref} css={css`opacity: 0; margin: 0 20px;`}>
               <Watches {...d.images[2]} />
             </Column>
-            <Column h="100%" ref={img4Ref} css={css`opacity: 0;`}>
+            <Column h="100%" ref={img4Ref} css={css`opacity: 0; margin: 0 20px;`}>
               <Watches {...d.images[3]} />
             </Column>
           </WatchesSafeArea>
