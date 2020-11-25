@@ -4,7 +4,7 @@ import {resolveImage} from './assets';
 
 const story = {
   video: {
-    id: 479786374
+    id: 483504451
   },
 
   chapters: [

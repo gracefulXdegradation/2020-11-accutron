@@ -18,6 +18,11 @@ const ImageHolder = styled.div`
   top: 0;
   display: flex;
   justify-content: center;
+
+  ${SlideImage} {
+    width: auto;
+    height: 100% !important;
+  }
 `;
 
 function Legacy5({ index, isPortrait, isLandscape }) {
@@ -69,10 +74,10 @@ function Legacy5({ index, isPortrait, isLandscape }) {
             <Layer>
               <div css={css`position: relative; padding-bottom: 112.5%; height: 0; width: 100%;`}>
                 <ImageHolder ref={bulovaRef}>
-                  <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                  <SlideImage {...d.images[0]} />
                 </ImageHolder>
                 <ImageHolder ref={nasaRef} css={css`opacity: 0;`}>
-                  <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                  <SlideImage {...d.images[1]} />
                 </ImageHolder>
               </div>
 

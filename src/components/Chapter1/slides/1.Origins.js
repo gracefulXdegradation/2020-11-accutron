@@ -24,8 +24,8 @@ const d = data.chapters[0].slides[0]
 
 const Watches = React.forwardRef((props, ref) => (
   <div ref={ref} css={css`position: relative;`}>
-    <img src={d.images[1].src} alt={d.images[1].alt} css={css`width: 63%;`} />
-    <img src={d.images[2].src} alt={d.images[2].alt} css={css`width: 63%; position: absolute; right: 0; z-index: -1;`} />
+    <img src={d.images[1].src} alt={d.images[1].alt} css={css`width: 63%; display: inline-block !important;`} />
+    <img src={d.images[2].src} alt={d.images[2].alt} css={css`width: 63%; display: inline-block !important; position: absolute; right: 0; z-index: -1;`} />
   </div>
 ))
 
@@ -65,7 +65,7 @@ function Origins1({ index, isPortrait, isLandscape }) {
           <Column h="100%">
             <div css={css`position: relative; padding-bottom: 100%; height: 0; width: 100%;`}>
               <ImageHolder ref={mobMechanismRef}>
-                <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                <SlideImage {...d.images[0]} css={css`width: auto; height: 100% !important;`} />
               </ImageHolder>
               <ImageHolder ref={mobWatchesRef} css={css`opacity: 0;`}>
                 <Watches />

@@ -18,6 +18,11 @@ const ImageHolder = styled.div`
   top: 0;
   display: flex;
   justify-content: center;
+
+  ${SlideImage} {
+    width: auto;
+    height: 100% !important;
+  }
 `;
 
 function Technology2({ index, isPortrait, isLandscape }) {
@@ -67,13 +72,13 @@ function Technology2({ index, isPortrait, isLandscape }) {
                 <Column w="70%">
                   <div css={css`position: relative; padding-bottom: 114.7%; height: 0; width: 100%;`}>
                     <ImageHolder ref={leftImg1Ref}>
-                      <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[0]} />
                     </ImageHolder>
                     <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
-                      <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[1]} />
                     </ImageHolder>
                     <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
-                      <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[2]} />
                     </ImageHolder>
                   </div>
                 </Column>
@@ -90,14 +95,14 @@ function Technology2({ index, isPortrait, isLandscape }) {
                   </P>
                   <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%;`}>
                     <ImageHolder ref={rightImg1Ref} css={css`justify-content: flex-end;`}>
-                      <SlideImage {...d.images[3]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[3]} />
                     </ImageHolder>
                     <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
-                      <SlideImage {...d.images[4]} css={css`width: auto; height: 80%; position: relative; left: 7%;`} />
-                      <SlideImage {...d.images[5]} css={css`width: auto; height: 60%; position: relative; right: 7%;`} />
+                      <SlideImage {...d.images[4]} css={css`height: 80% !important; position: relative; left: 7%;`} />
+                      <SlideImage {...d.images[5]} css={css`height: 60% !important; position: relative; right: 7%;`} />
                     </ImageHolder>
                     <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
-                      <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[6]} />
                     </ImageHolder>
                   </div>
                   <P css={css`margin-top: 60px;`}>
@@ -116,23 +121,23 @@ function Technology2({ index, isPortrait, isLandscape }) {
             <Column w="100%" justify="center" css={css`min-height: 50%;`}>
               <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%; top: 20%;`} ref={galleryRef}>
                 <ImageHolder ref={leftImg1Ref}>
-                  <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                  <SlideImage {...d.images[0]} />
                 </ImageHolder>
                 <ImageHolder ref={rightImg1Ref} css={css`opacity: 0;`}>
-                  <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                  <SlideImage {...d.images[1]} />
                 </ImageHolder>
                 <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
-                  <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
+                  <SlideImage {...d.images[2]} />
                 </ImageHolder>
                 <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
-                  <SlideImage {...d.images[4]} css={css`width: auto; height: 100%; position: relative; left: 7%;`} />
-                  <SlideImage {...d.images[5]} css={css`width: auto; height: 80%; position: relative; right: 7%;`} />
+                  <SlideImage {...d.images[4]} css={css`position: relative; left: 7%;`} />
+                  <SlideImage {...d.images[5]} css={css`height: 80% !important; position: relative; right: 7%;`} />
                 </ImageHolder>
                 <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
-                  <SlideImage {...d.images[3]} css={css`width: auto; height: 100%;`} />
+                  <SlideImage {...d.images[3]} />
                 </ImageHolder>
                 <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
-                  <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
+                  <SlideImage {...d.images[6]} />
                 </ImageHolder>
               </div>
             </Column>
@@ -165,13 +170,13 @@ function Technology2({ index, isPortrait, isLandscape }) {
                 <Column w="70%">
                   <div css={css`position: relative; padding-bottom: 114.7%; height: 0; width: 100%;`}>
                     <ImageHolder ref={leftImg1Ref}>
-                      <SlideImage {...d.images[0]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[0]}  />
                     </ImageHolder>
                     <ImageHolder ref={leftImg2Ref} css={css`opacity: 0;`}>
-                      <SlideImage {...d.images[1]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[1]}  />
                     </ImageHolder>
                     <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
-                      <SlideImage {...d.images[2]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[2]}  />
                     </ImageHolder>
                   </div>
                 </Column>
@@ -188,14 +193,14 @@ function Technology2({ index, isPortrait, isLandscape }) {
                   </P>
                   <div css={css`position: relative; padding-bottom: 80%; height: 0; width: 100%;`}>
                     <ImageHolder ref={rightImg1Ref} css={css`justify-content: flex-end;`}>
-                      <SlideImage {...d.images[3]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[3]}  />
                     </ImageHolder>
                     <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
                       <SlideImage {...d.images[4]} css={css`width: auto; height: 80%; position: relative; left: 7%;`} />
                       <SlideImage {...d.images[5]} css={css`width: auto; height: 60%; position: relative; right: 7%;`} />
                     </ImageHolder>
                     <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
-                      <SlideImage {...d.images[6]} css={css`width: auto; height: 100%;`} />
+                      <SlideImage {...d.images[6]}  />
                     </ImageHolder>
                   </div>
                   <P mobile css={css`margin-top: 20px;`}>

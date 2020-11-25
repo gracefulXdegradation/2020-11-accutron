@@ -89,7 +89,7 @@ function Legacy5({ index, isPortrait, isLandscape }) {
         <Slide index={index} subslides={3} animate={mobileAnimation}>
           <Column h="100%">
             <Layer ref={mobLayer1} css={css`height: 50%;`}>
-              <SlideImage {...d.images[0]} css={css`object-fit: contain; height: 100%;`} />
+              <SlideImage {...d.images[0]} css={css`object-fit: contain; height: 100% !important;`} />
               <Column>
                 <Layer ref={copy1Ref}>
                   <Column>
