@@ -12,9 +12,22 @@ const VideoRoot = styled.div`
 
 const VideoHolder = styled.div`
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
   pointer-events: none;
+
+  @media (min-aspect-ratio: 16/9) {
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    height: 100vh;
+    width: calc(16 / 9 * 100vh);
+  }
+
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
   iframe {
     max-height: none !important;
     max-width: none;
@@ -22,7 +35,9 @@ const VideoHolder = styled.div`
     transform: translateX(-50%);
     position: absolute;
     top: 0;
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 `;
 
