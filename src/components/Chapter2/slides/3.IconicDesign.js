@@ -50,23 +50,31 @@ export default function IconicDesign2({ index }) {
           <Row w="50%" h="100%">
             <Layer ref={p1Ref}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
-                <P css={css`position: absolute; transform: translateY(-50%); max-width: 610px; padding: 20px;`}>
-                  {d.copy[0].text}
-                </P>
-                <P css={css`position: absolute; transform: translateY(50%); max-width: 610px; padding: 20px;`}>
-                {d.copy[1].text}
-                </P>
+                <Column w="100%" h="50%" justify="flex-end" align="flex-end">
+                  <P css={css`max-width: 610px; padding: 20px;`}>
+                    {d.copy[0].text}
+                  </P>
+                </Column>
+                <Column w="100%" h="50%" justify="flex-start" align="flex-end">
+                  <P css={css`max-width: 610px; padding: 20px;`}>
+                  {d.copy[1].text}
+                  </P>
+                </Column>
               </Column>
             </Layer>
 
             <Layer ref={h1Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-end" justify="center">
-                <P css={css`position: absolute; transform: translateY(-50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
-                {d.copy[2].text}
-                </P>
-                <P css={css`position: absolute; transform: translateY(50%); max-width: 590px; padding: 20px 0; margin: 0 32px;`}>
-                {d.copy[3].text}
-                </P>
+                <Column w="100%" h="50%" justify="flex-end" align="flex-start" css={css`max-width: 590px; padding: 0 32px;`}>
+                  <P css={css`padding: 20px 0;`}>
+                  {d.copy[2].text}
+                  </P>
+                </Column>
+                <Column w="100%" h="50%" justify="flex-start" align="flex-end" css={css`max-width: 590px; padding: 0 32px;`}>
+                  <P css={css`padding: 20px 0;`}>
+                  {d.copy[3].text}
+                  </P>
+                </Column>
               </Column>
             </Layer>
 

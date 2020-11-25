@@ -44,12 +44,8 @@ function Ending({ isPortrait, isLandscape }) {
           start: 'top center',
           end: 'bottom bottom',
           scrub: true,
+          snap: 'labels'
         },
-        onComplete: () => {
-          gsap.set(chap2Ref.current, {
-            opacity: 1
-          })
-        }
       })
       .to(topDivRef.current, {
         height: '100%',
@@ -63,6 +59,13 @@ function Ending({ isPortrait, isLandscape }) {
         delay: -1,
         ease: 'none'
       })
+      .to(chap2Ref.current, {
+        opacity: 1,
+        duration: .5,
+        delay: 0.5,
+        ease: 'easeIn'
+      })
+      .addLabel('bottom')
 
       return () => tl.kill()
     } else {
@@ -110,7 +113,7 @@ function Ending({ isPortrait, isLandscape }) {
             <Row css={css`flex: 1;`}>
               <Divider ref={leftDivRef} length="0" />
             </Row>
-            <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`}>
+            <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 3; opacity: 0;`}>
               <HoverableCircle size="xl" wrapChildren onClick={toChapter2}>
                 <H4>Chapter 2</H4>
               </HoverableCircle>

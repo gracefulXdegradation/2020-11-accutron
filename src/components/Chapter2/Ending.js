@@ -25,6 +25,7 @@ const ShopNow = styled.a`
 
   &:hover {
     box-shadow: 0px 0px 4px 1px #FFF inset;
+    color: ${props => props.theme.fontHeaderPrimary};
   }
 `
 
