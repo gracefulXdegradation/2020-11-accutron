@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
@@ -6,27 +6,17 @@ import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
-import { animateFadeIn, fadeIn, fadeOut } from '../../../helpers/animation';
+import { animateFadeIn } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[10]
 
 const watches = d.images
 
 export default function Legacy11({ index }) {
-  const layer1Ref = useRef(null)
-  const layer2Ref = useRef(null)
-  const pRef = useRef(null)
-
   const animation = (el, props) => animateFadeIn(el, {
     ...props,
     start: 'top top',
     end: 'bottom bottom',
-  }, tl => {
-    layer1Ref.current && fadeOut(tl, layer1Ref.current)
-    if (layer2Ref.current) {
-      fadeIn(tl, layer2Ref.current)
-      fadeOut(tl, pRef.current)
-    }
   })
 
   return (
@@ -39,12 +29,20 @@ export default function Legacy11({ index }) {
                 <Watches {...img} />
               </Column>
             ))}
+
             <Layer>
-              <Column w="100%" h="100%" justify="flex-end">
-                <Column h="50%" align="center" justify="flex-end" css={css`margin-bottom: 50px;`}>
-                  <P css={css`margin-bottom: 20px;`}>
+              <WatchesSafeArea w="100%" h="100%" justify="center">
+                <Column h="100%" align="center" justify="flex-start">
+                  <P css={css`transform: translateY(100%);`}>
                     {d.copy[0].text}
                   </P>
+                </Column>
+              </WatchesSafeArea>
+            </Layer>
+
+            <Layer>
+              <Column w="100%" h="100%" justify="flex-end">
+                <Column h="50%" align="center" justify="center" css={css`margin-top: 50px;`}>
                   <P css={css`text-align: center; max-width: 350px;`}>
                     {d.copy[1].text}
                   </P>
@@ -58,36 +56,36 @@ export default function Legacy11({ index }) {
       <MobileView renderWithFragment>
         <Slide index={index} subslides={2} animate={animation}>
         <Column w="100%" h="100%">
-          <Column ref={layer1Ref} w="100%" h="100%" align="center" justify="center">
-            <P align="center" mobile css={css`margin: 35px;`}>
-              {d.copy[0].text}
-            </P>
-          </Column>
-
-          <Layer ref={layer2Ref} css={css`opacity: 0;`}>
+          <Layer>
             <Column w="100%" h="100%">
-              <Row h="50%" w="100%" justify="space-around" align="flex-end">
-                {[...watches.slice(0, 3), ...watches.slice(6)].map((img, i) => (
-                  <Column key={`${img.src}${i}`}>
-                    <Watches {...img} css={css`height: 165px;`} />
+              <Row justify="center">
+                <P align="center" mobile css={css`margin: 10px 20px;`}>
+                  {d.copy[0].text}
+                </P>
+              </Row>
+
+              <Column h="100%" css={css`flex: 1; max-height: calc(100% - 2 * 40px);`}>
+                <Row h="50%" w="100%" justify="space-around" align="center" css={css`max-height: 50%;`}>
+                  {[...watches.slice(0, 3), ...watches.slice(6)].map((img, i) => (
+                    <Column h="100%" w="25%" key={`${img.src}${i}`}>
+                      <Watches {...img} />
+                    </Column>
+                  ))}
+                </Row>
+                <Row h="50%" w="100%" justify="space-around" align="center" css={css`max-height: 50%;`}>
+                {watches.slice(3, 6).map((img, i) => (
+                  <Column h="100%" w="25%" key={`${img.src}${i}`}>
+                    <Watches {...img} />
                   </Column>
                 ))}
+                </Row>
+              </Column>
+
+              <Row justify="center">
+                <P mobile css={css`text-align: center; margin: 10px 20px;`}>
+                  {d.copy[1].text}
+                </P>
               </Row>
-              <Row h="50%" w="100%" justify="space-around" align="flex-start">
-              {watches.slice(3, 6).map((img, i) => (
-                <Column key={`${img.src}${i}`}>
-                  <Watches {...img} css={css`height: 165px;`} />
-                </Column>
-              ))}
-              </Row>
-              
-              <Layer ref={pRef} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="center" justify="flex-end">
-                  <P mobile css={css`text-align: center; margin: 30px;`}>
-                    {d.copy[1].text}
-                  </P>
-                </Column>
-              </Layer>
             </Column>
           </Layer>
           </Column>

@@ -80,7 +80,7 @@ export default function TheSpaceview({ index }) {
 
               <Layer ref={slide6Ref} css={css`opacity: 0;`}>
                 <Column w="100%" h="100%">
-                  <WatchesSafeArea justify="flex-end">
+                  <WatchesSafeArea justify="flex-start">
                     <HalfWatches src={d.images[1].src} right />
                   </WatchesSafeArea>
                 </Column>
