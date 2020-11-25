@@ -17,6 +17,8 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
   const [isVisible, setIsVisible] = useState(false);
   const dividerRef = useRef(null)
   const camouflageRef = useRef(null)
+  const hRef = useRef(null)
+  const pRef = useRef(null)
 
   useEffect(() => {
     if (mobChapterCaptionRef.current) {
@@ -31,21 +33,34 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
 
   const animate = useCallback(() => {
     if (isVisible && !hasAnimated && dividerRef.current) {
-      gsap.timeline({
+      const tl = gsap.timeline({
         onComplete: () => {
           setHasAnimated(true)
           onAnimateEnd()
         }
       })
-        .to(dividerRef.current, {
+        .to(hRef.current, {
           duration: 1,
-          delay: 1,
+          opacity: 1,
+          ease: 'ease-in'
+        })
+        
+        if (pRef.current) {
+          tl.to(pRef.current, {
+            duration: 1.5,
+            opacity: 1,
+            ease: 'ease-in'
+          })
+        }
+        
+        tl.to(dividerRef.current, {
+          duration: 2,
           ease: 'none',
           height: '100%'
         })
         .to(camouflageRef.current, {
           duration: .5,
-          delay: -1,
+          delay: -1.5,
           ease: 'none',
           height: 0
         })
@@ -87,14 +102,14 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
               <Column w="100%" h="50%" align="center">
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
-                  <H2 align="center" css={css`padding: 12px 0 6px;`}>
+                  <H2 ref={hRef} align="center" css={css`padding: 12px 0 6px; opacity: 0;`}>
                     {d.copy[0].text}
                   </H2>
                 </Block>
                 <Column justify="center" align="center" css={css`flex: 1;`}>
                   <Block css={css`padding: 14px 0 6px;`}>
                     <Camouflage w="100%" />
-                    <P css={css`text-align: center; position: relative;`}>
+                    <P ref={pRef} css={css`text-align: center; position: relative; opacity: 0;`}>
                       {d.copy[1].text}
                     </P>
                   </Block>
@@ -139,7 +154,7 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
               <Column w="100%" h="50%" align="center">
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
-                  <H2 mobile css={css`padding: 12px 0 6px;`} align="center">
+                  <H2 ref={hRef} mobile css={css`padding: 12px 0 6px; opacity: 0;`} align="center">
                     {d.copy[0].text}
                   </H2>
                 </Block>
@@ -180,14 +195,14 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
               <Column w="100%" h="50%" align="center">
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
-                  <H2 mobile align="center" css={css`padding: 12px 0 6px;`}>
+                  <H2 ref={hRef} mobile align="center" css={css`padding: 12px 0 6px; opacity: 0;`}>
                     {d.copy[0].text}
                   </H2>
                 </Block>
                 <Column justify="center" align="center" css={css`flex: 1;`}>
                   <Block css={css`padding: 14px 0 6px;`}>
                     <Camouflage w="100%" />
-                    <P mobile css={css`text-align: center; position: relative;`}>
+                    <P ref={pRef} mobile css={css`text-align: center; position: relative; opacity: 0;`}>
                       {d.copy[1].text}
                     </P>
                   </Block>
