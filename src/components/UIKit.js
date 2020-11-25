@@ -133,7 +133,7 @@ export const RightHalf = styled(Half)`
 export const SlideImage = styled.img`
   ${({ greedy }) => greedy && css`
     width: 100%;
-    height: 100%;
+    height: 100% !important;
   `}
   object-fit: cover;
 `;

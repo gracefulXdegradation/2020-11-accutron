@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Image = styled.img`
   object-fit: contain;
   object-position: right;
-  height: 80%;
+  height: 80% !important;
   pointer-events: none;
   position: absolute;
   bottom: 0;

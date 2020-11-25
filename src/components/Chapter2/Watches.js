@@ -8,10 +8,10 @@ const Wrapper = styled.div`
 `;
 
 const FullWatchImage = styled.img`
-  height: 100%;
+  height: 100% !important;
   object-fit: contain;
   width: 200%;
-  max-width: 200%;
+  max-width: 200% !important;
   transform: translateX(${props => props.right ? '-50%' : '0'});
 `;
 
@@ -32,7 +32,7 @@ export const HalfWatches = ({ right, src, alt = '' }) => {
 const WatchesImage = styled.img`
   object-fit: contain;
   width: auto;
-  height: 100%;
+  height: 100% !important;
 `;
 
 export const Watches = (props) => {
