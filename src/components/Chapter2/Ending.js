@@ -81,7 +81,7 @@ export default function Ending() {
       <MobileView>
         <Column h="100vh" w="100%" align="center" justify="space-between">
           <Column css={css`flex: 1;`} justify="flex-start" align="center" w="100%">
-            <Row h="20vh" align="center">
+            <Row h="30vh" align="center">
               <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter1}>
                 <Circle size="s" />
                 <H4 mobile css={css`margin-top: 20px;`}>Chapter 1</H4>
@@ -96,17 +96,20 @@ export default function Ending() {
             </Row>
           </Column>
 
-          <Column w="100%" align="center" css={css`padding: 0 20px;`}>
-            <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
-              {d.copy[0].text}
-            </P>
-            <H4 alternative align="center" mobile>
-              {d.copy[1].text}
-            </H4>
+          <Column w="100%" align="center" justify="space-between" css={css`padding: 0 20px; flex: 1;`}>
+            <Column>
+              <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
+                {d.copy[0].text}
+              </P>
+              <H4 alternative align="center" mobile>
+                {d.copy[1].text}
+              </H4>
+            </Column>
+            <ShopNow>Shop Now</ShopNow>
           </Column>
 
-          <Row css={css`flex: 1; margin-top: 50px;`} align="flex-end">
-            <Row align="center" h="50%">
+          <Row css={css`margin-top: 30px; padding: 20px 0;`} align="flex-end">
+            <Row align="center">
               <Row css={css`flex: 1;`}>
                 <Divider />
               </Row>
