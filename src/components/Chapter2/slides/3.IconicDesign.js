@@ -94,12 +94,14 @@ export default function IconicDesign2({ index }) {
           </Layer>
 
           <Layer left="0" ref={h2Ref} css={css`opacity: 0;`}>
-            <Column w="100%" h="100%" justify="flex-end" align="center">
-              <P align="center" css={css`max-width: 900px; margin-bottom: 50px;`}>
-              {d.copy[5].text}
-              </P>
-            </Column>
-          </Layer>
+              <Column w="100%" h="100%" justify="flex-end">
+                <Column h="200px" align="center" justify="center" css={css`margin: 50px 0;`}>
+                  <P align="center"  css={css`max-width: 900px;`}>
+                  {d.copy[5].text}
+                  </P>
+                </Column>
+              </Column>
+            </Layer>
         </Slide>
       </BrowserView>
 

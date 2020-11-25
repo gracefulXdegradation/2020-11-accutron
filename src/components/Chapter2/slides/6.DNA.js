@@ -27,22 +27,32 @@ export default function DNA6({ index }) {
             <WatchesSafeArea justify="flex-end">
               <HalfWatches {...d.images[0]} />
             </WatchesSafeArea>
-            <Column css={css`transform: translateY(100%);`}>
-              <P>
-              {d.copy[0].text}{' '}{d.copy[1].text}
-              </P>
-            </Column>
           </Row>
           <Row w="50%" h="100%" justify="flex-start" align="center" css={css`padding-right: 50px;`}>
             <WatchesSafeArea justify="flex-start">
               <HalfWatches right {...d.images[1]} />
             </WatchesSafeArea>
-            <Column css={css`transform: translateY(100%);`}>
-              <P>
-              {d.copy[2].text}{' '}{d.copy[3].text}
-              </P>
-            </Column>
           </Row>
+
+          <Layer left="0">
+            <Row w="100%" h="100%" align="flex-end">
+              <Column h="50%" w="50%" justify="flex-start" align="center">
+                <Column css={css`padding-top: 24px;`}>
+                <P>
+                {d.copy[0].text}<br/>{d.copy[1].text}
+                </P>
+                </Column>
+              </Column>
+
+              <Column h="50%" w="50%" justify="flex-start" align="center">
+                <Column css={css`padding-top: 24px;`}>
+                <P>
+                {d.copy[2].text}<br/>{d.copy[3].text}
+                </P>
+                </Column>
+              </Column>
+            </Row>
+          </Layer>
         </Slide>
       </BrowserView>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
@@ -6,23 +6,27 @@ import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
-import { animateFadeIn } from '../../../helpers/animation';
+import { animateFadeIn, fadeIn } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[10]
 
 const watches = d.images
 
 export default function Legacy11({ index }) {
+  const copy2Ref = useRef(null);
+
   const animation = (el, props) => animateFadeIn(el, {
     ...props,
     start: 'top top',
     end: 'bottom bottom',
+  }, tl => {
+    fadeIn(tl, copy2Ref.current)
   })
 
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide index={index} subslides={2.5} animate={animation}>
           <WatchesSafeArea justify="space-around">
             {watches.map((img, i) => (
               <Column key={img.src} h="100%" css={css`margin: 0 20px;`}>
@@ -40,9 +44,9 @@ export default function Legacy11({ index }) {
               </WatchesSafeArea>
             </Layer>
 
-            <Layer>
+            <Layer ref={copy2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" justify="flex-end">
-                <Column h="50%" align="center" justify="center" css={css`margin-top: 50px;`}>
+                <Column h="200px" align="center" justify="center" css={css`margin: 50px 0;`}>
                   <P css={css`text-align: center; max-width: 350px;`}>
                     {d.copy[1].text}
                   </P>
@@ -54,7 +58,7 @@ export default function Legacy11({ index }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide index={index} subslides={2.5} animate={animation}>
         <Column w="100%" h="100%">
           <Layer>
             <Column w="100%" h="100%">
@@ -81,7 +85,7 @@ export default function Legacy11({ index }) {
                 </Row>
               </Column>
 
-              <Row justify="center">
+              <Row justify="center" ref={copy2Ref} css={css`opacity: 0;`}>
                 <P mobile css={css`text-align: center; margin: 10px 20px;`}>
                   {d.copy[1].text}
                 </P>

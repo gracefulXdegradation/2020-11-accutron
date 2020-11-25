@@ -52,6 +52,8 @@ export const Circle = styled.div`
   ${({ size }) => css`
     width: ${CircleSizes[size]}px;
     height: ${CircleSizes[size]}px;
+    min-width: ${CircleSizes[size]}px;
+    min-height: ${CircleSizes[size]}px;
   `}
   border: 1px solid ${props => props.theme.fontParagraph};
   border-radius: 50%;

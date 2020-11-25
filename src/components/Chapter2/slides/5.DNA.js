@@ -32,21 +32,6 @@ export default function DNA5({ index }) {
         <Slide index={index} animate={animation} subslides={2}>
           <WatchesSafeArea justify="center">
             <Watches {...d.images[0]} />
-
-            <Layer left="0">
-              <Row w="100%" h="100%" justify="flex-end">
-                <Column h="50%" w="50%" justify="flex-end" align="flex-end">
-                  <Column css={css`padding-bottom: 20px;`}>
-                  <H4 alternative>
-                    {d.copy[0].text}
-                  </H4>
-                  <P css={css`max-width: 380px;`}>
-                    {d.copy[1].text}
-                  </P>
-                  </Column>
-                </Column>
-              </Row>
-            </Layer>
           </WatchesSafeArea>
           <Layer left="0" ref={watch2Ref} css={css`opacity: 0;`} >
             <WatchesSafeArea justify="center">
@@ -57,6 +42,21 @@ export default function DNA5({ index }) {
             <WatchesSafeArea justify="center">
               <Watches {...d.images[2]} css={css`transform: translateX(-100%);`} />
             </WatchesSafeArea>
+          </Layer>
+
+          <Layer left="0">
+            <Row w="100%" h="100%" justify="flex-end" align="flex-end">
+              <Column h="50%" w="50%" justify="flex-start" align="center">
+                <Column css={css`padding-top: 20px;`}>
+                <H4 alternative>
+                  {d.copy[0].text}
+                </H4>
+                <P css={css`max-width: 380px;`}>
+                  {d.copy[1].text}
+                </P>
+                </Column>
+              </Column>
+            </Row>
           </Layer>
         </Slide>
       </BrowserView>

@@ -17,10 +17,11 @@ export default function Spaceview2020({ index }) {
         <Slide index={index} animate={animateFadeInOut}>
           <WatchesSafeArea justify="center">
             <Watches {...d.images[0]} />
+          </WatchesSafeArea>
 
-            <Layer left="0">
+          <Layer left="0">
               <Row w="100%" h="100%" justify="flex-end">
-                <Column h="50%" w="50%" justify="flex-end" align="flex-end">
+                <Column h="50%" w="50%" justify="flex-end" align="center">
                   <Column css={css`padding-bottom: 20px;`}>
                     <H4 alternative>
                       {d.copy[0].text}
@@ -32,7 +33,6 @@ export default function Spaceview2020({ index }) {
                 </Column>
               </Row>
             </Layer>
-          </WatchesSafeArea>
         </Slide>
       </BrowserView>
 

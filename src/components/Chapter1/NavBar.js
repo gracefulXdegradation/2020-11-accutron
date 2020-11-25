@@ -50,9 +50,9 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
                 <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
               </HoverableCircle>
             </Column>
-            <Divider vertical />
+            <Divider length="auto" vertical css={css`flex: 1;`} />
             <H3 tertiary css={css`margin-top: 8px;`}>{slideHeading}</H3>
-            <Divider vertical />
+            <Divider length="auto" vertical css={css`flex: 1;`} />
             <Column align="center" css={css`padding: 30px 0 50px;`}>
               <HoverableCircle size="m" rotation={90} onClick={toChapter2}>
                 <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
