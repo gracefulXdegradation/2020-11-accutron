@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import AccutronLogo from '../assets/accutron-logo.svg'
+import { AccutronLogo } from '../data/assets';
 import { H4 } from '../styles/typography';
 
 export const Background = styled.div`

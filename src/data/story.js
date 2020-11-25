@@ -1,8 +1,6 @@
 import React from 'react';
 import { Em } from '../components/UIKit';
-
-const imgPath = 'https://static.highsnobiety.com/interactive-stories/2020-11-accutron/p/accutron-watch-history/static/media/'
-const resolveImage = img => `${imgPath}${img}`
+import {resolveImage} from './assets';
 
 const story = {
   video: {

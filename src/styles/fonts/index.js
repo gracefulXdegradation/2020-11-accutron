@@ -1,19 +1,18 @@
 import React from "react";
 import { Global, css } from "@emotion/core";
-import PlantinMTPro from "./PlantinMTProRg.ttf";
-import UniversLTProCondensed from './UniversLTPro-Condensed.otf'
+import { fonts } from '../../data/assets'
 
 const GlobalFonts = () => (
   <Global
     styles={css`
       @font-face {
         font-family: "Plantin MT Pro";
-        src: url(${PlantinMTPro}) format("truetype");
+        src: local("Plantin MT Pro"), url(${fonts.PlantinMTPro}) format("truetype");
       }
 
       @font-face {
         font-family: "Univers LT Pro";
-        src: url(${UniversLTProCondensed}) format("opentype");
+        src:  local("Univers LT Pro 57 Condensed"), url(${fonts.UniversLTProCondensed}) format("opentype");
       }
     `}
   />
