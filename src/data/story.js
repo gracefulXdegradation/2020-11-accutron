@@ -64,7 +64,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('ch1-s2-l1.3ce6a006.png'),
+              src: resolveImage('ch1-s2-l1.png'),
               alt: 'Accutron Mechanism'
             },
             {
@@ -464,6 +464,10 @@ const story = {
         },
       ],
       ending: {
+        shopLink: {
+          url: 'https://www.accutronwatch.com/',
+          caption: 'Shop Now'
+        },
         copy: [
           {
             text: 'Explore Accutron’s entire assortment at accutronwatch.com and start searching for'

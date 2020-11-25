@@ -98,8 +98,8 @@ function Technology2({ index, isPortrait, isLandscape }) {
                       <SlideImage {...d.images[3]} />
                     </ImageHolder>
                     <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
-                      <SlideImage {...d.images[4]} css={css`height: 80% !important; position: relative; left: 7%;`} />
-                      <SlideImage {...d.images[5]} css={css`height: 60% !important; position: relative; right: 7%;`} />
+                      <SlideImage {...d.images[4]} css={css`max-height: 80% !important; position: relative; left: 7%;`} />
+                      <SlideImage {...d.images[5]} css={css`max-height: 60% !important; position: relative; right: 7%;`} />
                     </ImageHolder>
                     <ImageHolder ref={rightImg3Ref} css={css`opacity: 0;`}>
                       <SlideImage {...d.images[6]} />
@@ -131,7 +131,7 @@ function Technology2({ index, isPortrait, isLandscape }) {
                 </ImageHolder>
                 <ImageHolder ref={rightImg2Ref} css={css`opacity: 0; align-items: flex-end;`}>
                   <SlideImage {...d.images[4]} css={css`position: relative; left: 7%;`} />
-                  <SlideImage {...d.images[5]} css={css`height: 80% !important; position: relative; right: 7%;`} />
+                  <SlideImage {...d.images[5]} css={css`max-height: 80% !important; position: relative; right: 7%;`} />
                 </ImageHolder>
                 <ImageHolder ref={leftImg3Ref} css={css`opacity: 0;`}>
                   <SlideImage {...d.images[3]} />

@@ -10,7 +10,7 @@ import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 
 const d = data.chapters[1].ending
 
-const ShopNow = styled.button`
+const ShopNow = styled.a`
   font-size: 20px;
   line-height: 1em;
   padding: 20px 83px 17px;
@@ -21,11 +21,16 @@ const ShopNow = styled.button`
   color: ${props => props.theme.fontHeaderPrimary};
   cursor: pointer;
   transition: box-shadow .2s ease-in;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 0px 0px 4px 1px #FFF inset;
   }
 `
+
+const ShopLink = () => (
+  <ShopNow href={d.shopLink.url} target="_blank">{d.shopLink.caption}</ShopNow>
+)
 
 export default function Ending() {
   const { toChapter1, toChapter2 } = useChapterAnimation()
@@ -57,7 +62,7 @@ export default function Ending() {
               <Divider />
             </Row>
             <Column align="center" css={css`margin: 0 100px;`}>
-              <ShopNow>Shop Now</ShopNow>
+              <ShopLink />
             </Column>
             <Row css={css`flex-direction: row-reverse; flex: 1; margin-right: 20px;`}>
               <Divider />
@@ -105,7 +110,7 @@ export default function Ending() {
                 {d.copy[1].text}
               </H4>
             </Column>
-            <ShopNow>Shop Now</ShopNow>
+            <ShopLink />
           </Column>
 
           <Row css={css`margin-top: 30px; padding: 20px 0;`} align="flex-end">

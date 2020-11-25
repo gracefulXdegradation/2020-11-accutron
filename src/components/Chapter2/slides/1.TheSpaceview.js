@@ -7,8 +7,47 @@ import Slide from '../Slide';
 import { HalfWatches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
+import styled from '@emotion/styled';
 
 const d = data.chapters[1].slides[0]
+
+const Caret = styled.i`
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-top: 25px solid ${props => props.theme.borderColor};
+  animation: glow 2s linear infinite;
+
+  @keyframes glow {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+
+  &:before{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-top: 25px solid ${props => props.theme.bgColor};
+    position: relative;
+    top: -27px; 
+    left: -35px;
+  }
+`
 
 export default function TheSpaceview({ index }) {
   const slide1Ref = useRef(null)
@@ -86,6 +125,12 @@ export default function TheSpaceview({ index }) {
                 </Column>
               </Layer>
             </Row>
+
+            <Layer left="0">
+              <Column w="100%" h="100%" justify="flex-end" align="center" css={css`padding-bottom: 60px;`}>
+                <Caret />
+              </Column>
+            </Layer>
         </Slide>
       </BrowserView>
 
