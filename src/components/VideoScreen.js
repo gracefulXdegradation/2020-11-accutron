@@ -16,32 +16,33 @@ export default function VideoScreen() {
     <Background css={css`height: 100vh;`}>
       <Layer>
         <VideoContent videoId={data.video.id} />
+        <Layer top="0" css={css`height: 100%; width: 100%; background: linear-gradient(to bottom, transparent 60%, #000000 100%);;`} />
       </Layer>
 
       <BrowserView renderWithFragment>
         <Column h="100%" w="100%" justify="flex-end" align="center">
-          <Column h="50%" justify="center">
-            <Column align="center" css={css`cursor: pointer;`}>
-              <HoverableCircle size="xl" onClick={toChapter1}>
+          {/* <Column h="50%" justify="center"> */}
+            <Column align="center" css={css`cursor: pointer; margin: 10vh 0;`}>
+              <HoverableCircle size="l" onClick={toChapter1}>
                 <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
                 <P align="center">ACCUracy through<br />elecTRONics</P>
               </HoverableCircle>
             </Column>
           </Column>
-        </Column>
+        {/* </Column> */}
       </BrowserView>
       
       <MobileView renderWithFragment>
         <Column h="100vh" justify="flex-end">
-          <Row align="center" h="70%" justify="center">
-            <Column align="center" onClick={toChapter1}>
+          {/* <Row align="center" h="70%" justify="center"> */}
+            <Column align="center" onClick={toChapter1} css={css`margin: 10vh 0;`}>
               <Circle size="l" />
               <Column align="center">
                 <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
                 <P align="center">ACCUracy through<br />elecTRONics</P>
               </Column>
             </Column>
-          </Row>
+          {/* </Row> */}
         </Column>
       </MobileView>
     </Background>
