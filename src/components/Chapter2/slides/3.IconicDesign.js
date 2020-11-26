@@ -6,9 +6,12 @@ import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { HalfWatches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
-import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
+import { animateFadeInOut, fadeIn, fadeInOut, fadeOut, revealWatch } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[2]
+
+const leftImg = d.images[0]
+const rightImg = d.images[1]
 
 export default function IconicDesign2({ index }) {
   const p1Ref = useRef(null);
@@ -17,13 +20,16 @@ export default function IconicDesign2({ index }) {
   const watchRef = useRef(null);
   const leftHalfRef = useRef(null);
   const watch2Ref = useRef(null);
+  const watch2LayerRef = useRef(null);
   const p2Ref = useRef(null);
   const h2Ref = useRef(null);
 
   const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
     fadeOut(tl, p1Ref.current)
     fadeInOut(tl, h1Ref.current)
-    fadeIn(tl, watchRef.current)
+    
+    revealWatch(tl, watchRef.current)
+
     fadeInOut(tl, p2Ref.current)
     fadeIn(tl, h2Ref.current)
   })
@@ -33,11 +39,13 @@ export default function IconicDesign2({ index }) {
     fadeOut(tl, p1Ref.current)
     fadeInOut(tl, h1Ref.current)
     fadeInOut(tl, h15Ref.current)
-    fadeIn(tl, watchRef.current)
-    tl.to([leftHalfRef.current, watch2Ref.current], {
+    
+    revealWatch(tl, watchRef.current)
+
+    tl.to([leftHalfRef.current, watch2LayerRef.current], {
       top: 0,
       duration: .5,
-      ease: 'none',
+      ease: 'ease-in',
     })
     fadeInOut(tl, p2Ref.current)
     fadeIn(tl, h2Ref.current)
@@ -73,10 +81,10 @@ export default function IconicDesign2({ index }) {
               </Column>
             </Layer>
 
-            <Layer ref={watchRef} css={css`opacity: 0;`}>
+            <Layer>
               <Row w="100%" h="100%" justify="flex-end" align="center">
                 <WatchesSafeArea justify="flex-end">
-                  <HalfWatches src={d.images[0].src} />
+                  <HalfWatches {...leftImg} ref={watchRef} isHidden />
                 </WatchesSafeArea>
               </Row>
             </Layer>
@@ -84,7 +92,7 @@ export default function IconicDesign2({ index }) {
 
           <Row w="50%" h="100%" justify="flex-start" align="center">
             <WatchesSafeArea justify="flex-start">
-              <HalfWatches right src={d.images[0].src} />
+              <HalfWatches right {...rightImg} />
             </WatchesSafeArea>
           </Row>
 
@@ -152,17 +160,17 @@ export default function IconicDesign2({ index }) {
                     </Column>
                   </Layer>
 
-                  <Layer ref={watchRef} css={css`opacity: 0;`}>
+                  <Layer>
                     <Column w="100%" h="100%" align="flex-end" justify="center">
-                      <HalfWatches src={d.images[0].src} />
+                      <HalfWatches ref={watchRef} {...leftImg} isHidden />
                     </Column>
                   </Layer>
                 </Row>
 
                 <Row w="50%" h="100%" justify="flex-start" align="center">
-                  <Layer ref={watch2Ref} css={css`top: -40px;`}>
+                  <Layer ref={watch2LayerRef} css={css`top: -40px;`}>
                     <Column w="100%" h="100%" align="flex-start" justify="center">
-                      <HalfWatches right src={d.images[0].src} />
+                      <HalfWatches ref={watch2Ref} right {...rightImg} />
                     </Column>
                   </Layer>
                 </Row>

@@ -16,6 +16,18 @@ export const fadeOut = (tl, el) =>
     ease: 'none'
   })
 
+export const revealWatch = (tl, el) => 
+  tl.fromTo(el, 2,
+    { width: 0 },
+    { width: '100%' },
+  )
+
+export const hideWatch = (tl, el) => 
+  tl.fromTo(el, 2,
+    { width: '100%' },
+    { width: 0 },
+  )
+
 export const fadeInOut = (tl, el) => {
   fadeIn(tl, el)
   fadeOut(tl, el)

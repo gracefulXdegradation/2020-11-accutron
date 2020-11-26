@@ -9,6 +9,9 @@ import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 const d = data.chapters[1].slides[5]
+const leftImg = d.images[0]
+const rightImg = d.images[1]
+const leftMobImg = d.images[2]
 
 export default function DNA6({ index }) {
   const dnaRef = useRef(null)
@@ -25,12 +28,12 @@ export default function DNA6({ index }) {
         <Slide index={index} animate={animateFadeInOut}>
           <Row w="50%" h="100%" justify="flex-start" align="center" css={css`flex-direction: row-reverse; padding-left: 50px;`}>
             <WatchesSafeArea justify="flex-end">
-              <HalfWatches {...d.images[0]} />
+              <HalfWatches {...d.images[0]} {...leftImg} />
             </WatchesSafeArea>
           </Row>
           <Row w="50%" h="100%" justify="flex-start" align="center" css={css`padding-right: 50px;`}>
             <WatchesSafeArea justify="flex-start">
-              <HalfWatches right {...d.images[1]} />
+              <HalfWatches right {...d.images[1]} {...rightImg} />
             </WatchesSafeArea>
           </Row>
 
@@ -60,7 +63,7 @@ export default function DNA6({ index }) {
         <Slide index={index} subslides={2} animate={mobileAnimation}>
           <Column h="100%" w="100%" justify="center" align="flex-start">
             <Column ref={dnaRef} h="100%" w="100%">
-              <HalfWatches right {...d.images[1]} />
+              <HalfWatches right {...leftMobImg} />
               <Layer>
                 <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                   <Column css={css`margin-right: 30px;`}>
@@ -74,7 +77,7 @@ export default function DNA6({ index }) {
             <Layer ref={svRef} css={css`opacity: 0;`}>
               <Column h="100%" w="100%" justify="center" align="flex-start">
                 <Column h="100%" w="100%">
-                  <HalfWatches right {...d.images[0]} />
+                  <HalfWatches right {...rightImg} />
                   <Layer>
                     <Row w="100%" h="100%" justify="flex-end" align="flex-end">
                       <Column css={css`margin-right: 30px;`}>

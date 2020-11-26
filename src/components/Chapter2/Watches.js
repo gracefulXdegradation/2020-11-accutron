@@ -1,19 +1,29 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Row } from '../UIKit';
+import { css } from '@emotion/core';
 
 const Wrapper = styled.div`
   height: 100%;
+  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
+  width: ${props => props.isHidden ? 0 : '100%'};
+  position: relative;
   overflow: hidden;
 `;
 
-const FullWatchImage = styled.img`
-  height: 100% !important;
-  object-fit: contain;
-  width: 200%;
-  max-width: 200% !important;
-  transform: translateX(${props => props.right ? '-50%' : '0'});
-`;
+const HalfWatchImage = styled.img`
+  height: 100%;
+  position: absolute;
+  width: auto !important;
+  max-width: none !important;
+  ${(props) => props.right ? css`
+    object-position: right;
+    left: 0;
+  ` : css`
+    object-position: left;
+    right: 0;
+  `}
+`
 
 export const WatchesSafeArea = styled(Row)`
   height: 100%;
@@ -21,13 +31,13 @@ export const WatchesSafeArea = styled(Row)`
   align-items: center;
 `
 
-export const HalfWatches = ({ right, src, alt = '' }) => {
+export const HalfWatches = React.forwardRef(({ right, src, isHidden, alt = '', maxHeight }, ref) => {
   return (
-    <Wrapper>
-      <FullWatchImage src={src} alt={alt} right={right} />
+    <Wrapper ref={ref} isHidden={isHidden} maxHeight={maxHeight}>
+      <HalfWatchImage src={src} alt={alt} right={right}/>
     </Wrapper>
   )
-};
+});
 
 const WatchesImage = styled.img`
   object-fit: contain;

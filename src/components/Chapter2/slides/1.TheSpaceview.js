@@ -6,10 +6,12 @@ import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { HalfWatches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
-import { animateFadeOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
+import { animateFadeOut, fadeInOut, hideWatch, revealWatch } from '../../../helpers/animation';
 import styled from '@emotion/styled';
 
 const d = data.chapters[1].slides[0]
+
+const mobHalfImageMaxHeight = '375px'
 
 const Caret = styled.i`
   position: absolute;
@@ -59,78 +61,79 @@ export default function TheSpaceview({ index }) {
   const slide6Ref = useRef(null)
 
   const animation = (el, props) => animateFadeOut(el, props, tl => {
-    fadeOut(tl, slide1Ref.current);
+    hideWatch(tl, slide1Ref.current)
+
     fadeInOut(tl, slide2Ref.current);
     slide2_5Ref.current && fadeInOut(tl, slide2_5Ref.current);
     fadeInOut(tl, slide3Ref.current);
     fadeInOut(tl, slide4Ref.current);
     slide5Ref.current && fadeInOut(tl, slide5Ref.current);
-    fadeIn(tl, slide6Ref.current);
+
+    revealWatch(tl, slide6Ref.current)
   })
   
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} startVisible subslides={4} animate={animation}>
-            <Row w="50%" h="100%">
-              <WatchesSafeArea justify="flex-end">
-                <HalfWatches src={d.images[1].src} />
-              </WatchesSafeArea>
-            </Row>
+        <Slide index={index} startVisible subslides={5} animate={animation}>
+          <Row w="50%" h="100%">
+            <WatchesSafeArea justify="flex-end">
+              <HalfWatches {...d.images[0]} />
+            </WatchesSafeArea>
+          </Row>
+          <Row w="50%" h="100%">
+            <Layer>
+              <Row h="100%">
+                <WatchesSafeArea justify="flex-start">
+                  <HalfWatches {...d.images[1]} right ref={slide1Ref} />
+                </WatchesSafeArea>
+              </Row>
+            </Layer>
             
-            <Row w="50%" h="100%">
-              <Layer ref={slide1Ref}>
-                <Row h="100%">
-                  <WatchesSafeArea justify="flex-start">
-                    <HalfWatches src={d.images[0].src} right />
-                  </WatchesSafeArea>
-                </Row>
-              </Layer>
-              
-              <Layer ref={slide2Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                    {d.copy[0].text}
-                  </P>
-                  <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                  {d.copy[1].text}
-                  </P>
-                </Column>
-              </Layer>
-
-              <Layer ref={slide3Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                  {d.copy[2].text}
-                  </P>
-                  <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                  {d.copy[3].text}
-                  </P>
-                </Column>
-              </Layer>
-
-              <Layer ref={slide4Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
-                  {d.copy[4].text}
-                  </P>
-                </Column>
-              </Layer>
-
-              <Layer ref={slide6Ref} css={css`opacity: 0;`}>
-                <Column w="100%" h="100%">
-                  <WatchesSafeArea justify="flex-start">
-                    <HalfWatches src={d.images[1].src} right />
-                  </WatchesSafeArea>
-                </Column>
-              </Layer>
-            </Row>
-
-            <Layer left="0">
-              <Column w="100%" h="100%" justify="flex-end" align="center" css={css`padding-bottom: 60px;`}>
-                <Caret />
+            <Layer ref={slide2Ref} css={css`opacity: 0;`}>
+              <Column w="100%" h="100%" align="flex-start" justify="center">
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                  {d.copy[0].text}
+                </P>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                {d.copy[1].text}
+                </P>
               </Column>
             </Layer>
+
+            <Layer ref={slide3Ref} css={css`opacity: 0;`}>
+              <Column w="100%" h="100%" align="flex-start" justify="center">
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                {d.copy[2].text}
+                </P>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                {d.copy[3].text}
+                </P>
+              </Column>
+            </Layer>
+
+            <Layer ref={slide4Ref} css={css`opacity: 0;`}>
+              <Column w="100%" h="100%" align="flex-start" justify="center">
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                {d.copy[4].text}
+                </P>
+              </Column>
+            </Layer>
+
+            <Layer>
+              <Column w="100%" h="100%">
+                <WatchesSafeArea justify="flex-start">
+                  <HalfWatches ref={slide6Ref} {...d.images[2]} right isHidden />
+                </WatchesSafeArea>
+              </Column>
+            </Layer>
+          </Row>
+
+          <Layer left="0">
+            <Column w="100%" h="100%" justify="flex-end" align="center" css={css`padding-bottom: 60px;`}>
+              <Caret />
+            </Column>
+          </Layer>
         </Slide>
       </BrowserView>
 
@@ -138,13 +141,13 @@ export default function TheSpaceview({ index }) {
         <Slide index={index} startVisible subslides={6} animate={animation}>
           <Row h="100%" align="center" css={css`padding: 20px 0;`}>
             <Row w="50%" h="100%" justify="flex-end" align="center">
-              <HalfWatches src={d.images[1].src} />
+                <HalfWatches {...d.images[0]} maxHeight={mobHalfImageMaxHeight} />
             </Row>
 
             <Row w="50%" h="100%">
-              <Layer ref={slide1Ref}>
+              <Layer>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches src={d.images[0].src} right />
+                  <HalfWatches ref={slide1Ref} {...d.images[1]} right maxHeight={mobHalfImageMaxHeight} />
                 </Column>
               </Layer>
 
@@ -188,9 +191,9 @@ export default function TheSpaceview({ index }) {
                 </Column>
               </Layer>
 
-              <Layer ref={slide6Ref} css={css`opacity: 0;`}>
+              <Layer>
                 <Column w="100%" h="100%" align="flex-start" justify="center">
-                  <HalfWatches src={d.images[1].src} right />
+                  <HalfWatches ref={slide6Ref} {...d.images[2]} right isHidden maxHeight={mobHalfImageMaxHeight} />
                 </Column>
               </Layer>
             </Row>

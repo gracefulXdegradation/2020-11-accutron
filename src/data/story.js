@@ -224,7 +224,7 @@ const story = {
           title: 'the spaceview',
           copy: [
             {
-              text: 'The original Accutron Spaceview – arguably its most popular and visually peculiar watch – was never meant for mass production.'
+            text: <>The original Accutron Spaceview&nbsp;– arguably its most popular and visually peculiar watch&nbsp;– was never meant for mass production.</>
             },
             {
               text: 'The Spaceview of yesteryear featured a deconstructed outer case design that exposed the inner workings of the watch and was only provided to retailers as display units to help explain how the innovative technology worked.'
@@ -241,10 +241,13 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES6A001_Soldier_short.6ecda448.png'),
+              src: resolveImage('1961_Accutron-SpaceviewAlpha_left.png'),
             },
             {
-              src: resolveImage('1961_Accutron-SpaceviewAlpha_short.ce98c864.png'),
+              src: resolveImage('1961_Accutron-SpaceviewAlpha_right.png'),
+            },
+            {
+              src: resolveImage('2ES6A001_Soldier_right.png'),
             },
           ]
         },
@@ -287,8 +290,11 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES6A001_Soldier_short.6ecda448.png'),
-            }
+              src: resolveImage('2ES6A001_Soldier_left.png'),
+            },
+            {
+              src: resolveImage('2ES6A001_Soldier_right.png'),
+            },
           ]
         },
 
@@ -357,12 +363,16 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES6A001_Soldier_short.6ecda448.png'),
+              src: resolveImage('2ES6A001_Soldier_left.png'),
               alt: 'Spaceview 2020'
             },
             {
-              src: resolveImage('2ES8A004_Soldier_short.4a845fea.png'),
+              src: resolveImage('2ES8A004_Soldier_right.png'),
               alt: 'The Accutron DNA'
+            },
+            {
+              src: resolveImage('2ES6A001_Soldier_right.png'),
+              alt: 'Spaceview 2020'
             },
           ]
         },
