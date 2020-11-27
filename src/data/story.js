@@ -29,6 +29,10 @@ import Ch2EndingBgImage from '../assets/2ES8A003_Detail_1.png';
 import Ch22ES7A001_Angle from '../assets/2ES7A001_Angle.png';
 import Ch22ES7A001_gold_Angle from '../assets/2ES7A001_gold_Angle.png';
 
+import Ch22ES8A004_Angle_black from '../assets/2ES8A004_Angle_black.png';
+import Ch22ES8A004_Angle_green from '../assets/2ES8A004_Angle_green.png';
+import Ch22ES8A004_Angle from '../assets/2ES8A004_Angle.png';
+
 const story = {
   video: {
     id: 483504451
@@ -388,6 +392,18 @@ const story = {
             {
               src: resolveImage('2ES8A004_Soldier_green.png'),
               alt: 'DNA 2ES8A004 Soldier green'
+            },
+            {
+              src: Ch22ES8A004_Angle,
+              alt: 'DNA 2ES8A004 Angle blue'
+            },
+            {
+              src: Ch22ES8A004_Angle_black,
+              alt: 'DNA 2ES8A004 Angle black'
+            },
+            {
+              src: Ch22ES8A004_Angle_green,
+              alt: 'DNA 2ES8A004 Angle green'
             },
           ]
         },

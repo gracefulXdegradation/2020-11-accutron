@@ -12,22 +12,33 @@ export default function DNA5({ index, data: d }) {
   const watch2Ref = useRef(null)
   const watch3Ref = useRef(null)
 
+  const watch4Ref = useRef(null)
+  const watch5Ref = useRef(null)
+  const watch6Ref = useRef(null)
+
   const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
     fadeIn(tl, watch2Ref.current)
     fadeIn(tl, watch3Ref.current)
+    fadeOut(tl, [watch1Ref.current, watch2Ref.current, watch3Ref.current])
+    fadeIn(tl, watch4Ref.current)
+    fadeIn(tl, watch5Ref.current)
+    fadeIn(tl, watch6Ref.current)
   })
 
   const mobileAnimation = (slide, props) => animateFadeInOut(slide, props, tl => {
     fadeOut(tl, watch1Ref.current)
     fadeInOut(tl, watch2Ref.current)
-    fadeIn(tl, watch3Ref.current)
+    fadeInOut(tl, watch3Ref.current)
+    fadeInOut(tl, watch4Ref.current)
+    fadeInOut(tl, watch5Ref.current)
+    fadeIn(tl, watch6Ref.current)
   })
   
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} animate={animation} subslides={2}>
-          <WatchesSafeArea justify="center">
+        <Slide index={index} animate={animation} subslides={4}>
+          <WatchesSafeArea ref={watch1Ref} justify="center">
             <Watches {...d.images[0]} />
           </WatchesSafeArea>
           <Layer left="0" ref={watch2Ref} css={css`opacity: 0;`} >
@@ -38,6 +49,22 @@ export default function DNA5({ index, data: d }) {
           <Layer left="0" ref={watch3Ref} css={css`opacity: 0;`} >
             <WatchesSafeArea justify="center">
               <Watches {...d.images[2]} css={css`transform: translateX(-100%);`} />
+            </WatchesSafeArea>
+          </Layer>
+
+          <Layer left="0" ref={watch4Ref} css={css`opacity: 0;`} >
+            <WatchesSafeArea justify="center">
+              <Watches {...d.images[3]} css={css`transform: translateY(10%);`} />
+            </WatchesSafeArea>
+          </Layer>
+          <Layer left="0" ref={watch5Ref} css={css`opacity: 0;`} >
+            <WatchesSafeArea justify="center">
+              <Watches {...d.images[4]} css={css`transform: translateX(-60%) translateY(10%);`} />
+            </WatchesSafeArea>
+          </Layer>
+          <Layer left="0" ref={watch6Ref} css={css`opacity: 0;`} >
+            <WatchesSafeArea justify="center">
+              <Watches {...d.images[5]} css={css`transform: translateX(-120%) translateY(10%);`} />
             </WatchesSafeArea>
           </Layer>
 
@@ -59,7 +86,7 @@ export default function DNA5({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={3} animate={mobileAnimation}>
+        <Slide index={index} subslides={6} animate={mobileAnimation}>
           <Column h="100%" w="100%" justify="space-around">
             <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
               <Layer ref={watch1Ref}>
@@ -75,6 +102,21 @@ export default function DNA5({ index, data: d }) {
               <Layer ref={watch3Ref} css={css`opacity: 0;`}>
                 <Column h="100%">
                   <Watches {...d.images[2]} />
+                </Column>
+              </Layer>
+              <Layer ref={watch4Ref} css={css`opacity: 0;`}>
+                <Column h="100%">
+                  <Watches {...d.images[3]} css={css`transform: translateY(3%) scale(1.1);`} />
+                </Column>
+              </Layer>
+              <Layer ref={watch5Ref} css={css`opacity: 0;`}>
+                <Column h="100%">
+                  <Watches {...d.images[4]} css={css`transform: translateY(3%) scale(1.1);`} />
+                </Column>
+              </Layer>
+              <Layer ref={watch6Ref} css={css`opacity: 0;`}>
+                <Column h="100%">
+                  <Watches {...d.images[5]} css={css`transform: translateY(3%) scale(1.1);`} />
                 </Column>
               </Layer>
             </Column>

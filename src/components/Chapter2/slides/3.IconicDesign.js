@@ -112,7 +112,7 @@ export default function IconicDesign2({ index, data: d  }) {
 
                   <Layer>
                     <Column w="100%" h="100%" align="flex-end" justify="center">
-                      <HalfWatches ref={watchRef} {...leftImg} isHidden />
+                      <HalfWatches ref={watchRef} {...leftImg} isHidden maxHeight="420px" />
                     </Column>
                   </Layer>
                 </Row>
@@ -120,7 +120,7 @@ export default function IconicDesign2({ index, data: d  }) {
                 <Row w="50%" h="100%" justify="flex-start" align="center">
                   <Layer>
                     <Column w="100%" h="100%" align="flex-start" justify="center">
-                      <HalfWatches right {...rightImg} />
+                      <HalfWatches right {...rightImg} maxHeight="420px" />
                     </Column>
                   </Layer>
                 </Row>
