@@ -8,11 +8,9 @@ import { Watches, WatchesSafeArea } from '../Watches';
 import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
-const d = data.chapters[1].slides[9]
-
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Legacy10({ index }) {
+export default function Legacy10({ index, data: d }) {
   const img1Ref = useRef(null);
   const img2Ref = useRef(null);
   const img3Ref = useRef(null);

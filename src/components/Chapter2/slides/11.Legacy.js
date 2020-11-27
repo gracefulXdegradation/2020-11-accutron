@@ -5,14 +5,11 @@ import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
-import data from '../../../data/story';
 import { animateFadeIn, fadeIn } from '../../../helpers/animation';
 
-const d = data.chapters[1].slides[10]
+export default function Legacy11({ index, data: d }) {
+  const watches = d.images
 
-const watches = d.images
-
-export default function Legacy11({ index }) {
   const copy2Ref = useRef(null);
 
   const animation = (el, props) => animateFadeIn(el, {

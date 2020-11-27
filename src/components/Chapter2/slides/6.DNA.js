@@ -5,15 +5,13 @@ import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { HalfWatches, WatchesSafeArea } from '../Watches';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
-const d = data.chapters[1].slides[5]
-const leftImg = d.images[0]
-const rightImg = d.images[1]
-const leftMobImg = d.images[2]
+export default function DNA6({ index, data: d }) {
+  const leftImg = d.images[0]
+  const rightImg = d.images[1]
+  const leftMobImg = d.images[2]
 
-export default function DNA6({ index }) {
   const dnaRef = useRef(null)
   const svRef = useRef(null)
 
@@ -41,17 +39,17 @@ export default function DNA6({ index }) {
             <Row w="100%" h="100%" align="flex-end">
               <Column h="50%" w="50%" justify="flex-start" align="center">
                 <Column css={css`padding-top: 24px;`}>
-                <P>
-                {d.copy[0].text}<br/>{d.copy[1].text}
-                </P>
+                  <P>
+                    {d.copy[0].text}<br/>{d.copy[1].text}
+                  </P>
                 </Column>
               </Column>
 
               <Column h="50%" w="50%" justify="flex-start" align="center">
                 <Column css={css`padding-top: 24px;`}>
-                <P>
-                {d.copy[2].text}<br/>{d.copy[3].text}
-                </P>
+                  <P>
+                    {d.copy[2].text}<br/>{d.copy[3].text}
+                  </P>
                 </Column>
               </Column>
             </Row>

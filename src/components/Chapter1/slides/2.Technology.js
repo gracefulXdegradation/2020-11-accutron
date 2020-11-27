@@ -5,10 +5,7 @@ import { isBrowser, isMobile, withOrientationChange } from "react-device-detect"
 import { P } from '../../../styles/typography';
 import { Column, Layer, LeftHalf, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
-
-const d = data.chapters[0].slides[1]
 
 const ImageHolder = styled.div`
   position: absolute;
@@ -25,7 +22,7 @@ const ImageHolder = styled.div`
   }
 `;
 
-function Technology2({ index, isPortrait, isLandscape }) {
+function Technology2({ index, isPortrait, isLandscape, data: d }) {
   const leftImg1Ref = useRef(null)
   const leftImg2Ref = useRef(null)
   const leftImg3Ref = useRef(null)

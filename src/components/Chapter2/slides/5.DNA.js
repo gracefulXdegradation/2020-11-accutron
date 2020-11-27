@@ -5,12 +5,9 @@ import { H4, P } from '../../../styles/typography'
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
-const d = data.chapters[1].slides[4]
-
-export default function DNA5({ index }) {
+export default function DNA5({ index, data: d }) {
   const watch1Ref = useRef(null)
   const watch2Ref = useRef(null)
   const watch3Ref = useRef(null)

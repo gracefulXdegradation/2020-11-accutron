@@ -7,8 +7,6 @@ import { H2, H4 } from '../../styles/typography';
 import { Column, Divider, Circle, Row, BackgroundImage, Layer } from '../UIKit';
 import data from '../../data/story';
 
-// import BgImage from '../../assets/2ES8A002_Detail_1.png';
-
 gsap.registerPlugin(ScrollTrigger);
 
 const d = data.chapters[1].opening

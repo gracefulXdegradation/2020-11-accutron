@@ -4,12 +4,9 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column } from '../../UIKit';
 import Slide from '../Slide';
-import data from '../../../data/story';
 import { animateFadeInOut } from '../../../helpers/animation';
 
-const d = data.chapters[1].slides[7]
-
-export default function Legacy8({ index }) {
+export default function Legacy8({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>

@@ -5,10 +5,7 @@ import styled from '@emotion/styled';
 import { P } from '../../../styles/typography';
 import { Block, Column, Layer, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
-
-const d = data.chapters[0].slides[4]
 
 const ImageHolder = styled.div`
   position: absolute;
@@ -25,7 +22,7 @@ const ImageHolder = styled.div`
   }
 `;
 
-function Legacy5({ index, isPortrait, isLandscape }) {
+function Legacy5({ index, isPortrait, isLandscape, data: d }) {
   const bulovaRef = useRef(null)
   const nasaRef = useRef(null)
   const pRef = useRef(null)

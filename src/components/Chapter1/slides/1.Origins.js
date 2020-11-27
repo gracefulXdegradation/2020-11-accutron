@@ -4,7 +4,6 @@ import { isBrowser, isMobile, withOrientationChange } from "react-device-detect"
 import { P } from '../../../styles/typography';
 import { Column, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
-import data from '../../../data/story';
 import { animateFadeInOut, animateFadeOut, fadeIn, fadeOut } from '../../../helpers/animation';
 import styled from '@emotion/styled';
 
@@ -20,16 +19,14 @@ const ImageHolder = styled.div`
   margin-bottom: 20px;
 `;
 
-const d = data.chapters[0].slides[0]
-
-const Watches = React.forwardRef((props, ref) => (
+const Watches = React.forwardRef(({ img1, img2 }, ref) => (
   <div ref={ref} css={css`position: relative;`}>
-    <img src={d.images[1].src} alt={d.images[1].alt} css={css`width: 63%; display: inline-block !important;`} />
-    <img src={d.images[2].src} alt={d.images[2].alt} css={css`width: 63%; display: inline-block !important; position: absolute; right: 0; z-index: -1;`} />
+    <img {...img1} css={css`width: 63%; display: inline-block !important;`} />
+    <img {...img2} css={css`width: 63%; display: inline-block !important; position: absolute; right: 0; z-index: -1;`} />
   </div>
 ))
 
-function Origins1({ index, isPortrait, isLandscape }) {
+function Origins1({ index, isPortrait, isLandscape, data: d }) {
   const mobMechanismRef = useRef(null)
   const mobWatchesRef = useRef(null)
 
@@ -68,7 +65,7 @@ function Origins1({ index, isPortrait, isLandscape }) {
                 <SlideImage {...d.images[0]} css={css`width: auto; height: 100% !important;`} />
               </ImageHolder>
               <ImageHolder ref={mobWatchesRef} css={css`opacity: 0;`}>
-                <Watches />
+                <Watches img1={d.images[1]} img2={d.images[2]} />
               </ImageHolder>
             </div>
             <Column>
@@ -93,7 +90,7 @@ function Origins1({ index, isPortrait, isLandscape }) {
                     {d.copy[0].text}
                   </P>
                 </Column>
-                <Watches />
+                <Watches img1={d.images[1]} img2={d.images[2]} />
               </Column>
             </Column>
           </RightHalf>

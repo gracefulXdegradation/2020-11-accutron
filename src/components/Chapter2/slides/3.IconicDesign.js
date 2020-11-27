@@ -5,15 +5,12 @@ import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { HalfWatches, WatchesSafeArea } from '../Watches';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeInOut, fadeOut, revealWatch } from '../../../helpers/animation';
 
-const d = data.chapters[1].slides[2]
-
-const leftImg = d.images[0]
-const rightImg = d.images[1]
-
-export default function IconicDesign2({ index }) {
+export default function IconicDesign2({ index, data: d  }) {
+  const leftImg = d.images[0]
+  const rightImg = d.images[1]
+  
   const p1Ref = useRef(null);
   const h1Ref = useRef(null);
   const h15Ref = useRef(null);

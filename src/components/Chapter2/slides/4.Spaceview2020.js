@@ -4,13 +4,10 @@ import { H4, P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
-import data from '../../../data/story';
 import { animateFadeInOut } from '../../../helpers/animation';
 import { css } from '@emotion/core';
 
-const d = data.chapters[1].slides[3]
-
-export default function Spaceview2020({ index }) {
+export default function Spaceview2020({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>

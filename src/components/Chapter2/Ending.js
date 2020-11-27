@@ -8,8 +8,6 @@ import { gsap, ScrollTrigger } from 'gsap/all';
 import { BackgroundImage, Circle, Column, Divider, HoverableCircle, Layer, Row } from "../UIKit";
 import data from '../../data/story';
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
-
-// import BgImage from '../../assets/2ES8A003_Detail_1.png';
 import { useStoryState } from '../../providers/StoryStateProvider';
 
 gsap.registerPlugin(ScrollTrigger);

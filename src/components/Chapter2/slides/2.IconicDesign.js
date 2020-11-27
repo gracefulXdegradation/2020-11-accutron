@@ -5,14 +5,11 @@ import { P } from '../../../styles/typography';
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
-
-const d = data.chapters[1].slides[1]
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function IconicDesign2({ index }) {
+export default function IconicDesign2({ index, data: d }) {
   const hRef = useRef(null);
   const hRef0 = useRef(null);
 

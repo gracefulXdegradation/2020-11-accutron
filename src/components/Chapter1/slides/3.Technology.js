@@ -4,12 +4,9 @@ import { isBrowser, isMobile, withOrientationChange } from "react-device-detect"
 import { H2, H4, P } from '../../../styles/typography';
 import { Column, Layer, LeftHalf, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
-const d = data.chapters[0].slides[2]
-
-function Technology3({ index, isPortrait, isLandscape }) {
+function Technology3({ index, isPortrait, isLandscape, data: d }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
 

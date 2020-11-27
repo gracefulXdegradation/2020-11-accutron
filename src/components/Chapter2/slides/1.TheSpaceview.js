@@ -5,11 +5,8 @@ import { P } from '../../../styles/typography';
 import { Column, Divider, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { HalfWatches, WatchesSafeArea } from '../Watches';
-import data from '../../../data/story';
 import { animateFadeOut, fadeInOut, hideWatch, revealWatch } from '../../../helpers/animation';
 import styled from '@emotion/styled';
-
-const d = data.chapters[1].slides[0]
 
 const mobHalfImageMaxHeight = '375px'
 
@@ -51,7 +48,7 @@ const Caret = styled.i`
   }
 `
 
-export default function TheSpaceview({ index }) {
+export default function TheSpaceview({ index, data: d }) {
   const slide1Ref = useRef(null)
   const slide2Ref = useRef(null)
   const slide2_5Ref = useRef(null)
@@ -60,11 +57,11 @@ export default function TheSpaceview({ index }) {
   const slide5Ref = useRef(null)
   const slide6Ref = useRef(null)
 
-  const div1Ref = useRef(null)
-  const div2Ref = useRef(null)
+  // const div1Ref = useRef(null)
+  // const div2Ref = useRef(null)
 
   const animation = (el, props) => animateFadeOut(el, props, tl => {
-    const isDesktop = !!div1Ref.current
+    // const isDesktop = !!div1Ref.current
 
     hideWatch(tl, slide1Ref.current)
 
@@ -76,25 +73,25 @@ export default function TheSpaceview({ index }) {
 
     revealWatch(tl, slide6Ref.current)
 
-    if (isDesktop) {
-      tl.to([div1Ref.current, div2Ref.current], {
-        duration: 1,
-        width: 0,
-        ease: 'none'
-      })
-    }
+    // if (isDesktop) {
+    //   tl.to([div1Ref.current, div2Ref.current], {
+    //     duration: 1,
+    //     width: 0,
+    //     ease: 'none'
+    //   })
+    // }
   })
   
   return (
     <>
       <BrowserView renderWithFragment>
         <Slide index={index} startVisible subslides={5} animate={animation}>
-        <Layer left="0" css={css`padding: 0 180px;`}>
+        {/* <Layer left="0" css={css`padding: 0 180px;`}>
           <Row h="100%" align="center" justify="center">
             <Divider ref={div1Ref} />
             <Divider ref={div2Ref} />
           </Row>
-        </Layer>
+        </Layer> */}
 
           <Row w="50%" h="100%">
             <WatchesSafeArea justify="flex-end">

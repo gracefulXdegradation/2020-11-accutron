@@ -2,6 +2,33 @@ import React from 'react';
 import { Em } from '../components/UIKit';
 import {resolveImage} from './assets';
 
+// chapter 1 slides
+import Origins1 from '../components/Chapter1/slides/1.Origins';
+import Technology2 from '../components/Chapter1/slides/2.Technology';
+import Technology3 from '../components/Chapter1/slides/3.Technology';
+import Legacy4 from '../components/Chapter1/slides/4.Legacy';
+import Legacy5 from '../components/Chapter1/slides/5.Legacy';
+import Legacy6 from '../components/Chapter1/slides/6.Legacy';
+
+// chapter 2 slides
+import TheSpaceview1 from '../components/Chapter2/slides/1.TheSpaceview';
+import IconicDesign2 from '../components/Chapter2/slides/2.IconicDesign';
+import IconicDesign3 from '../components/Chapter2/slides/3.IconicDesign';
+import Spaceview20204_1 from '../components/Chapter2/slides/4.1.Spaceview2020.js';
+import Spaceview20204_2 from '../components/Chapter2/slides/4.Spaceview2020.js';
+import DNA5 from '../components/Chapter2/slides/5.DNA';
+import DNA6 from '../components/Chapter2/slides/6.DNA';
+import Legacy7 from '../components/Chapter2/slides/7.Legacy';
+import Legacy8 from '../components/Chapter2/slides/8.Legacy';
+import Legacy9 from '../components/Chapter2/slides/9.Legacy';
+import Legacy10 from '../components/Chapter2/slides/10.Legacy';
+import Legacy11 from '../components/Chapter2/slides/11.Legacy';
+
+import Ch2OpeningBgImage from '../assets/2ES8A002_Detail_1.png';
+import Ch2EndingBgImage from '../assets/2ES8A003_Detail_1.png';
+import Ch22ES7A001_Angle from '../assets/2ES7A001_Angle.png';
+import Ch22ES7A001_gold_Angle from '../assets/2ES7A001_gold_Angle.png';
+
 const story = {
   video: {
     id: 483504451
@@ -25,7 +52,7 @@ const story = {
       },
       slides: [
         {
-          id: 0,
+          component: Origins1,
           title: 'origins',
           copy: [
             {
@@ -49,7 +76,7 @@ const story = {
         },
 
         {
-          id: 1,
+          component: Technology2,
           title: 'technology',
           copy: [
             {
@@ -95,7 +122,7 @@ const story = {
         },
 
         {
-          id: 2,
+          component: Technology3,
           title: 'technology',
           copy: [
             {
@@ -120,7 +147,7 @@ const story = {
         },
 
         {
-          id: 3,
+          component: Legacy4,
           title: 'legacy',
           copy: [
             {
@@ -136,7 +163,7 @@ const story = {
         },
 
         {
-          id: 4,
+          component: Legacy5,
           title: 'legacy',
           copy: [
             {
@@ -159,7 +186,7 @@ const story = {
         },
 
         {
-          id: 5,
+          component: Legacy6,
           title: 'legacy',
           copy: [
             {
@@ -218,12 +245,13 @@ const story = {
           },
         ],
         images: [{
-          src: resolveImage('2ES8A002_Detail_1.png')
+          // src: resolveImage('2ES8A002_Detail_1.png')
+          src: Ch2OpeningBgImage
         }]
       },
       slides: [
         {
-          id: 0,
+          component: TheSpaceview1,
           title: 'the spaceview',
           copy: [
             {
@@ -256,7 +284,7 @@ const story = {
         },
 
         {
-          id: 1,
+          component: IconicDesign2,
           title: 'iconic design',
           copy: [
             {
@@ -269,7 +297,7 @@ const story = {
         },
         
         {
-          id: 2,
+          component: IconicDesign3,
           title: 'iconic design',
           copy: [
             {
@@ -302,8 +330,31 @@ const story = {
         },
 
         {
-          id: 3,
-          title: 'spaceview 2020',
+          component: Spaceview20204_1,
+          title: 'the spaceview',
+          copy: [
+            {
+              text: 'The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents.'
+            },
+            {
+              text: 'The best part is that it comes in two designs to suit different tastes.'
+            },
+          ],
+          images: [
+            {
+              src: Ch22ES7A001_Angle,
+              alt: '2ES7A001 Angle'
+            },
+            {
+              src: Ch22ES7A001_gold_Angle,
+              alt: '2ES7A001 Gold Angle'
+            },
+          ]
+        },
+
+        {
+          component: Spaceview20204_2,
+          title: '2020',
           copy: [
             {
               text: 'the Spaceview 2020'
@@ -321,7 +372,7 @@ const story = {
         },
 
         {
-          id: 4,
+          component: DNA5,
           title: 'dna',
           copy: [
             {
@@ -348,7 +399,7 @@ const story = {
         },
 
         {
-          id: 5,
+          component: DNA6,
           title: 'dna',
           copy: [
             {
@@ -381,7 +432,7 @@ const story = {
         },
 
         {
-          id: 6,
+          component: Legacy7,
           title: 'legacy',
           copy: [
             {
@@ -395,7 +446,7 @@ const story = {
         },
 
         {
-          id: 7,
+          component: Legacy8,
           title: 'legacy',
           copy: [
             {
@@ -406,7 +457,7 @@ const story = {
         },
 
         {
-          id: 8,
+          component: Legacy9,
           title: 'legacy',
           images: [
             {
@@ -425,7 +476,7 @@ const story = {
         },
 
         {
-          id: 9,
+          component: Legacy10,
           title: 'legacy',
           images: [
             {
@@ -441,7 +492,7 @@ const story = {
         },
 
         {
-          id: 10,
+          component: Legacy11,
           title: 'legacy',
           copy: [
             {
@@ -490,7 +541,8 @@ const story = {
           }
         ],
         images: [{
-          src: resolveImage('2ES8A003_Detail_1.png')
+          // src: resolveImage('2ES8A003_Detail_1.png')
+          src: Ch2EndingBgImage
         }]
       },
     }

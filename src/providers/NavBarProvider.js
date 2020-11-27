@@ -2,12 +2,12 @@ import { useState, createContext, useCallback, useContext } from 'react';
 
 const NavBarContext = createContext();
 
-const NavBarProvider = ({ children, headings }) => {
-	const [slideHeading, setSlideHeading] = useState(headings[0]);
+const NavBarProvider = ({ children }) => {
+	const [slideHeading, setSlideHeading] = useState('');
 
 	const switchSlideHeading = useCallback((index) => {
-		setSlideHeading(headings[index]);
-	}, [headings]);
+		setSlideHeading(index);
+	}, []);
 
 	const value = {
 		slideHeading,

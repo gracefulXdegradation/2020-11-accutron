@@ -4,12 +4,9 @@ import { isBrowser, isMobile, withOrientationChange } from "react-device-detect"
 import { H2, H3, H4, P } from '../../../styles/typography';
 import { Column, Layer, LeftHalf, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
-import data from '../../../data/story';
 import { animateFadeIn, fadeOut, fadeIn, fadeInOut } from '../../../helpers/animation';
 
-const d = data.chapters[0].slides[5]
-
-function Legacy5({ index, isPortrait, isLandscape }) {
+function Legacy5({ index, isPortrait, isLandscape, data: d }) {
   const copy1Ref = useRef(null)
   const copy2Ref = useRef(null)
   const copy3Ref = useRef(null)

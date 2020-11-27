@@ -45,8 +45,8 @@ const WatchesImage = styled.img`
   height: 100% !important;
 `;
 
-export const Watches = (props) => {
+export const Watches = React.forwardRef((props, ref) => {
   return (
-    <WatchesImage {...props} />
+    <WatchesImage ref={ref} {...props} />
   )
-}
+})

@@ -61,7 +61,7 @@ export default function NavBar({ sliderRef }) {
                 </HoverableCircle>
               </Column>
               <Column w="100%">
-                {/* <Divider /> */}
+                <Divider />
               </Column>
               <Column align="center" css={css`margin: 24px;`}>
                 <Circle size="m" logo />

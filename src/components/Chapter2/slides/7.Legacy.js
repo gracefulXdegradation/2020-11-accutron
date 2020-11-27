@@ -4,12 +4,9 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { P } from '../../../styles/typography';
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
-const d = data.chapters[1].slides[6]
-
-export default function Legacy7({ index }) {
+export default function Legacy7({ index, data: d }) {
   const hRef = useRef(null);
   const hRef0 = useRef(null);
 
