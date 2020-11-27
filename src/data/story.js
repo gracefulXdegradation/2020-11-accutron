@@ -215,8 +215,11 @@ const story = {
         copy: [
           {
             text: 'A Legacy Reborn'
-          }
-        ]
+          },
+        ],
+        images: [{
+          src: resolveImage('2ES8A002_Detail_1.png')
+        }]
       },
       slides: [
         {

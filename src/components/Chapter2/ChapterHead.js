@@ -4,15 +4,29 @@ import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { gsap } from 'gsap/all';
 import { H2, H4 } from '../../styles/typography';
-import { Column, Divider, Circle, Row, Layer, Camouflage } from '../UIKit';
+import { Column, Divider, Circle, Row } from '../UIKit';
 import data from '../../data/story';
 
+// import BgImage from '../../assets/2ES8A002_Detail_1.png'
+import styled from '@emotion/styled';
+
 const d = data.chapters[1].opening
+const BgImage = d.images[0].src
+
+const BackgroundImage = styled.div`
+  width: 100%;
+  height: 100vh;
+  background: url(${BgImage});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: ${props => props.position};
+`
 
 export default function ChapterHead({ onAnimateEnd = () => null }) {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const dividerRef = useRef(null)
+  const divider2MobRef = useRef(null)
   const circleRef = useRef(null)
 
   const onAppear = isVisible => {
@@ -22,7 +36,7 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
 
   const animate = useCallback(() => {
     if (isVisible && !hasAnimated && dividerRef.current && circleRef.current) {
-      gsap.timeline({
+      const tl = gsap.timeline({
         onComplete: () => {
           setHasAnimated(true)
           onAnimateEnd()
@@ -38,6 +52,12 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
           duration: 1,
           ease: 'none',
         }, isMobile ? {height: '100%'} : {width: '100%'}))
+
+      isMobile && tl.to(divider2MobRef.current, {
+        duration: 1,
+        ease: 'none',
+        height: '100%'
+      })
     }
   }, [hasAnimated, isVisible, onAnimateEnd])
 
@@ -46,66 +66,67 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Column h="100%" w="100%" align="center" justify="center">
-          <Row css={css`flex: 1;`} justify="center" align="flex-end">
-            <ReactVisibilitySensor
-              partialVisibility={true}
-              minTopValue={300}
-              onChange={onAppear}
-            >
-              <Column ref={circleRef} align="center" css={css`margin-bottom: 12px; opacity: 0;`}>
-                <Circle size="xl" rotation={90} />
-                <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
-              </Column>
-            </ReactVisibilitySensor>
-          </Row>
-          <Row>
-            <Divider ref={dividerRef} length={`0%`} />
-          </Row>
-          <Row css={css`flex: 1;`} justify="center" align="flex-start">
-            <H2 align="center" css={css`margin-top: 40px;`} alternative>
-              {d.copy[0].text}
-            </H2>
-          </Row>
-        </Column>
+        <BackgroundImage position="right center">
+          <Column h="100%" w="100%" align="center" justify="center">
+            <Row css={css`flex: 1;`} justify="center" align="flex-end">
+              <ReactVisibilitySensor
+                partialVisibility={true}
+                minTopValue={300}
+                onChange={onAppear}
+              >
+                <Column ref={circleRef} align="center" css={css`margin-bottom: 12px; opacity: 0;`}>
+                  <Circle size="xl" rotation={90} />
+                  <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+                </Column>
+              </ReactVisibilitySensor>
+            </Row>
+            <Row>
+              <Divider ref={dividerRef} length={`0%`} />
+            </Row>
+            <Row css={css`flex: 1;`} justify="center" align="flex-start">
+              <H2 align="center" css={css`margin-top: 40px;`} alternative>
+                {d.copy[0].text}
+              </H2>
+            </Row>
+          </Column>
+        </BackgroundImage>
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Column h="100vh" w="100%">
-          <Layer>
-            <Column w="100%" h="100%" align="center">
-              <Divider ref={dividerRef} vertical length={`0`} />
-            </Column>
-          </Layer>
-
-          <Row h="50%" justify="center" align="flex-end">
-            <ReactVisibilitySensor
-              partialVisibility={true}
-              minTopValue={300}
-              onChange={onAppear}
-            >
-              <Column ref={circleRef} align="center" css={css`padding-top: 20px; opacity: 0;`}>
-                <Camouflage />
-                <Circle size="xl" rotation={90} />
+        <BackgroundImage position="center">
+          <Column h="100vh" w="100%">
+            <Column h="50%" w="100%" align="center" justify="flex-end">
+              <Column css={css`flex: 1;`}>
+                <Divider vertical length={`0`} ref={dividerRef} />
               </Column>
-            </ReactVisibilitySensor>
-          </Row>
-
-          <Row h="50%" justify="center" align="flex-start">
-            <Column align="center">
-              <Row justify="center">
-                <Camouflage />
-                <H4 css={css`padding-top: 20px;`}>Chapter 2</H4>
-              </Row>
-              <Row justify="center" css={css`margin-top: 12px;`}>
-                <Camouflage />
-                <H2 alternative mobile css={css`padding-top: 8px;`}>
-                  {d.copy[0].text}
-                </H2>
-              </Row>
+              <ReactVisibilitySensor
+                partialVisibility={true}
+                minTopValue={300}
+                onChange={onAppear}
+              >
+                <Column ref={circleRef} align="center" css={css`padding-top: 20px; opacity: 0;`}>
+                  <Circle size="xl" rotation={90} />
+                </Column>
+              </ReactVisibilitySensor>
             </Column>
-          </Row>
-        </Column>
+
+            <Column h="50%" w="100%" align="center" justify="flex-start">
+              <Column align="center">
+                <Row justify="center">
+                  <H4 css={css`padding-top: 20px;`}>Chapter 2</H4>
+                </Row>
+                <Row justify="center" css={css`margin-top: 12px;`}>
+                  <H2 alternative mobile css={css`padding: 8px 0;`}>
+                    {d.copy[0].text}
+                  </H2>
+                </Row>
+              </Column>
+              <Column css={css`flex: 1;`}>
+                <Divider vertical length={`0`} ref={divider2MobRef} />
+              </Column>
+            </Column>
+          </Column>
+        </BackgroundImage>
       </MobileView>
     </>
   );
