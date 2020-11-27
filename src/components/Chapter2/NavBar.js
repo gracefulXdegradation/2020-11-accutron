@@ -60,7 +60,9 @@ export default function NavBar({ sliderRef }) {
                   <H4>Chapter 1</H4>
                 </HoverableCircle>
               </Column>
-              <Divider />
+              <Column w="100%">
+                {/* <Divider /> */}
+              </Column>
               <Column align="center" css={css`margin: 24px;`}>
                 <Circle size="m" logo />
               </Column>

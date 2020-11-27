@@ -154,8 +154,7 @@ export default function IconicDesign2({ index }) {
                   <Layer ref={h15Ref} css={css`opacity: 0;`}>
                     <Column w="100%" h="100%" align="flex-end" justify="center">
                       <P mobile css={css`margin-right: 8px; max-width: 165px;`}>
-                      {d.copy[2].text}
-                      {d.copy[3].text}
+                        {d.copy[2].text}{' '}{d.copy[3].text}
                       </P>
                     </Column>
                   </Layer>
