@@ -15,20 +15,12 @@ export default function IconicDesign2({ index, data: d  }) {
   const h1Ref = useRef(null);
   const h15Ref = useRef(null);
   const watchRef = useRef(null);
-  const leftHalfRef = useRef(null);
-  const watch2Ref = useRef(null);
-  const watch2LayerRef = useRef(null);
-  const p2Ref = useRef(null);
-  const h2Ref = useRef(null);
 
   const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
     fadeOut(tl, p1Ref.current)
     fadeInOut(tl, h1Ref.current)
     
     revealWatch(tl, watchRef.current)
-
-    fadeInOut(tl, p2Ref.current)
-    fadeIn(tl, h2Ref.current)
   })
 
   const mobileAnimation = (slide, props) => animateFadeInOut(slide, props, tl => {
@@ -38,14 +30,6 @@ export default function IconicDesign2({ index, data: d  }) {
     fadeInOut(tl, h15Ref.current)
     
     revealWatch(tl, watchRef.current)
-
-    tl.to([leftHalfRef.current, watch2LayerRef.current], {
-      top: 0,
-      duration: .5,
-      ease: 'ease-in',
-    })
-    fadeInOut(tl, p2Ref.current)
-    fadeIn(tl, h2Ref.current)
   })
   
   return (
@@ -92,24 +76,6 @@ export default function IconicDesign2({ index, data: d  }) {
               <HalfWatches right {...rightImg} />
             </WatchesSafeArea>
           </Row>
-
-          <Layer left="0" ref={p2Ref} css={css`opacity: 0;`}>
-            <Column h="100%" w="100%" justify="flex-end" align="center">
-              <P align="center" css={css`max-width: 380px; margin-bottom: 50px;`}>
-              {d.copy[4].text}
-              </P>
-            </Column>
-          </Layer>
-
-          <Layer left="0" ref={h2Ref} css={css`opacity: 0;`}>
-              <Column w="100%" h="100%" justify="flex-end">
-                <Column h="200px" align="center" justify="center" css={css`margin: 50px 0;`}>
-                  <P align="center"  css={css`max-width: 900px;`}>
-                  {d.copy[5].text}
-                  </P>
-                </Column>
-              </Column>
-            </Layer>
         </Slide>
       </BrowserView>
 
@@ -117,21 +83,9 @@ export default function IconicDesign2({ index, data: d  }) {
         <Slide index={index} subslides={8} animate={mobileAnimation}>
           <Row h="100%" align="center">
             <Column w="100%" h="100%">
-              <Column>
-                <P mobile ref={p2Ref} align="center" css={css`text-align: center; padding: 10px 32px; opacity: 0;`}>
-                  {d.copy[4].text}
-                </P>
-                <Layer left="0" ref={h2Ref} css={css`opacity: 0;`}>
-                  <Column w="100%" h="100%" align="center" justify="center">
-                    <P mobile align="center" css={css`text-align: center; padding: 10px 32px;`}>
-                    {d.copy[5].text}
-                    </P>
-                  </Column>
-                </Layer>
-              </Column>
 
               <Row css={css`flex: 1;`}>
-                <Row ref={leftHalfRef} w="50%" h="100%" css={css`top: -40px;`}>
+                <Row w="50%" h="100%">
                   <Layer ref={p1Ref}>
                     <Column w="100%" h="100%" align="flex-end" justify="center">
                       <P mobile css={css`margin-right: 8px; max-width: 146px;`}>
@@ -164,9 +118,9 @@ export default function IconicDesign2({ index, data: d  }) {
                 </Row>
 
                 <Row w="50%" h="100%" justify="flex-start" align="center">
-                  <Layer ref={watch2LayerRef} css={css`top: -40px;`}>
+                  <Layer>
                     <Column w="100%" h="100%" align="flex-start" justify="center">
-                      <HalfWatches ref={watch2Ref} right {...rightImg} />
+                      <HalfWatches right {...rightImg} />
                     </Column>
                   </Layer>
                 </Row>

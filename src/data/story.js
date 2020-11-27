@@ -312,12 +312,6 @@ const story = {
             {
               text: 'it’s Spaceview’s new looks that’ll want both nostalgic collectors and first-time buyers knocking.'
             },
-            {
-              text: 'The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents.'
-            },
-            {
-              text: 'The best part is that it comes in two designs to suit different tastes:'
-            },
           ],
           images: [
             {
