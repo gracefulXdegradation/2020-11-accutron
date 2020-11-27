@@ -201,3 +201,12 @@ export const HoverableCircle = React.forwardRef(({ size, children, rotation, wra
     </GlowingCircle>
   )
 })
+
+export const BackgroundImage = styled.div`
+  width: 100%;
+  height: 100vh;
+  background: url(${props => props.src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: ${props => props.position};
+`

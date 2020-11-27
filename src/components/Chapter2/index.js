@@ -51,14 +51,14 @@ export default function Chapter2() {
     <>
       <BrowserView renderWithFragment>
         <Background css={!hasChapterInit && css`height: 100vh; overflow: hidden;`}>
-            {/* set transform via style in order to make it clearable by GSAP */}
-            <HorizontalSlider ref={horSlider} style={{transform: 'translate3d(100%,0,0)'}}> 
-              <LeftScreen>
-                <ChapterHead onAnimateEnd={toSlider} />
-              </LeftScreen>
-              <Slider />
-              <Ending />
-            </HorizontalSlider>
+          {/* set transform via style in order to make it clearable by GSAP */}
+          <HorizontalSlider ref={horSlider} style={{transform: 'translate3d(100%,0,0)'}}> 
+            <LeftScreen>
+              <ChapterHead onAnimateEnd={toSlider} />
+            </LeftScreen>
+            <Slider />
+            <Ending />
+          </HorizontalSlider>
         </Background>
       </BrowserView>
 

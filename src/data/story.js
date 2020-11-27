@@ -488,7 +488,10 @@ const story = {
           {
             text: 'A conversation piece that you can call your own'
           }
-        ]
+        ],
+        images: [{
+          src: resolveImage('2ES8A003_Detail_1.png')
+        }]
       },
     }
   ]

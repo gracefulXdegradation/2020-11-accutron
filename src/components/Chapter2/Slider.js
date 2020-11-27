@@ -30,21 +30,21 @@ export default function Slider() {
   return (
     <SliderRoot ref={pinSectionRef}>
       <Background css={css`height: 100%;`}>
-      <NavBarProvider headings={headings}>
-        <BrandBackground sliderRef={pinSectionRef} chapter={2} />
-        <NavBar sliderRef={pinSectionRef} />
-        <TheSpaceview1 index={0} />
-        <IconicDesign2 index={1} />
-        <IconicDesign3 index={1} />
-        <Spaceview20204 index={2} />
-        <DNA5 index={3} />
-        <DNA6 index={3} />
-        <Legacy7 index={4} />
-        <Legacy8 index={4} />
-        <Legacy9 index={4} />
-        <Legacy10 index={4} />
-        <Legacy11 index={4} />
-      </NavBarProvider>
+        <NavBarProvider headings={headings}>
+          <BrandBackground sliderRef={pinSectionRef} chapter={2} />
+          <NavBar sliderRef={pinSectionRef} />
+          <TheSpaceview1 index={0} />
+          <IconicDesign2 index={1} />
+          <IconicDesign3 index={1} />
+          <Spaceview20204 index={2} />
+          <DNA5 index={3} />
+          <DNA6 index={3} />
+          <Legacy7 index={4} />
+          <Legacy8 index={4} />
+          <Legacy9 index={4} />
+          <Legacy10 index={4} />
+          <Legacy11 index={4} />
+        </NavBarProvider>
       </Background>
     </SliderRoot>
   );
