@@ -24,18 +24,6 @@ import Legacy9 from '../components/Chapter2/slides/9.Legacy';
 import Legacy10 from '../components/Chapter2/slides/10.Legacy';
 import Legacy11 from '../components/Chapter2/slides/11.Legacy';
 
-import Ch2OpeningBgImage from '../assets/2ES8A002_Detail_1.png';
-import Ch2EndingBgImage from '../assets/2ES8A003_Detail_1.png';
-import Ch22ES7A001_Angle from '../assets/2ES7A001_Angle.png';
-import Ch22ES7A001_gold_Angle from '../assets/2ES7A001_gold_Angle.png';
-
-import Ch22ES8A004_Angle_black from '../assets/2ES8A004_Angle_black.png';
-import Ch22ES8A004_Angle_green from '../assets/2ES8A004_Angle_green.png';
-import Ch22ES8A004_Angle from '../assets/2ES8A004_Angle.png';
-
-import Ch2Prices1 from '../assets/Prices_1.jpg';
-import Ch2Prices2 from '../assets/Prices_2.jpg';
-
 const story = {
   video: {
     id: 483504451
@@ -252,8 +240,7 @@ const story = {
           },
         ],
         images: [{
-          // src: resolveImage('2ES8A002_Detail_1.png')
-          src: Ch2OpeningBgImage
+          src: resolveImage('2ES8A002_Detail_1.jpg')
         }]
       },
       slides: [
@@ -343,11 +330,11 @@ const story = {
           ],
           images: [
             {
-              src: Ch22ES7A001_Angle,
+              src: resolveImage('2ES7A001_Angle.png'),
               alt: '2ES7A001 Angle'
             },
             {
-              src: Ch22ES7A001_gold_Angle,
+              src: resolveImage('2ES7A001_gold_Angle.png'),
               alt: '2ES7A001 Gold Angle'
             },
           ]
@@ -397,15 +384,15 @@ const story = {
               alt: 'DNA 2ES8A004 Soldier green'
             },
             {
-              src: Ch22ES8A004_Angle,
+              src: resolveImage('2ES8A004_Angle.png'),
               alt: 'DNA 2ES8A004 Angle blue'
             },
             {
-              src: Ch22ES8A004_Angle_black,
+              src: resolveImage('2ES8A004_Angle_black.png'),
               alt: 'DNA 2ES8A004 Angle black'
             },
             {
-              src: Ch22ES8A004_Angle_green,
+              src: resolveImage('2ES8A004_Angle_green.png'),
               alt: 'DNA 2ES8A004 Angle green'
             },
           ]
@@ -430,11 +417,11 @@ const story = {
           ],
           images: [
             {
-              src: Ch2Prices1,
+              src: resolveImage('Prices_1.jpg'),
               alt: 'Spaceview 2020'
             },
             {
-              src: Ch2Prices2,
+              src: resolveImage('Prices_2.jpg'),
               alt: 'The Accutron DNA'
             },
           ]
@@ -550,8 +537,7 @@ const story = {
           }
         ],
         images: [{
-          // src: resolveImage('2ES8A003_Detail_1.png')
-          src: Ch2EndingBgImage
+          src: resolveImage('2ES8A003_Detail_1.jpg')
         }]
       },
     }
