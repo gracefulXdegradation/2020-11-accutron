@@ -5,6 +5,13 @@ import { css } from '@emotion/core';
 import { Column, Row } from '../UIKit';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useStoryState } from '../../providers/StoryStateProvider';
+import { zIndex } from '../../styles/const';
+
+const Wrapper = styled.div`
+  pointer-events: none;
+  position: relative;
+  z-index: ${props => props.isBackground ? zIndex.backgroundSlide : zIndex.foregroundSlide};
+`
 
 const SlideRoot = styled.section`
   width: 100%;
@@ -13,7 +20,7 @@ const SlideRoot = styled.section`
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
 
-const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
+const Slide = ({ index, children, startVisible, isBackground, subslides = 1, animate }) =>  {
   const { hasChapterInit } = useStoryState();
   const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
@@ -31,7 +38,7 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
   }, [animate, index, setSlideHeading, hasChapterInit])
 
   return (
-    <div css={css`pointer-events: none;`}>
+    <Wrapper isBackground={isBackground}>
       <BrowserView renderWithFragment>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
           <Row ref={slideInnerRef} h="100vh" css={css`padding: 0 200px;`}>
@@ -47,7 +54,7 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate }) =>  {
           </Column>
         </SlideRoot>
       </MobileView>
-    </div>
+    </Wrapper>
   );
 };
 

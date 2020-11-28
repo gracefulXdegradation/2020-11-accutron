@@ -8,6 +8,7 @@ import { useNavBar } from '../../providers/NavBarProvider';
 import { Circle, Layer, Divider, Row, Column, HoverableCircle } from '../UIKit';
 import { useStoryState } from '../../providers/StoryStateProvider';
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
+import { zIndex } from '../../styles/const';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,9 +41,9 @@ export default function NavBar({ sliderRef }) {
   }, [sliderRef, hasChapterInit])
 
   return (
-    <Layer ref={pinRef} fullScreen>
-      <BrowserView>
-        <Layer fullScreen>
+    <Layer ref={pinRef} fullScreen css={css`z-index: ${zIndex.navBar};`}>
+      <BrowserView renderWithFragment>
+        {/* <Layer fullScreen> */}
           <Column w="100%" h="100%">
             <Column align="center" css={css`flex: 1;`}>
               <Column align="center" css={css`margin-top: 32px;`}>
@@ -71,11 +72,11 @@ export default function NavBar({ sliderRef }) {
 
             <Column align="center" css={css`flex: 1;`} />
           </Column>
-        </Layer>
+        {/* </Layer> */}
       </BrowserView>
 
-      <MobileView>
-        <Layer>
+      <MobileView renderWithFragment>
+        {/* <Layer> */}
           <Column w="100%" h="100%" justify="space-between">
             <Column align="center">
               <Divider vertical length="35px" />
@@ -98,7 +99,7 @@ export default function NavBar({ sliderRef }) {
               <Divider />
             </Row>
           </Column>
-        </Layer>
+        {/* </Layer> */}
       </MobileView>
     </Layer>
   );

@@ -17,7 +17,7 @@ import IconicDesign3 from '../components/Chapter2/slides/3.IconicDesign';
 import Spaceview20204_1 from '../components/Chapter2/slides/4.1.Spaceview2020.js';
 import Spaceview20204_2 from '../components/Chapter2/slides/4.Spaceview2020.js';
 import DNA5 from '../components/Chapter2/slides/5.DNA';
-import DNA6 from '../components/Chapter2/slides/6.DNA';
+import Prices6 from '../components/Chapter2/slides/6.Prices';
 import Legacy7 from '../components/Chapter2/slides/7.Legacy';
 import Legacy8 from '../components/Chapter2/slides/8.Legacy';
 import Legacy9 from '../components/Chapter2/slides/9.Legacy';
@@ -32,6 +32,9 @@ import Ch22ES7A001_gold_Angle from '../assets/2ES7A001_gold_Angle.png';
 import Ch22ES8A004_Angle_black from '../assets/2ES8A004_Angle_black.png';
 import Ch22ES8A004_Angle_green from '../assets/2ES8A004_Angle_green.png';
 import Ch22ES8A004_Angle from '../assets/2ES8A004_Angle.png';
+
+import Ch2Prices1 from '../assets/Prices_1.jpg';
+import Ch2Prices2 from '../assets/Prices_2.jpg';
 
 const story = {
   video: {
@@ -409,8 +412,8 @@ const story = {
         },
 
         {
-          component: DNA6,
-          title: 'dna',
+          component: Prices6,
+          title: 'the spaceview',
           copy: [
             {
               text: 'The Spaceview 2020'
@@ -427,16 +430,12 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES6A001_Soldier_left.png'),
+              src: Ch2Prices1,
               alt: 'Spaceview 2020'
             },
             {
-              src: resolveImage('2ES8A004_Soldier_right.png'),
+              src: Ch2Prices2,
               alt: 'The Accutron DNA'
-            },
-            {
-              src: resolveImage('2ES6A001_Soldier_right.png'),
-              alt: 'Spaceview 2020'
             },
           ]
         },

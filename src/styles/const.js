@@ -21,3 +21,9 @@ export const themes = {
 
 export const typefaceHeader = 'Plantin MT Pro';
 export const typefaceParagraph = 'Univers LT Pro';
+
+export const zIndex = {
+  backgroundSlide: 0,
+  navBar: 1,
+  foregroundSlide: 2
+}
