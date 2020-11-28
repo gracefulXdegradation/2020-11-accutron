@@ -43,63 +43,59 @@ export default function NavBar({ sliderRef }) {
   return (
     <Layer ref={pinRef} fullScreen css={css`z-index: ${zIndex.navBar};`}>
       <BrowserView renderWithFragment>
-        {/* <Layer fullScreen> */}
-          <Column w="100%" h="100%">
-            <Column align="center" css={css`flex: 1;`}>
-              <Column align="center" css={css`margin-top: 32px;`}>
-                <HoverableCircle size="m" ref={logoRef} onClick={toChapter2}>
-                  <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
-                </HoverableCircle>
-              </Column>
-              <H3 alternative>{slideHeading}</H3>
+        <Column w="100%" h="100%">
+          <Column align="center" css={css`flex: 1;`}>
+            <Column align="center" css={css`margin-top: 32px;`}>
+              <HoverableCircle size="m" ref={logoRef} onClick={toChapter2}>
+                <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+              </HoverableCircle>
             </Column>
-
-            <Row align="center" justify="space-between">
-              <Divider length="90px" />
-              <Column align="center" css={css`margin: 24px;`}>
-                <HoverableCircle size="m" onClick={toChapter1} wrapChildren>
-                  <H4>Chapter 1</H4>
-                </HoverableCircle>
-              </Column>
-              <Column w="100%">
-                <Divider />
-              </Column>
-              <Column align="center" css={css`margin: 24px;`}>
-                <Circle size="m" logo />
-              </Column>
-              <Divider length="90px" />
-            </Row>
-
-            <Column align="center" css={css`flex: 1;`} />
+            <H3 alternative>{slideHeading}</H3>
           </Column>
-        {/* </Layer> */}
+
+          <Row align="center" justify="space-between">
+            <Divider length="90px" />
+            <Column align="center" css={css`margin: 24px;`}>
+              <HoverableCircle size="m" onClick={toChapter1} wrapChildren>
+                <H4>Chapter 1</H4>
+              </HoverableCircle>
+            </Column>
+            <Column w="100%">
+              <Divider />
+            </Column>
+            <Column align="center" css={css`margin: 24px;`}>
+              <Circle size="m" logo />
+            </Column>
+            <Divider length="90px" />
+          </Row>
+
+          <Column align="center" css={css`flex: 1;`} />
+        </Column>
       </BrowserView>
 
       <MobileView renderWithFragment>
-        {/* <Layer> */}
-          <Column w="100%" h="100%" justify="space-between">
-            <Column align="center">
-              <Divider vertical length="35px" />
-              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter1}>Chapter 1</H4>
-              <Row align="center">
-                <Divider />
-                <Column css={css`margin: 0 30px;`} onClick={toChapter2}>
-                  <Circle ref={logoRef} size="s" />
-                </Column>
-                <Divider />
-              </Row>
-              <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter2}>Chapter 2</H4>
-              <H3 alternative css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
-            </Column>
-            <Row align="center" css={css`margin: 12px 0 16px;`}>
-              <Row />
-              <Column align="center" css={css`padding: 0 16px;`}>
-                <Circle size="s" logo />
+        <Column w="100%" h="100%" justify="space-between">
+          <Column align="center">
+            <Divider vertical length="35px" />
+            <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter1}>Chapter 1</H4>
+            <Row align="center">
+              <Divider />
+              <Column css={css`margin: 0 30px;`} onClick={toChapter2}>
+                <Circle ref={logoRef} size="s" />
               </Column>
               <Divider />
             </Row>
+            <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter2}>Chapter 2</H4>
+            <H3 alternative css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
           </Column>
-        {/* </Layer> */}
+          <Row align="center" css={css`margin: 12px 0 16px;`}>
+            <Row />
+            <Column align="center" css={css`padding: 0 16px;`}>
+              <Circle size="s" logo />
+            </Column>
+            <Divider />
+          </Row>
+        </Column>
       </MobileView>
     </Layer>
   );

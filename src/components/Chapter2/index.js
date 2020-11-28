@@ -4,7 +4,6 @@ import { gsap } from 'gsap/all';
 import { useStoryState } from '../../providers/StoryStateProvider';
 import { Background } from '../UIKit';
 import ChapterHead from './ChapterHead';
-import Ending from './Ending';
 import Slider from './Slider';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView, isMobile } from 'react-device-detect';
@@ -57,7 +56,7 @@ export default function Chapter2() {
               <ChapterHead onAnimateEnd={toSlider} />
             </LeftScreen>
             <Slider />
-            <Ending />
+            {/* <Ending /> */}
           </HorizontalSlider>
         </Background>
       </BrowserView>
@@ -69,7 +68,7 @@ export default function Chapter2() {
               <ChapterHead onAnimateEnd={toSlider} />
             </TopScreen>
             <Slider />
-            <Ending />
+            {/* <Ending /> */}
           </HorizontalSlider>
         </Background>
       </MobileView>

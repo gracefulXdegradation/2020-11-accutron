@@ -1,14 +1,15 @@
 import { css } from '@emotion/core';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { BrowserView, MobileView } from "react-device-detect";
 import styled from '@emotion/styled';
 import { H4, P } from "../../styles/typography";
 import { typefaceParagraph } from "../../styles/const";
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { BackgroundImage, Circle, Column, Divider, HoverableCircle, Layer, Row } from "../UIKit";
+import { Background, BackgroundImage, Circle, Column, Divider, HoverableCircle, Layer, Row } from "../UIKit";
 import data from '../../data/story';
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
-import { useStoryState } from '../../providers/StoryStateProvider';
+import Slide from './Slide';
+import { animateFadeIn, fadeIn } from '../../helpers/animation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,45 +41,34 @@ const ShopLink = () => (
 
 export default function Ending() {
   const { toChapter1, toChapter2 } = useChapterAnimation()
-  const { hasChapterInit } = useStoryState()
 
-  const sliderRef = useRef(null)
   const bgRef = useRef(null)
   const contentRef = useRef(null)
 
-  useEffect(() => {
-    if (hasChapterInit) {
-      const tl = gsap.timeline({
-        scrollTrigger:{
-          trigger: sliderRef.current,
-          pin: true,
-          scrub: true,
-          start: 'top top',
-          snap: 'labels'
-        }
-      })
-      .to(bgRef.current, {
-        opacity: .3,
-        duration: .5,
-        ease: 'none',
-      })
-      .to(contentRef.current, {
-        opacity: 1,
-        duration: 1,
-        ease: 'none',
-      })
-      .addLabel('ending')
-
-      return () => tl.kill()
-    }
-  }, [hasChapterInit])
+  const animation = (slide, props) => animateFadeIn(slide, {
+    ...props,
+    start: 'top top',
+    end: 'bottom bottom',
+    snap: 'labels'
+  }, tl => {
+    tl.to(bgRef.current, {
+      opacity: .3,
+      duration: .5,
+      ease: 'none',
+    })
+    fadeIn(tl, contentRef.current)
+    tl.addLabel('ending')
+  })
 
   return (
     <>
       <BrowserView renderWithFragment>
-          <Row h="100vh" ref={sliderRef}>
+        <Slide isActionable subslides={3} animate={animation}>
+          <Layer left="0">
             <Layer top="0">
-              <BackgroundImage ref={bgRef} src={BgImage} position="center" css={css`opacity: 0;`} />
+              <Background css={css`height: 100%;`}>
+                <BackgroundImage ref={bgRef} src={BgImage} position="center" css={css`opacity: 0;`} />
+              </Background>
             </Layer>
             <Column ref={contentRef} h="100vh" w="100%" align="center" justify="space-between" css={css`opacity: 0;`}>
               <Column css={css`flex: 1;`} align="center" justify="flex-start">
@@ -123,58 +113,63 @@ export default function Ending() {
                 </Column>
               </Column>
             </Column>
-          </Row>
+            </Layer>
+          </Slide>
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Row h="100vh" ref={sliderRef}>
-          <Layer top="0">
-            <BackgroundImage ref={bgRef} src={BgImage} position="left center" css={css`opacity: 0;`} />
-          </Layer>
-          <Column ref={contentRef} h="100vh" w="100%" align="center" justify="space-between" css={css`opacity: 0;`}>
-            <Column css={css`flex: 1;`} justify="flex-start" align="center" w="100%">
-              <Row h="30vh" align="center">
-                <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter1}>
-                  <Circle size="s" />
-                  <H4 mobile css={css`margin-top: 20px;`}>Chapter 1</H4>
-                </Column>
+        <Slide isActionable subslides={3} animate={animation}>
+          <Layer left="0" top="0">
+            <Layer top="0">
+              <Background css={css`height: 100%;`}>
+                <BackgroundImage ref={bgRef} src={BgImage} position="left center" css={css`opacity: 0;`} />
+              </Background>
+            </Layer>
+            <Column ref={contentRef} h="100vh" w="100%" align="center" justify="space-between" css={css`opacity: 0;`}>
+              <Column css={css`flex: 1;`} justify="flex-start" align="center" w="100%">
+                <Row h="30vh" align="center">
+                  <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter1}>
+                    <Circle size="s" />
+                    <H4 mobile css={css`margin-top: 20px;`}>Chapter 1</H4>
+                  </Column>
 
-                <Divider vertical />
+                  <Divider vertical />
 
-                <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter2}>
-                  <Circle size="s" rotation={90} />
-                  <H4 mobile css={css`margin-top: 20px;`}>Chapter 2</H4>
-                </Column>
-              </Row>
-            </Column>
-
-            <Column w="100%" align="center" justify="space-between" css={css`padding: 0 20px; flex: 1;`}>
-              <Column>
-                <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
-                  {d.copy[0].text}
-                </P>
-                <H4 alternative align="center" mobile>
-                  {d.copy[1].text}
-                </H4>
+                  <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter2}>
+                    <Circle size="s" rotation={90} />
+                    <H4 mobile css={css`margin-top: 20px;`}>Chapter 2</H4>
+                  </Column>
+                </Row>
               </Column>
-              <ShopLink />
-            </Column>
 
-            <Row css={css`margin-top: 30px; padding: 20px 0;`} align="flex-end">
-              <Row align="center">
-                <Row css={css`flex: 1;`}>
-                  <Divider />
-                </Row>
-                <Column align="center" css={css`margin: 0 20px;`}>
-                  <Circle size="l" logo />
+              <Column w="100%" align="center" justify="space-between" css={css`padding: 0 20px; flex: 1;`}>
+                <Column>
+                  <P mobile css={css`margin-bottom: 16px; text-align: center;`}>
+                    {d.copy[0].text}
+                  </P>
+                  <H4 alternative align="center" mobile>
+                    {d.copy[1].text}
+                  </H4>
                 </Column>
-                <Row css={css`flex-direction: row-reverse; flex: 1;`}>
-                  <Divider />
+                <ShopLink />
+              </Column>
+
+              <Row css={css`margin-top: 30px; padding: 20px 0;`} align="flex-end">
+                <Row align="center">
+                  <Row css={css`flex: 1;`}>
+                    <Divider />
+                  </Row>
+                  <Column align="center" css={css`margin: 0 20px;`}>
+                    <Circle size="l" logo />
+                  </Column>
+                  <Row css={css`flex-direction: row-reverse; flex: 1;`}>
+                    <Divider />
+                  </Row>
                 </Row>
               </Row>
-            </Row>
-          </Column>
-        </Row>
+            </Column>
+          </Layer>
+        </Slide>
       </MobileView>
     </>
   )

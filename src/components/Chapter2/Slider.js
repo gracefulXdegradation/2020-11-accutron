@@ -5,6 +5,7 @@ import NavBarProvider from '../../providers/NavBarProvider';
 import { BrandBackground } from './BrandBackground';
 import { Background } from '../UIKit';
 import { css } from '@emotion/core';
+import Ending from './Ending';
 
 import data from '../../data/story';
 
@@ -30,6 +31,8 @@ export default function Slider() {
           {chapter2.slides.map(({component: Slide, title, ...d}) => (
             <Slide index={title} data={d} />
           ))}
+
+          <Ending />
         </NavBarProvider>
       </Background>
     </SliderRoot>

@@ -5,18 +5,14 @@ import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
-import { animateFadeIn, fadeIn } from '../../../helpers/animation';
+import { animateFadeInOut, fadeIn } from '../../../helpers/animation';
 
 export default function Legacy11({ index, data: d }) {
   const watches = d.images
 
   const copy2Ref = useRef(null);
 
-  const animation = (el, props) => animateFadeIn(el, {
-    ...props,
-    start: 'top top',
-    end: 'bottom bottom',
-  }, tl => {
+  const animation = (el, props) => animateFadeInOut(el, props, tl => {
     fadeIn(tl, copy2Ref.current)
   })
 
