@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 
 const HalfWatchImage = styled.img`
   height: 100% !important;
+  max-height: 100%;
   position: absolute;
   width: auto !important;
   max-width: none !important;
