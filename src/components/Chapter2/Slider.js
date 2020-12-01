@@ -16,15 +16,13 @@ const SliderRoot = styled.div`
   overflow: hidden;
 `;
 
-const headings = ['the spaceview', 'iconic design', '2020', 'dna', 'the legacy']
-
 export default function Slider() {
   const pinSectionRef = useRef(null);
 
   return (
     <SliderRoot ref={pinSectionRef}>
       <Background css={css`height: 100%;`}>
-        <NavBarProvider headings={headings}>
+        <NavBarProvider>
           <BrandBackground sliderRef={pinSectionRef} chapter={2} />
           <NavBar sliderRef={pinSectionRef} />
 

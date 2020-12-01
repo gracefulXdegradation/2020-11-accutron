@@ -322,7 +322,7 @@ const story = {
 
         {
           component: Spaceview20204_1,
-          title: 'the spaceview',
+          title: 'spaceview 2020',
           copy: [
             {
               text: 'The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents.'
@@ -345,7 +345,7 @@ const story = {
 
         {
           component: Spaceview20204_2,
-          title: '2020',
+          title: 'spaceview 2020',
           copy: [
             {
               text: 'the Spaceview 2020'
@@ -364,7 +364,7 @@ const story = {
 
         {
           component: DNA5,
-          title: 'dna',
+          title: 'accutron dna',
           copy: [
             {
               text: 'the Accutron DNA'
@@ -403,7 +403,7 @@ const story = {
 
         {
           component: Prices6,
-          title: 'the spaceview',
+          title: 'spaceview 2020',
           copy: [
             {
               text: 'The Spaceview 2020'
@@ -411,6 +411,19 @@ const story = {
             {
               text: 'retails at $3,450.'
             },
+          ],
+          images: [
+            {
+              src: resolveImage('Prices_1.jpg'),
+              alt: 'Spaceview 2020'
+            },
+          ]
+        },
+
+        {
+          component: Prices6,
+          title: 'accutron dna',
+          copy: [
             {
               text: 'The Accutron DNA'
             },
@@ -419,10 +432,6 @@ const story = {
             },
           ],
           images: [
-            {
-              src: resolveImage('Prices_1.jpg'),
-              alt: 'Spaceview 2020'
-            },
             {
               src: resolveImage('Prices_2.jpg'),
               alt: 'The Accutron DNA'
