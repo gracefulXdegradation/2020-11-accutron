@@ -27,21 +27,11 @@ export default function Legacy11({ index, data: d }) {
               </Column>
             ))}
 
-            <Layer>
-              <WatchesSafeArea w="100%" h="100%" justify="center">
-                <Column h="100%" align="center" justify="flex-start">
-                  <P css={css`transform: translateY(100%);`}>
-                    {d.copy[0].text}
-                  </P>
-                </Column>
-              </WatchesSafeArea>
-            </Layer>
-
             <Layer ref={copy2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" justify="flex-end">
                 <Column h="200px" align="center" justify="center" css={css`margin: 50px 0;`}>
                   <P css={css`text-align: center; max-width: 350px;`}>
-                    {d.copy[1].text}
+                    {d.copy[0].text}
                   </P>
                 </Column>
               </Column>
@@ -55,12 +45,6 @@ export default function Legacy11({ index, data: d }) {
         <Column w="100%" h="100%">
           <Layer>
             <Column w="100%" h="100%">
-              <Row justify="center">
-                <P align="center" mobile css={css`margin: 10px 20px;`}>
-                  {d.copy[0].text}
-                </P>
-              </Row>
-
               <Column h="100%" css={css`flex: 1; max-height: calc(100% - 2 * 40px);`}>
                 <Row h="50%" w="100%" justify="space-around" align="center" css={css`max-height: 50%;`}>
                   {[...watches.slice(0, 3), ...watches.slice(6)].map((img, i) => (
@@ -79,8 +63,8 @@ export default function Legacy11({ index, data: d }) {
               </Column>
 
               <Row justify="center" ref={copy2Ref} css={css`opacity: 0;`}>
-                <P mobile css={css`text-align: center; margin: 10px 20px;`}>
-                  {d.copy[1].text}
+                <P mobile css={css`text-align: center; margin: 30px 20px;`}>
+                  {d.copy[0].text}
                 </P>
               </Row>
             </Column>

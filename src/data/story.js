@@ -19,13 +19,17 @@ import Spaceview20204_2 from '../components/Chapter2/slides/4.Spaceview2020.js';
 import DNA5 from '../components/Chapter2/slides/5.DNA';
 import Prices6 from '../components/Chapter2/slides/6.Prices';
 import Legacy7 from '../components/Chapter2/slides/7.Legacy';
-import Legacy8 from '../components/Chapter2/slides/8.Legacy';
 import Legacy9 from '../components/Chapter2/slides/9.Legacy';
 import Legacy10 from '../components/Chapter2/slides/10.Legacy';
 import Legacy11 from '../components/Chapter2/slides/11.Legacy';
+import Details from '../components/Chapter2/slides/12.Details';
 
 import Img_2SW7A004_DETAIL from '../assets/2SW7A004_DETAIL.png'
 import Img_CollectionWatch8 from '../assets/Collection-Watches-8.png'
+import Img_Details1 from '../assets/Detail_1.png'
+import Img_Details2 from '../assets/Detail_2.png'
+import Img_Details3 from '../assets/Detail_3.png'
+import Img_Details4 from '../assets/Detail_4.png'
 
 const story = {
   video: {
@@ -281,6 +285,45 @@ const story = {
         },
 
         {
+          component: Details,
+          title: 'the legacy',
+          copy: [{
+            text: 'They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…'
+          }],
+          images: [{
+            src: Img_Details1
+          }]
+        },
+        {
+          component: Details,
+          title: 'the legacy',
+          copy: [],
+          images: [{
+            src: Img_Details2
+          }]
+        },
+        {
+          component: Details,
+          title: 'the legacy',
+          copy: [{
+            text: 'Each style only has 600 individually numbered pieces.'
+          }],
+          images: [{
+            src: Img_Details3
+          }]
+        },
+        {
+          component: Details,
+          title: 'the legacy',
+          copy: [],
+          images: [{
+            src: Img_Details4
+          }]
+        },
+
+
+
+        {
           component: IconicDesign2,
           title: 'iconic design',
           copy: [
@@ -457,17 +500,6 @@ const story = {
         },
 
         {
-          component: Legacy8,
-          title: 'legacy',
-          copy: [
-            {
-              text: 'They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…'
-            },
-          ],
-          images: []
-        },
-
-        {
           component: Legacy9,
           title: 'legacy',
           images: [
@@ -506,9 +538,6 @@ const story = {
           component: Legacy11,
           title: 'legacy',
           copy: [
-            {
-              text: 'Each style only has 600 individually numbered pieces.'
-            },
             {
               text: 'The Legacy collection ranges between $1,290-$1,550.'
             },
