@@ -24,6 +24,9 @@ import Legacy9 from '../components/Chapter2/slides/9.Legacy';
 import Legacy10 from '../components/Chapter2/slides/10.Legacy';
 import Legacy11 from '../components/Chapter2/slides/11.Legacy';
 
+import Img_2SW7A004_DETAIL from '../assets/2SW7A004_DETAIL.png'
+import Img_CollectionWatch8 from '../assets/Collection-Watches-8.png'
+
 const story = {
   video: {
     id: 483504451
@@ -438,7 +441,10 @@ const story = {
               text: 'Accutron’s Legacy collection offers twelve of its most memorable styles from the ‘60s and ‘70s that are each timeless in their own right.'
             },
           ],
-          images: []
+          images: [{
+            src: Img_2SW7A004_DETAIL
+            // src: resolveImage('2SW7A004_DETAIL.png')
+          }]
         },
 
         {
@@ -500,25 +506,26 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('Collection-Watches-1.png')
+              // src: resolveImage('Collection-Watches-8.png')
+              src: Img_CollectionWatch8
             },
             {
               src: resolveImage('Collection-Watches-2.png')
             },
             {
-              src: resolveImage('Collection-Watches-3.png')
+              src: resolveImage('Collection-Watches-4.png')
             },
             {
-              src: resolveImage('Collection-Watches-4.png')
+              src: resolveImage('Collection-Watches-3.png')
             },
             {
               src: resolveImage('Collection-Watches-5.png')
             },
             {
-              src: resolveImage('Collection-Watches-6.png')
+              src: resolveImage('Collection-Watches-7.png')
             },
             {
-              src: resolveImage('Collection-Watches-7.png')
+              src: resolveImage('Collection-Watches-6.png')
             },
           ]
         },
