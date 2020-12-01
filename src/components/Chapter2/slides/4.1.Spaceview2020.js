@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
-import { Watches, WatchesSafeArea } from '../Watches';
+import { WatchesSafeArea, WatchSlider } from '../Watches';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 export default function Spaceview2020({ index, data: d }) {
@@ -14,22 +14,29 @@ export default function Spaceview2020({ index, data: d }) {
   const p2Ref = useRef(null)
 
   const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
-    fadeOut(tl, [watches1Ref.current, p1Ref.current])
+    fadeOut(tl, [p1Ref.current])
+    
+    tl.to(watches2Ref.current, {
+      width: 'auto',
+      duration: 1,
+      ease: 'none',
+    })
+
     fadeIn(tl, [watches2Ref.current, p2Ref.current])
   })
 
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide index={index} subslides={2.5} animate={animation}>
           <WatchesSafeArea ref={watches1Ref} justify="center">
-            <Watches {...d.images[0]} css={css`transform: translateY(15%) scale(1.4);`} />
+            <Row h="100%" justify="center" css={css`transform: translateY(15%) scale(1.4);`}>
+            <WatchSlider>
+              <img {...d.images[0]} />
+              <img ref={watches2Ref} {...d.images[1]} />
+            </WatchSlider>
+            </Row>
           </WatchesSafeArea>
-          <Layer ref={watches2Ref} left="0" css={css`opacity: 0;`}>
-            <WatchesSafeArea justify="center">
-              <Watches {...d.images[1]} css={css`transform: translateY(15%) scale(1.4);`} />
-            </WatchesSafeArea>
-          </Layer>
 
           <Layer left="0">
             <Row w="100%" h="100%" justify="flex-start" align="flex-end">
@@ -63,12 +70,12 @@ export default function Spaceview2020({ index, data: d }) {
                 </P>
               </Layer>
             </Column>
-            <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
-              <Watches ref={watches1Ref} {...d.images[0]} css={css`transform: translateY(5%) scale(1.2);`} />
-              <Layer ref={watches2Ref} css={css`opacity: 0;`}>
-                <Column h="100%" align="center">
-                  <Watches {...d.images[1]} css={css`transform: translateY(5%) scale(1.2);`} />
-                </Column>
+            <Column h="100%" w="100%" css={css`flex: 1;`}>
+              <Layer css={css`display: flex; justify-content: center; transform: translateY(5%) scale(1.2);`}>
+                <WatchSlider>
+                  <img {...d.images[0]} />
+                  <img ref={watches2Ref} {...d.images[1]} />
+                </WatchSlider>
               </Layer>
             </Column>
           </Column>

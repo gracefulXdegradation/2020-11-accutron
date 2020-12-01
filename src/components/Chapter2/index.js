@@ -8,6 +8,8 @@ import Slider from './Slider';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 
+window.gsap = gsap
+
 const LeftScreen = styled.div`
   position: absolute;
   width: 100%;
@@ -56,7 +58,6 @@ export default function Chapter2() {
               <ChapterHead onAnimateEnd={toSlider} />
             </LeftScreen>
             <Slider />
-            {/* <Ending /> */}
           </HorizontalSlider>
         </Background>
       </BrowserView>
@@ -68,7 +69,6 @@ export default function Chapter2() {
               <ChapterHead onAnimateEnd={toSlider} />
             </TopScreen>
             <Slider />
-            {/* <Ending /> */}
           </HorizontalSlider>
         </Background>
       </MobileView>

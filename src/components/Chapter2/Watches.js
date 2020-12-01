@@ -51,3 +51,34 @@ export const Watches = React.forwardRef((props, ref) => {
     <WatchesImage ref={ref} {...props} />
   )
 })
+
+const WatchHolder = styled.div`
+  height: 100%;
+  width: auto;
+  display: inline-flex;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+
+  & > img {
+    height: 100% !important;
+    width: auto;
+    max-width: none !important;
+    object-position: right;
+    object-fit: cover;
+    
+    &:not(:first-child) {
+      position: absolute;
+      right: 0;
+      width: 0;
+    }
+  }
+`
+
+export const WatchSlider = React.forwardRef(({ children }, ref) => {
+  return (
+    <WatchHolder ref={ref}>
+      {children}
+    </WatchHolder>
+  )
+})
