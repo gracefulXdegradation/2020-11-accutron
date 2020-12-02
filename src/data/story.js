@@ -23,6 +23,7 @@ import Legacy9 from '../components/Chapter2/slides/9.Legacy';
 import Legacy10 from '../components/Chapter2/slides/10.Legacy';
 import Legacy11 from '../components/Chapter2/slides/11.Legacy';
 import Details from '../components/Chapter2/slides/12.Details';
+import SingleImage from '../components/Chapter2/slides/8.SingleImage';
 
 import Img_2SW7A004_DETAIL from '../assets/2SW7A004_DETAIL.png'
 import Img_CollectionWatch8 from '../assets/Collection-Watches-8.png'
@@ -30,6 +31,14 @@ import Img_Details1 from '../assets/Detail_1.png'
 import Img_Details2 from '../assets/Detail_2.png'
 import Img_Details3 from '../assets/Detail_3.png'
 import Img_Details4 from '../assets/Detail_4.png'
+import Img_2SW8A001_DETAIL from '../assets/2SW8A001_DETAIL.png'
+import Img_2SW6C001_ANGLE from '../assets/2SW6C001_ANGLE.png'
+import Img_2SW7A002_DETAIL from '../assets/2SW7A002_DETAIL.png'
+import Img_2SW6B003_ANGLE from '../assets/2SW6B003_ANGLE.png'
+import Img_2SW6B001_DETAIL from '../assets/2SW6B001_DETAIL.png'
+import Img_2SW6B003_DETAIL from '../assets/2SW6B003_DETAIL.png'
+import { css } from '@emotion/core';
+import { isMobile } from 'react-device-detect';
 
 const story = {
   video: {
@@ -285,43 +294,88 @@ const story = {
         },
 
         {
-          component: Details,
+          component: SingleImage,
           title: 'the legacy',
-          copy: [{
-            text: 'They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…'
-          }],
           images: [{
-            src: Img_Details1
-          }]
-        },
-        {
-          component: Details,
-          title: 'the legacy',
-          copy: [],
-          images: [{
-            src: Img_Details2
-          }]
-        },
-        {
-          component: Details,
-          title: 'the legacy',
-          copy: [{
-            text: 'Each style only has 600 individually numbered pieces.'
-          }],
-          images: [{
-            src: Img_Details3
-          }]
-        },
-        {
-          component: Details,
-          title: 'the legacy',
-          copy: [],
-          images: [{
-            src: Img_Details4
+            src: Img_2SW8A001_DETAIL,
+            // src: resolveImage('2SW8A001_DETAIL.png'),
+            css: isMobile ? css`
+              transform: scale(1.2);
+            ` : css`
+              transform: scale(1.2) translate(0, 10%);
+            `
           }]
         },
 
+        {
+          component: SingleImage,
+          title: 'the legacy',
+          images: [{
+            src: Img_2SW6C001_ANGLE,
+            // src: resolveImage('2SW6C001_ANGLE.png'),
+            css: isMobile ? css`
+              transform: scale(1.3);
+            ` : css`
+              transform: scale(1.3) translate(0, 10%);
+            `
+          }]
+        },
 
+        {
+          component: SingleImage,
+          title: 'the legacy',
+          images: [{
+            src: Img_2SW7A002_DETAIL,
+            // src: resolveImage('2SW7A002_DETAIL.png'),
+            css: isMobile ? css`
+              transform: scale(1.3) translate(5%, 10%);;
+            ` : css`
+              transform: scale(1.1) translate(0, 10%);
+            `
+          }]
+        },
+
+        {
+          component: SingleImage,
+          title: 'the legacy',
+          images: [{
+            src: Img_2SW6B003_ANGLE,
+            // src: resolveImage('2SW6B003_ANGLE.png'),
+            css: isMobile ? css`
+              transform: scale(1.2);
+            ` : css`
+              transform: scale(1.3) translate(0, 10%);
+            `
+          }]
+        },
+
+        {
+          component: SingleImage,
+          title: 'the legacy',
+          images: [{
+            src: Img_2SW6B001_DETAIL,
+            // src: resolveImage('2SW6B001_DETAIL.png'),
+            css: isMobile ? css`
+              transform: scale(1.2) translate(0, 10%);
+            ` : css`
+              transform: scale(1.3) translate(0, 10%);
+            `
+          }]
+        },
+
+        {
+          component: SingleImage,
+          title: 'the legacy',
+          images: [{
+            src: Img_2SW6B003_DETAIL,
+            // src: resolveImage('2SW6B003_DETAIL.png'),
+            css: isMobile ? css`
+              transform: scale(1.1);
+            ` : css`
+              transform: scale(1.1);
+            `
+          }]
+        },
 
         {
           component: IconicDesign2,
@@ -406,6 +460,25 @@ const story = {
         },
 
         {
+          component: Prices6,
+          title: 'spaceview 2020',
+          copy: [
+            {
+              text: 'The Spaceview 2020'
+            },
+            {
+              text: 'retails at $3,450.'
+            },
+          ],
+          images: [
+            {
+              src: resolveImage('Prices_1.jpg'),
+              alt: 'Spaceview 2020'
+            },
+          ]
+        },
+
+        {
           component: DNA5,
           title: 'accutron dna',
           copy: [
@@ -446,25 +519,6 @@ const story = {
 
         {
           component: Prices6,
-          title: 'spaceview 2020',
-          copy: [
-            {
-              text: 'The Spaceview 2020'
-            },
-            {
-              text: 'retails at $3,450.'
-            },
-          ],
-          images: [
-            {
-              src: resolveImage('Prices_1.jpg'),
-              alt: 'Spaceview 2020'
-            },
-          ]
-        },
-
-        {
-          component: Prices6,
           title: 'accutron dna',
           copy: [
             {
@@ -496,6 +550,46 @@ const story = {
           images: [{
             src: Img_2SW7A004_DETAIL
             // src: resolveImage('2SW7A004_DETAIL.png')
+          }]
+        },
+
+        {
+          component: Details,
+          title: 'the legacy',
+          copy: [{
+            text: 'They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…'
+          }],
+          images: [{
+            src: Img_Details1
+          }]
+        },
+
+        {
+          component: Details,
+          title: 'the legacy',
+          copy: [],
+          images: [{
+            src: Img_Details2
+          }]
+        },
+
+        {
+          component: Details,
+          title: 'the legacy',
+          copy: [{
+            text: 'Each style only has 600 individually numbered pieces.'
+          }],
+          images: [{
+            src: Img_Details3
+          }]
+        },
+
+        {
+          component: Details,
+          title: 'the legacy',
+          copy: [],
+          images: [{
+            src: Img_Details4
           }]
         },
 
