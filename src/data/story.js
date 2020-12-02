@@ -1,4 +1,6 @@
 import React from 'react';
+import { css } from '@emotion/core';
+import { isMobile } from 'react-device-detect';
 import { Em } from '../components/UIKit';
 import {resolveImage} from './assets';
 
@@ -37,8 +39,7 @@ import Img_2SW7A002_DETAIL from '../assets/2SW7A002_DETAIL.png'
 import Img_2SW6B003_ANGLE from '../assets/2SW6B003_ANGLE.png'
 import Img_2SW6B001_DETAIL from '../assets/2SW6B001_DETAIL.png'
 import Img_2SW6B003_DETAIL from '../assets/2SW6B003_DETAIL.png'
-import { css } from '@emotion/core';
-import { isMobile } from 'react-device-detect';
+import Img_2SW6B003_CASE_BACK from '../assets/2SW6B003_CASE_BACK.png'
 
 const story = {
   video: {
@@ -359,6 +360,24 @@ const story = {
               transform: scale(1.2) translate(0, 10%);
             ` : css`
               transform: scale(1.3) translate(0, 10%);
+            `
+          }]
+        },
+
+        {
+          component: SingleImage,
+          title: 'the legacy',
+          images: [{
+            src: Img_2SW6B003_CASE_BACK,
+            // src: resolveImage('2SW6B003_DETAIL.png'),
+            css: isMobile ? css`
+              position: absolute;
+              left: 0;
+              transform: scale(1.3) translate(-26%, 0);
+            ` : css`
+              position: absolute;
+              right: 0;
+              transform: scale(1.2) translate(5%, 0);
             `
           }]
         },
