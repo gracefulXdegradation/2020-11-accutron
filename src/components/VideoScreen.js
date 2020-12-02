@@ -4,10 +4,14 @@ import {
   MobileView
 } from "react-device-detect";
 import { H4, P } from '../styles/typography';
-import { Circle, Layer, Row, Column, Background, HoverableCircle } from './UIKit';
+import { Circle, Layer, Column, Background, HoverableCircle } from './UIKit';
 import VideoContent from './VideoContent';
 import data from '../data/story';
 import { useChapterAnimation } from '../providers/ChapterAnimationProvider';
+import { HSLogo } from '../data/assets';
+
+const Logo = () =>
+  <img src={HSLogo} alt="Highsnobiety logo" css={css`margin-top: 50px; width: 200px;`} />
 
 export default function VideoScreen() {
   const { toChapter1 } = useChapterAnimation()
@@ -20,29 +24,27 @@ export default function VideoScreen() {
       </Layer>
 
       <BrowserView renderWithFragment>
-        <Column h="100%" w="100%" justify="flex-end" align="center">
-          {/* <Column h="50%" justify="center"> */}
-            <Column align="center" css={css`cursor: pointer; margin: 10vh 0;`}>
-              <HoverableCircle size="l" onClick={toChapter1}>
-                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
-                <P align="center">ACCUracy through<br />elecTRONics</P>
-              </HoverableCircle>
-            </Column>
+        <Column h="100%" w="100%" justify="space-between" align="center">
+          <Logo />
+          <Column align="center" css={css`cursor: pointer; margin: 10vh 0;`}>
+            <HoverableCircle size="l" onClick={toChapter1}>
+              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              <P align="center">ACCUracy through<br />elecTRONics</P>
+            </HoverableCircle>
           </Column>
-        {/* </Column> */}
+        </Column>
       </BrowserView>
       
       <MobileView renderWithFragment>
-        <Column h="100vh" justify="flex-end">
-          {/* <Row align="center" h="70%" justify="center"> */}
-            <Column align="center" onClick={toChapter1} css={css`margin: 10vh 0;`}>
-              <Circle size="l" />
-              <Column align="center">
-                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
-                <P align="center">ACCUracy through<br />elecTRONics</P>
-              </Column>
+        <Column h="100vh" justify="space-between" align="center">
+          <Logo />
+          <Column align="center" onClick={toChapter1} css={css`margin: 10vh 0;`}>
+            <Circle size="l" />
+            <Column align="center">
+              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              <P align="center">ACCUracy through<br />elecTRONics</P>
             </Column>
-          {/* </Row> */}
+          </Column>
         </Column>
       </MobileView>
     </Background>
