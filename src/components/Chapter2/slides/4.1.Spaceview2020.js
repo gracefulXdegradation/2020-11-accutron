@@ -31,10 +31,10 @@ export default function Spaceview2020({ index, data: d }) {
         <Slide index={index} subslides={2.5} animate={animation}>
           <WatchesSafeArea ref={watches1Ref} justify="center">
             <Row h="100%" justify="center" css={css`transform: translateY(15%) scale(1.4);`}>
-            <WatchSlider>
-              <img {...d.images[0]} />
-              <img ref={watches2Ref} {...d.images[1]} />
-            </WatchSlider>
+              <WatchSlider>
+                <img {...d.images[0]} />
+                <img ref={watches2Ref} {...d.images[1]} />
+              </WatchSlider>
             </Row>
           </WatchesSafeArea>
 

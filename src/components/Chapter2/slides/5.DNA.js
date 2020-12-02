@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { H4, P } from '../../../styles/typography'
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
-import { Watches, WatchesSafeArea } from '../Watches';
+import { Watches, WatchesSafeArea, WatchSlider } from '../Watches';
 import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
 
 export default function DNA5({ index, data: d }) {
@@ -30,14 +30,41 @@ export default function DNA5({ index, data: d }) {
   })
 
   const mobileAnimation = (slide, props) => animateFadeInOut(slide, props, tl => {
+
+    tl.to(watch2Ref.current, {
+      width: 'auto',
+      duration: 1,
+      ease: 'none',
+    })
+    tl.to(watch3Ref.current, {
+      width: 'auto',
+      duration: 1,
+      ease: 'none',
+    })
+    tl.to(watch4Ref.current, {
+      width: 'auto',
+      duration: 1,
+      ease: 'none',
+    })
+
     fadeOut(tl, watch1Ref.current)
-    fadeInOut(tl, watch2Ref.current)
-    fadeInOut(tl, watch3Ref.current)
-    fadeInOut(tl, watch4Ref.current)
-    fadeInOut(tl, watch5Ref.current)
-    fadeInOut(tl, watch6Ref.current)
-    fadeInOut(tl, watch7Ref.current)
-    fadeIn(tl, watch8Ref.current)
+    fadeIn(tl, watch5Ref.current)
+
+    tl.to(watch6Ref.current, {
+      width: 'auto',
+      duration: 1,
+      ease: 'none',
+    })
+    tl.to(watch7Ref.current, {
+      width: 'auto',
+      duration: 1,
+      ease: 'none',
+    })
+    tl.to(watch8Ref.current, {
+      width: 'auto',
+      duration: 1,
+      ease: 'none',
+    })
   })
   
   return (
@@ -101,45 +128,22 @@ export default function DNA5({ index, data: d }) {
         <Slide index={index} subslides={7} animate={mobileAnimation}>
           <Column h="100%" w="100%" justify="space-around">
             <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
-              <Layer ref={watch1Ref}>
-                <Column h="100%">
-                  <Watches {...d.images[0]} />
-                </Column>
+              <Layer ref={watch1Ref} css={css`display: flex; justify-content: center;`}>
+                <WatchSlider style={css`transform: scale(1.1);`}>
+                  <img {...d.images[0]} />
+                  <img ref={watch2Ref} {...d.images[1]} />
+                  <img ref={watch3Ref} {...d.images[2]} />
+                  <img ref={watch4Ref} {...d.images[3]} />
+                </WatchSlider>
               </Layer>
-              <Layer ref={watch2Ref} css={css`opacity: 0;`}>
-                <Column h="100%">
-                  <Watches {...d.images[1]} />
-                </Column>
-              </Layer>
-              <Layer ref={watch3Ref} css={css`opacity: 0;`}>
-                <Column h="100%">
-                  <Watches {...d.images[2]} />
-                </Column>
-              </Layer>
-              <Layer ref={watch4Ref} css={css`opacity: 0;`}>
-                <Column h="100%">
-                  <Watches {...d.images[3]} />
-                </Column>
-              </Layer>
-              <Layer ref={watch5Ref} css={css`opacity: 0;`}>
-                <Column h="100%">
-                  <Watches {...d.images[4]} css={css`transform: translateY(3%) scale(1.1);`} />
-                </Column>
-              </Layer>
-              <Layer ref={watch6Ref} css={css`opacity: 0;`}>
-                <Column h="100%">
-                  <Watches {...d.images[5]} css={css`transform: translateY(3%) scale(1.1);`} />
-                </Column>
-              </Layer>
-              <Layer ref={watch7Ref} css={css`opacity: 0;`}>
-                <Column h="100%">
-                  <Watches {...d.images[6]} css={css`transform: translateY(3%) scale(1.1);`} />
-                </Column>
-              </Layer>
-              <Layer ref={watch8Ref} css={css`opacity: 0;`}>
-                <Column h="100%">
-                  <Watches {...d.images[7]} css={css`transform: translateY(3%) scale(1.1);`} />
-                </Column>
+
+              <Layer css={css`display: flex; justify-content: center; opacity: 0;`} ref={watch5Ref}>
+                <WatchSlider style={css`transform: translateY(3%) scale(1.1);`}>
+                  <img {...d.images[4]} />
+                  <img ref={watch6Ref} {...d.images[5]}  />
+                  <img ref={watch7Ref} {...d.images[6]} />
+                  <img ref={watch8Ref} {...d.images[7]} />
+                </WatchSlider>
               </Layer>
             </Column>
             <Column align="center">

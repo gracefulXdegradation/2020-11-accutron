@@ -75,9 +75,9 @@ const WatchHolder = styled.div`
   }
 `
 
-export const WatchSlider = React.forwardRef(({ children }, ref) => {
+export const WatchSlider = React.forwardRef(({ children, style }, ref) => {
   return (
-    <WatchHolder ref={ref}>
+    <WatchHolder ref={ref} css={style}>
       {children}
     </WatchHolder>
   )
