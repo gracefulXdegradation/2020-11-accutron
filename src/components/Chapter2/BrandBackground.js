@@ -3,7 +3,7 @@ import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Layer } from "../UIKit";
-import { BrowserView, MobileView } from "react-device-detect";
+import { BrowserView, isMobile, MobileView } from "react-device-detect";
 import { useStoryState } from "../../providers/StoryStateProvider";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +19,8 @@ const Ch2BrowserFixedBG = styled(FixedBackground)`
 
 const Ch2MobileFixedBG = styled(FixedBackground)`
   background: linear-gradient(to bottom, #000000, #030302 80%, ${({ theme }) => theme.gradientColor} 100%);
+  transform-origin: bottom;
+  transform: scaleY(0);
 `;
 
 const calcBgScale = ({ width, height }) => {
@@ -49,7 +51,19 @@ export const BrandBackground = ({ sliderRef }) => {
       }
     })
     
-    if (bgRef.current) {
+    if (isMobile) {
+      tl.to(bgRef.current, {
+        duration: 0.01,
+        scaleY: 1,
+        ease: 'none'
+      })
+      .to(bgRef.current, {
+        duration: 0.99,
+        scaleY: 1,
+        ease: 'none'
+      })
+
+    } else {
       const scale = calcBgScale(bgRef.current.getBoundingClientRect());
 
       tl.set(bgRef.current, { scale });
@@ -70,7 +84,7 @@ export const BrandBackground = ({ sliderRef }) => {
         <Ch2BrowserFixedBG ref={bgRef} css={css`opacity: ${opacity};`} />
       </BrowserView>
       <MobileView>
-        <Ch2MobileFixedBG css={css`opacity: ${opacity};`} />
+        <Ch2MobileFixedBG ref={bgRef} css={css`opacity: ${opacity};`} />
       </MobileView>
     </Layer>
   )

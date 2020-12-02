@@ -600,7 +600,7 @@ const story = {
 
         {
           component: Legacy10,
-          title: 'legacy',
+          title: 'the legacy',
           images: [
             {
               src: resolveImage('Collection-Watches-2.png')
@@ -616,7 +616,7 @@ const story = {
 
         {
           component: Legacy9,
-          title: 'legacy',
+          title: 'the legacy',
           images: [
             {
               src: resolveImage('Collection-Watches-8.png')
@@ -635,7 +635,7 @@ const story = {
 
         {
           component: Legacy11,
-          title: 'legacy',
+          title: 'the legacy',
           copy: [
             {
               text: 'The Legacy collection ranges between $1,290-$1,550.'
