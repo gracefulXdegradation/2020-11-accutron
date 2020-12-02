@@ -14,12 +14,17 @@ const FixedBackground = styled(Layer)`
 `;
 
 const Ch2BrowserFixedBG = styled(FixedBackground)`
-  background: radial-gradient(ellipse farthest-corner, #000000, #030302 90%, ${({ theme }) => theme.gradientColor} 100%);
+  background: radial-gradient(ellipse farthest-corner, transparent, transparent 40%, ${({ theme }) => theme.gradientColor} 100%);
 `;
 
 const Ch2MobileFixedBG = styled(FixedBackground)`
   background: linear-gradient(to bottom, #000000, #030302 80%, ${({ theme }) => theme.gradientColor} 100%);
 `;
+
+const calcBgScale = ({ width, height }) => {
+  const hypotenuse = Math.sqrt(width * width + height * height);
+  return hypotenuse / Math.min(width, height);
+}
 
 export const BrandBackground = ({ sliderRef }) => {
   const { hasChapterInit } = useStoryState();
@@ -45,11 +50,15 @@ export const BrandBackground = ({ sliderRef }) => {
     })
     
     if (bgRef.current) {
+      const scale = calcBgScale(bgRef.current.getBoundingClientRect());
+
+      tl.set(bgRef.current, { scale });
+
       tl.to(bgRef.current, {
-        rotation: 113,
+        rotation: 360,
         duration: 1,
         ease: 'none',
-      })
+      });
     }
 
     return () => tl.kill()
@@ -58,7 +67,7 @@ export const BrandBackground = ({ sliderRef }) => {
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>
       <BrowserView>
-        <Ch2BrowserFixedBG css={css`opacity: ${opacity};`} />
+        <Ch2BrowserFixedBG ref={bgRef} css={css`opacity: ${opacity};`} />
       </BrowserView>
       <MobileView>
         <Ch2MobileFixedBG css={css`opacity: ${opacity};`} />
