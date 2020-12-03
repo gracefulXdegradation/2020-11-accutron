@@ -36,7 +36,10 @@ export default function NavBar({ sliderRef }) {
         ease: 'none',
       })
 
-      return () => tl.kill()
+      return () => {
+        tl.scrollTrigger.kill()
+        tl.kill()
+      }
     }
   }, [sliderRef, hasChapterInit])
 

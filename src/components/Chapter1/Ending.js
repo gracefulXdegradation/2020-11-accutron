@@ -38,36 +38,42 @@ function Ending({ isPortrait, isLandscape }) {
     if (!hasChapterInit) return;
 
     if (isBrowser || (isMobile && isLandscape)) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: true,
-          snap: 'labels'
-        },
-      })
-      .to(topDivRef.current, {
-        height: '100%',
-        duration: 1,
-        delay: .5,
-        ease: 'none'
-      })
-      .to([leftDivRef.current, rightDivRef.current], {
-        width: '100%',
-        duration: 1,
-        delay: -1,
-        ease: 'none'
-      })
-      .to(chap2Ref.current, {
-        opacity: 1,
-        duration: .5,
-        delay: 0.5,
-        ease: 'easeIn'
-      })
-      .addLabel('bottom')
+      const tl = gsap.timeline()
+        .to(topDivRef.current, {
+          height: '100%',
+          duration: 1,
+          delay: .5,
+          ease: 'none'
+        })
+        .to([leftDivRef.current, rightDivRef.current], {
+          width: '100%',
+          duration: 1,
+          delay: -1,
+          ease: 'none'
+        })
+        .to(chap2Ref.current, {
+          opacity: 1,
+          duration: .5,
+          delay: 0.5,
+          ease: 'easeIn'
+        })
+        .addLabel('bottom')
 
-      return () => tl.kill()
+
+      const st = ScrollTrigger.create({
+        id: 'ChapterEndingST',
+        animation: tl,
+        trigger: rootRef.current,
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: true,
+        snap: 'labels'
+      })
+
+      return () => {
+        tl.kill()
+        st.kill()
+      }
     } else {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -79,19 +85,33 @@ function Ending({ isPortrait, isLandscape }) {
           end: 'bottom bottom',
         }
       })
-      .to(mobSlide1Ref.current, {
-        opacity: 0,
-        duration: 1/2,
-        delay: 1/4,
-        ease: 'none'
-      })
-      .to(mobSlide2Ref.current, {
-        opacity: 1,
-        duration: 1/2,
-        ease: 'none'
+        .to(mobSlide1Ref.current, {
+          opacity: 0,
+          duration: 1/2,
+          delay: 1/4,
+          ease: 'none'
+        })
+        .to(mobSlide2Ref.current, {
+          opacity: 1,
+          duration: 1/2,
+          ease: 'none'
+        })
+
+      const st = ScrollTrigger.create({
+        id: 'ChapterEndingST',
+        animation: tl,
+        trigger: rootRef.current,
+        pin: true,
+        pinSpacing: false,
+        scrub: true,
+        start: 'top top',
+        end: 'bottom bottom',
       })
 
-      return () => tl.kill()
+      return () => {
+        tl.kill()
+        st.kill()
+      }
     }
   }, [hasChapterInit, isLandscape])
 

@@ -36,18 +36,17 @@ const BrandBackground = ({ sliderRef, isPortrait, isLandscape }) => {
 
   useEffect(() => {
     if (hasChapterInit) {
-      const tl = gsap.timeline({
-        scrollTrigger:{
-          trigger: sliderRef.current,
-          pin: pinRef.current,
-          scrub: true,
-          start: 'top top',
-          end:'bottom bottom',
-          onEnter: () => setOpacity(1),
-          onEnterBack: () => setOpacity(1),
-          onLeave: () => setOpacity(0),
-          onLeaveBack: () => setOpacity(0),
-        }
+      const tl = gsap.timeline()
+
+      const st = ScrollTrigger.create({
+        id: 'BackgroundST',
+        animation: tl,
+        trigger: sliderRef.current,
+        pin: pinRef.current,
+        scrub: true,
+        start: 'top top',
+        end:'bottom bottom',
+        onToggle: ({ isActive }) => setOpacity(isActive ? 1 : 0)
       })
       
       if (bgRef.current) {
@@ -58,7 +57,10 @@ const BrandBackground = ({ sliderRef, isPortrait, isLandscape }) => {
         })
       }
 
-      return () => tl.kill()
+      return () => {
+        tl.kill()
+        st.kill()
+      }
     }
   }, [sliderRef, hasChapterInit])
 

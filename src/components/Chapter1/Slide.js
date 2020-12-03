@@ -25,7 +25,10 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate, isPortra
         onEnterBack: () => setSlideHeading(index),
       });
 
-      return () => tl.kill();
+      return () => {
+        tl.scrollTrigger.kill()
+        tl.kill()
+      };
     }
   }, [animate, index, setSlideHeading, hasChapterInit])
 

@@ -75,7 +75,10 @@ export const BrandBackground = ({ sliderRef }) => {
       });
     }
 
-    return () => tl.kill()
+    return () => {
+      tl.scrollTrigger.kill()
+      tl.kill()
+    }
   }, [sliderRef, hasChapterInit])
 
   return (

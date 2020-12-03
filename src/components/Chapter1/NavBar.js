@@ -21,22 +21,27 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
 
   useEffect(() => {
     if (hasChapterInit) {
-      const tl = gsap.timeline({
-        scrollTrigger:{
-          trigger: sliderRef.current,
-          pin: pinRef.current,
-          scrub: true,
-          start: 'top top',
-          end:'bottom bottom',
-        }
-      })
-      .to(logoRef.current, {
-        rotation: 90,
-        duration: 1,
-        ease: 'none',
+      const tl = gsap.timeline()
+        .to(logoRef.current, {
+          rotation: 90,
+          duration: 1,
+          ease: 'none',
+        })
+
+      const st = ScrollTrigger.create({
+        id: 'NavBarST',
+        animation: tl,
+        trigger: sliderRef.current,
+        pin: pinRef.current,
+        scrub: true,
+        start: 'top top',
+        end:'bottom bottom',
       })
 
-      return () => tl.kill()
+      return () => {
+        tl.kill()
+        st.kill()
+      }
     }
   }, [sliderRef, hasChapterInit])
 

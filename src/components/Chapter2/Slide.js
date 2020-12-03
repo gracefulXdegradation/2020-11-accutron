@@ -33,7 +33,10 @@ const Slide = ({ index, children, startVisible, isBackground, isActionable, subs
         onEnterBack: () => setSlideHeading(index),
       });
 
-      return () => tl.kill();
+      return () => {
+        tl.scrollTrigger.kill()
+        tl.kill()
+      };
     }
   }, [animate, index, setSlideHeading, hasChapterInit])
 
