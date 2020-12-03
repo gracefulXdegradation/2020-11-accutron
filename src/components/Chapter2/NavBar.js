@@ -18,6 +18,7 @@ export default function NavBar({ sliderRef }) {
   const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
+  const dividersRef = useRef([])
 
   useEffect(() => {
     if (hasChapterInit) {
@@ -30,9 +31,15 @@ export default function NavBar({ sliderRef }) {
           end:'bottom bottom',
         }
       })
+      .to(dividersRef.current, {
+        width: 0,
+        duration: 0.01,
+        ease: 'none'
+      })
       .to(logoRef.current, {
         rotation: 90,
         duration: 1,
+        delay: -0.01,
         ease: 'none',
       })
 
@@ -63,9 +70,10 @@ export default function NavBar({ sliderRef }) {
                 <H4>Chapter 1</H4>
               </HoverableCircle>
             </Column>
-            <Column w="100%">
-              <Divider />
-            </Column>
+            <Row w="100%" justify="center">
+              <Divider length="50%" ref={divRef => dividersRef.current.push(divRef)} />
+              <Divider length="50%" ref={divRef => dividersRef.current.push(divRef)} />
+            </Row>
             <Column align="center" css={css`margin: 24px;`}>
               <Circle size="m" logo />
             </Column>
