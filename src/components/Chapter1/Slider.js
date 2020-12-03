@@ -23,8 +23,8 @@ export default function Slider() {
       <NavBarProvider headings={headings}>
         <BrandBackground sliderRef={pinSectionRef} />
 
-        {chapter1.slides.map(({component: Slide, title, ...d}) => (
-          <Slide index={title} data={d} />
+        {chapter1.slides.map(({component: Slide, title, ...d}, i) => (
+          <Slide index={title} data={d} key={`${title}-${i}`} />
         ))}
 
         <NavBar sliderRef={pinSectionRef} />

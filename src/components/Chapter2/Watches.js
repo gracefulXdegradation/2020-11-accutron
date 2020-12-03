@@ -67,7 +67,7 @@ const WatchHolder = styled.div`
     object-position: right;
     object-fit: cover;
     
-    &:not(:first-child) {
+    &:not(:first-of-type) {
       position: absolute;
       right: 0;
       width: 0;
