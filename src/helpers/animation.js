@@ -19,13 +19,13 @@ export const fadeOut = (tl, el) =>
 export const revealWatch = (tl, el) => 
   tl.fromTo(el, 2,
     { width: 0 },
-    { width: '100%' },
+    { width: '100%', ease: 'easeIn' },
   )
 
 export const hideWatch = (tl, el) => 
   tl.fromTo(el, 2,
     { width: '100%' },
-    { width: 0 },
+    { width: 0, ease: 'easeIn' },
   )
 
 export const fadeInOut = (tl, el) => {

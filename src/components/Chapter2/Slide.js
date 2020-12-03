@@ -50,7 +50,7 @@ const Slide = ({ index, children, startVisible, isBackground, isActionable, subs
     <Wrapper isBackground={isBackground} isActionable={isActionable}>
       <BrowserView renderWithFragment>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
-          <Row ref={slideInnerRef} h="100vh" css={css`padding: 0 200px;`}>
+          <Row ref={slideInnerRef} h="100vh" css={css`padding: 0 220px;`}>
             {children}
           </Row>
         </SlideRoot>

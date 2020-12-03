@@ -19,8 +19,8 @@ export default function Spaceview2020(props) {
     
     tl.to(watches2Ref.current, {
       width: 'auto',
-      duration: 1,
-      ease: 'none',
+      duration: 2,
+      ease: 'easeIn',
     })
 
     fadeIn(tl, [watches2Ref.current, p2Ref.current])
@@ -29,7 +29,7 @@ export default function Spaceview2020(props) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide {...props} subslides={2.5} animate={animation}>
+        <Slide {...props} subslides={3.5} animate={animation}>
           <WatchesSafeArea ref={watches1Ref} justify="center">
             <Row h="100%" justify="center" css={css`transform: translateY(15%) scale(1.4);`}>
               <WatchSlider>
@@ -59,7 +59,7 @@ export default function Spaceview2020(props) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide {...props} subslides={2} animate={animation}>
+        <Slide {...props} subslides={3} animate={animation}>
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Column align="center">
               <P ref={p1Ref} mobile align="center" css={css`padding: 15px 30px;`}>

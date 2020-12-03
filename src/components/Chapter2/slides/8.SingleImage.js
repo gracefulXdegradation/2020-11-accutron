@@ -23,7 +23,7 @@ export default function Details(props) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide isBackground {...props} animate={animateFadeInOut} subslides={4}>
+        <Slide isBackground {...props} animate={animateFadeInOut}>
           <WatchesSafeArea justify="center">
             <img {...image} css={[defaultStyle, style]} />
           </WatchesSafeArea>

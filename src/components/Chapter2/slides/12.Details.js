@@ -21,7 +21,7 @@ export default function Details(props) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide {...props} animate={animateFadeInOut} subslides={4}>
+        <Slide {...props} animate={animateFadeInOut}>
           <WatchesSafeArea justify="center">
             <CircledImage {...d.images[0]} css={css`
               height: 100%;

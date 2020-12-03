@@ -31,41 +31,22 @@ export default function DNA5(props) {
   })
 
   const mobileAnimation = (slide, props) => animateFadeInOut(slide, props, tl => {
+    const watchSlideProps = {
+      width: 'auto',
+      duration: 1,
+      ease: 'easeIn',
+    }
 
-    tl.to(watch2Ref.current, {
-      width: 'auto',
-      duration: 1,
-      ease: 'none',
-    })
-    tl.to(watch3Ref.current, {
-      width: 'auto',
-      duration: 1,
-      ease: 'none',
-    })
-    tl.to(watch4Ref.current, {
-      width: 'auto',
-      duration: 1,
-      ease: 'none',
-    })
+    tl.to(watch2Ref.current, watchSlideProps)
+    tl.to(watch3Ref.current, watchSlideProps)
+    tl.to(watch4Ref.current, watchSlideProps)
 
     fadeOut(tl, watch1Ref.current)
     fadeIn(tl, watch5Ref.current)
 
-    tl.to(watch6Ref.current, {
-      width: 'auto',
-      duration: 1,
-      ease: 'none',
-    })
-    tl.to(watch7Ref.current, {
-      width: 'auto',
-      duration: 1,
-      ease: 'none',
-    })
-    tl.to(watch8Ref.current, {
-      width: 'auto',
-      duration: 1,
-      ease: 'none',
-    })
+    tl.to(watch6Ref.current, watchSlideProps)
+    tl.to(watch7Ref.current, watchSlideProps)
+    tl.to(watch8Ref.current, watchSlideProps)
   })
   
   return (

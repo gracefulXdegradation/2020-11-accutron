@@ -58,11 +58,7 @@ export default function TheSpaceview(props) {
   const slide5Ref = useRef(null)
   const slide6Ref = useRef(null)
 
-  // const div1Ref = useRef(null)
-  // const div2Ref = useRef(null)
-
   const animation = (el, props) => animateFadeOut(el, props, tl => {
-    // const isDesktop = !!div1Ref.current
 
     hideWatch(tl, slide1Ref.current)
 
@@ -73,14 +69,6 @@ export default function TheSpaceview(props) {
     slide5Ref.current && fadeInOut(tl, slide5Ref.current);
 
     revealWatch(tl, slide6Ref.current)
-
-    // if (isDesktop) {
-    //   tl.to([div1Ref.current, div2Ref.current], {
-    //     duration: 1,
-    //     width: 0,
-    //     ease: 'none'
-    //   })
-    // }
   })
   
   return (

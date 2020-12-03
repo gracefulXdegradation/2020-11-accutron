@@ -31,7 +31,7 @@ export default function Prices6(props) {
 
       <MobileView renderWithFragment>
         <Slide isBackground {...props} subslides={1.5} animate={animateFadeInOut}>
-          <Layer top="0" left="0" css={css`opacity: 0.7;`}>
+          <Layer top="0" left="0" css={css`opacity: 0.5;`}>
             <BackgroundImage position="center" {...d.images[0]} />
           </Layer>
 
