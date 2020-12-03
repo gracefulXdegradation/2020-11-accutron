@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { gsap, ScrollTrigger } from 'gsap/all';
@@ -34,52 +34,79 @@ export const BrandBackground = ({ sliderRef }) => {
   const bgRef = useRef(null);
   const [opacity, setOpacity] = useState(0)
 
-  useEffect(() => {
-    if (!hasChapterInit) return;
-
-    const tl = gsap.timeline({
+  const createTimeline = useCallback(() => {
+    return gsap.timeline({
       scrollTrigger:{
         trigger: sliderRef.current,
         pin: pinRef.current,
         scrub: true,
         start: 'top top',
         end:'bottom bottom',
-        onEnter: () => setOpacity(1),
-        onEnterBack: () => setOpacity(1),
-        onLeave: () => setOpacity(0),
-        onLeaveBack: () => setOpacity(0),
+        onToggle: ({ isActive }) => setOpacity(!!isActive),
       }
+    });
+  }, [sliderRef])
+
+  const mobileAnimation = useCallback(() => {
+    const tl = createTimeline()
+
+    tl.to(bgRef.current, {
+      duration: 0.01,
+      scaleY: 1,
+      ease: 'none'
     })
-    
-    if (isMobile) {
-      tl.to(bgRef.current, {
-        duration: 0.01,
-        scaleY: 1,
-        ease: 'none'
-      })
-      .to(bgRef.current, {
-        duration: 0.99,
-        scaleY: 1,
-        ease: 'none'
-      })
+    .to(bgRef.current, {
+      duration: 0.99,
+      scaleY: 1,
+      ease: 'none'
+    });
 
-    } else {
-      const scale = calcBgScale(bgRef.current.getBoundingClientRect());
+    return () => {
+      tl.scrollTrigger.kill()
+      tl.kill()
+    };
+  }, [createTimeline])
 
-      tl.set(bgRef.current, { scale });
+  const resizeBackground = useCallback(() => {
+    const scale = calcBgScale({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+    gsap.set(bgRef.current, { scale })
+  }, [])
 
-      tl.to(bgRef.current, {
-        rotation: 360,
-        duration: 1,
-        ease: 'none',
-      });
-    }
+  const desktopAnimation = useCallback(() => {
+    const tl = createTimeline()
+
+    tl.to(bgRef.current, {
+      rotation: 360,
+      duration: 1,
+      ease: 'none',
+    });
 
     return () => {
       tl.scrollTrigger.kill()
       tl.kill()
     }
-  }, [sliderRef, hasChapterInit])
+  }, [createTimeline])
+
+  useEffect(() => {
+    if (!hasChapterInit) return;
+    
+    if (isMobile) {
+      return mobileAnimation()
+    } else {
+      resizeBackground();
+      const cleanup = desktopAnimation();
+
+      window.addEventListener('resize', resizeBackground);
+
+      return () => {
+        window.removeEventListener('resize', resizeBackground);
+        cleanup();
+      }
+    }
+  }, [mobileAnimation, desktopAnimation, resizeBackground, hasChapterInit])
 
   return (
     <Layer ref={pinRef} fullScreen css={css`pointer-events: none;`}>

@@ -371,7 +371,7 @@ const story = {
           title: 'spaceview 2020',
           copy: [
             {
-              text: 'The Spaceview 2020'
+              text: 'This Spaceview 2020'
             },
             {
               text: 'retails at $3,450.'
