@@ -16,11 +16,12 @@ const CircledImage = styled.img`
   max-height: 100% !important;
 `;
 
-export default function Details({ index, data: d }) {
+export default function Details(props) {
+  const { data: d } = props
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} animate={animateFadeInOut} subslides={4}>
+        <Slide {...props} animate={animateFadeInOut} subslides={4}>
           <WatchesSafeArea justify="center">
             <CircledImage {...d.images[0]} css={css`
               height: 100%;
@@ -41,7 +42,7 @@ export default function Details({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} animate={animateFadeInOut}>
+        <Slide {...props} animate={animateFadeInOut}>
           <Column h="100%" w="100%" justify="flex-start" css={css`padding: 0 35px; `}>
             <Column css={css`flex: 1; margin: 20px 0;`}>
               <Layer css={css`text-align: center;`}>

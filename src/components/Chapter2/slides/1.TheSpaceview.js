@@ -48,7 +48,8 @@ const Caret = styled.i`
   }
 `
 
-export default function TheSpaceview({ index, data: d }) {
+export default function TheSpaceview(props) {
+  const { data: d } = props
   const slide1Ref = useRef(null)
   const slide2Ref = useRef(null)
   const slide2_5Ref = useRef(null)
@@ -85,14 +86,7 @@ export default function TheSpaceview({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} startVisible subslides={5} animate={animation}>
-        {/* <Layer left="0" css={css`padding: 0 180px;`}>
-          <Row h="100%" align="center" justify="center">
-            <Divider ref={div1Ref} />
-            <Divider ref={div2Ref} />
-          </Row>
-        </Layer> */}
-
+        <Slide {...props} startVisible subslides={5} animate={animation}>
           <Row w="50%" h="100%">
             <WatchesSafeArea justify="flex-end">
               <HalfWatches {...d.images[0]} />
@@ -155,7 +149,7 @@ export default function TheSpaceview({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} startVisible subslides={6} animate={animation}>
+        <Slide {...props} startVisible subslides={6} animate={animation}>
           <Row h="100%" align="center" css={css`padding: 20px 0;`}>
             <Row w="50%" h="100%" justify="flex-end" align="center">
                 <HalfWatches {...d.images[0]} maxHeight={mobHalfImageMaxHeight} />

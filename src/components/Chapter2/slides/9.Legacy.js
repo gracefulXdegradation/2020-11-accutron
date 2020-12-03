@@ -6,7 +6,8 @@ import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
-export default function Legacy9({ index, data: d }) {
+export default function Legacy9(props) {
+  const { data: d } = props
   const img1Ref = useRef(null);
   const img2Ref = useRef(null);
   const img3Ref = useRef(null);
@@ -26,7 +27,7 @@ export default function Legacy9({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={2.5} animate={animation}>
+        <Slide {...props} subslides={2.5} animate={animation}>
           <WatchesSafeArea justify="center">
             <Column h="100%" css={css`margin: 0 20px;`}>
               <Watches {...d.images[0]} />
@@ -45,7 +46,7 @@ export default function Legacy9({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={4} animate={animation}>
+        <Slide {...props} subslides={4} animate={animation}>
           <Column w="100%" h="100%">
             <Layer ref={img1Ref}>
               <Column w="100%" h="100%" align="center" justify="center">

@@ -30,7 +30,7 @@ export default function Slider() {
             <Slide index={title} data={d} key={`${title}-${i}`} />
           ))}
 
-          <Ending />
+          <Ending data={data.chapters[1].ending} />
         </NavBarProvider>
       </Background>
     </SliderRoot>

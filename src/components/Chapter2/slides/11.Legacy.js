@@ -7,7 +7,8 @@ import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
 import { animateFadeInOut, fadeIn } from '../../../helpers/animation';
 
-export default function Legacy11({ index, data: d }) {
+export default function Legacy11(props) {
+  const { data: d } = props
   const watches = d.images
 
   const copy2Ref = useRef(null);
@@ -19,7 +20,7 @@ export default function Legacy11({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={2.5} animate={animation}>
+        <Slide {...props} subslides={2.5} animate={animation}>
           <WatchesSafeArea justify="space-around">
             {watches.map((img, i) => (
               <Column key={img.src} h="100%" css={css`margin: 0 20px;`}>
@@ -41,7 +42,7 @@ export default function Legacy11({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={2.5} animate={animation}>
+        <Slide {...props} subslides={2.5} animate={animation}>
         <Column w="100%" h="100%">
           <Layer>
             <Column w="100%" h="100%">

@@ -16,13 +16,14 @@ const defaultStyle = isMobile ? css`
   display: inline-block !important;
 `;
 
-export default function Details({ index, data: d }) {
+export default function Details(props) {
+  const { data: d } = props
   const { css: style, ...image } = d.images[0]
 
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} animate={animateFadeInOut} subslides={4}>
+        <Slide isBackground {...props} animate={animateFadeInOut} subslides={4}>
           <WatchesSafeArea justify="center">
             <img {...image} css={[defaultStyle, style]} />
           </WatchesSafeArea>
@@ -30,7 +31,7 @@ export default function Details({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} animate={animateFadeInOut}>
+        <Slide {...props} isBackground animate={animateFadeInOut}>
           <Row h="100%">
             <Layer css={css`text-align: center;`}>
               <img {...image} css={[defaultStyle, style]} />

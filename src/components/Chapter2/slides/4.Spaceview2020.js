@@ -7,11 +7,12 @@ import { Watches, WatchesSafeArea } from '../Watches';
 import { animateFadeInOut } from '../../../helpers/animation';
 import { css } from '@emotion/core';
 
-export default function Spaceview2020({ index, data: d }) {
+export default function Spaceview2020(props) {
+  const { data: d } = props
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} animate={animateFadeInOut}>
+        <Slide {...props} animate={animateFadeInOut}>
           <WatchesSafeArea justify="center">
             <Watches {...d.images[0]} />
           </WatchesSafeArea>
@@ -34,7 +35,7 @@ export default function Spaceview2020({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} animate={animateFadeInOut}>
+        <Slide {...props} animate={animateFadeInOut}>
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
               <Watches {...d.images[0]} />

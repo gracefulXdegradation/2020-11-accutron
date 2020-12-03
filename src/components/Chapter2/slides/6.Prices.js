@@ -6,11 +6,13 @@ import { BackgroundImage, Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { animateFadeInOut } from '../../../helpers/animation';
 
-export default function Prices6({ index, data: d }) {
+export default function Prices6(props) {
+  const { data: d } = props
+
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide isBackground index={index} subslides={1.5} animate={animateFadeInOut}>
+        <Slide isBackground {...props} subslides={1.5} animate={animateFadeInOut}>
           <Layer left="0">
             <BackgroundImage position="center" {...d.images[0]} />
           </Layer>
@@ -28,7 +30,7 @@ export default function Prices6({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide isBackground index={index} subslides={1.5} animate={animateFadeInOut}>
+        <Slide isBackground {...props} subslides={1.5} animate={animateFadeInOut}>
           <Layer top="0" left="0" css={css`opacity: 0.7;`}>
             <BackgroundImage position="center" {...d.images[0]} />
           </Layer>
@@ -36,8 +38,8 @@ export default function Prices6({ index, data: d }) {
           <Column h="100%" w="100%" justify="center" align="flex-start">
             <Column h="100%" w="100%">
               <Layer>
-                <Row w="100%" h="100%" justify="flex-end" align="flex-end">
-                  <Column css={css`margin-right: 30px;`}>
+                <Row w="100%" h="100%" justify="flex-start" align="flex-start">
+                  <Column css={css`margin: 30px 0 0 30px;`}>
                     <H4 alternative mobile>{d.copy[0].text}</H4>
                     <P mobile>{d.copy[1].text}</P>
                   </Column>

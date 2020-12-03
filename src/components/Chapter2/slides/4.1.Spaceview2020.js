@@ -7,7 +7,8 @@ import Slide from '../Slide';
 import { WatchesSafeArea, WatchSlider } from '../Watches';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
-export default function Spaceview2020({ index, data: d }) {
+export default function Spaceview2020(props) {
+  const { data: d } = props
   const watches1Ref = useRef(null)
   const watches2Ref = useRef(null)
   const p1Ref = useRef(null)
@@ -28,7 +29,7 @@ export default function Spaceview2020({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={2.5} animate={animation}>
+        <Slide {...props} subslides={2.5} animate={animation}>
           <WatchesSafeArea ref={watches1Ref} justify="center">
             <Row h="100%" justify="center" css={css`transform: translateY(15%) scale(1.4);`}>
               <WatchSlider>
@@ -58,7 +59,7 @@ export default function Spaceview2020({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide {...props} subslides={2} animate={animation}>
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Column align="center">
               <P ref={p1Ref} mobile align="center" css={css`padding: 15px 30px;`}>

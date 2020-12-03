@@ -5,9 +5,10 @@ import { P } from '../../../styles/typography';
 import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { HalfWatches, WatchesSafeArea } from '../Watches';
-import { animateFadeInOut, fadeIn, fadeInOut, fadeOut, revealWatch } from '../../../helpers/animation';
+import { animateFadeInOut, fadeInOut, fadeOut, revealWatch } from '../../../helpers/animation';
 
-export default function IconicDesign2({ index, data: d  }) {
+export default function IconicDesign2(props) {
+  const { data: d  } = props
   const leftImg = d.images[0]
   const rightImg = d.images[1]
   
@@ -35,7 +36,7 @@ export default function IconicDesign2({ index, data: d  }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={5} animate={animation}>
+        <Slide {...props} subslides={5} animate={animation}>
           <Row w="50%" h="100%">
             <Layer ref={p1Ref}>
               <Column w="100%" h="100%" align="flex-end" justify="flex-end">
@@ -80,7 +81,7 @@ export default function IconicDesign2({ index, data: d  }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={8} animate={mobileAnimation}>
+        <Slide {...props} subslides={8} animate={mobileAnimation}>
           <Row h="100%" align="center">
             <Column w="100%" h="100%">
 

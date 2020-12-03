@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
 import { H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
-import { Circle, Layer, Divider, Row, Column, HoverableCircle } from '../UIKit';
+import { Circle, Layer, Divider, Row, Column, HoverableCircle, ShopLink } from '../UIKit';
 import { useStoryState } from '../../providers/StoryStateProvider';
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 import { zIndex } from '../../styles/const';
@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function NavBar({ sliderRef }) {
   const { toChapter1, toChapter2 } = useChapterAnimation();
-  const { slideHeading } = useNavBar();
+  const { slideHeading, shopLink } = useNavBar();
   const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
@@ -64,7 +64,7 @@ export default function NavBar({ sliderRef }) {
           </Column>
 
           <Row align="center" justify="space-between">
-            <Divider length="90px" />
+            <Divider length="90px" css={css`min-width: 90px;`} />
             <Column align="center" css={css`margin: 24px;`}>
               <HoverableCircle size="m" onClick={toChapter1} wrapChildren>
                 <H4>Chapter 1</H4>
@@ -75,9 +75,12 @@ export default function NavBar({ sliderRef }) {
               <Divider length="50%" ref={divRef => dividersRef.current.push(divRef)} />
             </Row>
             <Column align="center" css={css`margin: 24px;`}>
+              <Layer css={css`left: 50%; top: -20px;`}>
+                <ShopLink {...(shopLink || {})} isHidden={!shopLink} style={css`transform: translate(-50%, -100%);`} />
+              </Layer>
               <Circle size="m" logo />
             </Column>
-            <Divider length="90px" />
+            <Divider length="90px" css={css`min-width: 90px;`} />
           </Row>
 
           <Column align="center" css={css`flex: 1;`} />
@@ -100,6 +103,9 @@ export default function NavBar({ sliderRef }) {
             <H3 alternative css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
           </Column>
           <Row align="center" css={css`margin: 12px 0 16px;`}>
+            <Layer css={css`left: 50%; top: -20px;`}>
+              <ShopLink {...(shopLink || {})} isHidden={!shopLink} style={css`transform: translate(-50%, -100%);`} />
+            </Layer>
             <Row />
             <Column align="center" css={css`padding: 0 16px;`}>
               <Circle size="s" logo />

@@ -6,7 +6,8 @@ import { Column, Layer, Row } from '../../UIKit';
 import Slide from '../Slide';
 import { animateFadeInOut, fadeIn } from '../../../helpers/animation';
 
-export default function Legacy7({ index, data: d }) {
+export default function Legacy7(props) {
+  const { data: d } = props
   const hRef = useRef(null);
 
   const animation = (slide, props) => animateFadeInOut(slide, props, tl => {
@@ -16,7 +17,7 @@ export default function Legacy7({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide {...props} subslides={2} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
             <P align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 20px 0; margin: 0 32px;`}>
               {d.copy[0].text}
@@ -40,7 +41,7 @@ export default function Legacy7({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={2} animate={animation}>
+        <Slide {...props} subslides={2} animate={animation}>
           <Layer left="0" bottom="0">
             <Row h="100%" justify="flex-end" align="flex-end">
               <img {...d.images[0]} css={css`

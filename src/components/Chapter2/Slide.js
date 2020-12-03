@@ -20,17 +20,23 @@ const SlideRoot = styled.section`
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
 
-const Slide = ({ index, children, startVisible, isBackground, isActionable, subslides = 1, animate }) =>  {
+const Slide = ({ index, children, startVisible, isBackground, isActionable, subslides = 1, animate, data = {} }) =>  {
   const { hasChapterInit } = useStoryState();
-  const { setSlideHeading } = useNavBar();
+  const { setSlideHeading, setShopLink } = useNavBar();
   const slideRef = useRef(null)
   const slideInnerRef = useRef(null)
 
   useEffect(() => {
     if (hasChapterInit) {
       const tl = animate(slideRef.current, {
-        onEnter: () => setSlideHeading(index),
-        onEnterBack: () => setSlideHeading(index),
+        onEnter: () => {
+          setShopLink(data.shopLink)
+          setSlideHeading(index)
+        },
+        onEnterBack: () => {
+          setShopLink(data.shopLink)
+          setSlideHeading(index)
+        },
       });
 
       return () => {
@@ -38,7 +44,7 @@ const Slide = ({ index, children, startVisible, isBackground, isActionable, subs
         tl.kill()
       };
     }
-  }, [animate, index, setSlideHeading, hasChapterInit])
+  }, [animate, index, setSlideHeading, setShopLink, hasChapterInit])
 
   return (
     <Wrapper isBackground={isBackground} isActionable={isActionable}>

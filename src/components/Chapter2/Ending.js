@@ -1,45 +1,18 @@
 import { css } from '@emotion/core';
 import React, { useRef } from 'react';
 import { BrowserView, MobileView } from "react-device-detect";
-import styled from '@emotion/styled';
 import { H4, P } from "../../styles/typography";
-import { typefaceParagraph } from "../../styles/const";
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { Background, BackgroundImage, Circle, Column, Divider, HoverableCircle, Layer, Row } from "../UIKit";
-import data from '../../data/story';
+import { Background, BackgroundImage, Circle, Column, Divider, HoverableCircle, Layer, Row, ShopLink } from "../UIKit";
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
 import Slide from './Slide';
 import { animateFadeIn, fadeIn } from '../../helpers/animation';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const d = data.chapters[1].ending
-const BgImage = d.images[0].src
 
-const ShopNow = styled.a`
-  font-size: 20px;
-  line-height: 1em;
-  padding: 20px 83px 17px;
-  font-family: ${typefaceParagraph};
-  border: 1px solid ${props => props.theme.borderColor};
-  text-transform: uppercase;
-  background: transparent;
-  color: ${props => props.theme.fontHeaderPrimary};
-  cursor: pointer;
-  transition: box-shadow .2s ease-in;
-  text-decoration: none;
-
-  &:hover {
-    box-shadow: 0px 0px 4px 1px #FFF inset;
-    color: ${props => props.theme.fontHeaderPrimary};
-  }
-`
-
-const ShopLink = () => (
-  <ShopNow href={d.shopLink.url} target="_blank">{d.shopLink.caption}</ShopNow>
-)
-
-export default function Ending() {
+export default function Ending({ data: d }) {
+  const BgImage = d.images[0].src
   const { toChapter1, toChapter2 } = useChapterAnimation()
 
   const bgRef = useRef(null)
@@ -94,7 +67,7 @@ export default function Ending() {
                   <Divider />
                 </Row>
                 <Column align="center" css={css`margin: 0 100px;`}>
-                  <ShopLink />
+                  <ShopLink {...d.shopLink} />
                 </Column>
                 <Row css={css`flex-direction: row-reverse; flex: 1; margin-right: 20px;`}>
                   <Divider />
@@ -151,7 +124,7 @@ export default function Ending() {
                     {d.copy[1].text}
                   </H4>
                 </Column>
-                <ShopLink />
+                <ShopLink {...d.shopLink} />
               </Column>
 
               <Row css={css`margin-top: 30px; padding: 20px 0;`} align="flex-end">

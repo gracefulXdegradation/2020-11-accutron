@@ -5,9 +5,10 @@ import { H4, P } from '../../../styles/typography'
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea, WatchSlider } from '../Watches';
-import { animateFadeInOut, fadeIn, fadeInOut, fadeOut } from '../../../helpers/animation';
+import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
-export default function DNA5({ index, data: d }) {
+export default function DNA5(props) {
+  const { data: d } = props
   const watch1Ref = useRef(null)
   const watch2Ref = useRef(null)
   const watch3Ref = useRef(null)
@@ -70,7 +71,7 @@ export default function DNA5({ index, data: d }) {
   return (
     <>
       <BrowserView renderWithFragment>
-        <Slide index={index} animate={animation} subslides={5}>
+        <Slide {...props} animate={animation} subslides={5}>
           <WatchesSafeArea ref={watch1Ref} justify="center">
             <Watches {...d.images[0]} css={css`transform: translateX(90%);`} />
           </WatchesSafeArea>
@@ -125,7 +126,7 @@ export default function DNA5({ index, data: d }) {
       </BrowserView>
 
       <MobileView renderWithFragment>
-        <Slide index={index} subslides={7} animate={mobileAnimation}>
+        <Slide {...props} subslides={7} animate={mobileAnimation}>
           <Column h="100%" w="100%" justify="space-around">
             <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
               <Layer ref={watch1Ref} css={css`display: flex; justify-content: center;`}>

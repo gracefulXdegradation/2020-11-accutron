@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { typefaceParagraph } from "../styles/const";
 import { AccutronLogo } from '../data/assets';
 import { H4 } from '../styles/typography';
 
@@ -210,3 +211,30 @@ export const BackgroundImage = styled.div`
   background-repeat: no-repeat;
   background-position: ${props => props.position};
 `
+
+const ShopNow = styled.a`
+  font-size: 20px;
+  line-height: 1em;
+  padding: 20px 83px 17px;
+  font-family: ${typefaceParagraph};
+  border: 1px solid ${props => props.theme.borderColor};
+  text-transform: uppercase;
+  background: transparent;
+  color: ${props => props.theme.fontHeaderPrimary};
+  cursor: pointer;
+  transition: box-shadow .2s ease-in, opacity .2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+
+  &:hover {
+    box-shadow: 0px 0px 4px 1px #FFF inset;
+    color: ${props => props.theme.fontHeaderPrimary};
+  }
+`
+
+export const ShopLink = ({ url, style, isHidden }) => {
+  return (
+    <ShopNow href={url} target="_blank" css={[style, isHidden && css`opacity: 0; pointer-events: none;`]}>Shop Now</ShopNow>
+  )
+}

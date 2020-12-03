@@ -27,6 +27,10 @@ import Legacy11 from '../components/Chapter2/slides/11.Legacy';
 import Details from '../components/Chapter2/slides/12.Details';
 import SingleImage from '../components/Chapter2/slides/8.SingleImage';
 
+const SpaceviewLink = 'https://www.accutronwatch.com/collections/spaceview'
+const DNALink = 'https://www.accutronwatch.com/collections/dna'
+const LegacyLink = 'https://www.accutronwatch.com/collections/legacy'
+
 const story = {
   video: {
     id: 483504451
@@ -378,7 +382,10 @@ const story = {
               src: resolveImage('Prices_1.jpg'),
               alt: 'Spaceview 2020'
             },
-          ]
+          ],
+          shopLink: {
+            url: SpaceviewLink,
+          },
         },
 
         {
@@ -444,7 +451,10 @@ const story = {
               src: resolveImage('Prices_2.jpg'),
               alt: 'The Accutron DNA'
             },
-          ]
+          ],
+          shopLink: {
+            url: DNALink,
+          },
         },
 
         {
@@ -471,7 +481,7 @@ const story = {
           }],
           images: [{
             src: resolveImage('Detail_1.png')
-          }]
+          }],
         },
 
         {
@@ -504,7 +514,10 @@ const story = {
             ` : css`
               transform: scale(1.2) translate(0, 10%);
             `
-          }]
+          }],
+          shopLink: {
+            url: LegacyLink,
+          },
         },
 
         {
@@ -517,7 +530,10 @@ const story = {
             ` : css`
               transform: scale(1.3) translate(0, 10%);
             `
-          }]
+          }],
+          shopLink: {
+            url: LegacyLink,
+          },
         },
 
         {
@@ -530,7 +546,10 @@ const story = {
             ` : css`
               transform: scale(1.1) translate(0, 10%);
             `
-          }]
+          }],
+          shopLink: {
+            url: LegacyLink,
+          },
         },
 
         {
@@ -543,7 +562,10 @@ const story = {
             ` : css`
               transform: scale(1.3) translate(0, 10%);
             `
-          }]
+          }],
+          shopLink: {
+            url: LegacyLink,
+          },
         },
 
         {
@@ -556,7 +578,10 @@ const story = {
             ` : css`
               transform: scale(1.3) translate(0, 10%);
             `
-          }]
+          }],
+          shopLink: {
+            url: LegacyLink,
+          },
         },
 
         {
@@ -573,7 +598,10 @@ const story = {
               right: 0;
               transform: scale(1.2) translate(5%, 0);
             `
-          }]
+          }],
+          shopLink: {
+            url: LegacyLink,
+          },
         },
 
         {
@@ -586,7 +614,10 @@ const story = {
             ` : css`
               transform: scale(1.1);
             `
-          }]
+          }],
+          shopLink: {
+            url: LegacyLink,
+          },
         },
 
         {
@@ -669,7 +700,6 @@ const story = {
       ending: {
         shopLink: {
           url: 'https://www.accutronwatch.com/',
-          caption: 'Shop Now'
         },
         copy: [
           {
