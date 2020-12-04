@@ -3,14 +3,24 @@ import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H3, H4 } from '../../styles/typography';
+import { H2, H3, H4 } from '../../styles/typography';
 import { useNavBar } from '../../providers/NavBarProvider';
 import { Circle, Layer, Divider, Row, Column, HoverableCircle, ShopLink } from '../UIKit';
 import { useStoryState } from '../../providers/StoryStateProvider';
 import { useChapterAnimation } from '../../providers/ChapterAnimationProvider';
-import { zIndex } from '../../styles/const';
+import { xlScreenBreakpoint, zIndex } from '../../styles/const';
+import styled from '@emotion/styled';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const DecorationDivider = styled(Divider)`
+  width: 90px;
+  min-width: 90px;
+  @media(max-width: ${xlScreenBreakpoint}) {
+    width: 50px;
+    min-width: 50px;
+  }
+`
 
 export default function NavBar({ sliderRef }) {
   const { toChapter1, toChapter2 } = useChapterAnimation();
@@ -56,16 +66,16 @@ export default function NavBar({ sliderRef }) {
         <Column w="100%" h="100%">
           <Column align="center" css={css`flex: 1;`}>
             <Column align="center" css={css`margin-top: 32px;`}>
-              <HoverableCircle size="m" ref={logoRef} onClick={toChapter2}>
-                <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+              <HoverableCircle size="m" wrap ref={logoRef} onClick={toChapter2}>
+                <H4>Chapter 2</H4>
               </HoverableCircle>
             </Column>
             <H3 alternative>{slideHeading}</H3>
           </Column>
 
           <Row align="center" justify="space-between">
-            <Divider length="90px" css={css`min-width: 90px;`} />
-            <Column align="center" css={css`margin: 24px;`}>
+            <DecorationDivider />
+            <Column align="center" css={css`margin: 20px;`}>
               <HoverableCircle size="m" onClick={toChapter1} wrapChildren>
                 <H4>Chapter 1</H4>
               </HoverableCircle>
@@ -74,13 +84,13 @@ export default function NavBar({ sliderRef }) {
               <Divider length="50%" ref={divRef => dividersRef.current.push(divRef)} />
               <Divider length="50%" ref={divRef => dividersRef.current.push(divRef)} />
             </Row>
-            <Column align="center" css={css`margin: 24px;`}>
+            <Column align="center" css={css`margin: 20px;`}>
               <Layer css={css`left: 50%; top: -20px;`}>
                 <ShopLink {...(shopLink || {})} isHidden={!shopLink} style={css`transform: translate(-50%, -100%);`} />
               </Layer>
-              <Circle size="m" logo />
+              <Circle size="m" logo css={css`margin-bottom: 0;`} />
             </Column>
-            <Divider length="90px" css={css`min-width: 90px;`} />
+            <DecorationDivider />
           </Row>
 
           <Column align="center" css={css`flex: 1;`} />
@@ -95,12 +105,12 @@ export default function NavBar({ sliderRef }) {
             <Row align="center">
               <Divider />
               <Column css={css`margin: 0 30px;`} onClick={toChapter2}>
-                <Circle ref={logoRef} size="s" />
+                <Circle ref={logoRef} size="m" css={css`margin: 0 !important;`} />
               </Column>
               <Divider />
             </Row>
             <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter2}>Chapter 2</H4>
-            <H3 alternative css={css`font-size: 35px; line-height: 40px; white-space: nowrap;`}>{slideHeading}</H3>
+            <H2 alternative css={css`white-space: nowrap;`}>{slideHeading}</H2>
           </Column>
           <Row align="center" css={css`margin: 12px 0 16px;`}>
             <Layer css={css`left: 50%; top: -20px;`}>
@@ -108,7 +118,7 @@ export default function NavBar({ sliderRef }) {
             </Layer>
             <Row />
             <Column align="center" css={css`padding: 0 16px;`}>
-              <Circle size="s" logo />
+              <Circle size="m" logo />
             </Column>
             <Divider />
           </Row>

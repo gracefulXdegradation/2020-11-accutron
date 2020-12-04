@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Row } from '../UIKit';
 import { css } from '@emotion/core';
+import { xlScreenBreakpoint } from '../../styles/const';
 
 const Wrapper = styled.div`
   height: 100%;
@@ -29,6 +30,9 @@ const HalfWatchImage = styled.img`
 export const WatchesSafeArea = styled(Row)`
   height: 100%;
   padding: 220px 0;
+  @media(max-width: ${xlScreenBreakpoint}) {
+    padding: 180px 0;
+  }
   align-items: center;
 `
 

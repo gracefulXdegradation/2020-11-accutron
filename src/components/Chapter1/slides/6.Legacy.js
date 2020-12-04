@@ -99,9 +99,9 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
                   </Column>
                 </Layer>
                 <Layer ref={copy2Ref} css={css`opacity: 0;`}>
-                  <H2 alternative mobile css={css`margin-top: 16px; text-align: center;`}>
+                  <H3 alternative mobile css={css`margin-top: 16px; text-align: center;`}>
                   {d.copy[2].text}
-                  </H2>
+                  </H3>
                 </Layer>
                 <Layer ref={mobLayer2} css={css`opacity: 0;`}>
                   <Column>

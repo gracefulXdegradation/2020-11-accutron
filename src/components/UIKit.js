@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { typefaceParagraph } from "../styles/const";
+import { typefaceParagraph, xlScreenBreakpoint } from "../styles/const";
 import { AccutronLogo } from '../data/assets';
 import { H4 } from '../styles/typography';
 
@@ -49,12 +49,29 @@ export const CircleSizes = {
   l: 73,
   xl: 146
 }
+
+const CircleSmallScreenSizes = {
+  s: 49,
+  m: 49,
+  l: 69,
+  xl: 73
+}
+
 export const Circle = styled.div`
-  ${({ size }) => css`
+  ${({ size, logo }) => css`
     width: ${CircleSizes[size]}px;
     height: ${CircleSizes[size]}px;
     min-width: ${CircleSizes[size]}px;
     min-height: ${CircleSizes[size]}px;
+    ${!logo && css`margin-bottom: 16px;`}
+
+    @media(max-width: ${xlScreenBreakpoint}) {
+      width: ${CircleSmallScreenSizes[size]}px;
+      height: ${CircleSmallScreenSizes[size]}px;
+      min-width: ${CircleSmallScreenSizes[size]}px;
+      min-height: ${CircleSmallScreenSizes[size]}px;
+      ${!logo && css`margin-bottom: 10px;`}
+    }
   `}
   border: 1px solid ${props => props.theme.fontParagraph};
   border-radius: 50%;
@@ -143,7 +160,10 @@ export const ChapterCaption = ({ children }) => (
   <Block>
     <Layer css={css`
       top: 16px;
-      
+      @media(max-width: ${xlScreenBreakpoint}) {
+        top: 10px;
+      }
+
       & > * {
         white-space: nowrap;
         transform: translateX(-50%);
@@ -193,12 +213,15 @@ const GlowingCircle = styled(Column)`
 export const HoverableCircle = React.forwardRef(({ size, children, rotation, wrapChildren, onClick }, ref) => {
   return (
     <GlowingCircle rotation={rotation} onClick={onClick}>
-      <Circle ref={ref} size={size} rotation={rotation} />
+      <Circle ref={ref} size={size} rotation={rotation} css={css`margin: 0 !important;`} />
       { wrapChildren ? (
         <ChapterCaption>
           {children}
         </ChapterCaption>
-      ) : <>{children}</> }
+      ) : <div css={css`
+        margin-top: 16px;
+        @media(max-width: ${xlScreenBreakpoint}) {margin-top: 10px;}
+      `}>{children}</div> }
     </GlowingCircle>
   )
 })
@@ -226,6 +249,11 @@ const ShopNow = styled.a`
   text-decoration: none;
   white-space: nowrap;
   display: inline-block;
+
+  @media(max-width: ${xlScreenBreakpoint}) {
+    padding: 16px 40px 13px;
+    font-size: 16px;
+  }
 
   &:hover {
     box-shadow: 0px 0px 4px 1px #FFF inset;

@@ -23,7 +23,7 @@ export default function Legacy11(props) {
         <Slide {...props} subslides={2.5} animate={animation}>
           <WatchesSafeArea justify="space-around">
             {watches.map((img, i) => (
-              <Column key={img.src} h="100%" css={css`margin: 0 20px;`}>
+              <Column key={img.src} h="100%" css={css`margin: 0 10px;`}>
                 <Watches {...img} />
               </Column>
             ))}

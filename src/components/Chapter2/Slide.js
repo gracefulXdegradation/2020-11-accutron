@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import { Column, Row } from '../UIKit';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useStoryState } from '../../providers/StoryStateProvider';
-import { zIndex } from '../../styles/const';
+import { xlScreenBreakpoint, zIndex } from '../../styles/const';
 
 const Wrapper = styled.div`
   pointer-events: ${props => props.isActionable ? 'all' : 'none'};
@@ -50,7 +50,12 @@ const Slide = ({ index, children, startVisible, isBackground, isActionable, subs
     <Wrapper isBackground={isBackground} isActionable={isActionable}>
       <BrowserView renderWithFragment>
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
-          <Row ref={slideInnerRef} h="100vh" css={css`padding: 0 220px;`}>
+          <Row ref={slideInnerRef} h="100vh" css={css`
+            padding: 0 220px;
+            @media(max-width: ${xlScreenBreakpoint}) {
+              padding: 0 160px;
+            }
+          `}>
             {children}
           </Row>
         </SlideRoot>

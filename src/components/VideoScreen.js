@@ -26,9 +26,9 @@ export default function VideoScreen() {
       <BrowserView renderWithFragment>
         <Column h="100%" w="100%" justify="space-between" align="center">
           <Logo />
-          <Column align="center" css={css`cursor: pointer; margin: 10vh 0;`}>
-            <HoverableCircle size="l" onClick={toChapter1}>
-              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+          <Column align="center" css={css`cursor: pointer; margin: 10vh 0 20vh;`}>
+            <HoverableCircle size="l" wrapChildren onClick={toChapter1}>
+              <H4>Chapter 1</H4>
               <P align="center">ACCUracy through<br />elecTRONics</P>
             </HoverableCircle>
           </Column>
@@ -41,7 +41,7 @@ export default function VideoScreen() {
           <Column align="center" onClick={toChapter1} css={css`margin: 10vh 0;`}>
             <Circle size="l" />
             <Column align="center">
-              <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+              <H4>Chapter 1</H4>
               <P align="center">ACCUracy through<br />elecTRONics</P>
             </Column>
           </Column>

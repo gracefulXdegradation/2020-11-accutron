@@ -14,6 +14,7 @@ const CircledImage = styled.img`
   border-radius: 50%;
   height: auto !important;
   max-height: 100% !important;
+  display: inline-block;
 `;
 
 export default function Details(props) {

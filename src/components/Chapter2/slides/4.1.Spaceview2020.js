@@ -32,7 +32,7 @@ export default function Spaceview2020(props) {
         <Slide {...props} subslides={3.5} animate={animation}>
           <WatchesSafeArea ref={watches1Ref} justify="center">
             <Row h="100%" justify="center" css={css`transform: translateY(15%) scale(1.4);`}>
-              <WatchSlider>
+              <WatchSlider style={css`transform: translate(8%, 0);`}>
                 <img {...d.images[0]} />
                 <img ref={watches2Ref} {...d.images[1]} />
               </WatchSlider>

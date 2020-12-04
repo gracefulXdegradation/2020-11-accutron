@@ -122,7 +122,7 @@ function Ending({ isPortrait, isLandscape }) {
           <Column css={css`flex: 1;`} align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
               <HoverableCircle size="m" onClick={toChapter1}>
-                <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+                <H4>Chapter 1</H4>
               </HoverableCircle>
             </Column>
             <Column css={css`flex: 1;`}>
@@ -134,7 +134,7 @@ function Ending({ isPortrait, isLandscape }) {
               <Divider ref={leftDivRef} length="0" />
             </Row>
             <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 3; opacity: 0;`}>
-              <HoverableCircle size="xl" wrapChildren onClick={toChapter2}>
+              <HoverableCircle size="xl" wrapChildren onClick={toChapter2} css={css`margin: 0 !important;`}>
                 <H4>Chapter 2</H4>
               </HoverableCircle>
             </Column>
@@ -157,16 +157,16 @@ function Ending({ isPortrait, isLandscape }) {
       {isMobile && isPortrait && (
         <Column ref={rootRef} w="100%" h="200vh">
           <Column w="100%" h="100vh">
-            <Column align="center" css={css`padding-bottom: 20px;`}>
+            <Column align="center" css={css`padding-bottom: 40px;`}>
               <Block css={css`padding-top: 50px;`} onClick={toChapter1}>
-                <Circle size="s" />
+                <Circle size="m" />
                 <Layer top="0">
                   <Row h="100%" justify="center">
                     <Divider vertical length="35px" />
                   </Row>
                 </Layer>
               </Block>
-              <H4 alternative mobile css={css`margin: 12px 0; white-space: nowrap;`}>Chapter 1</H4>
+              <H4 alternative mobile css={css`white-space: nowrap;`}>Chapter 1</H4>
             </Column>
             <Column css={css`flex: 1;`}>
               <Layer ref={mobSlide1Ref}>
@@ -211,7 +211,7 @@ function Ending({ isPortrait, isLandscape }) {
               <Divider ref={leftDivRef} length="0" />
             </Row>
             <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`}>
-              <HoverableCircle size="m" wrapChildren onClick={toChapter2}>
+              <HoverableCircle size="l" wrapChildren onClick={toChapter2}>
                 <H4 mobile>Chapter 2</H4>
               </HoverableCircle>
             </Column>

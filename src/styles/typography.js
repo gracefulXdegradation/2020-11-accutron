@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { typefaceHeader, typefaceParagraph } from './const';
+import { typefaceHeader, typefaceParagraph, xlScreenBreakpoint } from './const';
 
 const headingColor = ({ theme, alternative, tertiary }) =>
   alternative ? theme.fontHeaderAlternative : tertiary ? theme.fontHeaderTertiary :theme.fontHeaderPrimary
@@ -13,6 +13,11 @@ export const H2 = styled.h2`
   font-weight: normal;
   text-transform: uppercase;
   ${({ align }) => align && `text-align: ${align};`};
+
+  @media(max-width: 1200px) {
+    font-size: 35px;
+    line-height: 40px;
+  }
 `;
 
 export const H3 = styled.h3`
@@ -24,6 +29,11 @@ export const H3 = styled.h3`
   font-weight: normal;
   text-transform: uppercase;
   ${({ align }) => align && `text-align: ${align};`};
+
+  @media(max-width: ${xlScreenBreakpoint}) {
+    font-size: 25px;
+    line-height: 35px;
+  }
 `;
 
 export const H4 = styled.h4`
@@ -35,6 +45,11 @@ export const H4 = styled.h4`
   font-weight: normal;
   text-transform: uppercase;
   ${({ align }) => align && `text-align: ${align};`};
+
+  @media(max-width: ${xlScreenBreakpoint}) {
+    font-size: 20px;
+    line-height: 28px;
+  }
 `;
 
 export const P = styled.p`
@@ -43,4 +58,9 @@ export const P = styled.p`
   font-size: ${({ mobile }) => mobile ? '15px' : '20px'};
   line-height: ${({ mobile }) => mobile ? '20px' : '25px'};
   ${({ align }) => align && `text-align: ${align};`};
+
+  @media(max-width: ${xlScreenBreakpoint}) {
+    font-size: 15px;
+    line-height: 20px;
+  }
 `

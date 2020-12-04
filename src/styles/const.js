@@ -27,3 +27,5 @@ export const zIndex = {
   navBar: 1,
   foregroundSlide: 2
 }
+
+export const xlScreenBreakpoint = '1200px'

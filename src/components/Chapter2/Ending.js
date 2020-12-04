@@ -47,16 +47,16 @@ export default function Ending({ data: d }) {
               <Column css={css`flex: 1;`} align="center" justify="flex-start">
                 <Row>
                   <Column align="center" css={css`cursor: pointer; padding: 50px 0 20px;`}>
-                    <HoverableCircle size="m" onClick={toChapter1}>
-                      <H4 css={css`margin-top: 20px;`}>Chapter 1</H4>
+                    <HoverableCircle size="m" wrapChildren onClick={toChapter1}>
+                      <H4>Chapter 1</H4>
                     </HoverableCircle>
                   </Column>
 
                   <Divider vertical css={css`margin: 0 150px;`} />
 
-                  <Column align="center" css={css`cursor: pointer; padding: 50px 0 20px;`}>
-                    <HoverableCircle size="m" onClick={toChapter2} rotation={90}>
-                      <H4 css={css`margin-top: 20px;`}>Chapter 2</H4>
+                  <Column align="center" css={css`cursor: pointer; padding: 50px 0;`}>
+                    <HoverableCircle size="m" wrapChildren onClick={toChapter2} rotation={90}>
+                      <H4>Chapter 2</H4>
                     </HoverableCircle>
                   </Column>
                 </Row>
@@ -103,14 +103,14 @@ export default function Ending({ data: d }) {
                 <Row h="30vh" align="center">
                   <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter1}>
                     <Circle size="s" />
-                    <H4 mobile css={css`margin-top: 20px;`}>Chapter 1</H4>
+                    <H4 mobile>Chapter 1</H4>
                   </Column>
 
                   <Divider vertical />
 
                   <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter2}>
                     <Circle size="s" rotation={90} />
-                    <H4 mobile css={css`margin-top: 20px;`}>Chapter 2</H4>
+                    <H4 mobile>Chapter 2</H4>
                   </Column>
                 </Row>
               </Column>
@@ -133,7 +133,7 @@ export default function Ending({ data: d }) {
                     <Divider />
                   </Row>
                   <Column align="center" css={css`margin: 0 20px;`}>
-                    <Circle size="l" logo />
+                    <Circle size="l" logo css={css`margin: 0;`} />
                   </Column>
                   <Row css={css`flex-direction: row-reverse; flex: 1;`}>
                     <Divider />
