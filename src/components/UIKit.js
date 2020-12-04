@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { typefaceParagraph, xlScreenBreakpoint } from "../styles/const";
-import { AccutronLogo } from '../data/assets';
+import { AccutronLogo, HSLogo } from '../data/assets';
 import { H4 } from '../styles/typography';
 
 export const Background = styled.div`
@@ -267,3 +267,6 @@ export const ShopLink = ({ url, style }) => {
     <ShopNow href={url} target="_blank" css={style}>Shop Now</ShopNow>
   )
 }
+
+export const HighsnobietyLogo = () =>
+  <img src={HSLogo} alt="Highsnobiety logo" css={css`margin-top: 50px; width: 200px;`} />

@@ -3,7 +3,7 @@ import Chapter1 from './Chapter1';
 import Chapter2 from './Chapter2';
 import VideoScreen from './VideoScreen';
 import { useStoryState } from '../providers/StoryStateProvider';
-import { useChapterAnimation } from '../providers/ChapterAnimationProvider';
+import { useChapterAnimation, stages } from '../providers/ChapterAnimationProvider';
 
 import { images } from '../data/story'
 import Preloader from './Preloader';
@@ -13,10 +13,10 @@ function Layout() {
   const { toVideo } = useChapterAnimation()
 
   return <>
-      { chapter === -2 && <Preloader images={images} onLoad={toVideo} /> }
-      { (chapter === -1 || chapter === -2) && <VideoScreen /> }
-      { chapter === 0 &&  <Chapter1 key={`${ts}-1`} /> }
-      { chapter === 1 &&  <Chapter2 key={`${ts}-2`} /> }
+      { chapter === stages.LOADER && <Preloader images={images} onLoad={toVideo} /> }
+      { (chapter === stages.VIDEO || chapter === stages.LOADER) && <VideoScreen /> }
+      { chapter === stages.CHAPTER_1 &&  <Chapter1 key={`${ts}-1`} /> }
+      { chapter === stages.CHAPTER_2 &&  <Chapter2 key={`${ts}-2`} /> }
     </>
   ;
 }

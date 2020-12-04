@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import React, { useEffect } from 'react';
 import { preloadAll } from '../helpers/image';
-import { Background, Block, Circle, Row } from './UIKit';
+import { Background, Block, Circle, HighsnobietyLogo, Column } from './UIKit';
 
 function Preloader({ images, onLoad }) {
   useEffect(() => {
@@ -19,7 +19,7 @@ function Preloader({ images, onLoad }) {
 
   return (
     <Background css={css`height: 100vh; position: absolute; z-index: 2;`}>
-      <Row h="100%" align="center" justify="center">
+      <Column h="100%" w="100%" align="center" justify="center" css={css`margin-top: 100px;`}>
         <Block css={css`
           width: ${size}px;
           height: ${size}px;
@@ -85,7 +85,7 @@ function Preloader({ images, onLoad }) {
             animation: spin3 ${duration / 3}s ease-in-out infinite;
           `} />
         </Block>
-      </Row>
+      </Column>
     </Background>
   );
 }
