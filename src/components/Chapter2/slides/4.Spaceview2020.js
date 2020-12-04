@@ -14,7 +14,7 @@ export default function Spaceview2020(props) {
       <BrowserView renderWithFragment>
         <Slide {...props} animate={animateFadeInOut}>
           <WatchesSafeArea justify="center">
-            <Watches {...d.images[0]} />
+            <Watches {...d.images[0]} css={css`transform: scale(1.2);`}/>
           </WatchesSafeArea>
 
           <Layer left="0">

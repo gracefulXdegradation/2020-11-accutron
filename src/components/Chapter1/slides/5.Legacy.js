@@ -56,7 +56,7 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
                 <P>
                 {d.copy[0].text}
                 </P>
-                <P ref={pRef} css={css`margin-top: 32px; opacity: 0;`}>
+                <P ref={pRef} css={css`opacity: 0;`}>
                 {d.copy[1].text}
                 </P>
               </Column>

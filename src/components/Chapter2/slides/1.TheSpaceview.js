@@ -91,10 +91,10 @@ export default function TheSpaceview(props) {
             
             <Layer ref={slide2Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; margin: 0 32px;`}>
                   {d.copy[0].text}
                 </P>
-                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; margin: 0 32px;`}>
                 {d.copy[1].text}
                 </P>
               </Column>
@@ -102,10 +102,10 @@ export default function TheSpaceview(props) {
 
             <Layer ref={slide3Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; margin: 0 32px;`}>
                 {d.copy[2].text}
                 </P>
-                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                <P css={css`position: absolute; transform: translateY(50%); max-width: 520px; margin: 0 32px;`}>
                 {d.copy[3].text}
                 </P>
               </Column>
@@ -113,7 +113,7 @@ export default function TheSpaceview(props) {
 
             <Layer ref={slide4Ref} css={css`opacity: 0;`}>
               <Column w="100%" h="100%" align="flex-start" justify="center">
-                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; padding: 20px 0; margin: 0 32px;`}>
+                <P css={css`position: absolute; transform: translateY(-50%); max-width: 520px; margin: 0 32px;`}>
                 {d.copy[4].text}
                 </P>
               </Column>

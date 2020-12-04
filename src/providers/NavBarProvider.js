@@ -4,15 +4,12 @@ const NavBarContext = createContext();
 
 const NavBarProvider = ({ children }) => {
 	const [slideHeading, setSlideHeading] = useState('');
-	const [shopLink, setShopLink] = useState(null);
 
 	const value = {
 		slideHeading,
 		setSlideHeading: useCallback((index) => {
 			setSlideHeading(index);
 		}, []),
-		shopLink,
-		setShopLink
 	};
 
 	return (

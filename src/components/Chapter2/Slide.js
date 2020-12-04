@@ -20,9 +20,9 @@ const SlideRoot = styled.section`
   opacity: ${({ visible }) => visible ? 1 : 0};
 `;
 
-const Slide = ({ index, children, startVisible, isBackground, isActionable, subslides = 1, animate, data = {} }) =>  {
+const Slide = ({ index, children, startVisible, isBackground, isActionable, subslides = 1, animate }) =>  {
   const { hasChapterInit } = useStoryState();
-  const { setSlideHeading, setShopLink } = useNavBar();
+  const { setSlideHeading } = useNavBar();
   const slideRef = useRef(null)
   const slideInnerRef = useRef(null)
 
@@ -30,11 +30,9 @@ const Slide = ({ index, children, startVisible, isBackground, isActionable, subs
     if (hasChapterInit) {
       const tl = animate(slideRef.current, {
         onEnter: () => {
-          setShopLink(data.shopLink)
           setSlideHeading(index)
         },
         onEnterBack: () => {
-          setShopLink(data.shopLink)
           setSlideHeading(index)
         },
       });
@@ -44,7 +42,7 @@ const Slide = ({ index, children, startVisible, isBackground, isActionable, subs
         tl.kill()
       };
     }
-  }, [animate, index, setSlideHeading, setShopLink, hasChapterInit])
+  }, [animate, index, setSlideHeading, hasChapterInit])
 
   return (
     <Wrapper isBackground={isBackground} isActionable={isActionable}>

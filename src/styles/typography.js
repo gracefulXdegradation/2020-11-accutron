@@ -58,9 +58,11 @@ export const P = styled.p`
   font-size: ${({ mobile }) => mobile ? '15px' : '20px'};
   line-height: ${({ mobile }) => mobile ? '20px' : '25px'};
   ${({ align }) => align && `text-align: ${align};`};
+  padding: 16px 0;
 
   @media(max-width: ${xlScreenBreakpoint}) {
     font-size: 15px;
     line-height: 20px;
+    padding: 10px 0;
   }
 `

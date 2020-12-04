@@ -144,7 +144,7 @@ function Ending({ isPortrait, isLandscape }) {
           </Row>
           <Image {...d.images[0]} />
           <Column css={css`flex: 1;`} justify="center" align="center">
-            <P css={css`margin-bottom: 16px;`}>
+            <P>
               {d.copy[0].text}
             </P>
             <H2 alternative>

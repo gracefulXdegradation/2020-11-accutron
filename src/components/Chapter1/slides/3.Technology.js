@@ -31,7 +31,7 @@ function Technology3({ index, isPortrait, isLandscape, data: d }) {
                   <P>
                   {d.copy[1].text}
                   </P>
-                  <P css={css`margin-top: 20px;`}>
+                  <P>
                   {d.copy[2].text}
                   </P>
                 </Layer>
@@ -57,12 +57,12 @@ function Technology3({ index, isPortrait, isLandscape, data: d }) {
               <H2 mobile alternative>
                 {d.copy[0].text}
               </H2>
-              <P mobile css={css`margin-top: 16px;`}>
+              <P mobile>
               {d.copy[1].text}
               </P>
             </Column>
             <Column ref={copy2Ref} css={css`position: absolute; opacity: 0;`}>
-              <P mobile css={css`margin-bottom: 20px;`}>
+              <P mobile>
               {d.copy[2].text}
               </P>
               <P mobile>

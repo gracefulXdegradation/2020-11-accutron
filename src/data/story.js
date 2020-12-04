@@ -371,10 +371,10 @@ const story = {
           title: 'spaceview 2020',
           copy: [
             {
-              text: 'This Spaceview 2020'
+              text: 'The Spaceview'
             },
             {
-              text: 'retails at $3,450.'
+              text: 'starts at $3,450.'
             },
           ],
           images: [
@@ -516,7 +516,9 @@ const story = {
             `
           }],
           shopLink: {
+            title: '2SW8A001',
             url: LegacyLink,
+            position: 'left'
           },
         },
 
@@ -532,7 +534,9 @@ const story = {
             `
           }],
           shopLink: {
+            title: '2SW6C001',
             url: LegacyLink,
+            position: 'right'
           },
         },
 
@@ -548,7 +552,9 @@ const story = {
             `
           }],
           shopLink: {
+            title: '2SW7A002',
             url: LegacyLink,
+            position: 'left'
           },
         },
 
@@ -558,13 +564,15 @@ const story = {
           images: [{
             src: resolveImage('2SW6B003_ANGLE.png'),
             css: isMobile ? css`
-              transform: scale(1.2);
+              transform: translate(0, -10%);
             ` : css`
               transform: scale(1.3) translate(0, 10%);
             `
           }],
           shopLink: {
+            title: '2SW6B003',
             url: LegacyLink,
+            position: 'right'
           },
         },
 
@@ -580,7 +588,9 @@ const story = {
             `
           }],
           shopLink: {
+            title: '2SW6B001',
             url: LegacyLink,
+            position: 'left',
           },
         },
 
@@ -600,7 +610,9 @@ const story = {
             `
           }],
           shopLink: {
+            title: '2SW6B003',
             url: LegacyLink,
+            position: 'center',
           },
         },
 
@@ -612,11 +624,13 @@ const story = {
             css: isMobile ? css`
               transform: scale(1.1);
             ` : css`
-              transform: scale(1.1);
+              transform: scale(1.1) translate(0, -10%);
             `
           }],
           shopLink: {
+            title: '2SW6B003',
             url: LegacyLink,
+            position: 'center',
           },
         },
 

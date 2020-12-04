@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
-import { H2, H3, H4, P } from '../../../styles/typography';
+import { H3, H4, P } from '../../../styles/typography';
 import { Column, Layer, LeftHalf, RightHalf, Row, SlideImage } from '../../UIKit';
 import Slide from '../Slide';
 import { animateFadeIn, fadeOut, fadeIn, fadeInOut } from '../../../helpers/animation';
@@ -46,7 +46,7 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
                     <P>
                     {d.copy[0].text}
                     </P>
-                    <P alternative css={css`margin: 20px 0;`}>
+                    <P alternative>
                     {d.copy[1].text}
                     </P>
                   </Column>
@@ -61,7 +61,7 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
                     <P>
                     {d.copy[3].text}
                     </P>
-                    <P css={css`margin: 20px 0;`}>
+                    <P>
                     {d.copy[4].text}
                     </P>
                     <P>

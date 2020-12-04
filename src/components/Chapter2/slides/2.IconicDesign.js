@@ -24,10 +24,10 @@ export default function IconicDesign2(props) {
       <BrowserView renderWithFragment>
         <Slide {...props} subslides={2} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
-            <P align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; padding: 20px 0; margin: 0 32px;`}>
+            <P align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; margin: 0 32px;`}>
               {d.copy[0].text}
             </P>
-            <P ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; padding: 20px 0; margin: 0 32px; opacity: 0;`}>
+            <P ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; margin: 0 32px; opacity: 0;`}>
               {d.copy[1].text}
             </P>
           </Column>

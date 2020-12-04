@@ -249,6 +249,7 @@ const ShopNow = styled.a`
   text-decoration: none;
   white-space: nowrap;
   display: inline-block;
+  pointer-events: all;
 
   @media(max-width: ${xlScreenBreakpoint}) {
     padding: 16px 40px 13px;
@@ -261,8 +262,8 @@ const ShopNow = styled.a`
   }
 `
 
-export const ShopLink = ({ url, style, isHidden }) => {
+export const ShopLink = ({ url, style }) => {
   return (
-    <ShopNow href={url} target="_blank" css={[style, isHidden && css`opacity: 0; pointer-events: none;`]}>Shop Now</ShopNow>
+    <ShopNow href={url} target="_blank" css={style}>Shop Now</ShopNow>
   )
 }

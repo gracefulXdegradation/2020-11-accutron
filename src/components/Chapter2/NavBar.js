@@ -24,7 +24,7 @@ const DecorationDivider = styled(Divider)`
 
 export default function NavBar({ sliderRef }) {
   const { toChapter1, toChapter2 } = useChapterAnimation();
-  const { slideHeading, shopLink } = useNavBar();
+  const { slideHeading } = useNavBar();
   const { hasChapterInit } = useStoryState();
   const pinRef = useRef(null);
   const logoRef = useRef(null);
@@ -85,9 +85,6 @@ export default function NavBar({ sliderRef }) {
               <Divider length="50%" ref={divRef => dividersRef.current.push(divRef)} />
             </Row>
             <Column align="center" css={css`margin: 20px;`}>
-              <Layer css={css`left: 50%; top: -20px;`}>
-                <ShopLink {...(shopLink || {})} isHidden={!shopLink} style={css`transform: translate(-50%, -100%);`} />
-              </Layer>
               <Circle size="m" logo css={css`margin-bottom: 0;`} />
             </Column>
             <DecorationDivider />
@@ -113,9 +110,6 @@ export default function NavBar({ sliderRef }) {
             <H2 alternative css={css`white-space: nowrap;`}>{slideHeading}</H2>
           </Column>
           <Row align="center" css={css`margin: 12px 0 16px;`}>
-            <Layer css={css`left: 50%; top: -20px;`}>
-              <ShopLink {...(shopLink || {})} isHidden={!shopLink} style={css`transform: translate(-50%, -100%);`} />
-            </Layer>
             <Row />
             <Column align="center" css={css`padding: 0 16px;`}>
               <Circle size="m" logo />
