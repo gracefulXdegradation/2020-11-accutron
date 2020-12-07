@@ -56,33 +56,44 @@ export const Watches = React.forwardRef((props, ref) => {
   )
 })
 
-const WatchHolder = styled.div`
+const WatchSliderRoot = styled.div`
   height: 100%;
-  width: auto;
-  display: inline-flex;
-  justify-content: flex-start;
-  position: relative;
-  overflow: hidden;
-
-  & > img {
-    height: 100% !important;
-    width: auto;
-    max-width: none !important;
-    object-position: right;
-    object-fit: cover;
-    
-    &:not(:first-of-type) {
-      position: absolute;
-      right: 0;
-      width: 0;
-    }
-  }
+  display: block;
+  width: 100%;
+  text-align: center;
 `
+
+const WatchSliderImageWrapper = styled.span`
+  height: 100%;
+  display: inline-block;
+  position: relative;
+
+  & > img:first-of-type {
+    height: 100%;
+    width: auto;
+    display: inline-block;
+  }
+
+  & > img:not(:first-of-type) {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    object-fit: cover;
+    object-position: right;
+    width: 0;
+  }
+`;
 
 export const WatchSlider = React.forwardRef(({ children, style }, ref) => {
   return (
-    <WatchHolder ref={ref} css={style}>
-      {children}
-    </WatchHolder>
+    <WatchSliderRoot
+      ref={ref}
+      css={style}
+    >
+      <WatchSliderImageWrapper>
+        {children}
+      </WatchSliderImageWrapper>
+    </WatchSliderRoot>
   )
 })

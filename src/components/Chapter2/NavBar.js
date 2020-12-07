@@ -106,8 +106,8 @@ export default function NavBar({ sliderRef }) {
               </Column>
               <Divider />
             </Row>
-            <H4 mobile css={css`margin: 12px 0; white-space: nowrap;`} onClick={toChapter2}>Chapter 2</H4>
-            <H2 alternative css={css`white-space: nowrap;`}>{slideHeading}</H2>
+            <H4 mobile css={css`margin: 12px 0 8px; white-space: nowrap;`} onClick={toChapter2}>Chapter 2</H4>
+            <H3 alternative css={css`white-space: nowrap;`}>{slideHeading}</H3>
           </Column>
           <Row align="center" css={css`margin: 12px 0 16px;`}>
             <Row />

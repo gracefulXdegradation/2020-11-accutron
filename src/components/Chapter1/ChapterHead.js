@@ -90,7 +90,7 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
                   <Column align="center" css={css`padding: 32px 0 12px;`}>
                     <Camouflage />
                     <Circle size="xl" />
-                    <H4>Chapter 1</H4>
+                    <H4 css={css`white-space: nowrap;`}>Chapter 1</H4>
                     <Layer top="0">
                       <Row justify="center" h="100%">
                         <Divider ref={camouflageRef} vertical camouflage css={css`max-width: 100%; width: 100%; height: 100%;`} />
@@ -140,7 +140,7 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
                     <Camouflage />
                     <Circle size="xl" />
                     <Block ref={mobChapterCaptionRef}>
-                      <H4 css={css`margin-bottom: 12px;`}>Chapter 1</H4>
+                      <H4 css={css`margin-bottom: 12px; white-space: nowrap;`}>Chapter 1</H4>
                     </Block>
                     <Layer top="0">
                       <Row justify="center" h="100%">
@@ -183,7 +183,7 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
                   <Column align="center" css={css`padding: 32px 0 12px;`}>
                     <Camouflage />
                     <Circle size="l" />
-                    <H4 mobile>Chapter 1</H4>
+                    <H4 mobile css={css`white-space: nowrap;`}>Chapter 1</H4>
                     <Layer top="0">
                       <Row justify="center" h="100%">
                         <Divider ref={camouflageRef} vertical camouflage css={css`max-width: 100%; width: 100%; height: 100%;`} />

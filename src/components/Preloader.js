@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import React, { useEffect } from 'react';
 import { preloadAll } from '../helpers/image';
-import { Background, Block, Circle, HighsnobietyLogo, Column } from './UIKit';
+import { Background, Block, Circle, Column } from './UIKit';
 
 function Preloader({ images, onLoad }) {
   useEffect(() => {

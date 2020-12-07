@@ -72,7 +72,7 @@ export default function Spaceview2020(props) {
               </Layer>
             </Column>
             <Column h="100%" w="100%" css={css`flex: 1;`}>
-              <Layer css={css`display: flex; justify-content: center; transform: translateY(5%) scale(1.2);`}>
+              <Layer css={css`transform: translateY(5%) scale(1.2);`}>
                 <WatchSlider>
                   <img {...d.images[0]} />
                   <img ref={watches2Ref} {...d.images[1]} />

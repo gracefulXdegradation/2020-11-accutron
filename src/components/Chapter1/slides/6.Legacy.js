@@ -90,10 +90,10 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
               <Column>
                 <Layer ref={copy1Ref}>
                   <Column>
-                    <P mobile css={css`margin-top: 16px;`}>
+                    <P mobile>
                     {d.copy[0].text}
                     </P>
-                    <P mobile css={css`margin-top: 20px;`}>
+                    <P mobile>
                     {d.copy[1].text}
                     </P>
                   </Column>
@@ -105,10 +105,10 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
                 </Layer>
                 <Layer ref={mobLayer2} css={css`opacity: 0;`}>
                   <Column>
-                    <P mobile css={css`margin-top: 16px;`}>
+                    <P mobile>
                     {d.copy[3].text}
                     </P>
-                    <P mobile css={css`margin: 20px 0;`}>
+                    <P mobile>
                     {d.copy[4].text}
                     </P>
                     <P mobile>
@@ -131,7 +131,7 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
                   <P mobile>
                   {d.copy[0].text}
                   </P>
-                  <P mobile alternative css={css`margin: 20px 0;`}>
+                  <P mobile alternative>
                   {d.copy[1].text}
                   </P>
                 </Column>
@@ -148,7 +148,7 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
                   <P mobile>
                   {d.copy[3].text}
                   </P>
-                  <P mobile css={css`margin: 20px 0;`}>
+                  <P mobile>
                   {d.copy[4].text}
                   </P>
                   <P mobile>

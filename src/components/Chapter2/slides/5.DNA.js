@@ -109,8 +109,8 @@ export default function DNA5(props) {
       <MobileView renderWithFragment>
         <Slide {...props} subslides={7} animate={mobileAnimation}>
           <Column h="100%" w="100%" justify="space-around">
-            <Column h="100%" css={css`flex: 1; margin-bottom: 20px;`}>
-              <Layer ref={watch1Ref} css={css`display: flex; justify-content: center;`}>
+            <Column css={css`flex: 1; margin-bottom: 20px;`}>
+              <Layer ref={watch1Ref}>
                 <WatchSlider style={css`transform: scale(1.1);`}>
                   <img {...d.images[0]} />
                   <img ref={watch2Ref} {...d.images[1]} />
@@ -118,8 +118,7 @@ export default function DNA5(props) {
                   <img ref={watch4Ref} {...d.images[3]} />
                 </WatchSlider>
               </Layer>
-
-              <Layer css={css`display: flex; justify-content: center; opacity: 0;`} ref={watch5Ref}>
+              <Layer css={css`opacity: 0;`} ref={watch5Ref}>
                 <WatchSlider style={css`transform: translateY(3%) scale(1.1);`}>
                   <img {...d.images[4]} />
                   <img ref={watch6Ref} {...d.images[5]}  />

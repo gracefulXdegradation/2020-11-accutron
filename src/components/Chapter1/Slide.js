@@ -43,7 +43,7 @@ const Slide = ({ index, children, startVisible, subslides = 1, animate, isPortra
       )}
       {isMobile && isPortrait && (
         <SlideRoot ref={slideRef} visible={startVisible} subslides={subslides}>
-          <Column ref={slideInnerRef} h="100vh" css={css`padding: 211px 60px 82px;`}>
+          <Column ref={slideInnerRef} h="100vh" css={css`padding: 196px 60px 82px;`}>
             {children}
           </Column>
         </SlideRoot>
