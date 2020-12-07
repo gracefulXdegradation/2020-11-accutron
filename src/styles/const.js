@@ -28,4 +28,4 @@ export const zIndex = {
   foregroundSlide: 2
 }
 
-export const xlScreenBreakpoint = '1200px'
+export const xlScreenBreakpoint = '1280px'
