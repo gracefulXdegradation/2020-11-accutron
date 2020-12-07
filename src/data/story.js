@@ -63,15 +63,15 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('ch1-s1-l.12b9091e.png'),
+              src: resolveImage('07200841/ch1-s1-l.12b9091e.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s1-r1.972cc0c0.png'),
+              src: resolveImage('07200853/ch1-s1-r1.972cc0c0.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s1-r2.9ab344b3.png'),
+              src: resolveImage('07200901/ch1-s1-r2.9ab344b3.png'),
               alt: 'Accutron Mechanism'
             }
           ]
@@ -93,31 +93,31 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('ch1-s2-l1.png'),
+              src: resolveImage('07200914/ch1-s2-l1.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s2-l2.46703276.png'),
+              src: resolveImage('07200928/ch1-s2-l2.46703276.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s2-l3.9ad1fa95.png'),
+              src: resolveImage('07200940/ch1-s2-l3.9ad1fa95.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s2-r1.178d93cd.png'),
+              src: resolveImage('07200952/ch1-s2-r1.178d93cd.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s2-r2a.8121f5cf.png'),
+              src: resolveImage('07201001/ch1-s2-r2a.8121f5cf.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s2-r2b.58e44d73.png'),
+              src: resolveImage('07201008/ch1-s2-r2b.58e44d73.png'),
               alt: 'Accutron Mechanism'
             },
             {
-              src: resolveImage('ch1-s2-r3.a55d6c56.png'),
+              src: resolveImage('07201019/ch1-s2-r3.a55d6c56.png'),
               alt: 'Accutron Mechanism'
             },
           ]
@@ -142,7 +142,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('ch1-s3-tuner.e8f16586.png'),
+              src: resolveImage('07201031/ch1-s3-tuner.e8f16586.png'),
               alt: 'Tuning fork'
             }
           ]
@@ -158,7 +158,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('ch1-legacy-1.04be926e.png'),
+              src: resolveImage('07200737/ch1-legacy-1.04be926e.png'),
               alt: 'Accutron watches'
             }
           ]
@@ -177,11 +177,11 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('ch1-legacy-2.e585a98c.png'),
+              src: resolveImage('07200755/ch1-legacy-2.e585a98c.png'),
               alt: 'Bulova'
             },
             {
-              src: resolveImage('ch1-legacy-3.16d0568c.png'),
+              src: resolveImage('07200819/ch1-legacy-3.16d0568c.png'),
               alt: 'NASA'
             },
           ]
@@ -215,7 +215,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('1961_Accutron-SpaceviewAlpha.05e7533c.png'),
+              src: resolveImage('07200708/1961_Accutron-SpaceviewAlpha.05e7533c.png'),
               alt: '1961 Accutron Spaceview Alpha'
             },
           ]
@@ -232,7 +232,7 @@ const story = {
         ],
         images: [
           {
-            src: resolveImage('ch1-ending.5218a31a.png'),
+            src: resolveImage('07200144/2ES7A001_Angle.png'),
             alt: '2ES6A001 Soldier'
           }
         ]
@@ -247,7 +247,7 @@ const story = {
           },
         ],
         images: [{
-          src: resolveImage('2ES8A002_Detail_1.jpg')
+          src: resolveImage('07200215/2ES8A002_Detail_1.jpg')
         }]
       },
       slides: [
@@ -273,13 +273,13 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('1961_Accutron-SpaceviewAlpha_left.png'),
+              src: resolveImage('07200647/1961_Accutron-SpaceviewAlpha_left.png'),
             },
             {
-              src: resolveImage('1961_Accutron-SpaceviewAlpha_right.png'),
+              src: resolveImage('07200657/1961_Accutron-SpaceviewAlpha_right.png'),
             },
             {
-              src: resolveImage('2ES6A001_Soldier_right.png'),
+              src: resolveImage('07202759/2ES8A004_Soldier_right.png'),
             },
           ]
         },
@@ -316,10 +316,10 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES6A001_Soldier_left.png'),
+              src: resolveImage('07200100/2ES6A001_Soldier_left.png'),
             },
             {
-              src: resolveImage('2ES6A001_Soldier_right.png'),
+              src: resolveImage('07200115/2ES6A001_Soldier_right.png'),
             },
           ]
         },
@@ -337,11 +337,11 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES7A001_Angle.png'),
+              src: resolveImage('07200144/2ES7A001_Angle.png'),
               alt: '2ES7A001 Angle'
             },
             {
-              src: resolveImage('2ES7A001_gold_Angle.png'),
+              src: resolveImage('07200158/2ES7A001_gold_Angle.png'),
               alt: '2ES7A001 Gold Angle'
             },
           ]
@@ -360,7 +360,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES6A001_Soldier.png'),
+              src: resolveImage('07200128/2ES6A001_Soldier.png'),
               alt: 'Spaceview 2020'
             }
           ]
@@ -379,7 +379,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('Prices_1.jpg'),
+              src: resolveImage('07201307/Prices_1.jpg'),
               alt: 'Spaceview 2020'
             },
           ],
@@ -398,35 +398,35 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('2ES8A004_Soldier.png'),
+              src: resolveImage('07200411/2ES8A004_Soldier.png'),
               alt: 'DNA 2ES8A004 Soldier blue'
             },
             {
-              src: resolveImage('2ES8A004_Soldier_black.png'),
+              src: resolveImage('07200328/2ES8A004_Soldier_black.png'),
               alt: 'DNA 2ES8A004 Soldier black'
             },
             {
-              src: resolveImage('2ES8A004_Soldier_green.png'),
+              src: resolveImage('07200351/2ES8A004_Soldier_green.png'),
               alt: 'DNA 2ES8A004 Soldier green'
             },
             {
-              src: resolveImage('2ES8A004_Soldier_gold.png'),
+              src: resolveImage('07200340/2ES8A004_Soldier_gold.png'),
               alt: 'DNA 2ES8A004 Soldier gold'
             },
             {
-              src: resolveImage('2ES8A004_Angle.png'),
+              src: resolveImage('07200318/2ES8A004_Angle.png'),
               alt: 'DNA 2ES8A004 Angle blue'
             },
             {
-              src: resolveImage('2ES8A004_Angle_black.png'),
+              src: resolveImage('07200247/2ES8A004_Angle_black.png'),
               alt: 'DNA 2ES8A004 Angle black'
             },
             {
-              src: resolveImage('2ES8A004_Angle_green.png'),
+              src: resolveImage('07200307/2ES8A004_Angle_green.png'),
               alt: 'DNA 2ES8A004 Angle green'
             },
             {
-              src: resolveImage('2ES8A004_Angle_gold.png'),
+              src: resolveImage('07200257/2ES8A004_Angle_gold.png'),
               alt: 'DNA 2ES8A004 Angle gold'
             },
           ]
@@ -445,7 +445,7 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('Prices_2.jpg'),
+              src: resolveImage('07201322/Prices_2.jpg'),
               alt: 'The Accutron DNA'
             },
           ],
@@ -466,7 +466,7 @@ const story = {
             },
           ],
           images: [{
-            src: resolveImage('2SW7A004_DETAIL.png')
+            src: resolveImage('07200616/2SW7A004_DETAIL.png')
           }]
         },
 
@@ -477,7 +477,7 @@ const story = {
             text: 'They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…'
           }],
           images: [{
-            src: resolveImage('Detail_1.png')
+            src: resolveImage('07201203/Detail_1.png')
           }],
         },
 
@@ -486,7 +486,7 @@ const story = {
           title: 'the legacy',
           copy: [],
           images: [{
-            src: resolveImage('Detail_2.png')
+            src: resolveImage('07201219/Detail_2.png')
           }]
         },
 
@@ -497,7 +497,7 @@ const story = {
             text: 'Each style only has 600 individually numbered pieces.'
           }],
           images: [{
-            src: resolveImage('Detail_3.png')
+            src: resolveImage('07201236/Detail_3.png')
           }]
         },
 
@@ -505,7 +505,7 @@ const story = {
           component: SingleImage,
           title: 'the legacy',
           images: [{
-            src: resolveImage('2SW8A001_DETAIL.png'),
+            src: resolveImage('07200635/2SW8A001_DETAIL.png'),
             css: isMobile ? css`
               transform: scale(1.2);
             ` : css`
@@ -523,7 +523,7 @@ const story = {
           component: SingleImage,
           title: 'the legacy',
           images: [{
-            src: resolveImage('2SW6C001_ANGLE.png'),
+            src: resolveImage('07200539/2SW6C001_ANGLE.png'),
             css: isMobile ? css`
               transform: scale(1.3);
             ` : css`
@@ -541,7 +541,7 @@ const story = {
           component: SingleImage,
           title: 'the legacy',
           images: [{
-            src: resolveImage('2SW7A002_DETAIL.png'),
+            src: resolveImage('07200555/2SW7A002_DETAIL.png'),
             css: isMobile ? css`
               transform: scale(1.3) translate(5%, 10%);;
             ` : css`
@@ -559,7 +559,7 @@ const story = {
           component: SingleImage,
           title: 'the legacy',
           images: [{
-            src: resolveImage('2SW6B003_ANGLE.png'),
+            src: resolveImage('07200439/2SW6B003_ANGLE.png'),
             css: isMobile ? css`
               transform: translate(0, -10%);
             ` : css`
@@ -577,7 +577,7 @@ const story = {
           component: SingleImage,
           title: 'the legacy',
           images: [{
-            src: resolveImage('2SW6B001_DETAIL.png'),
+            src: resolveImage('07200424/2SW6B001_DETAIL.png'),
             css: isMobile ? css`
               transform: scale(1.2) translate(0, 10%);
             ` : css`
@@ -595,7 +595,7 @@ const story = {
           component: SingleImage,
           title: 'the legacy',
           images: [{
-            src: resolveImage('2SW6B003_CASE_BACK.png'),
+            src: resolveImage('07200500/2SW6B003_CASE_BACK.png'),
             css: isMobile ? css`
               position: absolute;
               left: 0;
@@ -617,7 +617,7 @@ const story = {
           component: SingleImage,
           title: 'the legacy',
           images: [{
-            src: resolveImage('2SW6B003_DETAIL.png'),
+            src: resolveImage('07200520/2SW6B003_DETAIL.png'),
             css: isMobile ? css`
               transform: scale(1.1);
             ` : css`
@@ -636,7 +636,7 @@ const story = {
           title: 'the legacy',
           copy: [],
           images: [{
-            src: resolveImage('Detail_4.png')
+            src: resolveImage('07201251/Detail_4.png')
           }]
         },
 
@@ -645,13 +645,13 @@ const story = {
           title: 'the legacy',
           images: [
             {
-              src: resolveImage('Collection-Watches-2.png')
+              src: resolveImage('07201050/Collection-Watches-2.png')
             },
             {
-              src: resolveImage('Collection-Watches-3.png')
+              src: resolveImage('07201100/Collection-Watches-3.png')
             },
             {
-              src: resolveImage('Collection-Watches-7.png')
+              src: resolveImage('07201140/Collection-Watches-7.png')
             },
           ]
         },
@@ -661,16 +661,16 @@ const story = {
           title: 'the legacy',
           images: [
             {
-              src: resolveImage('Collection-Watches-8.png')
+              src: resolveImage('07201150/Collection-Watches-8.png')
             },
             {
-              src: resolveImage('Collection-Watches-4.png')
+              src: resolveImage('07201110/Collection-Watches-4.png')
             },
             {
-              src: resolveImage('Collection-Watches-5.png')
+              src: resolveImage('07201119/Collection-Watches-5.png')
             },
             {
-              src: resolveImage('Collection-Watches-6.png')
+              src: resolveImage('07201129/Collection-Watches-6.png')
             },
           ],
         },
@@ -685,25 +685,25 @@ const story = {
           ],
           images: [
             {
-              src: resolveImage('Collection-Watches-8.png')
+              src: resolveImage('07201150/Collection-Watches-8.png')
             },
             {
-              src: resolveImage('Collection-Watches-2.png')
+              src: resolveImage('07201050/Collection-Watches-2.png')
             },
             {
-              src: resolveImage('Collection-Watches-4.png')
+              src: resolveImage('07201110/Collection-Watches-4.png')
             },
             {
-              src: resolveImage('Collection-Watches-3.png')
+              src: resolveImage('07201100/Collection-Watches-3.png')
             },
             {
-              src: resolveImage('Collection-Watches-5.png')
+              src: resolveImage('07201119/Collection-Watches-5.png')
             },
             {
-              src: resolveImage('Collection-Watches-7.png')
+              src: resolveImage('07201140/Collection-Watches-7.png')
             },
             {
-              src: resolveImage('Collection-Watches-6.png')
+              src: resolveImage('07201129/Collection-Watches-6.png')
             },
           ]
         },
@@ -721,7 +721,7 @@ const story = {
           }
         ],
         images: [{
-          src: resolveImage('2ES8A003_Detail_1.jpg')
+          src: resolveImage('07200232/2ES8A003_Detail_1.jpg')
         }]
       },
     }
