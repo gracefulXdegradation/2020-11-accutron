@@ -509,7 +509,7 @@ const story = {
             css: isMobile ? css`
               transform: scale(1.2);
             ` : css`
-              transform: scale(1.2) translate(0, 10%);
+              transform: scale(1.7) translate(0, 10%);
             `
           }],
           shopLink: {
@@ -527,7 +527,7 @@ const story = {
             css: isMobile ? css`
               transform: scale(1.3);
             ` : css`
-              transform: scale(1.3) translate(0, 10%);
+              transform: scale(2) translate(0, 10%);
             `
           }],
           shopLink: {
@@ -563,7 +563,7 @@ const story = {
             css: isMobile ? css`
               transform: translate(0, -10%);
             ` : css`
-              transform: scale(1.3) translate(0, 10%);
+              transform: scale(1.7) translate(0, 10%);
             `
           }],
           shopLink: {
