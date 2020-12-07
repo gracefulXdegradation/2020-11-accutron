@@ -7,4 +7,3 @@ export const fonts = {
 }
 
 export const AccutronLogo = resolveImage('accutron-logo.svg')
-export const HSLogo = resolveImage('hs-logo-white.png')

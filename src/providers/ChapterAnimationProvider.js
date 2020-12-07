@@ -59,8 +59,8 @@ const AnimationProvider = ({ children }) => {
     <ChapterAnimationContext.Provider value={animationMethods}>
       <ThemeProvider theme={chapter === stages.CHAPTER_2 ? themes.ch2 : themes.ch1}>
         <Layer top="0" ref={logoRef} css={css`z-index: 4; pointer-events: none;`}>
-          <Column h="100%" w="100%" justify="flex-start" align="center">
-            <HighsnobietyLogo />
+          <Column h="100%" w="100%" justify="flex-start" align="center" css={css`padding-top: 50px;`}>
+            <HighsnobietyLogo style={{width: '200px', height: '35px'}} />
           </Column>
         </Layer>
         <Layer ref={fixedRef} css={css`pointer-events: none; opacity: 0; position: fixed; top: 0; z-index: 3;`}>
