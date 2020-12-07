@@ -19,10 +19,10 @@ export default function Legacy7(props) {
       <BrowserView renderWithFragment>
         <Slide {...props} subslides={2} animate={animation}>
           <Column w="100%" h="100%" align="center" justify="center">
-            <P align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 1272px; margin: 0 32px;`}>
+            <P align="center" css={css`position: absolute; transform: translateY(-50%); max-width: 50%; margin: 0 32px;`}>
               {d.copy[0].text}
             </P>
-            <P ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 904px; margin: 0 32px; opacity: 0;`}>
+            <P ref={hRef} align="center" css={css`position: absolute; transform: translateY(50%); max-width: 50%; margin: 0 32px; opacity: 0;`}>
               {d.copy[1].text}
             </P>
           </Column>
@@ -31,9 +31,10 @@ export default function Legacy7(props) {
             <Row h="100%" justify="flex-end" align="flex-end">
               <img {...d.images[0]} css={css`
                 width: 50%;
-                height: 50%;
+                height: 50% !important;
                 object-fit: contain;
                 transform: scale(1.5) translate(10%,10%);
+                z-index: -1;
               `} />
             </Row>
           </Layer>

@@ -393,9 +393,6 @@ const story = {
           title: 'accutron dna',
           copy: [
             {
-              text: 'the Accutron DNA'
-            },
-            {
               text: 'A sportier update of the Spaceview featuring sleeker lines and more modern design accents.'
             },
           ],
@@ -465,7 +462,7 @@ const story = {
               text: 'If a more retro vibe is what you’re after'
             },
             {
-              text: 'Accutron’s Legacy collection offers twelve of its most memorable styles from the ‘60s and ‘70s that are each timeless in their own right.'
+              text: <>Accutron’s Legacy collection offers twelve of its most memorable styles from the&nbsp;‘60s and ‘70s that are each timeless in their own right.</>
             },
           ],
           images: [{

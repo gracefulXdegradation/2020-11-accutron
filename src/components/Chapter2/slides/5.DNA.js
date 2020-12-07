@@ -95,11 +95,8 @@ export default function DNA5(props) {
 
           <Layer left="0">
             <Column h="100%" w="100%" justify="flex-end" align="center">
-              <H4 align="center" alternative>
-                {d.copy[0].text}
-              </H4>
               <P align="center" css={css`max-width: 380px; margin-bottom: 80px;`}>
-                {d.copy[1].text}
+                {d.copy[0].text}
               </P>
             </Column>
           </Layer>
@@ -128,11 +125,8 @@ export default function DNA5(props) {
               </Layer>
             </Column>
             <Column align="center">
-              <H4 alternative mobile>
-                {d.copy[0].text}
-              </H4>
               <P mobile align="center" css={css`margin: 0 20px;`}>
-                {d.copy[1].text}
+                {d.copy[0].text}
               </P>
             </Column>
           </Column>

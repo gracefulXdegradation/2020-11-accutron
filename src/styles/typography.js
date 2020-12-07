@@ -14,7 +14,7 @@ export const H2 = styled.h2`
   text-transform: uppercase;
   ${({ align }) => align && `text-align: ${align};`};
 
-  @media(max-width: 1200px) {
+  @media(max-width: ${xlScreenBreakpoint}) {
     font-size: 35px;
     line-height: 40px;
   }
@@ -59,6 +59,7 @@ export const P = styled.p`
   line-height: ${({ mobile }) => mobile ? '20px' : '25px'};
   ${({ align }) => align && `text-align: ${align};`};
   padding: 16px 0;
+  margin: 0;
 
   @media(max-width: ${xlScreenBreakpoint}) {
     font-size: 15px;

@@ -37,24 +37,24 @@ export default function Spaceview2020(props) {
                 <img ref={watches2Ref} {...d.images[1]} />
               </WatchSlider>
             </Row>
-          </WatchesSafeArea>
 
-          <Layer left="0">
-            <Row w="100%" h="100%" justify="flex-start" align="flex-end">
-              <Column h="50%" w="50%" justify="flex-start" align="center">
-                <Column css={css`padding-top: 100px; max-width: 350px;`}>
-                  <P ref={p1Ref}>
-                    {d.copy[0].text}
-                  </P>
-                  <Layer ref={p2Ref} css={css`opacity: 0;`}>
-                    <P>
-                      {d.copy[1].text}
+            <Layer>
+              <Row w="100%" h="100%" justify="flex-start" align="flex-end">
+                <Column h="50%" w="50%" justify="flex-start" align="center">
+                  <Column css={css`padding-top: 100px; max-width: 350px;`}>
+                    <P ref={p1Ref}>
+                      {d.copy[0].text}
                     </P>
-                  </Layer>
+                    <Layer ref={p2Ref} css={css`opacity: 0;`}>
+                      <P>
+                        {d.copy[1].text}
+                      </P>
+                    </Layer>
+                  </Column>
                 </Column>
-              </Column>
-            </Row>
-          </Layer>
+              </Row>
+            </Layer>
+          </WatchesSafeArea>
         </Slide>
       </BrowserView>
 
