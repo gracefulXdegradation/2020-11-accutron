@@ -29,16 +29,16 @@ export default function Legacy9(props) {
       <BrowserView renderWithFragment>
         <Slide {...props} subslides={2.5} animate={animation}>
           <WatchesSafeArea justify="center">
-            <Column h="100%" css={css`margin: 0 20px;`}>
+            <Column h="100%" css={css`margin: 0 60px; transform: scale(1.5)`}>
               <Watches {...d.images[0]} />
             </Column>
-            <Column h="100%" ref={img2Ref} css={css`opacity: 0; margin: 0 20px;`}>
+            <Column h="100%" ref={img2Ref} css={css`opacity: 0; margin: 0 60px; transform: scale(1.5)`}>
               <Watches {...d.images[1]} />
             </Column>
-            <Column h="100%" ref={img3Ref} css={css`opacity: 0; margin: 0 20px;`}>
+            <Column h="100%" ref={img3Ref} css={css`opacity: 0; margin: 0 60px; transform: scale(1.5)`}>
               <Watches {...d.images[2]} />
             </Column>
-            <Column h="100%" ref={img4Ref} css={css`opacity: 0; margin: 0 20px;`}>
+            <Column h="100%" ref={img4Ref} css={css`opacity: 0; margin: 0 60px; transform: scale(1.5)`}>
               <Watches {...d.images[3]} />
             </Column>
           </WatchesSafeArea>

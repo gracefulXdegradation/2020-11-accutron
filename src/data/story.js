@@ -603,7 +603,7 @@ const story = {
             ` : css`
               position: absolute;
               right: 0;
-              transform: scale(1.2) translate(5%, 0);
+              transform: scale(1.4) translate(5%, 0);
             `
           }],
           shopLink: {
@@ -621,7 +621,7 @@ const story = {
             css: isMobile ? css`
               transform: scale(1.1);
             ` : css`
-              transform: scale(1.1) translate(0, -10%);
+              transform: scale(1.3) translate(0, -10%);
             `
           }],
           shopLink: {

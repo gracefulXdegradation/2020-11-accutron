@@ -26,7 +26,7 @@ export default function MagnifyingGlass(props) {
           <WatchesSafeArea justify="center">
             <CircledImage {...d.images[0]} css={css`
               height: 100%;
-              transform: translate(0px, 10%);
+              transform: scale(1.2) translate(0px, 10%);
             `} />
           </WatchesSafeArea>
 
