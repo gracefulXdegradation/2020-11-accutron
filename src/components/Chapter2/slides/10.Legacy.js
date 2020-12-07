@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { Column, Layer, Row } from '../../UIKit';
+import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import { Watches, WatchesSafeArea } from '../Watches';
-import data from '../../../data/story';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,14 +28,14 @@ export default function Legacy10(props) {
     <>
       <BrowserView renderWithFragment>
         <Slide {...props} subslides={2} animate={animation}>
-          <WatchesSafeArea justify="center">
-            <Column h="100%" css={css`margin: 0 60px; transform: scale(1.4);`}>
+          <WatchesSafeArea justify="space-around">
+            <Column h="100%" css={css`transform: scale(1.4);`}>
               <Watches {...d.images[0]} />
             </Column>
-            <Column h="100%" ref={img2Ref} css={css`opacity: 0; margin: 0 60px; transform: scale(1.4);`}>
+            <Column h="100%" ref={img2Ref} css={css`opacity: 0; transform: scale(1.4);`}>
               <Watches {...d.images[1]} />
             </Column>
-            <Column h="100%" ref={img3Ref} css={css`opacity: 0; margin: 0 60px; transform: scale(1.4);`}>
+            <Column h="100%" ref={img3Ref} css={css`opacity: 0; transform: scale(1.4);`}>
               <Watches {...d.images[2]} />
             </Column>
           </WatchesSafeArea>
