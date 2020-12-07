@@ -122,7 +122,7 @@ function Ending({ isPortrait, isLandscape }) {
           <Column css={css`flex: 1;`} align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
               <HoverableCircle size="m" onClick={toChapter1}>
-                <H4>Chapter 1</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 1</H4>
               </HoverableCircle>
             </Column>
             <Column css={css`flex: 1;`}>
@@ -135,7 +135,7 @@ function Ending({ isPortrait, isLandscape }) {
             </Row>
             <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 3; opacity: 0;`}>
               <HoverableCircle size="xl" wrapChildren onClick={toChapter2} css={css`margin: 0 !important;`}>
-                <H4>Chapter 2</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 2</H4>
               </HoverableCircle>
             </Column>
             <Row css={css`flex-direction: row-reverse; flex: 1;`}>
@@ -185,7 +185,7 @@ function Ending({ isPortrait, isLandscape }) {
                   <Column ref={chap2Ref} align="center" css={css`cursor: pointer; margin: 24px;`} onClick={toChapter2}>
                     <Circle size="xl" rotation="90" />
                     <ChapterCaption>
-                      <H4>Chapter 2</H4>
+                      <H4 css={css`white-space: nowrap;`}>Chapter 2</H4>
                     </ChapterCaption>
                   </Column>
                   <Divider />
@@ -200,7 +200,7 @@ function Ending({ isPortrait, isLandscape }) {
         <Column ref={rootRef} h="100vh" w="100%" align="center" justify="space-between">
           <Column css={css`flex: 1;`} align="center">
             <Column align="center" css={css`padding: 20px 0;`}>
-              <H4 mobile onClick={toChapter1}>Chapter 1</H4>
+              <H4 mobile onClick={toChapter1} css={css`white-space: nowrap;`}>Chapter 1</H4>
             </Column>
             <Column css={css`flex: 1;`}>
               <Divider ref={topDivRef} vertical length="0" />
@@ -212,7 +212,7 @@ function Ending({ isPortrait, isLandscape }) {
             </Row>
             <Column ref={chap2Ref} align="center" css={css`margin: 24px; z-index: 1; opacity: 0; transition: opacity .8s ease-in; transition-delay: .2s;`}>
               <HoverableCircle size="l" wrapChildren onClick={toChapter2}>
-                <H4 mobile>Chapter 2</H4>
+                <H4 mobile css={css`white-space: nowrap;`}>Chapter 2</H4>
               </HoverableCircle>
             </Column>
             <Row css={css`flex-direction: row-reverse; flex: 1;`}>

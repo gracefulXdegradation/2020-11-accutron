@@ -67,7 +67,7 @@ export default function NavBar({ sliderRef }) {
           <Column align="center" css={css`flex: 1;`}>
             <Column align="center" css={css`margin-top: 32px;`}>
               <HoverableCircle size="m" wrap ref={logoRef} onClick={toChapter2}>
-                <H4>Chapter 2</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 2</H4>
               </HoverableCircle>
             </Column>
             <H3 alternative>{slideHeading}</H3>
@@ -77,7 +77,7 @@ export default function NavBar({ sliderRef }) {
             <DecorationDivider />
             <Column align="center" css={css`margin: 20px;`}>
               <HoverableCircle size="m" onClick={toChapter1} wrapChildren>
-                <H4>Chapter 1</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 1</H4>
               </HoverableCircle>
             </Column>
             <Row w="100%" justify="center">

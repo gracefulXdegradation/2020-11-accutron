@@ -48,7 +48,7 @@ export default function Ending({ data: d }) {
                 <Row>
                   <Column align="center" css={css`cursor: pointer; padding: 50px 0 20px;`}>
                     <HoverableCircle size="m" wrapChildren onClick={toChapter1}>
-                      <H4>Chapter 1</H4>
+                      <H4 css={css`white-space: nowrap;`}>Chapter 1</H4>
                     </HoverableCircle>
                   </Column>
 
@@ -56,7 +56,7 @@ export default function Ending({ data: d }) {
 
                   <Column align="center" css={css`cursor: pointer; padding: 50px 0;`}>
                     <HoverableCircle size="m" wrapChildren onClick={toChapter2} rotation={90}>
-                      <H4>Chapter 2</H4>
+                      <H4 css={css`white-space: nowrap;`}>Chapter 2</H4>
                     </HoverableCircle>
                   </Column>
                 </Row>

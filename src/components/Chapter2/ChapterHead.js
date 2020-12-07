@@ -68,7 +68,7 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
             >
               <Column ref={circleRef} align="center" css={css`margin-bottom: 12px; opacity: 0;`}>
                 <Circle size="xl" rotation={90} />
-                <H4>Chapter 2</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 2</H4>
               </Column>
             </ReactVisibilitySensor>
           </Row>

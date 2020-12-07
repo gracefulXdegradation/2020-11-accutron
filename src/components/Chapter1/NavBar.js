@@ -52,7 +52,7 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
           <Column h="100%" w="100%" justify="space-between" align="center">
             <Column align="center" css={css`padding: 50px 0 20px;`}>
               <HoverableCircle size="m" ref={logoRef} onClick={toChapter1}>
-                <H4>Chapter 1</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 1</H4>
               </HoverableCircle>
             </Column>
             <Divider length="auto" vertical css={css`flex: 1;`} />
@@ -60,7 +60,7 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
             <Divider length="auto" vertical css={css`flex: 1;`} />
             <Column align="center" css={css`padding: 30px 0 50px;`}>
               <HoverableCircle size="m" rotation={90} onClick={toChapter2}>
-                <H4>Chapter 2</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 2</H4>
               </HoverableCircle>
             </Column>
           </Column>
@@ -97,14 +97,14 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
           <Column h="100%" w="100%" justify="space-between" align="center">
             <Column align="center" css={css`padding: 10px 0;`}>
               <HoverableCircle size="l" ref={logoRef} onClick={toChapter1}>
-                <H4 mobile>Chapter 1</H4>
+                <H4 mobile css={css`white-space: nowrap;`}>Chapter 1</H4>
               </HoverableCircle>
             </Column>
             <Divider vertical />
             <H4 mobile tertiary>{slideHeading}</H4>
             <Divider vertical />
             <Column align="center" css={css`padding: 10px 0;`}>
-              <H4 mobile onClick={toChapter2}>Chapter 2</H4>
+              <H4 mobile onClick={toChapter2} css={css`white-space: nowrap;`}>Chapter 2</H4>
             </Column>
           </Column>
         </Layer>
