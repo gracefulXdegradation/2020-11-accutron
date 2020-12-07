@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { gsap } from 'gsap/all';
 import { isBrowser, isMobile, withOrientationChange } from "react-device-detect";
 import ReactVisibilitySensor from 'react-visibility-sensor';
-import { H2, H4, P } from '../../styles/typography';
+import { H2, H3, H4, P } from '../../styles/typography';
 import { Circle, Divider, Layer, Block, Row, Column, Camouflage, Background } from '../UIKit';
 import data from '../../data/story';
 
@@ -154,9 +154,9 @@ function ChapterHead({ onAnimateEnd, isLandscape, isPortrait }) {
               <Column w="100%" h="50%" align="center">
                 <Block css={css`margin-top: 28px;`}>
                   <Camouflage />
-                  <H2 ref={hRef} mobile css={css`padding: 12px 0 6px; opacity: 0;`} align="center">
+                  <H3 ref={hRef} mobile css={css`padding: 12px 0 6px; opacity: 0;`} align="center">
                     {d.copy[0].text}
-                  </H2>
+                  </H3>
                 </Block>
               </Column>
             </Column>

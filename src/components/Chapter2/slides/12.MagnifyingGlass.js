@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { H4, P } from '../../../styles/typography'
+import { P } from '../../../styles/typography'
 import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
 import { WatchesSafeArea } from '../Watches';
@@ -14,10 +14,10 @@ const CircledImage = styled.img`
   border-radius: 50%;
   height: auto !important;
   max-height: 100% !important;
-  display: inline-block;
+  display: inline-block !important;
 `;
 
-export default function Details(props) {
+export default function MagnifyingGlass(props) {
   const { data: d } = props
   return (
     <>

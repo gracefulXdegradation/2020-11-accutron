@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { H2, H4 } from '../../styles/typography';
+import { H2, H3, H4 } from '../../styles/typography';
 import { Column, Divider, Circle, Row, BackgroundImage, Layer } from '../UIKit';
 import data from '../../data/story';
 
@@ -106,12 +106,12 @@ export default function ChapterHead({ onAnimateEnd = () => null }) {
           <Column h="50%" w="100%" align="center" justify="flex-start">
             <Column align="center">
               <Row justify="center">
-                <H4>Chapter 2</H4>
+                <H4 css={css`white-space: nowrap;`}>Chapter 2</H4>
               </Row>
               <Row justify="center" css={css`margin-top: 12px;`}>
-                <H2 alternative mobile css={css`padding: 8px 0;`}>
+                <H3 alternative mobile align="center" css={css`padding: 8px 16px;`}>
                   {d.copy[0].text}
-                </H2>
+                </H3>
               </Row>
             </Column>
             <Column css={css`flex: 1;`}>

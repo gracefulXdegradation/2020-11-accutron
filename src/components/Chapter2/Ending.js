@@ -103,14 +103,14 @@ export default function Ending({ data: d }) {
                 <Row h="30vh" align="center">
                   <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter1}>
                     <Circle size="s" />
-                    <H4 mobile>Chapter 1</H4>
+                    <H4 mobile css={css`white-space: nowrap;`}>Chapter 1</H4>
                   </Column>
 
                   <Divider vertical />
 
                   <Column align="center" css={css`cursor: pointer; flex: 1;`} onClick={toChapter2}>
                     <Circle size="s" rotation={90} />
-                    <H4 mobile>Chapter 2</H4>
+                    <H4 mobile css={css`white-space: nowrap;`}>Chapter 2</H4>
                   </Column>
                 </Row>
               </Column>

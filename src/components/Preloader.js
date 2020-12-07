@@ -19,7 +19,7 @@ function Preloader({ images, onLoad }) {
 
   return (
     <Background css={css`height: 100vh; position: absolute; z-index: 2;`}>
-      <Column h="100%" w="100%" align="center" justify="center" css={css`margin-top: 100px;`}>
+      <Column h="100%" w="100%" align="center" justify="center" css={css`padding-top: 100px;`}>
         <Block css={css`
           width: ${size}px;
           height: ${size}px;

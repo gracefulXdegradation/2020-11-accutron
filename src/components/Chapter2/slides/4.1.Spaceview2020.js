@@ -62,11 +62,11 @@ export default function Spaceview2020(props) {
         <Slide {...props} subslides={3} animate={animation}>
           <Column h="100%" w="100%" justify="space-around" align="center">
             <Column align="center">
-              <P ref={p1Ref} mobile align="center" css={css`padding: 15px 30px;`}>
+              <P ref={p1Ref} mobile align="center" css={css`padding: 15px 30px !important;`}>
               {d.copy[0].text}
               </P>
               <Layer ref={p2Ref} css={css`opacity: 0;`}>
-                <P mobile align="center" css={css`padding: 15px 30px;`}>
+                <P mobile align="center" css={css`padding: 15px 30px !important;`}>
                 {d.copy[1].text}
                 </P>
               </Layer>

@@ -21,7 +21,7 @@ export default function Legacy11(props) {
     <>
       <BrowserView renderWithFragment>
         <Slide {...props} subslides={2.5} animate={animation}>
-          <WatchesSafeArea justify="space-around">
+          <WatchesSafeArea justify="center">
             {watches.map((img, i) => (
               <Column key={img.src} h="100%" css={css`margin: 0 10px;`}>
                 <Watches {...img} />
@@ -47,14 +47,14 @@ export default function Legacy11(props) {
           <Layer>
             <Column w="100%" h="100%">
               <Column h="100%" css={css`flex: 1; max-height: calc(100% - 2 * 40px);`}>
-                <Row h="50%" w="100%" justify="space-around" align="center" css={css`max-height: 50%;`}>
+                <Row h="50%" w="100%" justify="center" align="center" css={css`max-height: 50%;`}>
                   {[...watches.slice(0, 3), ...watches.slice(6)].map((img, i) => (
                     <Column h="100%" w="25%" key={`${img.src}${i}`}>
                       <Watches {...img} />
                     </Column>
                   ))}
                 </Row>
-                <Row h="50%" w="100%" justify="space-around" align="center" css={css`max-height: 50%;`}>
+                <Row h="50%" w="100%" justify="center" align="center" css={css`max-height: 50%;`}>
                 {watches.slice(3, 6).map((img, i) => (
                   <Column h="100%" w="25%" key={`${img.src}${i}`}>
                     <Watches {...img} />

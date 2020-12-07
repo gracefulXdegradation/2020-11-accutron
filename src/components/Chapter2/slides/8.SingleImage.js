@@ -1,17 +1,13 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { BrowserView, isMobile, MobileView } from "react-device-detect";
+import { BrowserView, MobileView } from "react-device-detect";
 import { Column, Layer, Row, ShopLink } from '../../UIKit';
 import Slide from '../Slide';
 import { WatchesSafeArea } from '../Watches';
 import { animateFadeInOut } from '../../../helpers/animation';
 import { P } from '../../../styles/typography';
 
-const defaultStyle = isMobile ? css`
-  max-height: 100%;
-  width: auto !important;
-  display: inline-block !important;
-` : css`
+const defaultStyle = css`
   max-height: 100%;
   width: auto !important;
   display: inline-block !important;

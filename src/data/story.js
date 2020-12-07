@@ -24,7 +24,7 @@ import Legacy7 from '../components/Chapter2/slides/7.Legacy';
 import Legacy9 from '../components/Chapter2/slides/9.Legacy';
 import Legacy10 from '../components/Chapter2/slides/10.Legacy';
 import Legacy11 from '../components/Chapter2/slides/11.Legacy';
-import Details from '../components/Chapter2/slides/12.Details';
+import MagnifyingGlass from '../components/Chapter2/slides/12.MagnifyingGlass';
 import SingleImage from '../components/Chapter2/slides/8.SingleImage';
 
 const SpaceviewLink = 'https://www.accutronwatch.com/collections/spaceview'
@@ -474,7 +474,7 @@ const story = {
         },
 
         {
-          component: Details,
+          component: MagnifyingGlass,
           title: 'the legacy',
           copy: [{
             text: 'They’ve been reimagined for modern times complete with Swiss movements, destined to become coveted timepieces due to their limited nature…'
@@ -485,7 +485,7 @@ const story = {
         },
 
         {
-          component: Details,
+          component: MagnifyingGlass,
           title: 'the legacy',
           copy: [],
           images: [{
@@ -494,7 +494,7 @@ const story = {
         },
 
         {
-          component: Details,
+          component: MagnifyingGlass,
           title: 'the legacy',
           copy: [{
             text: 'Each style only has 600 individually numbered pieces.'
@@ -635,7 +635,7 @@ const story = {
         },
 
         {
-          component: Details,
+          component: MagnifyingGlass,
           title: 'the legacy',
           copy: [],
           images: [{

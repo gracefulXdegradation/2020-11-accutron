@@ -69,7 +69,7 @@ function Legacy5({ index, isPortrait, isLandscape, data: d }) {
         <Slide index={index} subslides={2} animate={mobileAnimation}>
           <Block>
             <Layer>
-              <div css={css`position: relative; padding-bottom: 112.5%; height: 0; width: 100%;`}>
+              <div css={css`position: relative; padding-bottom: 100%; height: 0; width: 100%;`}>
                 <ImageHolder ref={bulovaRef}>
                   <SlideImage {...d.images[0]} />
                 </ImageHolder>

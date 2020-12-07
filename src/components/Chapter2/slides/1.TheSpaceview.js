@@ -138,7 +138,7 @@ export default function TheSpaceview(props) {
 
       <MobileView renderWithFragment>
         <Slide {...props} startVisible subslides={6} animate={animation}>
-          <Row h="100%" align="center" css={css`padding: 20px 0;`}>
+          <Row h="100%" align="center">
             <Row w="50%" h="100%" justify="flex-end" align="center">
                 <HalfWatches {...d.images[0]} maxHeight={mobHalfImageMaxHeight} />
             </Row>

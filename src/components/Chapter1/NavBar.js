@@ -70,7 +70,7 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
       {isMobile && isPortrait && (
         <Layer>
           <Column w="100%" h="100%">
-            <Column align="center" css={css`padding-bottom: 20px;`} onClick={toChapter1}>
+            <Column align="center" css={css`padding-bottom: 10px;`} onClick={toChapter1}>
               <Block css={css`padding-top: 50px;`}>
                 <Circle ref={logoRef} size="m" />
                 <Layer top="0">
@@ -80,7 +80,7 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
                 </Layer>
               </Block>
               <H4 alternative mobile css={css`white-space: nowrap;`}>Chapter 1</H4>
-              <H2 tertiary css={css`white-space: nowrap;`}>{slideHeading}</H2>
+              <H3 tertiary css={css`white-space: nowrap;`}>{slideHeading}</H3>
             </Column>
             <Column ref={dividerContainerRef} align="flex-end" css={css`flex: 1;`} w="35px">
               <Divider vertical />
