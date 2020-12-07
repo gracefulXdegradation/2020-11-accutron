@@ -31,7 +31,7 @@ export const WatchesSafeArea = styled(Row)`
   height: 100%;
   padding: 220px 0;
   @media(max-width: ${xlScreenBreakpoint}) {
-    padding: 180px 0;
+    padding: 158px 0;
   }
   align-items: center;
 `
