@@ -15,6 +15,7 @@ const GlobalStyle = () => {
           html,
           body {
             overflow-x: hidden;
+            overscroll-behavior: none;
           }
           #root {
             margin: 0;
