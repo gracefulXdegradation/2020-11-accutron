@@ -332,7 +332,7 @@ const story = {
               text: 'The watch’s supple grained black leather bands are a gorgeous complement to the smoke grey open-work dial and signature Accutron green accents.'
             },
             {
-              text: 'The best part is that it comes in two designs to suit different tastes.'
+              text: 'The best part is that it comes in three designs to suit different tastes, including the 18K Gold Spaceview 2020 which is limited to just 60 pieces.'
             },
           ],
           images: [

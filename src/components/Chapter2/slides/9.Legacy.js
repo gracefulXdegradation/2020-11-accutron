@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/core';
 import { BrowserView, MobileView } from "react-device-detect";
-import { Column, Layer, Row } from '../../UIKit';
+import { Column, Layer } from '../../UIKit';
 import Slide from '../Slide';
 import { Watches, WatchesSafeArea } from '../Watches';
 import { animateFadeInOut, fadeIn, fadeOut } from '../../../helpers/animation';
+
+const zoom = 1.3
 
 export default function Legacy9(props) {
   const { data: d } = props
@@ -29,16 +31,16 @@ export default function Legacy9(props) {
       <BrowserView renderWithFragment>
         <Slide {...props} subslides={2.5} animate={animation}>
           <WatchesSafeArea justify="space-around">
-            <Column h="100%" css={css`transform: scale(1.4);`}>
+            <Column h="100%" css={css`transform: scale(${zoom});`}>
               <Watches {...d.images[0]} />
             </Column>
-            <Column h="100%" ref={img2Ref} css={css`opacity: 0; transform: scale(1.4);`}>
+            <Column h="100%" ref={img2Ref} css={css`opacity: 0; transform: scale(${zoom});`}>
               <Watches {...d.images[1]} />
             </Column>
-            <Column h="100%" ref={img3Ref} css={css`opacity: 0; transform: scale(1.4);`}>
+            <Column h="100%" ref={img3Ref} css={css`opacity: 0; transform: scale(${zoom});`}>
               <Watches {...d.images[2]} />
             </Column>
-            <Column h="100%" ref={img4Ref} css={css`opacity: 0; transform: scale(1.4);`}>
+            <Column h="100%" ref={img4Ref} css={css`opacity: 0; transform: scale(${zoom});`}>
               <Watches {...d.images[3]} />
             </Column>
           </WatchesSafeArea>
