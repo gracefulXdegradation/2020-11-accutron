@@ -46,7 +46,8 @@ const BrandBackground = ({ sliderRef, isPortrait, isLandscape }) => {
         scrub: true,
         start: 'top top',
         end:'bottom bottom',
-        onToggle: ({ isActive }) => setOpacity(isActive ? 1 : 0)
+        onEnter: () => setOpacity(1),
+        onLeaveBack: () => setOpacity(0)
       })
       
       if (bgRef.current) {

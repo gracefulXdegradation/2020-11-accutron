@@ -21,7 +21,9 @@ function NavBar({ sliderRef, isLandscape, isPortrait }) {
 
   useEffect(() => {
     if (hasChapterInit) {
-      const tl = gsap.timeline()
+      const tl = gsap.timeline({
+        onComplete: toChapter2
+      })
         .to(logoRef.current, {
           rotation: 90,
           duration: 1,

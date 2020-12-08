@@ -10,7 +10,7 @@ export const fadeIn = (tl, el) =>
 
 export const fadeOut = (tl, el) => 
   tl.to(el, {
-    duration: 1,
+    duration: .5,
     opacity: 0,
     delay: .5,
     ease: 'none'

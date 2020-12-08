@@ -5,7 +5,7 @@ import { gsap } from 'gsap/all';
 import { useStoryState } from '../../providers/StoryStateProvider';
 import { Background } from '../UIKit';
 import ChapterHead from './ChapterHead';
-import Ending from './Ending';
+// import Ending from './Ending';
 import Slider from './Slider';
 
 const TopScreen = styled.div`
@@ -47,7 +47,7 @@ export default function Chapter1() {
           <ChapterHead onAnimateEnd={toSlider} />
         </TopScreen>
         <Slider />
-        <Ending />
+        {/* <Ending /> */}
       </HorizontalSlider>
     </Background>
   );
